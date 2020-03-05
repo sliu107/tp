@@ -1,22 +1,26 @@
 package seedu.tp;
 
-import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
-import seedu.tp.flashcard.Flashcard;
+import seedu.tp.commands.Command;
+import seedu.tp.exceptions.HistoryFlashcardException;
+import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.FlashcardFactory;
+import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.parser.Parser;
 import seedu.tp.ui.Ui;
-
-import java.util.ArrayList;
 
 /**
  * Main class.
  */
 public class Main {
-    Ui ui;
-    FlashcardFactory flashcardFactory;
-    ArrayList<Flashcard> flashcards;
+    private Ui ui;
+    private FlashcardFactory flashcardFactory;
+    private FlashcardList flashcardList;
+    private Parser parser;
 
     /**
      * Program entry point.
+     *
      * @param args CLI args (unused)
      */
     public static void main(String[] args) {
@@ -31,28 +35,27 @@ public class Main {
     private void setup() {
         this.ui = new Ui();
         this.flashcardFactory = new FlashcardFactory(this.ui);
-        this.flashcards = new ArrayList<>();
+        this.flashcardList = new FlashcardList();
+        this.parser = new Parser(flashcardFactory);
     }
 
     private void runLoop() {
-        String userInput;
-        while (true) {
-            //type Person, Event, Other to create new card
-            userInput = ui.getNextLine();
-            if (userInput.equals("done")) {
-                break;
-            }
+        ui.sendWelcomeMessage();
+        boolean isBye = false;
+        while (!isBye) {
             try {
-                Flashcard newFlashcard = flashcardFactory.create(userInput);
-                flashcards.add(newFlashcard);
-            } catch (UnrecognizedFlashcardTypeException e) {
-                System.out.println(e.getMessage());
-            }
-
-            // list all your flashcards after you add one. This is just for testing purposes.
-            for (Flashcard f : flashcards) {
-                System.out.println(System.lineSeparator() + f.toString() + System.lineSeparator());
+                String fullCommand = ui.getNextLine();
+                Command command = parser.parseCommand(fullCommand);
+                command.execute(flashcardList, ui);
+                isBye = command.isBye();
+            } catch (UnknownCommandException e) {
+                ui.sendUnknownCommandResponse();
+            } catch (InvalidFlashcardIndexException e) {
+                ui.sendInvalidFlashcardIndexResponse();
+            } catch (HistoryFlashcardException e) {
+                ui.printException(e);
             }
         }
+        ui.sendByeMessage();
     }
 }
