@@ -2,6 +2,9 @@ package seedu.duke.flashcard;
 
 import java.util.ArrayList;
 
+/**
+ * Abstract flashcard class to represent basic properties of flashcard.
+ */
 public abstract class Flashcard {
     protected String name;
     protected String summary;

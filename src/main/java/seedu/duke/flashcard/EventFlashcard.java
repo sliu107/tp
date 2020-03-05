@@ -4,12 +4,19 @@ import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 
+/**
+ * Event flashcard.
+ */
 public class EventFlashcard extends Flashcard {
     private String startDate;
     private String endDate;
 
-    public static EventFlashcard createEventFlashcard() {
-        Ui ui = new Ui();
+    /**
+     * Create an <code>EventFlashcard</code> by prompting the user to enter info.
+     * @param ui used to prompt the user
+     * @return the created <code>EventFlashcard</code>
+     */
+    public static EventFlashcard createEventFlashcard(Ui ui) {
         String name = ui.promptUser("Name", false);
         String startDate = ui.promptUser("Start date", false);
         String endDate = ui.promptUser("End date", true);
@@ -25,12 +32,19 @@ public class EventFlashcard extends Flashcard {
         return new EventFlashcard(name, startDate, endDate, summary, details);
     }
 
+    /**
+     * Construct an <code>EventFlashcard</code>.
+     */
     public EventFlashcard(String name, String startDate, String endDate, String summary, ArrayList<String> details) {
         super(name, summary, details);
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
+    /**
+     * Get the string representation of this flashcard.
+     * @return string representation
+     */
     @Override
     public String toString() {
         String stringRepresentation = "";

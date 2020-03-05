@@ -4,9 +4,16 @@ import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 
+/**
+ * Other flashcard.
+ */
 public class OtherFlashcard extends Flashcard {
-    public static OtherFlashcard createOtherFlashcard() {
-        Ui ui = new Ui();
+    /**
+     * Create an <code>OtherFlashcard</code> by prompting the user to enter info.
+     * @param ui used to prompt the user
+     * @return the created <code>OtherFlashcard</code>
+     */
+    public static OtherFlashcard createOtherFlashcard(Ui ui) {
         String name = ui.promptUser("Name", false);
         String summary = ui.promptUser("Summary", false);
         ArrayList<String> details = new ArrayList<>();
@@ -20,10 +27,17 @@ public class OtherFlashcard extends Flashcard {
         return new OtherFlashcard(name, summary, details);
     }
 
+    /**
+     * Construct an <code>OtherFlashcard</code>.
+     */
     public OtherFlashcard(String name, String summary, ArrayList<String> details) {
         super(name, summary, details);
     }
 
+    /**
+     * Get the string representation of this flashcard.
+     * @return string representation
+     */
     @Override
     public String toString() {
         String stringRepresentation = "";

@@ -7,11 +7,18 @@ import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 
+/**
+ * Main class.
+ */
 public class Main {
     Ui ui;
     FlashcardFactory flashcardFactory;
     ArrayList<Flashcard> flashcards;
 
+    /**
+     * Program entry point.
+     * @param args CLI args (unused)
+     */
     public static void main(String[] args) {
         new Main().run();
     }
@@ -21,10 +28,9 @@ public class Main {
         runLoop();
     }
 
-
     private void setup() {
         this.ui = new Ui();
-        this.flashcardFactory = new FlashcardFactory();
+        this.flashcardFactory = new FlashcardFactory(this.ui);
         this.flashcards = new ArrayList<>();
     }
 
@@ -40,6 +46,7 @@ public class Main {
                 System.out.println(e.getMessage());
             }
 
+            // list all your flashcards after you add one. This is just for testing purposes.
             for (Flashcard f : flashcards) {
                 System.out.println(System.lineSeparator() + f.toString() + System.lineSeparator());
             }

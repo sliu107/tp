@@ -4,12 +4,19 @@ import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 
+/**
+ * Person flashcard.
+ */
 public class PersonFlashcard extends Flashcard {
     private String birthDate;
     private String deathDate;
 
-    public static PersonFlashcard createPersonFlashcard() {
-        Ui ui = new Ui();
+    /**
+     * Create a <code>PersonFlashcard</code> by prompting the user to enter info.
+     * @param ui used to prompt the user
+     * @return the created <code>PersonFlashcard</code>
+     */
+    public static PersonFlashcard createPersonFlashcard(Ui ui) {
         String name = ui.promptUser("Name", false);
         String birthDate = ui.promptUser("Birth date", true);
         String deathDate = null;
@@ -28,12 +35,19 @@ public class PersonFlashcard extends Flashcard {
         return new PersonFlashcard(name, birthDate, deathDate, summary, details);
     }
 
+    /**
+     * Construct a <code>PersonFlashcard</code>.
+     */
     public PersonFlashcard(String name, String birthDate, String deathDate, String summary, ArrayList<String> details) {
         super(name, summary, details);
         this.birthDate = birthDate;
         this.deathDate = deathDate;
     }
 
+    /**
+     * Get the string representation of this flashcard.
+     * @return string representation
+     */
     @Override
     public String toString() {
         String stringRepresentation = "";
