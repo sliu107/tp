@@ -1,4 +1,4 @@
-package seedu.duke.flashcard;
+package seedu.tp.flashcard;
 
 import java.util.ArrayList;
 

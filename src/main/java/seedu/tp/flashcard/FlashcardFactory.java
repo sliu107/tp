@@ -1,7 +1,7 @@
-package seedu.duke.flashcard;
+package seedu.tp.flashcard;
 
-import seedu.duke.exceptions.UnrecognizedFlashcardTypeException;
-import seedu.duke.ui.Ui;
+import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
+import seedu.tp.ui.Ui;
 
 /**
  * Flashcard factory class to create flashcards given string.

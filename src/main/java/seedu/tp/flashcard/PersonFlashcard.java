@@ -1,6 +1,6 @@
-package seedu.duke.flashcard;
+package seedu.tp.flashcard;
 
-import seedu.duke.ui.Ui;
+import seedu.tp.ui.Ui;
 
 import java.util.ArrayList;
 

@@ -1,9 +1,9 @@
-package seedu.duke;
+package seedu.tp;
 
-import seedu.duke.exceptions.UnrecognizedFlashcardTypeException;
-import seedu.duke.flashcard.Flashcard;
-import seedu.duke.flashcard.FlashcardFactory;
-import seedu.duke.ui.Ui;
+import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
+import seedu.tp.flashcard.Flashcard;
+import seedu.tp.flashcard.FlashcardFactory;
+import seedu.tp.ui.Ui;
 
 import java.util.ArrayList;
 
@@ -39,6 +39,9 @@ public class Main {
         while (true) {
             //type Person, Event, Other to create new card
             userInput = ui.getNextLine();
+            if (userInput.equals("done")) {
+                break;
+            }
             try {
                 Flashcard newFlashcard = flashcardFactory.create(userInput);
                 flashcards.add(newFlashcard);
