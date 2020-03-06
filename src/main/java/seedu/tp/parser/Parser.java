@@ -51,8 +51,8 @@ public class Parser {
      * @throws HistoryFlashcardException exception that occurred when parsing user input
      */
     public Command parseCommand(String userInput) throws HistoryFlashcardException {
-        String[] array = userInput.split(" ", 2);
-        String commandType = array[0].toLowerCase();
+        String[] splittedInput = userInput.split(" ", 2);
+        String commandType = splittedInput[0].toLowerCase();
 
         switch (commandType) {
         case EVENT_FLASHCARD_COMMAND:
@@ -65,7 +65,7 @@ public class Parser {
             return new ListCommand(flashcardList, ui);
         case DELETE_COMMAND:
             try {
-                return new DeleteCommand(flashcardList, Integer.parseInt(array[1]) - 1);
+                return new DeleteCommand(flashcardList, Integer.parseInt(splittedInput[1]) - 1);
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }

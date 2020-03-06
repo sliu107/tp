@@ -22,16 +22,6 @@ public abstract class Flashcard {
         this.details = details;
     }
 
-    protected static List<String> promptUserForDetails(Ui ui) {
-        List<String> details = new ArrayList<>();
-        Optional<String> newDetailOptional = ui.promptUserForOptionalField(DETAIL_FIELD);
-        while (newDetailOptional.isPresent()) {
-            details.add(newDetailOptional.get());
-            newDetailOptional = ui.promptUserForOptionalField(DETAIL_FIELD);
-        }
-        return details;
-    }
-
     protected static String getDetailsString(List<String> details) {
         StringBuilder detailsStringBuilder = new StringBuilder();
         for (String detail : details) {

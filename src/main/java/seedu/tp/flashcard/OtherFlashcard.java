@@ -27,7 +27,7 @@ public class OtherFlashcard extends Flashcard {
     public static OtherFlashcard createOtherFlashcard(Ui ui) {
         String name = ui.promptUserForRequiredField(NAME_FIELD);
         String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
-        List<String> details = promptUserForDetails(ui);
+        List<String> details = ui.promptUserForDetails();
         return new OtherFlashcard(name, summary, details);
     }
 

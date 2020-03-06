@@ -36,7 +36,7 @@ public class EventFlashcard extends Flashcard {
         String startDate = ui.promptUserForRequiredField(START_DATE_FIELD);
         String endDate = ui.promptUserForRequiredField(END_DATE_FIELD);
         String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
-        List<String> details = promptUserForDetails(ui);
+        List<String> details = ui.promptUserForDetails();
         return new EventFlashcard(name, startDate, endDate, summary, details);
     }
 

@@ -3,9 +3,12 @@ package seedu.tp.ui;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
+import static seedu.tp.utils.Constants.DETAIL_FIELD;
 import static seedu.tp.utils.Constants.EMPTY_STRING;
 
 /**
@@ -29,6 +32,20 @@ public class Ui {
     }
 
     /**
+     * Prompts the user for a list of details for a flashcard
+     * @return the list of details entered by user
+     */
+    public List<String> promptUserForDetails() {
+        List<String> details = new ArrayList<>();
+        Optional<String> newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
+        while (newDetailOptional.isPresent()) {
+            details.add(newDetailOptional.get());
+            newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
+        }
+        return details;
+    }
+
+    /**
      * Prompts the user for a piece of optional data used in the construction of a <code>Flashcard</code>.
      * The user can leave the line empty.
      *
@@ -38,7 +55,7 @@ public class Ui {
     public Optional<String> promptUserForOptionalField(String fieldName) {
         System.out.println("Please enter " + fieldName + " (optional):");
         String input = getNextLine().trim();
-        return input.equals("") ? Optional.empty() : Optional.of(input);
+        return input.equals(EMPTY_STRING) ? Optional.empty() : Optional.of(input);
     }
 
     /**
@@ -52,7 +69,7 @@ public class Ui {
         String input = getNextLine().trim();
         while (input.equals(EMPTY_STRING)) {
             System.out.println("That is a required field! Please enter again.");
-            input = getNextLine();
+            input = getNextLine().trim();
         }
         return input;
     }

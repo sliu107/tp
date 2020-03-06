@@ -33,10 +33,10 @@ public class Main {
     }
 
     private void setup() {
-        this.ui = new Ui();
-        this.flashcardFactory = new FlashcardFactory(this.ui);
-        this.flashcardList = new FlashcardList();
-        this.parser = new Parser(flashcardFactory, this.flashcardList, this.ui);
+        ui = new Ui();
+        flashcardFactory = new FlashcardFactory(ui);
+        flashcardList = new FlashcardList();
+        parser = new Parser(flashcardFactory, flashcardList, ui);
     }
 
     private void runLoop() {

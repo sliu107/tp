@@ -36,7 +36,7 @@ public class PersonFlashcard extends Flashcard {
         String birthDate = ui.promptUserForRequiredField(BIRTH_DATE_FIELD);
         String deathDate = ui.promptUserForRequiredField(DEATH_DATE_FIELD);
         String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
-        List<String> details = promptUserForDetails(ui);
+        List<String> details = ui.promptUserForDetails();
         return new PersonFlashcard(name, birthDate, deathDate, summary, details);
     }
 
