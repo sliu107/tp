@@ -1,12 +1,6 @@
 package seedu.tp.flashcard;
 
-import seedu.tp.ui.Ui;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import static seedu.tp.utils.Constants.DETAIL_FIELD;
 
 /**
  * Abstract flashcard class to represent basic properties of flashcard.

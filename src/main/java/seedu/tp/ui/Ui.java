@@ -32,7 +32,8 @@ public class Ui {
     }
 
     /**
-     * Prompts the user for a list of details for a flashcard
+     * Prompts the user for a list of details for a flashcard.
+     *
      * @return the list of details entered by user
      */
     public List<String> promptUserForDetails() {
