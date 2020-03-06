@@ -16,7 +16,7 @@ public abstract class Command {
      * @param ui            UI to handle interaction with users.
      */
     public abstract void execute(FlashcardList flashcardList, Ui ui)
-            throws HistoryFlashcardException;
+        throws HistoryFlashcardException;
 
     /**
      * Checks whether the command is a bye command.

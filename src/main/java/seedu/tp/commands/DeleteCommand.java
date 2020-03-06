@@ -19,7 +19,7 @@ public class DeleteCommand extends Command {
 
     @Override
     public void execute(FlashcardList flashcardList, Ui ui)
-            throws InvalidFlashcardIndexException {
+        throws InvalidFlashcardIndexException {
         flashcardList.deleteFlashcard(index);
     }
 }

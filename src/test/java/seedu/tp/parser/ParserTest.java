@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 // Solution below referenced and adopted from:
 // https://github.com/se-edu/addressbook-level2/blob/master/test/java/seedu/addressbook/parser/ParserTest.java
 public class ParserTest {
+
     private Parser parser;
 
     @BeforeEach

@@ -67,4 +67,25 @@ public class FlashcardList {
     public int getTotalFlashcardNum() {
         return flashcards.size();
     }
+
+    /**
+     * Check if the current instance is equal to the object passed in.
+     *
+     * @param obj The object to be compared against the current instance
+     * @return whether or not the two objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        FlashcardList otherFlashcardList = (FlashcardList) obj;
+        if (this.getTotalFlashcardNum() != otherFlashcardList.getTotalFlashcardNum()) {
+            return false;
+        }
+
+        for (int idx = 0; idx < this.getTotalFlashcardNum(); idx++) {
+            if (!this.getFlashcardAtIdx(idx).equals(otherFlashcardList.getFlashcardAtIdx(idx))) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

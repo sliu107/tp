@@ -3,6 +3,7 @@ package seedu.tp.flashcard;
 import seedu.tp.ui.Ui;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static seedu.tp.utils.Constants.DETAIL_FIELD;
@@ -13,16 +14,16 @@ import static seedu.tp.utils.Constants.DETAIL_FIELD;
 public abstract class Flashcard {
     protected String name;
     protected String summary;
-    protected ArrayList<String> details;
+    protected List<String> details;
 
-    protected Flashcard(String name, String summary, ArrayList<String> details) {
+    protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
         this.summary = summary;
         this.details = details;
     }
 
-    protected static ArrayList<String> promptUserForDetails(Ui ui) {
-        ArrayList<String> details = new ArrayList<>();
+    protected static List<String> promptUserForDetails(Ui ui) {
+        List<String> details = new ArrayList<>();
         Optional<String> newDetailOptional = ui.promptUserForOptionalField(DETAIL_FIELD);
         while (newDetailOptional.isPresent()) {
             details.add(newDetailOptional.get());
@@ -31,7 +32,7 @@ public abstract class Flashcard {
         return details;
     }
 
-    protected static String getDetailsString(ArrayList<String> details) {
+    protected static String getDetailsString(List<String> details) {
         StringBuilder detailsStringBuilder = new StringBuilder();
         for (String detail : details) {
             detailsStringBuilder.append("* ").append(detail).append(System.lineSeparator());

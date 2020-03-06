@@ -2,7 +2,7 @@ package seedu.tp.flashcard;
 
 import seedu.tp.ui.Ui;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static seedu.tp.utils.Constants.NAME_FIELD;
 import static seedu.tp.utils.Constants.SUMMARY_FIELD;
@@ -14,7 +14,7 @@ public class OtherFlashcard extends Flashcard {
     /**
      * Constructs an <code>OtherFlashcard</code>.
      */
-    public OtherFlashcard(String name, String summary, ArrayList<String> details) {
+    public OtherFlashcard(String name, String summary, List<String> details) {
         super(name, summary, details);
     }
 
@@ -27,7 +27,7 @@ public class OtherFlashcard extends Flashcard {
     public static OtherFlashcard createOtherFlashcard(Ui ui) {
         String name = ui.promptUserForRequiredField(NAME_FIELD);
         String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
-        ArrayList<String> details = promptUserForDetails(ui);
+        List<String> details = promptUserForDetails(ui);
         return new OtherFlashcard(name, summary, details);
     }
 

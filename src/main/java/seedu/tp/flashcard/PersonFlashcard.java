@@ -2,7 +2,7 @@ package seedu.tp.flashcard;
 
 import seedu.tp.ui.Ui;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static seedu.tp.utils.Constants.BIRTH_DATE_FIELD;
 import static seedu.tp.utils.Constants.DEATH_DATE_FIELD;
@@ -19,7 +19,7 @@ public class PersonFlashcard extends Flashcard {
     /**
      * Constructs a <code>PersonFlashcard</code>.
      */
-    public PersonFlashcard(String name, String birthDate, String deathDate, String summary, ArrayList<String> details) {
+    public PersonFlashcard(String name, String birthDate, String deathDate, String summary, List<String> details) {
         super(name, summary, details);
         this.birthDate = birthDate;
         this.deathDate = deathDate;
@@ -36,7 +36,7 @@ public class PersonFlashcard extends Flashcard {
         String birthDate = ui.promptUserForRequiredField(BIRTH_DATE_FIELD);
         String deathDate = ui.promptUserForRequiredField(DEATH_DATE_FIELD);
         String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
-        ArrayList<String> details = promptUserForDetails(ui);
+        List<String> details = promptUserForDetails(ui);
         return new PersonFlashcard(name, birthDate, deathDate, summary, details);
     }
 
