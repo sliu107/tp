@@ -12,6 +12,7 @@ import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.FlashcardFactory;
+import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -23,9 +24,15 @@ public class ParserTest {
 
     private Parser parser;
 
+    /**
+     * Initializes a new Parser for each test case.
+     */
     @BeforeEach
     public void setUp() {
-        parser = new Parser(new FlashcardFactory(new Ui()));
+        Ui ui = new Ui();
+        FlashcardFactory flashcardFactory = new FlashcardFactory(ui);
+        FlashcardList flashcardList = new FlashcardList();
+        parser = new Parser(flashcardFactory, flashcardList, ui);
     }
 
     @Test

@@ -60,39 +60,39 @@ public class DeleteCommandTest {
         expectedFlashcardList.addFlashcard(EVENT_FLASHCARD);
         expectedFlashcardList.addFlashcard(OTHER_FLASHCARD);
 
-        DeleteCommand deleteCommand = new DeleteCommand(1);
         FlashcardList flashcardList = createFullFlashcardList();
-        deleteCommand.execute(flashcardList, UI);
+        DeleteCommand deleteCommand = new DeleteCommand(flashcardList, 1);
+        deleteCommand.execute();
 
         assertEquals(expectedFlashcardList, flashcardList);
     }
 
     @Test
     public void execute_deleteFromEmptyList_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(1);
+        DeleteCommand deleteCommand = new DeleteCommand(EMPTY_FLASHCARD_LIST, 1);
         assertThrows(
             InvalidFlashcardIndexException.class,
-            () -> deleteCommand.execute(EMPTY_FLASHCARD_LIST, UI),
+            deleteCommand::execute,
             "Expected InvalidFlashcardIndexException"
         );
     }
 
     @Test
     public void execute_deleteNegativeIndex_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(-10);
+        DeleteCommand deleteCommand = new DeleteCommand(createFullFlashcardList(), -10);
         assertThrows(
             InvalidFlashcardIndexException.class,
-            () -> deleteCommand.execute(createFullFlashcardList(), UI),
+            deleteCommand::execute,
             "Expected InvalidFlashcardIndexException"
         );
     }
 
     @Test
     public void execute_deleteOutOfBoundIndex_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(100);
+        DeleteCommand deleteCommand = new DeleteCommand(createFullFlashcardList(), 100);
         assertThrows(
             InvalidFlashcardIndexException.class,
-            () -> deleteCommand.execute(createFullFlashcardList(), UI),
+            deleteCommand::execute,
             "Expected InvalidFlashcardIndexException"
         );
     }

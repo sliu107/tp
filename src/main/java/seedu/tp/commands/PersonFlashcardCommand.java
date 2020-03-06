@@ -3,7 +3,6 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.ui.Ui;
 
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 
@@ -12,19 +11,22 @@ import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
  */
 public class PersonFlashcardCommand extends Command {
 
+    private FlashcardList flashcardList;
     private FlashcardFactory flashcardFactory;
 
     /**
      * Constructor for Person Flashcard Command.
      *
+     * @param flashcardList    flashcard list for the command to execute on
      * @param flashcardFactory the flashcard factory to be used in the command
      */
-    public PersonFlashcardCommand(FlashcardFactory flashcardFactory) {
+    public PersonFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory) {
+        this.flashcardList = flashcardList;
         this.flashcardFactory = flashcardFactory;
     }
 
     @Override
-    public void execute(FlashcardList flashcardList, Ui ui) throws UnrecognizedFlashcardTypeException {
+    public void execute() throws UnrecognizedFlashcardTypeException {
         flashcardList.addFlashcard(flashcardFactory.create(PERSON_FLASHCARD_COMMAND));
     }
 }

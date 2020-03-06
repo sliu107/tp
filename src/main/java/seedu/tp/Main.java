@@ -36,7 +36,7 @@ public class Main {
         this.ui = new Ui();
         this.flashcardFactory = new FlashcardFactory(this.ui);
         this.flashcardList = new FlashcardList();
-        this.parser = new Parser(flashcardFactory);
+        this.parser = new Parser(flashcardFactory, this.flashcardList, this.ui);
     }
 
     private void runLoop() {
@@ -46,7 +46,7 @@ public class Main {
             try {
                 String fullCommand = ui.getNextLine();
                 Command command = parser.parseCommand(fullCommand);
-                command.execute(flashcardList, ui);
+                command.execute();
                 isBye = command.isBye();
             } catch (UnknownCommandException e) {
                 ui.sendUnknownCommandResponse();

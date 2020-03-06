@@ -1,15 +1,12 @@
 package seedu.tp.commands;
 
-import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.ui.Ui;
-
 /**
  * Bye command used in the application.
  */
 public class ByeCommand extends Command {
 
     @Override
-    public void execute(FlashcardList flashcardList, Ui ui) {
+    public void execute() {
 
     }
 
