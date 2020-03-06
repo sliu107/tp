@@ -2,7 +2,12 @@ package seedu.tp.flashcard;
 
 import seedu.tp.ui.Ui;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import static seedu.tp.utils.Constants.BIRTH_DATE_FIELD;
+import static seedu.tp.utils.Constants.DEATH_DATE_FIELD;
+import static seedu.tp.utils.Constants.NAME_FIELD;
+import static seedu.tp.utils.Constants.SUMMARY_FIELD;
 
 /**
  * Person flashcard.
@@ -12,55 +17,43 @@ public class PersonFlashcard extends Flashcard {
     private String deathDate;
 
     /**
-     * Create a <code>PersonFlashcard</code> by prompting the user to enter info.
-     * @param ui used to prompt the user
-     * @return the created <code>PersonFlashcard</code>
+     * Constructs a <code>PersonFlashcard</code>.
      */
-    public static PersonFlashcard createPersonFlashcard(Ui ui) {
-        String name = ui.promptUser("Name", false);
-        String birthDate = ui.promptUser("Birth date", true);
-        String deathDate = null;
-        if (birthDate != null) {
-            deathDate = ui.promptUser("Death date", true);
-        }
-        String summary = ui.promptUser("Summary", false);
-        ArrayList<String> details = new ArrayList<>();
-        while (true) {
-            String newDetail = ui.promptUser("Detail", true);
-            if (newDetail == null) {
-                break;
-            }
-            details.add(newDetail);
-        }
-        return new PersonFlashcard(name, birthDate, deathDate, summary, details);
-    }
-
-    /**
-     * Construct a <code>PersonFlashcard</code>.
-     */
-    public PersonFlashcard(String name, String birthDate, String deathDate, String summary, ArrayList<String> details) {
+    public PersonFlashcard(String name, String birthDate, String deathDate, String summary, List<String> details) {
         super(name, summary, details);
         this.birthDate = birthDate;
         this.deathDate = deathDate;
     }
 
     /**
-     * Get the string representation of this flashcard.
+     * Creates a <code>PersonFlashcard</code> by prompting the user to enter info.
+     *
+     * @param ui used to prompt the user
+     * @return the created <code>PersonFlashcard</code>
+     */
+    public static PersonFlashcard createPersonFlashcard(Ui ui) {
+        String name = ui.promptUserForRequiredField(NAME_FIELD);
+        String birthDate = ui.promptUserForRequiredField(BIRTH_DATE_FIELD);
+        String deathDate = ui.promptUserForRequiredField(DEATH_DATE_FIELD);
+        String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
+        List<String> details = ui.promptUserForDetails();
+        return new PersonFlashcard(name, birthDate, deathDate, summary, details);
+    }
+
+    /**
+     * Gets the string representation of this flashcard.
+     *
      * @return string representation
      */
     @Override
     public String toString() {
-        String stringRepresentation = "";
-        stringRepresentation += (name + System.lineSeparator());
-        stringRepresentation += birthDate;
-        if (deathDate != null) {
-            stringRepresentation += (" - " + deathDate);
-        }
-        stringRepresentation += (System.lineSeparator() + System.lineSeparator());
-        stringRepresentation += summary + System.lineSeparator();
-        for (String detail : details) {
-            stringRepresentation += ("* " + detail + System.lineSeparator());
-        }
-        return stringRepresentation;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Person name: ").append(name).append(System.lineSeparator());
+        stringBuilder.append("Born: ").append(birthDate).append(System.lineSeparator());
+        stringBuilder.append("Died: ").append(deathDate).append(System.lineSeparator());
+        stringBuilder.append("Summary: ").append(summary).append(System.lineSeparator());
+        stringBuilder.append("Details: ").append(System.lineSeparator());
+        stringBuilder.append(getDetailsString(details));
+        return stringBuilder.toString();
     }
 }

@@ -3,9 +3,38 @@ event
 Meiji Restoration
 1868
 
+1868
 Turning point in Japanese history
 End of Shogunate
 Centralization of power
 Functional end of Samurai Class
 
-done
+list
+person
+Albus Dumbledore
+Late August, 1881
+30 June‎, ‎1997‎
+Albus Dumbledore was never proud or vain.
+He could find something to value in anyone, however apparently insignificant or wretched
+Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
+
+list
+other
+Resurrection Stone
+The Resurrection Stone is one of the fabled Deathly Hallows.
+In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
+It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
+According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
+
+list
+delete random
+list
+delete -1
+list
+delete 100
+list
+delete 1
+list
+delete 2
+list
+bye

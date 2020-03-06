@@ -15,6 +15,7 @@ public class FlashcardFactory {
 
     /**
      * Create a <code>Flashcard</code> given a string.
+     *
      * @param flashcardType string representing type of flashcard to create
      * @return constructed <code>Flashcard</code>
      * @throws UnrecognizedFlashcardTypeException if the string is not a valid flashcard type
@@ -22,11 +23,17 @@ public class FlashcardFactory {
     public Flashcard create(String flashcardType) throws UnrecognizedFlashcardTypeException {
         switch (flashcardType.toLowerCase()) {
         case "event":
-            return EventFlashcard.createEventFlashcard(ui);
+            EventFlashcard eventFlashcard = EventFlashcard.createEventFlashcard(ui);
+            ui.confirmFlashcardCreation(eventFlashcard);
+            return eventFlashcard;
         case "person":
-            return PersonFlashcard.createPersonFlashcard(ui);
+            PersonFlashcard personFlashcard = PersonFlashcard.createPersonFlashcard(ui);
+            ui.confirmFlashcardCreation(personFlashcard);
+            return personFlashcard;
         case "other":
-            return OtherFlashcard.createOtherFlashcard(ui);
+            OtherFlashcard otherFlashcard = OtherFlashcard.createOtherFlashcard(ui);
+            ui.confirmFlashcardCreation(otherFlashcard);
+            return otherFlashcard;
         default:
             throw new UnrecognizedFlashcardTypeException("Flashcard types: event, person, other");
         }

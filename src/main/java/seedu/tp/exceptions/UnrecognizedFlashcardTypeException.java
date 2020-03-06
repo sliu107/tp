@@ -1,6 +1,9 @@
 package seedu.tp.exceptions;
 
-public class UnrecognizedFlashcardTypeException extends Exception {
+/**
+ * Unrecognized flashcard type exception.
+ */
+public class UnrecognizedFlashcardTypeException extends HistoryFlashcardException {
     public UnrecognizedFlashcardTypeException(String errorMessage) {
         super(errorMessage);
     }

@@ -1,48 +1,138 @@
 package seedu.tp.ui;
 
+import seedu.tp.flashcard.Flashcard;
+import seedu.tp.flashcard.FlashcardList;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
+
+import static seedu.tp.utils.Constants.DETAIL_FIELD;
+import static seedu.tp.utils.Constants.EMPTY_STRING;
 
 /**
  * Ui class.
  */
 public class Ui {
-    private Scanner scanner;
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-    public Ui() {
-        this.scanner = new Scanner(System.in);
+    /**
+     * Sends welcome message to user.
+     */
+    public void sendWelcomeMessage() {
+        System.out.println("Welcome to History Flashcard App!");
     }
 
     /**
-     * Prompt the user for a piece of data used in the construction of a <code>Flashcard</code>.
-     * The user can leave the line empty if the data is optional.
-     * @param desiredData string representing the name of the data to prompt for
-     * @param isOptional whether or not this piece of data is optional.
+     * Sends bye message to user.
+     */
+    public void sendByeMessage() {
+        System.out.println("Thanks for using History Flashcard!");
+    }
+
+    /**
+     * Prompts the user for a list of details for a flashcard.
+     *
+     * @return the list of details entered by user
+     */
+    public List<String> promptUserForDetails() {
+        List<String> details = new ArrayList<>();
+        Optional<String> newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
+        while (newDetailOptional.isPresent()) {
+            details.add(newDetailOptional.get());
+            newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
+        }
+        return details;
+    }
+
+    /**
+     * Prompts the user for a piece of optional data used in the construction of a <code>Flashcard</code>.
+     * The user can leave the line empty.
+     *
+     * @param fieldName string representing the name of the data to prompt for
      * @return the user's input
      */
-    public String promptUser(String desiredData, boolean isOptional) {
-        System.out.print(desiredData + (isOptional ? "(Optional): " : ": "));
-        String input = getNextLine();
-        if (!isOptional) {
-            while (input.equals("")) {
-                System.out.println("That is a required field! Please enter again.");
-                System.out.print(desiredData + ": ");
-                input = getNextLine();
-            }
+    public Optional<String> promptUserForOptionalField(String fieldName) {
+        System.out.println("Please enter " + fieldName + " (optional):");
+        String input = getNextLine().trim();
+        return input.equals(EMPTY_STRING) ? Optional.empty() : Optional.of(input);
+    }
+
+    /**
+     * Prompts the user for a piece of required data used in the construction of a <code>Flashcard</code>.
+     *
+     * @param fieldName string representing the name of the data to prompt for
+     * @return the user's input
+     */
+    public String promptUserForRequiredField(String fieldName) {
+        System.out.println("Please enter " + fieldName + ":");
+        String input = getNextLine().trim();
+        while (input.equals(EMPTY_STRING)) {
+            System.out.println("That is a required field! Please enter again.");
+            input = getNextLine().trim();
+        }
+        return input;
+    }
+
+    /**
+     * Sends flashcard creation confirmation to user.
+     *
+     * @param flashcard the flashcard created
+     */
+    public void confirmFlashcardCreation(Flashcard flashcard) {
+        System.out.println("You've successfully created the flashcard below:");
+        System.out.println(flashcard);
+    }
+
+    /**
+     * Prints out all flashcards in the list.
+     *
+     * @param flashcardList the list of flashcards to be printed out
+     */
+    public void listAllFlashcards(FlashcardList flashcardList) {
+        if (flashcardList.isEmpty()) {
+            System.out.println("You have no flashcard at this moment!");
+            return;
         }
 
-        if (input.equals("")) {
-            return null;
-        } else {
-            return input;
+        System.out.println("Here's the list of flashcards you have:");
+        for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
+            Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
+            System.out.println((i + 1) + ": " + flashcard.getName());
         }
     }
 
+    /**
+     * Prints out exception to UI.
+     *
+     * @param exception the exception to be printed out
+     */
+    public void printException(Exception exception) {
+        System.out.println("An exception has occurred!");
+        System.out.println(exception.getMessage());
+    }
 
     /**
-     * Get the next user input line.
+     * Sends response to unknown command entered by user.
+     */
+    public void sendUnknownCommandResponse() {
+        System.out.println("Sorry, I don't know how to help with that yet.");
+    }
+
+    /**
+     * Sends response to invalid flashcard index entered by user.
+     */
+    public void sendInvalidFlashcardIndexResponse() {
+        System.out.println("The flashcard index you entered is invalid");
+    }
+
+    /**
+     * Gets the next user input line.
+     *
      * @return next line
      */
     public String getNextLine() {
-        return scanner.nextLine();
+        return SCANNER.nextLine();
     }
 }
