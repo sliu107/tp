@@ -87,6 +87,16 @@ public class Ui {
     }
 
     /**
+     * Prints confirmation that flashcard has been marked as reviewed.
+     *
+     * @param flashcard the flashcard that was reviewed
+     */
+    public void confirmFlashcardReview (Flashcard flashcard) {
+        System.out.println("You have marked the following flashcard as Reviewed: ");
+        System.out.println(flashcard.getName());
+    }
+
+    /**
      * Displays flashcard details according to index specified.
      *
      * @param flashcardList the list containing the flashcard
@@ -115,7 +125,7 @@ public class Ui {
         System.out.println("Here's the list of flashcards you have:");
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
-            System.out.println((i + 1) + ": " + flashcard.getName());
+            System.out.println((i + 1) + ": " + flashcard.getName() + "| Reviewed: " + flashcard.getReviewIcon());
         }
     }
 

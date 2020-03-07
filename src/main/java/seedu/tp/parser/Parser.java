@@ -6,6 +6,7 @@ import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.ShowCommand;
+import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
@@ -20,6 +21,7 @@ import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
+import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 
@@ -68,6 +70,12 @@ public class Parser {
         case SHOW_COMMAND:
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]), ui);
+            } catch (Exception e) {
+                throw new InvalidFlashcardIndexException();
+            }
+        case REVIEWED_COMMAND:
+            try {
+                return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }
