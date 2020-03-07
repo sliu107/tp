@@ -5,6 +5,7 @@ public class Constants {
     public static final String PERSON_FLASHCARD_COMMAND = "person";
     public static final String OTHER_FLASHCARD_COMMAND = "other";
     public static final String LIST_COMMAND = "list";
+    public static final String SHOW_COMMAND = "show";
     public static final String DELETE_COMMAND = "delete";
 
     public static final String BYE_COMMAND = "bye";

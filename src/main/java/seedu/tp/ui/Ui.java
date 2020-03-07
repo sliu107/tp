@@ -1,5 +1,6 @@
 package seedu.tp.ui;
 
+import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 
@@ -83,6 +84,21 @@ public class Ui {
     public void confirmFlashcardCreation(Flashcard flashcard) {
         System.out.println("You've successfully created the flashcard below:");
         System.out.println(flashcard);
+    }
+
+    /**
+     * Displays flashcard details according to index specified.
+     *
+     * @param flashcardList the list containing the flashcard
+     * @param index the position of the flashcard in the flashcardList
+     */
+    public void showFlashcard(FlashcardList flashcardList, int index) throws InvalidFlashcardIndexException {
+        System.out.println("Showing flashcard no. " + index + ":");
+        try {
+            System.out.println(flashcardList.getFlashcardAtIdx(index - 1));
+        } catch (IndexOutOfBoundsException e) {
+            throw new InvalidFlashcardIndexException();
+        }
     }
 
     /**

@@ -5,6 +5,7 @@ import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.ListCommand;
+import seedu.tp.commands.ShowCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
@@ -18,6 +19,7 @@ import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
+import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 
@@ -51,8 +53,8 @@ public class Parser {
      * @throws HistoryFlashcardException exception that occurred when parsing user input
      */
     public Command parseCommand(String userInput) throws HistoryFlashcardException {
-        String[] splittedInput = userInput.split(" ", 2);
-        String commandType = splittedInput[0].toLowerCase();
+        String[] splitInput = userInput.split(" ", 2);
+        String commandType = splitInput[0].toLowerCase();
 
         switch (commandType) {
         case EVENT_FLASHCARD_COMMAND:
@@ -63,9 +65,15 @@ public class Parser {
             return new OtherFlashcardCommand(flashcardList, flashcardFactory);
         case LIST_COMMAND:
             return new ListCommand(flashcardList, ui);
+        case SHOW_COMMAND:
+            try {
+                return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]), ui);
+            } catch (Exception e) {
+                throw new InvalidFlashcardIndexException();
+            }
         case DELETE_COMMAND:
             try {
-                return new DeleteCommand(flashcardList, Integer.parseInt(splittedInput[1]) - 1);
+                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }
