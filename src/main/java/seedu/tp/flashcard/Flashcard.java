@@ -69,7 +69,7 @@ public abstract class Flashcard {
      *
      * @return "*"s to indicate priority level
      */
-    public String getPriority() {
+    public String getPriorityAsString() {
         switch (priorityLevel) {
         case 1:
             return "*";

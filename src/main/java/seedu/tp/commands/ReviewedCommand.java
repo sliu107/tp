@@ -2,6 +2,7 @@ package seedu.tp.commands;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.ui.Ui;
 
 public class ReviewedCommand extends Command {
@@ -18,8 +19,9 @@ public class ReviewedCommand extends Command {
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         try {
-            flashcardList.getFlashcardAtIdx(index).setReviewStatus(true);
-            ui.confirmFlashcardReview(flashcardList.getFlashcardAtIdx(index));
+            Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
+            flashcard.setReviewStatus(true);
+            ui.confirmFlashcardReview(flashcard);
         } catch (IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }

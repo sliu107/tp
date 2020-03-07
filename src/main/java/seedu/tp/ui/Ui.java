@@ -103,22 +103,17 @@ public class Ui {
      */
     public void confirmFlashcardPriority (Flashcard flashcard) {
         System.out.println("Priority has been updated: ");
-        System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriority());
+        System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString());
     }
 
     /**
      * Displays flashcard details according to index specified.
      *
-     * @param flashcardList the list containing the flashcard
-     * @param index the position of the flashcard in the flashcardList
+     * @param flashcard the flashcard to be displayed
      */
-    public void showFlashcard(FlashcardList flashcardList, int index) throws InvalidFlashcardIndexException {
-        System.out.println("Showing flashcard no. " + index + ":");
-        try {
-            System.out.println(flashcardList.getFlashcardAtIdx(index - 1));
-        } catch (IndexOutOfBoundsException e) {
-            throw new InvalidFlashcardIndexException();
-        }
+    public void showFlashcard(Flashcard flashcard) {
+        System.out.println("These are the flashcard details:");
+        System.out.println(flashcard);
     }
 
     /**
@@ -136,7 +131,7 @@ public class Ui {
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
             System.out.println((i + 1) + ": " + flashcard.getName() + " | Reviewed: " + flashcard.getReviewIcon()
-                                + " | " + flashcard.getPriority());
+                                + " | " + flashcard.getPriorityAsString());
         }
     }
 

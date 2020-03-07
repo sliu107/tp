@@ -91,7 +91,7 @@ public class Parser {
             try {
                 int priorityLevel = Integer.parseInt(splitInput[2]);
                 return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, priorityLevel);
-            } catch (Exception e) {
+            } catch (IndexOutOfBoundsException e) {
                 throw new InvalidFlashcardIndexException();
             }
         case BYE_COMMAND:
