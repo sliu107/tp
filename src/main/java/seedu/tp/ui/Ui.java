@@ -2,6 +2,7 @@ package seedu.tp.ui;
 
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.group.FlashcardGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,6 +87,16 @@ public class Ui {
     }
 
     /**
+     * Sends flashcard group creation confirmation to user.
+     *
+     * @param flashcardGroup the flashcard group created
+     */
+    public void confirmFlashcardGroupCreation(FlashcardGroup flashcardGroup){
+        System.out.println("You've successfully created the group below:");
+        System.out.println(flashcardGroup);
+    }
+
+    /**
      * Prints out all flashcards in the list.
      *
      * @param flashcardList the list of flashcards to be printed out
@@ -135,4 +146,5 @@ public class Ui {
     public String getNextLine() {
         return SCANNER.nextLine();
     }
+
 }

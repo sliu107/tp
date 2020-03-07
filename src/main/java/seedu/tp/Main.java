@@ -6,6 +6,8 @@ import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.group.GroupFactory;
+import seedu.tp.group.GroupList;
 import seedu.tp.parser.Parser;
 import seedu.tp.ui.Ui;
 
@@ -16,6 +18,8 @@ public class Main {
     private Ui ui;
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
+    private GroupFactory groupFactory;
+    private GroupList groupList;
     private Parser parser;
 
     /**
@@ -36,7 +40,9 @@ public class Main {
         ui = new Ui();
         flashcardFactory = new FlashcardFactory(ui);
         flashcardList = new FlashcardList();
-        parser = new Parser(flashcardFactory, flashcardList, ui);
+        groupFactory = new GroupFactory(ui, flashcardList);
+        groupList = new GroupList();
+        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList,ui);
     }
 
     private void runLoop() {
