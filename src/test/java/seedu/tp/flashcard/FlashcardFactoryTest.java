@@ -57,8 +57,8 @@ public class FlashcardFactoryTest {
         FlashcardFactory flashcardFactory = new FlashcardFactory(new Ui());
         for (String unrecognizedFlashcardType : unrecognizedFlashcardTypes) {
             assertThrows(
-                    UnrecognizedFlashcardTypeException.class,
-                    () -> flashcardFactory.create(unrecognizedFlashcardType)
+                UnrecognizedFlashcardTypeException.class, 
+                () -> flashcardFactory.create(unrecognizedFlashcardType)
             );
         }
     }
