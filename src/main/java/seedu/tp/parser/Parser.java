@@ -7,6 +7,7 @@ import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.ShowCommand;
 import seedu.tp.commands.ReviewedCommand;
+import seedu.tp.commands.PriorityCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
@@ -22,6 +23,7 @@ import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
+import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 
@@ -55,7 +57,7 @@ public class Parser {
      * @throws HistoryFlashcardException exception that occurred when parsing user input
      */
     public Command parseCommand(String userInput) throws HistoryFlashcardException {
-        String[] splitInput = userInput.split(" ", 2);
+        String[] splitInput = userInput.split(" ", 3);
         String commandType = splitInput[0].toLowerCase();
 
         switch (commandType) {
@@ -82,6 +84,13 @@ public class Parser {
         case DELETE_COMMAND:
             try {
                 return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
+            } catch (Exception e) {
+                throw new InvalidFlashcardIndexException();
+            }
+        case PRIORITY_COMMAND:
+            try {
+                int priorityLevel = Integer.parseInt(splitInput[2]);
+                return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, priorityLevel);
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }

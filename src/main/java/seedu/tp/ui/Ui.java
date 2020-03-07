@@ -97,6 +97,16 @@ public class Ui {
     }
 
     /**
+     * Prints confirmation that flashcard priority level has been updated.
+     *
+     * @param flashcard the flashcard that had its priority updated
+     */
+    public void confirmFlashcardPriority (Flashcard flashcard) {
+        System.out.println("Priority has been updated: ");
+        System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriority());
+    }
+
+    /**
      * Displays flashcard details according to index specified.
      *
      * @param flashcardList the list containing the flashcard
@@ -125,7 +135,8 @@ public class Ui {
         System.out.println("Here's the list of flashcards you have:");
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
-            System.out.println((i + 1) + ": " + flashcard.getName() + "| Reviewed: " + flashcard.getReviewIcon());
+            System.out.println((i + 1) + ": " + flashcard.getName() + " | Reviewed: " + flashcard.getReviewIcon()
+                                + " | " + flashcard.getPriority());
         }
     }
 

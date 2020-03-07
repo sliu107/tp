@@ -10,12 +10,14 @@ public abstract class Flashcard {
     protected String summary;
     protected List<String> details;
     protected boolean isReviewed;
+    protected int priorityLevel;
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
         this.summary = summary;
         this.details = details;
         this.isReviewed = false;
+        this.priorityLevel = 0;
     }
 
     protected static String getDetailsString(List<String> details) {
@@ -51,5 +53,36 @@ public abstract class Flashcard {
      */
     public String getReviewIcon() {
         return (isReviewed ? "Y" : "N");
+    }
+
+    /**
+     * Sets the flashcard's priority level.
+     *
+     * @param priorityLevel priority level to be set
+     */
+    public void setPriorityLevel(int priorityLevel) {
+        this.priorityLevel = priorityLevel;
+    }
+
+    /**
+     * Returns the number of "*"s based on flashcard's priority level.
+     *
+     * @return "*"s to indicate priority level
+     */
+    public String getPriority() {
+        switch (priorityLevel) {
+        case 1:
+            return "*";
+        case 2:
+            return "**";
+        case 3:
+            return "***";
+        case 4:
+            return "****";
+        case 5:
+            return "*****";
+        default:
+            return "Not indicated";
+        }
     }
 }
