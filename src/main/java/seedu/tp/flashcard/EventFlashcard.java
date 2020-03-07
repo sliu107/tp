@@ -41,7 +41,7 @@ public class EventFlashcard extends Flashcard {
     }
 
     /**
-     * Get the start date of this event flashcard
+     * Get the start date of this event flashcard.
      *
      * @return the start date of this event flashcard
      */
@@ -50,7 +50,7 @@ public class EventFlashcard extends Flashcard {
     }
 
     /**
-     * Get the end date of this event flashcard
+     * Get the end date of this event flashcard.
      *
      * @return the end date of this event flashcard
      */
@@ -76,7 +76,7 @@ public class EventFlashcard extends Flashcard {
     }
 
     /**
-     * Check if the current instance is equal to the object passed in
+     * Check if the current instance is equal to the object passed in.
      *
      * @param obj The object to be compared against the current instance
      * @return whether or not the two objects are equal

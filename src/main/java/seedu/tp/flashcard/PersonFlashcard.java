@@ -41,7 +41,7 @@ public class PersonFlashcard extends Flashcard {
     }
 
     /**
-     * Get the birth date of this person flashcard
+     * Get the birth date of this person flashcard.
      *
      * @return the birth date of this person flashcard
      */
@@ -50,7 +50,7 @@ public class PersonFlashcard extends Flashcard {
     }
 
     /**
-     * Get the death date of this person flashcard
+     * Get the death date of this person flashcard.
      *
      * @return the death date of this person flashcard
      */
@@ -76,7 +76,7 @@ public class PersonFlashcard extends Flashcard {
     }
 
     /**
-     * Check if the current instance is equal to the object passed in
+     * Check if the current instance is equal to the object passed in.
      *
      * @param obj The object to be compared against the current instance
      * @return whether or not the two objects are equal

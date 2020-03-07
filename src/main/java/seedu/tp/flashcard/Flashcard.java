@@ -68,7 +68,7 @@ public abstract class Flashcard {
         }
 
         Flashcard otherFlashcard = (Flashcard) obj;
-        return name.equals(otherFlashcard.getName()) && summary.equals(otherFlashcard.getSummary()) &&
-                details.equals(otherFlashcard.getDetails());
+        return name.equals(otherFlashcard.getName()) && summary.equals(otherFlashcard.getSummary())
+                && details.equals(otherFlashcard.getDetails());
     }
 }
