@@ -97,6 +97,19 @@ public class Ui {
     }
 
     /**
+     * Sends confirmation message that the flashcard is successfully added to a group.
+     *      *
+     * @param flashcardGroup the flashcard group the flashcard is added into.
+     * @param flashcard the flashcard just be added into the group
+     */
+    public void confirmFlashcardAdditionToGroup(FlashcardGroup flashcardGroup,Flashcard flashcard){
+        System.out.println("You've successfully add the flashcard below:");
+        System.out.println(flashcard);
+        System.out.println("To the group:");
+        System.out.println(flashcardGroup);
+    }
+
+    /**
      * Prints out all flashcards in the list.
      *
      * @param flashcardList the list of flashcards to be printed out

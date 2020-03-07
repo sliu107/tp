@@ -13,6 +13,7 @@ public class GroupCommand extends Command{
     private GroupFactory groupFactory;
     private GroupList groupList;
     private FlashcardList flashcardList;
+
     /**
      * Constructs a group command.
      *

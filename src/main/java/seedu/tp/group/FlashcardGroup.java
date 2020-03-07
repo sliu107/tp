@@ -39,7 +39,7 @@ public class FlashcardGroup {
      * @param flashcard the flashcard to be added.
      * @return the flashcard be added.
      */
-    public Flashcard addFlashcardToGroup(Flashcard flashcard){
+    public Flashcard addFlashcardToTheGroup(Flashcard flashcard){
         groupCards.addFlashcard(flashcard);
         return flashcard;
     }
@@ -81,5 +81,9 @@ public class FlashcardGroup {
         stringBuilder.append("Group description: ").append(description).append(System.lineSeparator());
         stringBuilder.append("There are ").append(groupCards.getTotalFlashcardNum()).append("in this group.");
         return stringBuilder.toString();
+    }
+
+    public String getName() {
+        return name;
     }
 }
