@@ -168,7 +168,7 @@ public class Ui {
             return;
         }
         
-        ArrayList<Flashcard> flashcards = flashcardList.getFlashcards();
+        ArrayList<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
         Collections.sort(flashcards);
         System.out.println("Here's a sorted list of the flashcards you have:");
         for (Flashcard f : flashcards) {
