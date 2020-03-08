@@ -41,6 +41,24 @@ public class PersonFlashcard extends Flashcard {
     }
 
     /**
+     * Get the birth date of this person flashcard.
+     *
+     * @return the birth date of this person flashcard
+     */
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    /**
+     * Get the death date of this person flashcard.
+     *
+     * @return the death date of this person flashcard
+     */
+    public String getDeathDate() {
+        return deathDate;
+    }
+
+    /**
      * Gets the string representation of this flashcard.
      *
      * @return string representation
@@ -55,5 +73,27 @@ public class PersonFlashcard extends Flashcard {
         stringBuilder.append("Details: ").append(System.lineSeparator());
         stringBuilder.append(getDetailsString(details));
         return stringBuilder.toString();
+    }
+
+    /**
+     * Check if the current instance is equal to the object passed in.
+     *
+     * @param obj The object to be compared against the current instance
+     * @return whether or not the two objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof PersonFlashcard)) {
+            return false;
+        }
+
+        if (obj == this) {
+            return true;
+        }
+
+        // Will have to make sure in the future to check for null here if we make other optional fields.
+        PersonFlashcard otherEventFlashcard = (PersonFlashcard) obj;
+        return super.equals(obj) && birthDate.equals(otherEventFlashcard.getBirthDate())
+                && deathDate.equals(otherEventFlashcard.getDeathDate());
     }
 }

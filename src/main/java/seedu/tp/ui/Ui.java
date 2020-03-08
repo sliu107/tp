@@ -15,8 +15,8 @@ import static seedu.tp.utils.Constants.EMPTY_STRING;
  * Ui class.
  */
 public class Ui {
-    private static final Scanner SCANNER = new Scanner(System.in);
-
+    private final Scanner scanner = new Scanner(System.in);
+    
     /**
      * Sends welcome message to user.
      */
@@ -133,6 +133,6 @@ public class Ui {
      * @return next line
      */
     public String getNextLine() {
-        return SCANNER.nextLine();
+        return scanner.nextLine();
     }
 }
