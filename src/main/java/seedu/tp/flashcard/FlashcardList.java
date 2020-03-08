@@ -69,6 +69,15 @@ public class FlashcardList {
     }
 
     /**
+     * Gets the list of flashcards.
+     * 
+     * @return the list of flashcards
+     */
+    public ArrayList<Flashcard> getFlashcards() {
+        return flashcards;
+    }
+
+    /**
      * Check if the current instance is equal to the object passed in.
      *
      * @param obj The object to be compared against the current instance

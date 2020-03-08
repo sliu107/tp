@@ -6,6 +6,7 @@ public class Constants {
     public static final String OTHER_FLASHCARD_COMMAND = "other";
     public static final String LIST_COMMAND = "list";
     public static final String DELETE_COMMAND = "delete";
+    public static final String TIMELINE_COMMAND = "timeline";
 
     public static final String BYE_COMMAND = "bye";
 

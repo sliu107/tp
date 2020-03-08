@@ -7,12 +7,21 @@ import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
+import seedu.tp.commands.TimelineCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
+import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoField;
+import java.util.Date;
 
 import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
@@ -20,12 +29,34 @@ import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
+import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 
 /**
  * Parser class to handle parsing of user input.
  */
 public class Parser {
-
+    public static final DateTimeFormatter[] DATE_TIME_FORMATTERS = {
+            DateTimeFormatter.ofPattern("d M yyyy"),
+            new DateTimeFormatterBuilder()
+                    .appendPattern("M yyyy")
+                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                    .toFormatter(),
+            new DateTimeFormatterBuilder()
+                    .appendPattern("yyyy")
+                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                    .parseDefaulting(ChronoField.MONTH_OF_YEAR, 1)
+                    .toFormatter(),
+            DateTimeFormatter.ofPattern("d/M/yyyy"),
+            new DateTimeFormatterBuilder()
+                    .appendPattern("M/yyyy")
+                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                    .toFormatter(),
+            DateTimeFormatter.ofPattern("d-M-yyyy"),
+            new DateTimeFormatterBuilder()
+                    .appendPattern("M-yyyy")
+                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                    .toFormatter(),
+    };
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
     private Ui ui;
@@ -69,10 +100,29 @@ public class Parser {
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }
+        case TIMELINE_COMMAND:
+            return new TimelineCommand(flashcardList, ui);
         case BYE_COMMAND:
             return new ByeCommand();
         default:
             throw new UnknownCommandException();
         }
+    }
+
+    /**
+     * Attempt to parse a string representing a date by matching it with formatters.
+     * 
+     * @param date the string to be parsed
+     * @return LocalDate if the string was parsable, null if not
+     */
+    public static LocalDate parseDate(String date) throws InvalidDateFormatException {
+        for (DateTimeFormatter formatter : DATE_TIME_FORMATTERS) {
+            try {
+                return LocalDate.parse(date, formatter);
+            } catch (DateTimeParseException e) {
+                continue;
+            }
+        }
+        throw new InvalidDateFormatException();
     }
 }

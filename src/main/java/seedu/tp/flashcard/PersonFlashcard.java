@@ -2,6 +2,7 @@ package seedu.tp.flashcard;
 
 import seedu.tp.ui.Ui;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static seedu.tp.utils.Constants.BIRTH_DATE_FIELD;
@@ -13,13 +14,14 @@ import static seedu.tp.utils.Constants.SUMMARY_FIELD;
  * Person flashcard.
  */
 public class PersonFlashcard extends Flashcard {
-    private String birthDate;
-    private String deathDate;
+    private LocalDate birthDate;
+    private LocalDate deathDate;
 
     /**
      * Constructs a <code>PersonFlashcard</code>.
      */
-    public PersonFlashcard(String name, String birthDate, String deathDate, String summary, List<String> details) {
+    public PersonFlashcard(String name, LocalDate birthDate, LocalDate deathDate, String summary,
+                           List<String> details) {
         super(name, summary, details);
         this.birthDate = birthDate;
         this.deathDate = deathDate;
@@ -33,8 +35,8 @@ public class PersonFlashcard extends Flashcard {
      */
     public static PersonFlashcard createPersonFlashcard(Ui ui) {
         String name = ui.promptUserForRequiredField(NAME_FIELD);
-        String birthDate = ui.promptUserForRequiredField(BIRTH_DATE_FIELD);
-        String deathDate = ui.promptUserForRequiredField(DEATH_DATE_FIELD);
+        LocalDate birthDate = ui.promptUserForRequiredLocalDate(BIRTH_DATE_FIELD);
+        LocalDate deathDate = ui.promptUserForRequiredLocalDate(DEATH_DATE_FIELD);
         String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
         List<String> details = ui.promptUserForDetails();
         return new PersonFlashcard(name, birthDate, deathDate, summary, details);
@@ -45,7 +47,7 @@ public class PersonFlashcard extends Flashcard {
      *
      * @return the birth date of this person flashcard
      */
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -54,7 +56,7 @@ public class PersonFlashcard extends Flashcard {
      *
      * @return the death date of this person flashcard
      */
-    public String getDeathDate() {
+    public LocalDate getDeathDate() {
         return deathDate;
     }
 
@@ -95,5 +97,18 @@ public class PersonFlashcard extends Flashcard {
         PersonFlashcard otherEventFlashcard = (PersonFlashcard) obj;
         return super.equals(obj) && birthDate.equals(otherEventFlashcard.getBirthDate())
                 && deathDate.equals(otherEventFlashcard.getDeathDate());
+    }
+
+    @Override
+    public int compareTo(Flashcard flashcard) {
+        if (flashcard instanceof EventFlashcard) {
+            EventFlashcard eventFlashcard = (EventFlashcard) flashcard;
+            return birthDate.compareTo(eventFlashcard.getStartDate());
+        } else if (flashcard instanceof PersonFlashcard) {
+            PersonFlashcard personFlashcard = (PersonFlashcard) flashcard;
+            return birthDate.compareTo(personFlashcard.getBirthDate());
+        } else {
+            return -1;
+        }
     }
 }
