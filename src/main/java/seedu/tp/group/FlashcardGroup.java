@@ -59,7 +59,7 @@ public class FlashcardGroup {
             String[] indexesGiven = ui.promptUserForRequiredField(INDEXES_FIELD).split(" ");
             int[] indexes = new int[indexesGiven.length];
             for (int i = 0; i < indexes.length; i++) {
-                indexes[i] = Integer.parseInt(indexesGiven[i]);
+                indexes[i] = Integer.parseInt(indexesGiven[i])-1;
             }
             return new FlashcardGroup(name, description, flashcardList, indexes);
         }catch(NumberFormatException e){
@@ -79,7 +79,8 @@ public class FlashcardGroup {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Group name: ").append(name).append(System.lineSeparator());
         stringBuilder.append("Group description: ").append(description).append(System.lineSeparator());
-        stringBuilder.append("There are ").append(groupCards.getTotalFlashcardNum()).append("in this group.");
+        stringBuilder.append("There are ").append(groupCards.getTotalFlashcardNum()).append(" in this group.");
+        stringBuilder.append(System.lineSeparator());
         return stringBuilder.toString();
     }
 

@@ -33,6 +33,25 @@ public class Ui {
     }
 
     /**
+     * Sends help message to user.
+     */
+    public void sendHelpMessage(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Followings are the formats of commands used in the main menu:").append(System.lineSeparator());
+        stringBuilder.append("Add an event flashcard: event").append(System.lineSeparator());
+        stringBuilder.append("Add a person flashcard: person").append(System.lineSeparator());
+        stringBuilder.append("Add an other flashcard: other").append(System.lineSeparator());
+        stringBuilder.append("List out all the flashcards: list").append(System.lineSeparator());
+        stringBuilder.append("Delete a flashcard from the flashcard list: delete i/INDEX").append(System.lineSeparator());
+        stringBuilder.append("Set up a new flashcard group: group").append(System.lineSeparator());
+        stringBuilder.append("Add a flashcard to an existing group: add").append(System.lineSeparator());
+        stringBuilder.append("To exit the History Flashcard: bye").append(System.lineSeparator());
+        stringBuilder.append("To get help message: help").append(System.lineSeparator());
+        stringBuilder.append("Then please follow the instruction given by the program in each situation.");
+        System.out.println(stringBuilder);
+    }
+
+    /**
      * Prompts the user for a list of details for a flashcard.
      *
      * @return the list of details entered by user

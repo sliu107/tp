@@ -1,7 +1,6 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
-import seedu.tp.group.FlashcardGroup;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;

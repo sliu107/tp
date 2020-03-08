@@ -42,7 +42,7 @@ public class GroupList {
      */
     public void addFlashcardToOneGroup(Ui ui,FlashcardList flashcardList) throws HistoryFlashcardException {
         try{
-            int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEXES_FIELD));
+            int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEXES_FIELD))-1;
             String groupName = ui.promptUserForRequiredField(NAME_FIELD);
             Flashcard flashcard = null;
             FlashcardGroup group = null;

@@ -6,6 +6,7 @@ import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.GroupCommand;
+import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
@@ -23,6 +24,7 @@ import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
+import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
@@ -86,6 +88,8 @@ public class Parser {
             return new GroupCommand(flashcardList, groupFactory, groupList);
         case Add_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
+        case HELP_COMMAND:
+            return new HelpCommand(ui);
         case BYE_COMMAND:
             return new ByeCommand();
         default:
