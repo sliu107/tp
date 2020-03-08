@@ -25,7 +25,7 @@ public class FlashcardGroup {
      * @param originalList the original list of flashcards.
      * @param indexes the indexes of the flashcards which are going to be added to this group.
      */
-    public FlashcardGroup(String name, String description,FlashcardList originalList,int[] indexes) {
+    public FlashcardGroup(String name, String description, FlashcardList originalList, int[] indexes) {
         this.name = name;
         this.description = description;
         for (int i : indexes) {
