@@ -1,5 +1,6 @@
 package seedu.tp.flashcard;
 
+import seedu.tp.parser.Parser;
 import seedu.tp.ui.Ui;
 
 import java.time.LocalDate;
@@ -69,8 +70,8 @@ public class PersonFlashcard extends Flashcard {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Person name: ").append(name).append(System.lineSeparator());
-        stringBuilder.append("Born: ").append(birthDate).append(System.lineSeparator());
-        stringBuilder.append("Died: ").append(deathDate).append(System.lineSeparator());
+        stringBuilder.append("Born: ").append(Parser.localDateToString(birthDate)).append(System.lineSeparator());
+        stringBuilder.append("Died: ").append(Parser.localDateToString(deathDate)).append(System.lineSeparator());
         stringBuilder.append("Summary: ").append(summary).append(System.lineSeparator());
         stringBuilder.append("Details: ").append(System.lineSeparator());
         stringBuilder.append(getDetailsString(details));

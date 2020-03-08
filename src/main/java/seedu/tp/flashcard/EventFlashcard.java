@@ -1,5 +1,6 @@
 package seedu.tp.flashcard;
 
+import seedu.tp.parser.Parser;
 import seedu.tp.ui.Ui;
 
 import java.time.LocalDate;
@@ -68,8 +69,8 @@ public class EventFlashcard extends Flashcard {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Event name: ").append(name).append(System.lineSeparator());
-        stringBuilder.append("Event period: ").append(startDate).append("-")
-                .append(endDate).append(System.lineSeparator());
+        stringBuilder.append("Event period: ").append(Parser.localDateToString(startDate)).append("-")
+                .append(Parser.localDateToString(endDate)).append(System.lineSeparator());
         stringBuilder.append("Summary: ").append(summary).append(System.lineSeparator());
         stringBuilder.append("Details: ").append(System.lineSeparator());
         stringBuilder.append(getDetailsString(details));

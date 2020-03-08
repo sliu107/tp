@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
+import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
 import java.util.Date;
 
@@ -35,28 +36,6 @@ import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
  * Parser class to handle parsing of user input.
  */
 public class Parser {
-    public static final DateTimeFormatter[] DATE_TIME_FORMATTERS = {
-            DateTimeFormatter.ofPattern("d M yyyy"),
-            new DateTimeFormatterBuilder()
-                    .appendPattern("M yyyy")
-                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                    .toFormatter(),
-            new DateTimeFormatterBuilder()
-                    .appendPattern("yyyy")
-                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                    .parseDefaulting(ChronoField.MONTH_OF_YEAR, 1)
-                    .toFormatter(),
-            DateTimeFormatter.ofPattern("d/M/yyyy"),
-            new DateTimeFormatterBuilder()
-                    .appendPattern("M/yyyy")
-                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                    .toFormatter(),
-            DateTimeFormatter.ofPattern("d-M-yyyy"),
-            new DateTimeFormatterBuilder()
-                    .appendPattern("M-yyyy")
-                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                    .toFormatter(),
-    };
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
     private Ui ui;
@@ -116,7 +95,30 @@ public class Parser {
      * @return LocalDate if the string was parsable, null if not
      */
     public static LocalDate parseDate(String date) throws InvalidDateFormatException {
-        for (DateTimeFormatter formatter : DATE_TIME_FORMATTERS) {
+        final DateTimeFormatter[] dateTimeFormatters = {
+                DateTimeFormatter.ofPattern("d M yyyy"),
+                new DateTimeFormatterBuilder()
+                        .appendPattern("M yyyy")
+                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                        .toFormatter(),
+                new DateTimeFormatterBuilder()
+                        .appendPattern("yyyy")
+                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                        .parseDefaulting(ChronoField.MONTH_OF_YEAR, 1)
+                        .toFormatter(),
+                DateTimeFormatter.ofPattern("d/M/yyyy"),
+                new DateTimeFormatterBuilder()
+                        .appendPattern("M/yyyy")
+                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                        .toFormatter(),
+                DateTimeFormatter.ofPattern("d-M-yyyy"),
+                new DateTimeFormatterBuilder()
+                        .appendPattern("M-yyyy")
+                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                        .toFormatter(),
+        };
+        
+        for (DateTimeFormatter formatter : dateTimeFormatters) {
             try {
                 return LocalDate.parse(date, formatter);
             } catch (DateTimeParseException e) {
@@ -124,5 +126,10 @@ public class Parser {
             }
         }
         throw new InvalidDateFormatException();
+    }
+    
+    public static String localDateToString(LocalDate localDate) {
+        final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+        return localDate.format(formatter);
     }
 }
