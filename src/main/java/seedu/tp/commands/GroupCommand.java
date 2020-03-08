@@ -8,7 +8,7 @@ import seedu.tp.group.GroupList;
 /**
  * Commands to create a new group.
  */
-public class GroupCommand extends Command{
+public class GroupCommand extends Command {
     private GroupFactory groupFactory;
     private GroupList groupList;
     private FlashcardList flashcardList;
@@ -17,9 +17,10 @@ public class GroupCommand extends Command{
      * Constructs a group command.
      *
      * @param flashcardList flashcard list for the command to execute on
-     * @param groupFactory
+     * @param groupFactory groupFactory the groupCommand use
+     * @param groupList groupList where the groupCommand execute on
      */
-    public GroupCommand(FlashcardList flashcardList, GroupFactory groupFactory, GroupList groupList){
+    public GroupCommand(FlashcardList flashcardList, GroupFactory groupFactory, GroupList groupList) {
         this.flashcardList  = flashcardList;
         this.groupFactory = groupFactory;
         this.groupList = groupList;

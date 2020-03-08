@@ -11,13 +11,13 @@ public class AddFlashcardToGroupCommand extends Command {
     private FlashcardList flashcardList;
 
     /**
-     * Constructs an addFlashcardToGroupCommand
+     * Constructs an addFlashcardToGroupCommand.
      *
      * @param ui the ui need to pass to the execution method
      * @param groupList the groupList where the flashcard wants to be added in
      * @param flashcardList the flashcardList where the flashcard is in
      */
-    public AddFlashcardToGroupCommand(Ui ui, GroupList groupList, FlashcardList flashcardList){
+    public AddFlashcardToGroupCommand(Ui ui, GroupList groupList, FlashcardList flashcardList) {
         this.ui = ui;
         this.groupList = groupList;
         this.flashcardList = flashcardList;

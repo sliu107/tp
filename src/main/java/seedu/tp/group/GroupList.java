@@ -21,7 +21,7 @@ public class GroupList {
     /**
      * Constructs a list of groups.
      */
-    public GroupList(){
+    public GroupList() {
         this.groupList = new ArrayList<FlashcardGroup>();
     }
 
@@ -30,7 +30,7 @@ public class GroupList {
      *
      * @param group the new group to be added to the list
      */
-    public void addFlashcardGroup(FlashcardGroup group){
+    public void addFlashcardGroup(FlashcardGroup group) {
         groupList.add(group);
     }
 
@@ -41,27 +41,27 @@ public class GroupList {
      * @throws InvalidFlashcardIndexException if the user gives an index not an integer of out of bound
      */
     public void addFlashcardToOneGroup(Ui ui,FlashcardList flashcardList) throws HistoryFlashcardException {
-        try{
-            int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEXES_FIELD))-1;
+        try {
+            int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEXES_FIELD)) - 1;
             String groupName = ui.promptUserForRequiredField(NAME_FIELD);
             Flashcard flashcard = null;
             FlashcardGroup group = null;
-            for(FlashcardGroup g : groupList){
-                if(g.getName().equals(groupName)){
+            for (FlashcardGroup g : groupList) {
+                if (g.getName().equals(groupName)) {
                     flashcard = flashcardList.getFlashcardAtIdx(flashcardIndex);
                     g.addFlashcardToTheGroup(flashcard);
                     group = g;
                     break;
                 }
             }
-            if (group != null){
+            if (group != null) {
                 ui.confirmFlashcardAdditionToGroup(group,flashcard);
-            }else{
+            } else {
                 throw new UnrecognizedFlashcardGroupException("There is no such group.");
             }
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new InvalidFlashcardIndexException();
-        }catch(IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
     }

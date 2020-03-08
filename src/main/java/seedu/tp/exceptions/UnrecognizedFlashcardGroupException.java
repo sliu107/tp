@@ -1,10 +1,10 @@
 package seedu.tp.exceptions;
 
 /**
- * Unrecognized flashcard group Exception
+ * Unrecognized flashcard group Exception.
  */
 public class UnrecognizedFlashcardGroupException extends HistoryFlashcardException {
-    public UnrecognizedFlashcardGroupException(String errorMessage){
+    public UnrecognizedFlashcardGroupException(String errorMessage) {
         super(errorMessage);
     }
 }

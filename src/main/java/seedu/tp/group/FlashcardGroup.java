@@ -25,10 +25,10 @@ public class FlashcardGroup {
      * @param originalList the original list of flashcards.
      * @param indexes the indexes of the flashcards which are going to be added to this group.
      */
-    public FlashcardGroup(String name, String description,FlashcardList originalList,int[] indexes){
+    public FlashcardGroup(String name, String description,FlashcardList originalList,int[] indexes) {
         this.name = name;
         this.description = description;
-        for(int i : indexes){
+        for (int i : indexes) {
             groupCards.addFlashcard(originalList.getFlashcardAtIdx(i));
         }
     }
@@ -39,7 +39,7 @@ public class FlashcardGroup {
      * @param flashcard the flashcard to be added.
      * @return the flashcard be added.
      */
-    public Flashcard addFlashcardToTheGroup(Flashcard flashcard){
+    public Flashcard addFlashcardToTheGroup(Flashcard flashcard) {
         groupCards.addFlashcard(flashcard);
         return flashcard;
     }
@@ -59,12 +59,12 @@ public class FlashcardGroup {
             String[] indexesGiven = ui.promptUserForRequiredField(INDEXES_FIELD).split(" ");
             int[] indexes = new int[indexesGiven.length];
             for (int i = 0; i < indexes.length; i++) {
-                indexes[i] = Integer.parseInt(indexesGiven[i])-1;
+                indexes[i] = Integer.parseInt(indexesGiven[i]) - 1;
             }
             return new FlashcardGroup(name, description, flashcardList, indexes);
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new InvalidFlashcardIndexException();
-        }catch(IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
     }
@@ -75,7 +75,7 @@ public class FlashcardGroup {
      * @return String induction of the group.
      */
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Group name: ").append(name).append(System.lineSeparator());
         stringBuilder.append("Group description: ").append(description).append(System.lineSeparator());
