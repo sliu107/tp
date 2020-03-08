@@ -37,11 +37,9 @@ public class FlashcardGroup {
      * Adds a flashcard to an existing group.
      *
      * @param flashcard the flashcard to be added.
-     * @return the flashcard be added.
      */
-    public Flashcard addFlashcardToTheGroup(Flashcard flashcard) {
+    public void addFlashcardToTheGroup(Flashcard flashcard) {
         groupCards.addFlashcard(flashcard);
-        return flashcard;
     }
 
     /**
@@ -52,7 +50,7 @@ public class FlashcardGroup {
      * @return the new flashcardGroup
      * @throws InvalidFlashcardIndexException if the indexes given by the users are not integers or out of bounds
      */
-    public static FlashcardGroup createGroup(Ui ui,FlashcardList flashcardList) throws InvalidFlashcardIndexException {
+    public static FlashcardGroup createGroup(Ui ui, FlashcardList flashcardList) throws InvalidFlashcardIndexException {
         try {
             String name = ui.promptUserForRequiredField(NAME_FIELD);
             String description = ui.promptUserForRequiredField(DESCRIPTION_FIELD);
@@ -62,9 +60,7 @@ public class FlashcardGroup {
                 indexes[i] = Integer.parseInt(indexesGiven[i]) - 1;
             }
             return new FlashcardGroup(name, description, flashcardList, indexes);
-        } catch (NumberFormatException e) {
-            throw new InvalidFlashcardIndexException();
-        } catch (IndexOutOfBoundsException e) {
+        } catch (NumberFormatException | IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
     }

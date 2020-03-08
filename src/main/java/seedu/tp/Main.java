@@ -42,7 +42,7 @@ public class Main {
         flashcardList = new FlashcardList();
         groupFactory = new GroupFactory(ui, flashcardList);
         groupList = new GroupList();
-        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList,ui);
+        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui);
     }
 
     private void runLoop() {

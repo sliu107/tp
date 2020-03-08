@@ -25,6 +25,6 @@ public class AddFlashcardToGroupCommand extends Command {
 
     @Override
     public void execute() throws HistoryFlashcardException {
-        groupList.addFlashcardToOneGroup(ui,flashcardList);
+        groupList.addFlashcardToOneGroup(ui, flashcardList);
     }
 }

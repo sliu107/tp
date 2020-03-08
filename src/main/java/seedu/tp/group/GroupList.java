@@ -40,7 +40,7 @@ public class GroupList {
      * @param ui used to prompt the user
      * @throws InvalidFlashcardIndexException if the user gives an index not an integer of out of bound
      */
-    public void addFlashcardToOneGroup(Ui ui,FlashcardList flashcardList) throws HistoryFlashcardException {
+    public void addFlashcardToOneGroup(Ui ui, FlashcardList flashcardList) throws HistoryFlashcardException {
         try {
             int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEXES_FIELD)) - 1;
             String groupName = ui.promptUserForRequiredField(NAME_FIELD);
@@ -59,9 +59,7 @@ public class GroupList {
             } else {
                 throw new UnrecognizedFlashcardGroupException("There is no such group.");
             }
-        } catch (NumberFormatException e) {
-            throw new InvalidFlashcardIndexException();
-        } catch (IndexOutOfBoundsException e) {
+        } catch (NumberFormatException | IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
     }

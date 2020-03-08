@@ -19,7 +19,7 @@ import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
 
-import static seedu.tp.utils.Constants.Add_FLASHCARD_TO_GROUP_COMMAND;
+import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
@@ -86,7 +86,7 @@ public class Parser {
             }
         case GROUP_COMMAND:
             return new GroupCommand(flashcardList, groupFactory, groupList);
-        case Add_FLASHCARD_TO_GROUP_COMMAND:
+        case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
         case HELP_COMMAND:
             return new HelpCommand(ui);

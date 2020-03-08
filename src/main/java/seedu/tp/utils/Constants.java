@@ -7,7 +7,7 @@ public class Constants {
     public static final String LIST_COMMAND = "list";
     public static final String DELETE_COMMAND = "delete";
     public static final String GROUP_COMMAND = "group";
-    public static final String Add_FLASHCARD_TO_GROUP_COMMAND = "add";
+    public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
     public static final String HELP_COMMAND = "help";
 
     public static final String BYE_COMMAND = "bye";
