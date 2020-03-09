@@ -93,17 +93,14 @@ public class Parser {
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }
-<<<<<<< HEAD
         case TIMELINE_COMMAND:
             return new TimelineCommand(flashcardList, ui);
-=======
         case GROUP_COMMAND:
             return new GroupCommand(flashcardList, groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
         case HELP_COMMAND:
             return new HelpCommand(ui);
->>>>>>> 77905435eccf90dd659de6ef933911ce6be4f3c2
         case BYE_COMMAND:
             return new ByeCommand();
         default:
