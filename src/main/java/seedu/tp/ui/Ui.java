@@ -166,7 +166,7 @@ public class Ui {
      * @param flashcard the flashcard that was reviewed
      */
     public void confirmFlashcardReview(Flashcard flashcard) {
-        System.out.println("You have marked the following flashcard as Reviewed: ");
+        System.out.println("You have marked the following flashcard as Reviewed:");
         System.out.println(flashcard.getName());
     }
 
@@ -176,7 +176,7 @@ public class Ui {
      * @param flashcard the flashcard that had its priority updated
      */
     public void confirmFlashcardPriority(Flashcard flashcard) {
-        System.out.println("Priority has been updated: ");
+        System.out.println("Priority has been updated:");
         System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString());
     }
 

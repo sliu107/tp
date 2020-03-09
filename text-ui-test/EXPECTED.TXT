@@ -142,10 +142,10 @@ You have marked the following flashcard as Reviewed:
 Albus Dumbledore
 These are the flashcard details:
 Person name: Albus Dumbledore
-Born: 1 August 1881
-Died: 30 June 1997
+Born: August 1, 1881
+Died: June 30, 1997
 Summary: Albus Dumbledore was never proud or vain.
-Details:
+Details: 
 * He could find something to value in anyone, however apparently insignificant or wretched
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 
