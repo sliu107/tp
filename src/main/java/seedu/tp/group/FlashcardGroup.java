@@ -1,6 +1,7 @@
 package seedu.tp.group;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
@@ -82,5 +83,34 @@ public class FlashcardGroup {
 
     public String getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public FlashcardList getGroupCards() {
+        return groupCards;
+    }
+
+    /**
+     * Check if the current instance is equal to the object passed in.
+     *
+     * @param obj The object to be compared against the current instance
+     * @return whether or not the two objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof FlashcardGroup)) {
+            return false;
+        }
+
+        if (obj == this) {
+            return true;
+        }
+
+        FlashcardGroup otherFlashcardGroup = (FlashcardGroup) obj;
+        return name.equals(otherFlashcardGroup.getName()) && description.equals(otherFlashcardGroup.getDescription())
+                && groupCards.equals(otherFlashcardGroup.getGroupCards());
     }
 }

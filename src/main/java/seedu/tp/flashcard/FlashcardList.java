@@ -21,9 +21,11 @@ public class FlashcardList {
      * Adds a flashcard to the list.
      *
      * @param flashcard the task to be added to the list
+     * @return
      */
-    public void addFlashcard(Flashcard flashcard) {
+    public FlashcardList addFlashcard(Flashcard flashcard) {
         flashcards.add(flashcard);
+        return this;
     }
 
     /**

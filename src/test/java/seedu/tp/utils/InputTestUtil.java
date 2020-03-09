@@ -1,7 +1,10 @@
 package seedu.tp.utils;
 
 import seedu.tp.flashcard.FlashcardFactory;
+import seedu.tp.group.GroupFactory;
 import seedu.tp.ui.Ui;
+
+import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_LIST;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -21,5 +24,22 @@ public class InputTestUtil {
         FlashcardFactory flashcardFactory = new FlashcardFactory(new Ui());
         System.setIn(SYS_IN_BACKUP);
         return flashcardFactory;
+    }
+
+    public static GroupFactory getGroupFactoryWithInput(String simulatedInput) {
+        ByteArrayInputStream simulatedSystemIn = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(simulatedSystemIn);
+        GroupFactory groupFactory = new GroupFactory(new Ui(),FLASHCARD_LIST);
+        System.setIn(SYS_IN_BACKUP);
+        return groupFactory;
+    }
+
+    public static int[] interpretIndexes(String givenIndexes) {
+        String[] idxs = givenIndexes.split(" ");
+        int[] indexes = new int[idxs.length];
+        for (int i = 0; i<indexes.length; i++){
+            indexes[i] = Integer.parseInt(idxs[i]) - 1;
+        }
+        return indexes;
     }
 }
