@@ -101,7 +101,7 @@ public class GroupList {
         if (this.getTotalGroupNum() != otherGroupList.getTotalGroupNum()) {
             return false;
         }
-        
+
         for (int idx = 0; idx < otherGroupList.getTotalGroupNum(); idx++) {
             if (!this.getGroups().contains(otherGroupList.getGroupAtIdx(idx))) {
                 return false;
