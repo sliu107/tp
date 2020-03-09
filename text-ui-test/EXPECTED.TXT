@@ -15,7 +15,7 @@ Sorry, I don't know how to help with that yet.
 Please enter name:
 Please enter start date:
 Please enter end date:
-That is a required field! Please enter again.
+That date format couldn't be parsed! Please enter again.
 Please enter summary:
 Please enter detail (optional):
 Please enter detail (optional):
@@ -23,7 +23,7 @@ Please enter detail (optional):
 Please enter detail (optional):
 You've successfully created the flashcard below:
 Event name: Meiji Restoration
-Event period: 1868-1868
+Event period: January 1, 1868-January 1, 1868
 Summary: Turning point in Japanese history
 Details: 
 * End of Shogunate
@@ -31,9 +31,10 @@ Details:
 * Functional end of Samurai Class
 
 Here's the list of flashcards you have:
-1: Meiji Restoration
+1: Meiji Restoration | Reviewed: N | Not indicated
 Please enter name:
 Please enter birth date:
+That date format couldn't be parsed! Please enter again.
 Please enter death date:
 Please enter summary:
 Please enter detail (optional):
@@ -41,16 +42,16 @@ Please enter detail (optional):
 Please enter detail (optional):
 You've successfully created the flashcard below:
 Person name: Albus Dumbledore
-Born: Late August, 1881
-Died: 30 June‎, ‎1997‎
+Born: August 1, 1881
+Died: June 30, 1997
 Summary: Albus Dumbledore was never proud or vain.
 Details: 
 * He could find something to value in anyone, however apparently insignificant or wretched
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
 Please enter name:
 Please enter summary:
 Please enter detail (optional):
@@ -65,28 +66,92 @@ Details:
 * It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
 * According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
 
+Please enter name:
+Please enter birth date:
+Please enter death date:
+Please enter summary:
+Please enter detail (optional):
+You've successfully created the flashcard below:
+Person name: Quinn
+Born: July 31, 1870
+Died: February 24, 1943
+Summary: 8)
+Details: 
+
+Here's a sorted list of the flashcards you have:
+Event name: Meiji Restoration
+Event period: January 1, 1868-January 1, 1868
+Summary: Turning point in Japanese history
+Details: 
+* End of Shogunate
+* Centralization of power
+* Functional end of Samurai Class
+
+Person name: Quinn
+Born: July 31, 1870
+Died: February 24, 1943
+Summary: 8)
+Details: 
+
+Person name: Albus Dumbledore
+Born: August 1, 1881
+Died: June 30, 1997
+Summary: Albus Dumbledore was never proud or vain.
+Details: 
+* He could find something to value in anyone, however apparently insignificant or wretched
+* Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
+
+Title: Resurrection Stone
+Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
+Details: 
+* In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
+* It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
+* According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
+
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
-3: Resurrection Stone
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
-3: Resurrection Stone
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
-3: Resurrection Stone
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
-3: Resurrection Stone
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 Here's the list of flashcards you have:
-1: Albus Dumbledore
-2: Resurrection Stone
+1: Albus Dumbledore | Reviewed: N | Not indicated
+2: Resurrection Stone | Reviewed: N | Not indicated
+3: Quinn | Reviewed: N | Not indicated
 Here's the list of flashcards you have:
-1: Albus Dumbledore
+1: Albus Dumbledore | Reviewed: N | Not indicated
+2: Quinn | Reviewed: N | Not indicated
+You have marked the following flashcard as Reviewed:
+Albus Dumbledore
+These are the flashcard details:
+Person name: Albus Dumbledore
+Born: 1 August 1881
+Died: 30 June 1997
+Summary: Albus Dumbledore was never proud or vain.
+Details:
+* He could find something to value in anyone, however apparently insignificant or wretched
+* Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
+
+Priority has been updated:
+Quinn | New priority: **
+Here's the list of flashcards you have:
+1: Albus Dumbledore | Reviewed: Y | Not indicated
+2: Quinn | Reviewed: N | **
 Thanks for using History Flashcard!

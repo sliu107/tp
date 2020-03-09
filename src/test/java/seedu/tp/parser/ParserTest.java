@@ -10,6 +10,7 @@ import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
+import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
@@ -17,6 +18,9 @@ import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
 
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -104,7 +108,7 @@ public class ParserTest {
         // Solution below adopted from:
         // https://stackoverflow.com/questions/40268446/junit-5-how-to-assert-an-exception-is-thrown
         assertThrows(
-            InvalidFlashcardIndexException.class,
+            InvalidFlashcardIndexException.class, 
             () -> parser.parseCommand("delete random"),
             "Expected InvalidFlashcardIndexException"
         );
@@ -120,5 +124,61 @@ public class ParserTest {
     public void parse_byeCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("ByE");
         assertTrue(command instanceof ByeCommand);
+    }
+
+    @Test
+    public void parse_dateStrings_successfully() throws InvalidDateFormatException {
+        String[] dateStrings = {
+            "31 07 1999",
+            "31 7 1999",
+            "3 7 1999",
+            "03 7 1843",
+            "07 0413",
+            "1942",
+            "1/8/2012",
+            "6/2012",
+            "1-8-2012",
+            "8-2012"
+        };
+        
+        LocalDate[] expectedLocalDates = {
+            LocalDate.of(1999, 7, 31),
+            LocalDate.of(1999, 7, 31),
+            LocalDate.of(1999, 7, 3),
+            LocalDate.of(1843, 7, 3),
+            LocalDate.of(413, 7, 1),
+            LocalDate.of(1942, 1, 1),
+            LocalDate.of(2012, 8, 1),
+            LocalDate.of(2012, 6, 1),
+            LocalDate.of(2012, 8, 1),
+            LocalDate.of(2012, 8, 1)
+        };
+        
+        for (int i = 0; i < dateStrings.length; i++) {
+            LocalDate actualLocalDate = Parser.parseDate(dateStrings[i]);
+            assertEquals(expectedLocalDates[i], actualLocalDate);
+        }
+    }
+
+    @Test
+    public void parse_invalidDateStrings_throwsInvalidDateFormatException() {
+        String[] invalidDateStrings = {
+            "asdf",
+            "31 13 1999",
+            "32 12 1234",
+            "07 413",
+            "33 02 0512",
+            "July 31 1999",
+            "31/17 1999",
+            "31/7-1999",
+            "31 7-1999"
+        };
+        
+        for (String invalidDateString : invalidDateStrings) {
+            assertThrows(
+                InvalidDateFormatException.class,
+                () -> Parser.parseDate(invalidDateString)
+            );
+        }
     }
 }

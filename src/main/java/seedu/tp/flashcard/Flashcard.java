@@ -1,19 +1,32 @@
 package seedu.tp.flashcard;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
  * Abstract flashcard class to represent basic properties of flashcard.
  */
-public abstract class Flashcard {
+public abstract class Flashcard implements Comparable<Flashcard> {
     protected String name;
     protected String summary;
     protected List<String> details;
+    protected boolean isReviewed;
+
+    public enum PriorityLevel {
+        LOW,
+        MEDIUM,
+        HIGH,
+        DEFAULT
+    }
+
+    protected PriorityLevel pl;
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
         this.summary = summary;
         this.details = details;
+        this.isReviewed = false;
+        this.pl = PriorityLevel.DEFAULT;
     }
 
     protected static String getDetailsString(List<String> details) {
@@ -23,7 +36,7 @@ public abstract class Flashcard {
         }
         return detailsStringBuilder.toString();
     }
-
+    
     /**
      * Gets the name of the flashcard.
      *
@@ -31,6 +44,51 @@ public abstract class Flashcard {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Sets the review status of the flashcard.
+     *
+     * @param isReviewed true if flashcard has been reviewed
+     */
+    public void setReviewStatus(boolean isReviewed) {
+        this.isReviewed = isReviewed;
+    }
+
+    /**
+     * Returns icon based on flashcard's review status.
+     *
+     * @return "Y" for Yes if reviewed, else "N" for No.
+     */
+    public String getReviewIcon() {
+        return (isReviewed ? "Y" : "N");
+    }
+
+    /**
+     * Sets the flashcard's priority level.
+     *
+     * @param pl priority level to be set
+     */
+    public void setPriorityLevel(PriorityLevel pl) {
+        this.pl = pl;
+    }
+
+    /**
+     * Returns the number of "*"s based on flashcard's priority level.
+     *
+     * @return "*"s to indicate priority level
+     */
+    public String getPriorityAsString() {
+        switch (pl) {
+        case LOW:
+            return "*";
+        case MEDIUM:
+            return "**";
+        case HIGH:
+            return "***";
+        default:
+            return "Not indicated";
+        }
     }
 
     /**
@@ -71,4 +129,7 @@ public abstract class Flashcard {
         return name.equals(otherFlashcard.getName()) && summary.equals(otherFlashcard.getSummary())
                 && details.equals(otherFlashcard.getDetails());
     }
+    
+    @Override
+    public abstract int compareTo(Flashcard flashcard);
 }

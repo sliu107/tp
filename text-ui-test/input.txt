@@ -15,7 +15,8 @@ list
 person
 Albus Dumbledore
 Late August, 1881
-30 June‎, ‎1997‎
+08 1881
+30/06/1997
 Albus Dumbledore was never proud or vain.
 He could find something to value in anyone, however apparently insignificant or wretched
 Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
@@ -28,6 +29,13 @@ In "The Tale of the Three Brothers", it was the second Hallow created, supposedl
 It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
 According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
 
+person
+Quinn
+31/07/1870
+24/02/1943
+8)
+
+timeline
 list
 delete random
 list
@@ -38,5 +46,9 @@ list
 delete 1
 list
 delete 2
+list
+reviewed 1
+show 1
+priority 2 MEDIUM
 list
 bye

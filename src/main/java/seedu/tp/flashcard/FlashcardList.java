@@ -3,6 +3,7 @@ package seedu.tp.flashcard;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * List of flashcards.
@@ -68,6 +69,15 @@ public class FlashcardList {
      */
     public int getTotalFlashcardNum() {
         return flashcards.size();
+    }
+
+    /**
+     * Gets the list of flashcards.
+     * 
+     * @return the list of flashcards
+     */
+    public List<Flashcard> getFlashcards() {
+        return flashcards;
     }
 
     /**
