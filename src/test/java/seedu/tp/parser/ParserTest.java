@@ -14,6 +14,8 @@ import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.group.GroupFactory;
+import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
 
 import java.time.LocalDate;
@@ -36,7 +38,9 @@ public class ParserTest {
         Ui ui = new Ui();
         FlashcardFactory flashcardFactory = new FlashcardFactory(ui);
         FlashcardList flashcardList = new FlashcardList();
-        parser = new Parser(flashcardFactory, flashcardList, ui);
+        GroupFactory groupFactory = new GroupFactory(ui, flashcardList);
+        GroupList groupList = new GroupList();
+        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui);
     }
 
     @Test

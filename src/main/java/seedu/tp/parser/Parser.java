@@ -1,9 +1,12 @@
 package seedu.tp.parser;
 
+import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
+import seedu.tp.commands.GroupCommand;
+import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
@@ -14,6 +17,8 @@ import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.group.GroupFactory;
+import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
 
 import java.time.LocalDate;
@@ -22,11 +27,13 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
-import java.util.Date;
 
+import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
+import static seedu.tp.utils.Constants.GROUP_COMMAND;
+import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
@@ -38,6 +45,8 @@ import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 public class Parser {
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
+    private GroupFactory groupFactory;
+    private GroupList groupList;
     private Ui ui;
 
     /**
@@ -45,11 +54,16 @@ public class Parser {
      *
      * @param flashcardFactory flashcard factory to be passed in as argument to commands
      * @param flashcardList    flashcard list to be passed in as argument to commands
+     * @param groupFactory  group factory to be passes in as argument to commands
+     * @param groupList group list to be passed in as argument to commands
      * @param ui               UI to be passed in as argument to commands
      */
-    public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList, Ui ui) {
+    public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList,
+                  GroupFactory groupFactory, GroupList groupList, Ui ui) {
         this.flashcardFactory = flashcardFactory;
         this.flashcardList = flashcardList;
+        this.groupFactory = groupFactory;
+        this.groupList = groupList;
         this.ui = ui;
     }
 
@@ -79,8 +93,17 @@ public class Parser {
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }
+<<<<<<< HEAD
         case TIMELINE_COMMAND:
             return new TimelineCommand(flashcardList, ui);
+=======
+        case GROUP_COMMAND:
+            return new GroupCommand(flashcardList, groupFactory, groupList);
+        case ADD_FLASHCARD_TO_GROUP_COMMAND:
+            return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
+        case HELP_COMMAND:
+            return new HelpCommand(ui);
+>>>>>>> 77905435eccf90dd659de6ef933911ce6be4f3c2
         case BYE_COMMAND:
             return new ByeCommand();
         default:

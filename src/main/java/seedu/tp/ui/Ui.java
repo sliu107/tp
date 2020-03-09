@@ -4,9 +4,9 @@ import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.parser.Parser;
+import seedu.tp.group.FlashcardGroup;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -34,6 +34,27 @@ public class Ui {
      */
     public void sendByeMessage() {
         System.out.println("Thanks for using History Flashcard!");
+    }
+
+    /**
+     * Sends help message to user.
+     */
+    public void sendHelpMessage() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Followings are the formats of commands used in the main menu:")
+                .append(System.lineSeparator());
+        stringBuilder.append("Add an event flashcard: event").append(System.lineSeparator());
+        stringBuilder.append("Add a person flashcard: person").append(System.lineSeparator());
+        stringBuilder.append("Add an other flashcard: other").append(System.lineSeparator());
+        stringBuilder.append("List out all the flashcards: list").append(System.lineSeparator());
+        stringBuilder.append("Delete a flashcard from the flashcard list: delete i/INDEX")
+                .append(System.lineSeparator());
+        stringBuilder.append("Set up a new flashcard group: group").append(System.lineSeparator());
+        stringBuilder.append("Add a flashcard to an existing group: add").append(System.lineSeparator());
+        stringBuilder.append("To exit the History Flashcard: bye").append(System.lineSeparator());
+        stringBuilder.append("To get help message: help").append(System.lineSeparator());
+        stringBuilder.append("Then please follow the instruction given by the program in each situation.");
+        System.out.println(stringBuilder);
     }
 
     /**
@@ -140,6 +161,29 @@ public class Ui {
     }
 
     /**
+     * Sends flashcard group creation confirmation to user.
+     *
+     * @param flashcardGroup the flashcard group created
+     */
+    public void confirmFlashcardGroupCreation(FlashcardGroup flashcardGroup) {
+        System.out.println("You've successfully created the group below:");
+        System.out.println(flashcardGroup);
+    }
+
+    /**
+     * Sends confirmation message that the flashcard is successfully added to a group.
+     *      *
+     * @param flashcardGroup the flashcard group the flashcard is added into.
+     * @param flashcard the flashcard just be added into the group
+     */
+    public void confirmFlashcardAdditionToGroup(FlashcardGroup flashcardGroup,Flashcard flashcard) {
+        System.out.println("You've successfully add the flashcard below:");
+        System.out.println(flashcard);
+        System.out.println("To the group:");
+        System.out.println(flashcardGroup);
+    }
+
+    /**
      * Prints out all flashcards in the list.
      *
      * @param flashcardList the list of flashcards to be printed out
@@ -208,4 +252,5 @@ public class Ui {
     public String getNextLine() {
         return scanner.nextLine();
     }
+
 }

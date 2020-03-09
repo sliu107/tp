@@ -7,7 +7,9 @@ public class Constants {
     public static final String LIST_COMMAND = "list";
     public static final String DELETE_COMMAND = "delete";
     public static final String TIMELINE_COMMAND = "timeline";
-
+    public static final String GROUP_COMMAND = "group";
+    public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
+    public static final String HELP_COMMAND = "help";
     public static final String BYE_COMMAND = "bye";
 
     public static final String NAME_FIELD = "name";
@@ -17,6 +19,8 @@ public class Constants {
     public static final String DETAIL_FIELD = "detail";
     public static final String BIRTH_DATE_FIELD = "birth date";
     public static final String DEATH_DATE_FIELD = "death date";
+    public static final String DESCRIPTION_FIELD = "description";
+    public static final String INDEXES_FIELD = "indexes";
 
     public static final String EMPTY_STRING = "";
 }
