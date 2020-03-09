@@ -31,6 +31,7 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
+import java.util.Locale;
 
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
@@ -175,7 +176,7 @@ public class Parser {
     }
     
     public static String localDateToString(LocalDate localDate) {
-        final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+        final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.US);
         return localDate.format(formatter);
     }
 }
