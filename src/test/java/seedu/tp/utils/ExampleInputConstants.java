@@ -1,12 +1,17 @@
 package seedu.tp.utils;
 
+import seedu.tp.parser.Parser;
+
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
 public class ExampleInputConstants {
     public static final String NAME = "Example name";
-    public static final String START_DATE = "10/5/1784";
-    public static final String END_DATE = "17/4/1892";
+    public static final String START_DATE = "31 07 1843";
+    public static final String END_DATE = "25 12 1892";
+    public static final LocalDate START_LOCAL_DATE = LocalDate.of(1843, 7, 31);
+    public static final LocalDate END_LOCAL_DATE = LocalDate.of(1892, 12, 25);
     public static final String SUMMARY = "Example summary";
     public static final String DETAIL_1 = "Detail 1";
     public static final String DETAIL_2 = "Detail 2";

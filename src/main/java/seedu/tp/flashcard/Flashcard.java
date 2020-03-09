@@ -1,11 +1,12 @@
 package seedu.tp.flashcard;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
  * Abstract flashcard class to represent basic properties of flashcard.
  */
-public abstract class Flashcard {
+public abstract class Flashcard implements Comparable<Flashcard> {
     protected String name;
     protected String summary;
     protected List<String> details;
@@ -23,7 +24,7 @@ public abstract class Flashcard {
         }
         return detailsStringBuilder.toString();
     }
-
+    
     /**
      * Gets the name of the flashcard.
      *
@@ -71,4 +72,7 @@ public abstract class Flashcard {
         return name.equals(otherFlashcard.getName()) && summary.equals(otherFlashcard.getSummary())
                 && details.equals(otherFlashcard.getDetails());
     }
+    
+    @Override
+    public abstract int compareTo(Flashcard flashcard);
 }

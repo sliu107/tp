@@ -10,7 +10,9 @@ import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
+import seedu.tp.commands.TimelineCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
+import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.FlashcardFactory;
@@ -18,6 +20,13 @@ import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
+import java.time.format.FormatStyle;
+import java.time.temporal.ChronoField;
 
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
@@ -28,12 +37,12 @@ import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
+import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 
 /**
  * Parser class to handle parsing of user input.
  */
 public class Parser {
-
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
     private GroupFactory groupFactory;
@@ -84,6 +93,8 @@ public class Parser {
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }
+        case TIMELINE_COMMAND:
+            return new TimelineCommand(flashcardList, ui);
         case GROUP_COMMAND:
             return new GroupCommand(flashcardList, groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
@@ -95,5 +106,50 @@ public class Parser {
         default:
             throw new UnknownCommandException();
         }
+    }
+
+    /**
+     * Attempt to parse a string representing a date by matching it with formatters.
+     * 
+     * @param date the string to be parsed
+     * @return LocalDate if the string was parsable, null if not
+     */
+    public static LocalDate parseDate(String date) throws InvalidDateFormatException {
+        final DateTimeFormatter[] dateTimeFormatters = {
+                DateTimeFormatter.ofPattern("d M yyyy"),
+                new DateTimeFormatterBuilder()
+                        .appendPattern("M yyyy")
+                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                        .toFormatter(),
+                new DateTimeFormatterBuilder()
+                        .appendPattern("yyyy")
+                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                        .parseDefaulting(ChronoField.MONTH_OF_YEAR, 1)
+                        .toFormatter(),
+                DateTimeFormatter.ofPattern("d/M/yyyy"),
+                new DateTimeFormatterBuilder()
+                        .appendPattern("M/yyyy")
+                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                        .toFormatter(),
+                DateTimeFormatter.ofPattern("d-M-yyyy"),
+                new DateTimeFormatterBuilder()
+                        .appendPattern("M-yyyy")
+                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                        .toFormatter(),
+        };
+        
+        for (DateTimeFormatter formatter : dateTimeFormatters) {
+            try {
+                return LocalDate.parse(date, formatter);
+            } catch (DateTimeParseException e) {
+                continue;
+            }
+        }
+        throw new InvalidDateFormatException();
+    }
+    
+    public static String localDateToString(LocalDate localDate) {
+        final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+        return localDate.format(formatter);
     }
 }

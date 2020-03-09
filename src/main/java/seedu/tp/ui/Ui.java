@@ -1,10 +1,14 @@
 package seedu.tp.ui;
 
+import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.parser.Parser;
 import seedu.tp.group.FlashcardGroup;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -98,6 +102,55 @@ public class Ui {
     }
 
     /**
+     * Prompts the user for an optional date used in the construction of a <code>Flashcard</code>.
+     *
+     * @param fieldName string representing name of the date to prompt for
+     * @return the parsed date
+     */
+    public Optional<LocalDate> promptUserForOptionalLocalDate(String fieldName) {
+        System.out.println("Please enter " + fieldName + " (optional):");
+        String input;
+        LocalDate localDate = null;
+        
+        do {
+            input = getNextLine().trim();
+            if (input.equals(EMPTY_STRING)) {
+                return Optional.empty();
+            }
+            try {
+                localDate = Parser.parseDate(input);
+            } catch (InvalidDateFormatException e) {
+                System.out.println("That date format couldn't be parsed! Please enter again.");
+            }
+        } while (localDate == null);
+        
+        return Optional.of(localDate);
+    }
+
+    /**
+     * Prompts the user for a required date used in the construction of a <code>Flashcard</code>.
+     * 
+     * @param fieldName string representing name of the date to prompt for
+     * @return the parsed date
+     */
+    public LocalDate promptUserForRequiredLocalDate(String fieldName) {
+        System.out.println("Please enter " + fieldName + ":");
+        String input;
+        LocalDate localDate = null;
+        
+        do {
+            input = getNextLine().trim();
+            try {
+                localDate = Parser.parseDate(input);
+            } catch (InvalidDateFormatException e) {
+                System.out.println("That date format couldn't be parsed! Please enter again.");
+            }
+        } while (localDate == null);
+        
+        return localDate;
+    }
+
+    /**
      * Sends flashcard creation confirmation to user.
      *
      * @param flashcard the flashcard created
@@ -145,6 +198,25 @@ public class Ui {
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
             System.out.println((i + 1) + ": " + flashcard.getName());
+        }
+    }
+
+    /**
+     * Prints out all flashcards in the list ordered by start/birth date. Other cards come last
+     * 
+     * @param flashcardList the list of flashcards to be printed out
+     */
+    public void listAllFlashcardsOrdered(FlashcardList flashcardList) {
+        if (flashcardList.isEmpty()) {
+            System.out.println("You have no flashcards at this moment!");
+            return;
+        }
+        
+        List<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
+        Collections.sort(flashcards);
+        System.out.println("Here's a sorted list of the flashcards you have:");
+        for (Flashcard f : flashcards) {
+            System.out.println(f);
         }
     }
 
