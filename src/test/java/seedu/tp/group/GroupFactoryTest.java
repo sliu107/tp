@@ -30,8 +30,7 @@ public class GroupFactoryTest {
     public void groupFactory_invalidFlashcardIndex_throwsException() {
         GroupFactory groupFactory = getGroupFactoryWithInput(SIMULATED_GROUP_COMMAND_INPUT_2, FLASHCARD_LIST);
         assertThrows(
-                InvalidFlashcardIndexException.class,
-                () -> groupFactory.form()
+                InvalidFlashcardIndexException.class, () -> groupFactory.form()
         );
     }
 }

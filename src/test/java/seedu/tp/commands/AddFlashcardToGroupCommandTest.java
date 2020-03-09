@@ -27,16 +27,18 @@ import static seedu.tp.utils.InputTestUtil.getAddFlashcardToGroupCommandWithInpu
 public class AddFlashcardToGroupCommandTest {
     @Test
     public void addFlashcardToGroupCommand_execute_Successfully() throws HistoryFlashcardException {
-        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST, convertStringIndexesToIntArray(INDEXES_2));
+        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST,
+                convertStringIndexesToIntArray(INDEXES_2));
         GroupList expectedGroupList = new GroupList();
         expectedGroupList.addFlashcardGroup(expectedGroup);
 
-        FlashcardGroup actualGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST, convertStringIndexesToIntArray(INDEXES_1));
+        FlashcardGroup actualGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST,
+                convertStringIndexesToIntArray(INDEXES_1));
         GroupList actualGroupList = new GroupList();
         actualGroupList.addFlashcardGroup(actualGroup);
 
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand = getAddFlashcardToGroupCommandWithInput
-                (SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_1, FLASHCARD_LIST, actualGroupList);
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand = getAddFlashcardToGroupCommandWithInput(
+                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_1, FLASHCARD_LIST, actualGroupList);
         addFlashcardToGroupCommand.execute();
 
         assertEquals(expectedGroupList, actualGroupList);
@@ -50,11 +52,10 @@ public class AddFlashcardToGroupCommandTest {
         GroupCommand groupCommand = new GroupCommand(groupFactory, originalGroupList);
         groupCommand.execute();
 
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand = getAddFlashcardToGroupCommandWithInput
-                (SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_2, FLASHCARD_LIST,originalGroupList );
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand = getAddFlashcardToGroupCommandWithInput(
+                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_2, FLASHCARD_LIST,originalGroupList);
         assertThrows(
-                InvalidFlashcardIndexException.class,
-                () -> addFlashcardToGroupCommand.execute()
+                InvalidFlashcardIndexException.class, () -> addFlashcardToGroupCommand.execute()
         );
     }
 
@@ -66,11 +67,10 @@ public class AddFlashcardToGroupCommandTest {
         GroupCommand groupCommand = new GroupCommand(groupFactory, originalGroupList);
         groupCommand.execute();
 
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand = getAddFlashcardToGroupCommandWithInput
-                (SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3, FLASHCARD_LIST,originalGroupList );
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand = getAddFlashcardToGroupCommandWithInput(
+                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3, FLASHCARD_LIST,originalGroupList);
         assertThrows(
-                UnrecognizedFlashcardGroupException.class,
-                () -> addFlashcardToGroupCommand.execute()
+                UnrecognizedFlashcardGroupException.class, () -> addFlashcardToGroupCommand.execute()
         );
     }
 }
