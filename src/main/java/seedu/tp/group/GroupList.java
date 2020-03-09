@@ -66,6 +66,10 @@ public class GroupList {
         }
     }
 
+    public List<FlashcardGroup> getGroups() {
+        return groups;
+    }
+
     /**
      * Gets the flashcard group at a specific index.
      *
@@ -97,9 +101,9 @@ public class GroupList {
         if (this.getTotalGroupNum() != otherGroupList.getTotalGroupNum()) {
             return false;
         }
-
-        for (int idx = 0; idx < this.getTotalGroupNum(); idx++) {
-            if (!this.getGroupAtIdx(idx).equals(otherGroupList.getGroupAtIdx(idx))) {
+        
+        for (int idx = 0; idx < otherGroupList.getTotalGroupNum(); idx++) {
+            if (!this.getGroups().contains(otherGroupList.getGroupAtIdx(idx))) {
                 return false;
             }
         }

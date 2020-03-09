@@ -9,7 +9,8 @@ import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
 
 public class ExampleInputConstants {
-    public static final String NAME = "Example name";
+    public static final String FLASHCARD_NAME = "Example flashcard name";
+    public static final String GROUP_NAME = "Example flashcard group name";
     public static final String DESCRIPTION = "Example description";
     public static final String START_DATE = "10/5/1784";
     public static final String END_DATE = "17/4/1892";
@@ -17,27 +18,31 @@ public class ExampleInputConstants {
     public static final String DETAIL_1 = "Detail 1";
     public static final String DETAIL_2 = "Detail 2";
     public static final List<String> DETAILS = Arrays.asList(DETAIL_1, DETAIL_2);
-    public static final String INDEXES = "1 3";
+    public static final String INDEX = "2";
+    public static final String INDEXES_1 = "1 3";
+    public static final String INDEXES_2 = "1 2 3";
     public static final FlashcardList FLASHCARD_LIST = new FlashcardList()
-            .addFlashcard(new EventFlashcard(NAME, START_DATE, END_DATE, SUMMARY, DETAILS))
-            .addFlashcard(new PersonFlashcard(NAME, START_DATE, END_DATE, SUMMARY, DETAILS))
-            .addFlashcard(new OtherFlashcard(NAME, SUMMARY, DETAILS));
+            .addFlashcard(new EventFlashcard(FLASHCARD_NAME, START_DATE, END_DATE, SUMMARY, DETAILS))
+            .addFlashcard(new PersonFlashcard(FLASHCARD_NAME, START_DATE, END_DATE, SUMMARY, DETAILS))
+            .addFlashcard(new OtherFlashcard(FLASHCARD_NAME, SUMMARY, DETAILS));
     public static final String NEWLINE = System.lineSeparator();
-    public static final String FULL_SIMULATED_INPUT = NAME + NEWLINE
+    public static final String FULL_SIMULATED_INPUT = FLASHCARD_NAME + NEWLINE
             + START_DATE + NEWLINE
             + END_DATE + NEWLINE
             + SUMMARY + NEWLINE
             + DETAIL_1 + NEWLINE
             + DETAIL_2 + NEWLINE
             + NEWLINE;
-    public static final String PARTIAL_SIMULATED_INPUT = NAME + NEWLINE
+    public static final String PARTIAL_SIMULATED_INPUT = FLASHCARD_NAME + NEWLINE
             + SUMMARY + NEWLINE
             + DETAIL_1 + NEWLINE
             + DETAIL_2 + NEWLINE
             + NEWLINE;
-    public static final String SIMULATED_GROUP_COMMAND_INPUT1 = NAME + NEWLINE
+    public static final String SIMULATED_GROUP_COMMAND_INPUT1 = GROUP_NAME + NEWLINE
             + DESCRIPTION + NEWLINE
-            + INDEXES + NEWLINE
+            + INDEXES_1 + NEWLINE
             + NEWLINE;
-
+    public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT = INDEX + NEWLINE
+            + GROUP_NAME + NEWLINE
+            + NEWLINE;
 }

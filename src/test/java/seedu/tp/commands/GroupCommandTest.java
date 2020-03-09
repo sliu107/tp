@@ -10,8 +10,8 @@ import seedu.tp.group.GroupList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.tp.utils.ExampleInputConstants.DESCRIPTION;
 import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_LIST;
-import static seedu.tp.utils.ExampleInputConstants.INDEXES;
-import static seedu.tp.utils.ExampleInputConstants.NAME;
+import static seedu.tp.utils.ExampleInputConstants.GROUP_NAME;
+import static seedu.tp.utils.ExampleInputConstants.INDEXES_1;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_GROUP_COMMAND_INPUT1;
 import static seedu.tp.utils.InputTestUtil.getGroupFactoryWithInput;
 import static seedu.tp.utils.InputTestUtil.interpretIndexes;
@@ -19,12 +19,12 @@ import static seedu.tp.utils.InputTestUtil.interpretIndexes;
 public class GroupCommandTest {
     @Test
     public void groupCommand_execute_Successfully() throws InvalidFlashcardIndexException {
-        FlashcardGroup expectedGroup = new FlashcardGroup(NAME, DESCRIPTION, FLASHCARD_LIST, interpretIndexes(INDEXES));
+        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST, interpretIndexes(INDEXES_1));
         GroupList expectedGroupList = new GroupList();
         expectedGroupList.addFlashcardGroup(expectedGroup);
 
         GroupList actualGroupList = new GroupList();
-        GroupFactory groupFactory = getGroupFactoryWithInput(SIMULATED_GROUP_COMMAND_INPUT1);
+        GroupFactory groupFactory = getGroupFactoryWithInput(SIMULATED_GROUP_COMMAND_INPUT1, FLASHCARD_LIST);
         GroupCommand groupCommand = new GroupCommand(groupFactory, actualGroupList);
         groupCommand.execute();
 

@@ -1,10 +1,11 @@
 package seedu.tp.utils;
 
+import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.flashcard.FlashcardFactory;
+import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
+import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
-
-import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_LIST;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -26,12 +27,19 @@ public class InputTestUtil {
         return flashcardFactory;
     }
 
-    public static GroupFactory getGroupFactoryWithInput(String simulatedInput) {
+    public static GroupFactory getGroupFactoryWithInput(String simulatedInput, FlashcardList flashcardList) {
         ByteArrayInputStream simulatedSystemIn = new ByteArrayInputStream(simulatedInput.getBytes());
         System.setIn(simulatedSystemIn);
-        GroupFactory groupFactory = new GroupFactory(new Ui(),FLASHCARD_LIST);
+        GroupFactory groupFactory = new GroupFactory(new Ui(),flashcardList);
         System.setIn(SYS_IN_BACKUP);
         return groupFactory;
+    }
+
+    public static AddFlashcardToGroupCommand getAddFlashcardToGroupCommandWithInput
+            (String simulatedInput, FlashcardList flashcardList, GroupList originalGroupList) {
+        ByteArrayInputStream simulatedSystemIn = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(simulatedSystemIn);
+        return new AddFlashcardToGroupCommand(new Ui(), originalGroupList, flashcardList);
     }
 
     public static int[] interpretIndexes(String givenIndexes) {

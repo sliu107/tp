@@ -83,11 +83,15 @@ public class FlashcardList {
             return false;
         }
 
-        for (int idx = 0; idx < this.getTotalFlashcardNum(); idx++) {
-            if (!this.getFlashcardAtIdx(idx).equals(otherFlashcardList.getFlashcardAtIdx(idx))) {
+        for (int idx = 0; idx < otherFlashcardList.getTotalFlashcardNum(); idx++) {
+            if (!this.getFlashcards().contains(otherFlashcardList.getFlashcardAtIdx(idx))) {
                 return false;
             }
         }
         return true;
+    }
+
+    public ArrayList<Flashcard> getFlashcards() {
+        return flashcards;
     }
 }

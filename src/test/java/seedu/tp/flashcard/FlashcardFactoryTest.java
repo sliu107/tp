@@ -11,7 +11,7 @@ import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 import static seedu.tp.utils.ExampleInputConstants.FULL_SIMULATED_INPUT;
-import static seedu.tp.utils.ExampleInputConstants.NAME;
+import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_NAME;
 import static seedu.tp.utils.ExampleInputConstants.NEWLINE;
 import static seedu.tp.utils.ExampleInputConstants.PARTIAL_SIMULATED_INPUT;
 import static seedu.tp.utils.ExampleInputConstants.START_DATE;
@@ -23,7 +23,7 @@ import static seedu.tp.utils.InputTestUtil.getFlashcardFactoryWithInput;
 public class FlashcardFactoryTest {
     @Test
     public void flashcardFactory_eventFlashcard_correctlyConstructed() throws UnrecognizedFlashcardTypeException {
-        Flashcard expectedFlashcard = new EventFlashcard(NAME, START_DATE, END_DATE, SUMMARY, DETAILS);
+        Flashcard expectedFlashcard = new EventFlashcard(FLASHCARD_NAME, START_DATE, END_DATE, SUMMARY, DETAILS);
         FlashcardFactory flashcardFactory = getFlashcardFactoryWithInput(FULL_SIMULATED_INPUT);
         Flashcard actualFlashcard = flashcardFactory.create(EVENT_FLASHCARD_COMMAND);
 
@@ -33,7 +33,7 @@ public class FlashcardFactoryTest {
 
     @Test
     public void flashcardFactory_personFlashcard_correctlyConstructed() throws UnrecognizedFlashcardTypeException {
-        Flashcard expectedFlashcard = new PersonFlashcard(NAME, START_DATE, END_DATE, SUMMARY, DETAILS);
+        Flashcard expectedFlashcard = new PersonFlashcard(FLASHCARD_NAME, START_DATE, END_DATE, SUMMARY, DETAILS);
         FlashcardFactory flashcardFactory = getFlashcardFactoryWithInput(FULL_SIMULATED_INPUT);
         Flashcard actualFlashcard = flashcardFactory.create(PERSON_FLASHCARD_COMMAND);
 
@@ -43,7 +43,7 @@ public class FlashcardFactoryTest {
 
     @Test
     public void flashcardFactory_otherFlashcard_correctlyConstructed() throws UnrecognizedFlashcardTypeException {
-        Flashcard expectedFlashcard = new OtherFlashcard(NAME, SUMMARY, DETAILS);
+        Flashcard expectedFlashcard = new OtherFlashcard(FLASHCARD_NAME, SUMMARY, DETAILS);
         FlashcardFactory flashcardFactory = getFlashcardFactoryWithInput(PARTIAL_SIMULATED_INPUT);
         Flashcard actualFlashcard = flashcardFactory.create(OTHER_FLASHCARD_COMMAND);
 
