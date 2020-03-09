@@ -3,7 +3,6 @@ package seedu.tp.commands;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;

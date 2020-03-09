@@ -20,13 +20,13 @@ public class PersonFlashcardCommandTest {
     @Test
     public void personFlashcardCommand_execute_addsFlashcardSuccessfully() throws UnrecognizedFlashcardTypeException {
         FlashcardList expectedFlashcardList = new FlashcardList();
-        expectedFlashcardList.addFlashcard(new PersonFlashcard(NAME, START_LOCAL_DATE, END_LOCAL_DATE, SUMMARY, 
-                DETAILS));
+        expectedFlashcardList.addFlashcard(new PersonFlashcard(NAME, START_LOCAL_DATE, END_LOCAL_DATE, SUMMARY,
+            DETAILS));
 
         FlashcardList actualFlashcardList = new FlashcardList();
         FlashcardFactory flashcardFactory = getFlashcardFactoryWithInput(FULL_SIMULATED_INPUT);
         PersonFlashcardCommand personFlashcardCommand = new PersonFlashcardCommand(actualFlashcardList,
-                flashcardFactory);
+            flashcardFactory);
         personFlashcardCommand.execute();
 
         assertEquals(expectedFlashcardList, actualFlashcardList);

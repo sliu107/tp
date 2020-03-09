@@ -4,10 +4,8 @@ import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
-import seedu.tp.parser.Parser;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,17 +23,17 @@ public class ExampleInputConstants {
     public static final List<String> DETAILS = Arrays.asList(DETAIL_1, DETAIL_2);
 
     public static final String FULL_SIMULATED_INPUT = NAME + NEWLINE
-            + START_DATE + NEWLINE
-            + END_DATE + NEWLINE
-            + SUMMARY + NEWLINE
-            + DETAIL_1 + NEWLINE
-            + DETAIL_2 + NEWLINE
-            + NEWLINE;
+        + START_DATE + NEWLINE
+        + END_DATE + NEWLINE
+        + SUMMARY + NEWLINE
+        + DETAIL_1 + NEWLINE
+        + DETAIL_2 + NEWLINE
+        + NEWLINE;
     public static final String PARTIAL_SIMULATED_INPUT = NAME + NEWLINE
-            + SUMMARY + NEWLINE
-            + DETAIL_1 + NEWLINE
-            + DETAIL_2 + NEWLINE
-            + NEWLINE;
+        + SUMMARY + NEWLINE
+        + DETAIL_1 + NEWLINE
+        + DETAIL_2 + NEWLINE
+        + NEWLINE;
 
     public static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
         "Event 1",
@@ -58,13 +56,6 @@ public class ExampleInputConstants {
     );
 
     public static final FlashcardList EMPTY_FLASHCARD_LIST = new FlashcardList();
-    public static final FlashcardList FULL_FLAHSHCARD_LIST = createFullFlashcardList();
-
-    private static FlashcardList createFullFlashcardList() {
-        FlashcardList flashcardList = new FlashcardList();
-        flashcardList.addFlashcard(EVENT_FLASHCARD);
-        flashcardList.addFlashcard(PERSON_FLASHCARD);
-        flashcardList.addFlashcard(OTHER_FLASHCARD);
-        return flashcardList;
-    }
+    public static final FlashcardList FULL_FLAHSHCARD_LIST =
+        new FlashcardList(Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD));
 }

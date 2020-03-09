@@ -9,13 +9,31 @@ import java.util.List;
  * List of flashcards.
  */
 public class FlashcardList {
-    private ArrayList<Flashcard> flashcards;
+    private List<Flashcard> flashcards;
 
     /**
      * Constructor for FlashcardList.
      */
     public FlashcardList() {
         this.flashcards = new ArrayList<>();
+    }
+
+    public FlashcardList(List<Flashcard> flashcardList) {
+        this.flashcards = new ArrayList<>();
+        this.flashcards.addAll(flashcardList);
+    }
+
+    /**
+     * Copy constructor for FlashcardList.
+     * Note that this is a shallow copy.
+     *
+     * @param flashcardList the flashcard list to be copied from
+     */
+    public FlashcardList(FlashcardList flashcardList) {
+        this.flashcards = new ArrayList<>();
+        for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
+            this.flashcards.add(flashcardList.getFlashcardAtIdx(i));
+        }
     }
 
     /**
@@ -71,7 +89,7 @@ public class FlashcardList {
 
     /**
      * Gets the list of flashcards.
-     * 
+     *
      * @return the list of flashcards
      */
     public List<Flashcard> getFlashcards() {

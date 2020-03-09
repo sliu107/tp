@@ -10,7 +10,7 @@ import static seedu.tp.utils.Constants.INDEXES_FIELD;
 import static seedu.tp.utils.Constants.NAME_FIELD;
 
 /**
- *  A group of flashcards which have some of the same characteristics.
+ * A group of flashcards which have some of the same characteristics.
  */
 public class FlashcardGroup {
     private String name;
@@ -20,10 +20,10 @@ public class FlashcardGroup {
     /**
      * Constructs a <code>FlashcardGroup</code> using some existing cards from the users original list.
      *
-     * @param name the name of the group.
-     * @param description brief description of the group.
+     * @param name         the name of the group.
+     * @param description  brief description of the group.
      * @param originalList the original list of flashcards.
-     * @param indexes the indexes of the flashcards which are going to be added to this group.
+     * @param indexes      the indexes of the flashcards which are going to be added to this group.
      */
     public FlashcardGroup(String name, String description, FlashcardList originalList, int[] indexes) {
         this.name = name;
@@ -34,18 +34,9 @@ public class FlashcardGroup {
     }
 
     /**
-     * Adds a flashcard to an existing group.
-     *
-     * @param flashcard the flashcard to be added.
-     */
-    public void addFlashcardToTheGroup(Flashcard flashcard) {
-        groupCards.addFlashcard(flashcard);
-    }
-
-    /**
      * Creates an <code>flashcardGroup</code>  by prompting the user to enter info.
      *
-     * @param ui used to prompt the user
+     * @param ui            used to prompt the user
      * @param flashcardList the flashcardList which used to create the new group
      * @return the new flashcardGroup
      * @throws InvalidFlashcardIndexException if the indexes given by the users are not integers or out of bounds
@@ -63,6 +54,15 @@ public class FlashcardGroup {
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
+    }
+
+    /**
+     * Adds a flashcard to an existing group.
+     *
+     * @param flashcard the flashcard to be added.
+     */
+    public void addFlashcardToTheGroup(Flashcard flashcard) {
+        groupCards.addFlashcard(flashcard);
     }
 
     /**

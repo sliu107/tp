@@ -19,7 +19,7 @@ public class DeleteCommandTest {
         expectedFlashcardList.addFlashcard(EVENT_FLASHCARD);
         expectedFlashcardList.addFlashcard(OTHER_FLASHCARD);
 
-        FlashcardList flashcardList = FULL_FLAHSHCARD_LIST;
+        FlashcardList flashcardList = new FlashcardList(FULL_FLAHSHCARD_LIST);
         DeleteCommand deleteCommand = new DeleteCommand(flashcardList, 1);
         deleteCommand.execute();
 

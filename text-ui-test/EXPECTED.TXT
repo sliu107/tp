@@ -145,7 +145,7 @@ Person name: Albus Dumbledore
 Born: August 1, 1881
 Died: June 30, 1997
 Summary: Albus Dumbledore was never proud or vain.
-Details: 
+Details:
 * He could find something to value in anyone, however apparently insignificant or wretched
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 

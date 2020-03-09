@@ -45,7 +45,7 @@ public class OtherFlashcard extends Flashcard {
         stringBuilder.append(getDetailsString(details));
         return stringBuilder.toString();
     }
-    
+
     @Override
     public int compareTo(Flashcard flashcard) {
         if (flashcard instanceof OtherFlashcard) {
