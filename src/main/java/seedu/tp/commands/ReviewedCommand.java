@@ -13,7 +13,14 @@ public class ReviewedCommand extends Command {
     private int index;
     private Ui ui;
 
-    public ReviewedCommand (FlashcardList flashcardList, int index, Ui ui) {
+    /**
+     * Constructor for ReviewedCommand
+     *
+     * @param flashcardList list containing all flashcards
+     * @param index index of the flashcard to show
+     * @param ui instance for user interaction
+     */
+    public ReviewedCommand(FlashcardList flashcardList, int index, Ui ui) {
         this.flashcardList = flashcardList;
         this.index = index;
         this.ui = ui;

@@ -165,7 +165,7 @@ public class Ui {
      *
      * @param flashcard the flashcard that was reviewed
      */
-    public void confirmFlashcardReview (Flashcard flashcard) {
+    public void confirmFlashcardReview(Flashcard flashcard) {
         System.out.println("You have marked the following flashcard as Reviewed: ");
         System.out.println(flashcard.getName());
     }
@@ -175,7 +175,7 @@ public class Ui {
      *
      * @param flashcard the flashcard that had its priority updated
      */
-    public void confirmFlashcardPriority (Flashcard flashcard) {
+    public void confirmFlashcardPriority(Flashcard flashcard) {
         System.out.println("Priority has been updated: ");
         System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString());
     }
@@ -190,11 +190,11 @@ public class Ui {
         System.out.println(flashcard);
     }
 
-     /**
-     * Sends flashcard group creation confirmation to user.
-     *
-     * @param flashcardGroup the flashcard group created
-     */
+    /**
+    * Sends flashcard group creation confirmation to user.
+    *
+    * @param flashcardGroup the flashcard group created
+    */
     public void confirmFlashcardGroupCreation(FlashcardGroup flashcardGroup) {
         System.out.println("You've successfully created the group below:");
         System.out.println(flashcardGroup);

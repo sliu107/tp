@@ -114,7 +114,7 @@ public class Parser {
             }
         case PRIORITY_COMMAND:
             try {
-                Flashcard.priorityLevel pl = Flashcard.priorityLevel.valueOf(splitInput[2]);
+                Flashcard.PriorityLevel pl = Flashcard.PriorityLevel.valueOf(splitInput[2]);
                 return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl);
             } catch (IndexOutOfBoundsException e) {
                 throw new InvalidFlashcardIndexException();

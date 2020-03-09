@@ -12,20 +12,21 @@ public abstract class Flashcard implements Comparable<Flashcard> {
     protected List<String> details;
     protected boolean isReviewed;
 
-    public enum priorityLevel {
+    public enum PriorityLevel {
         LOW,
         MEDIUM,
         HIGH,
         DEFAULT
     }
-    protected priorityLevel pl;
+
+    protected PriorityLevel pl;
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
         this.summary = summary;
         this.details = details;
         this.isReviewed = false;
-        this.pl = priorityLevel.DEFAULT;
+        this.pl = PriorityLevel.DEFAULT;
     }
 
     protected static String getDetailsString(List<String> details) {
@@ -50,7 +51,7 @@ public abstract class Flashcard implements Comparable<Flashcard> {
      *
      * @param isReviewed true if flashcard has been reviewed
      */
-    public void setReviewStatus (boolean isReviewed) {
+    public void setReviewStatus(boolean isReviewed) {
         this.isReviewed = isReviewed;
     }
 
@@ -68,7 +69,7 @@ public abstract class Flashcard implements Comparable<Flashcard> {
      *
      * @param pl priority level to be set
      */
-    public void setPriorityLevel(priorityLevel pl) {
+    public void setPriorityLevel(PriorityLevel pl) {
         this.pl = pl;
     }
 

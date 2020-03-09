@@ -14,6 +14,13 @@ public class ShowCommand extends Command {
     private int index;
     private Ui ui;
 
+    /**
+     * Constructor for the ShowCommand
+     *
+     * @param flashcardList list containing all flashcards
+     * @param index index of the flashcard to show
+     * @param ui instance for user interaction
+     */
     public ShowCommand(FlashcardList flashcardList, int index, Ui ui) {
         this.flashcardList = flashcardList;
         this.index = index;
