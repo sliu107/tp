@@ -47,4 +47,8 @@ delete 1
 list
 delete 2
 list
+reviewed 1
+show 1
+priority 2 MEDIUM
+list
 bye

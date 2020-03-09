@@ -31,7 +31,7 @@ Details:
 * Functional end of Samurai Class
 
 Here's the list of flashcards you have:
-1: Meiji Restoration
+1: Meiji Restoration | Reviewed: N | Not indicated
 Please enter name:
 Please enter birth date:
 That date format couldn't be parsed! Please enter again.
@@ -50,8 +50,8 @@ Details:
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
 Please enter name:
 Please enter summary:
 Please enter detail (optional):
@@ -109,33 +109,49 @@ Details:
 * According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
 
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
-3: Resurrection Stone
-4: Quinn
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
-3: Resurrection Stone
-4: Quinn
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
-3: Resurrection Stone
-4: Quinn
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration
-2: Albus Dumbledore
-3: Resurrection Stone
-4: Quinn
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 Here's the list of flashcards you have:
-1: Albus Dumbledore
-2: Resurrection Stone
-3: Quinn
+1: Albus Dumbledore | Reviewed: N | Not indicated
+2: Resurrection Stone | Reviewed: N | Not indicated
+3: Quinn | Reviewed: N | Not indicated
 Here's the list of flashcards you have:
-1: Albus Dumbledore
-2: Quinn
+1: Albus Dumbledore | Reviewed: N | Not indicated
+2: Quinn | Reviewed: N | Not indicated
+You have marked the following flashcard as Reviewed:
+Albus Dumbledore
+These are the flashcard details:
+Person name: Albus Dumbledore
+Born: 1 August 1881
+Died: 30 June 1997
+Summary: Albus Dumbledore was never proud or vain.
+Details:
+* He could find something to value in anyone, however apparently insignificant or wretched
+* Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
+
+Priority has been updated:
+Quinn | New priority: **
+Here's the list of flashcards you have:
+1: Albus Dumbledore | Reviewed: Y | Not indicated
+2: Quinn | Reviewed: N | **
 Thanks for using History Flashcard!
