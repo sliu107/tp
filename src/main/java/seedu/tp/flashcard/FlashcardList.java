@@ -22,7 +22,7 @@ public class FlashcardList {
      * Adds a flashcard to the list.
      *
      * @param flashcard the task to be added to the list
-     * @return
+     * @return the updated flashcardList with new flashcard just be added in
      */
     public FlashcardList addFlashcard(Flashcard flashcard) {
         flashcards.add(flashcard);
@@ -73,7 +73,7 @@ public class FlashcardList {
 
     /**
      * Gets the list of flashcards.
-     * 
+     *
      * @return the list of flashcards
      */
     public List<Flashcard> getFlashcards() {
@@ -93,15 +93,11 @@ public class FlashcardList {
             return false;
         }
 
-        for (int idx = 0; idx < otherFlashcardList.getTotalFlashcardNum(); idx++) {
-            if (!this.getFlashcards().contains(otherFlashcardList.getFlashcardAtIdx(idx))) {
+        for (int idx = 0; idx < this.getTotalFlashcardNum(); idx++) {
+            if (!this.getFlashcardAtIdx(idx).equals(otherFlashcardList.getFlashcardAtIdx(idx))) {
                 return false;
             }
         }
         return true;
-    }
-
-    public ArrayList<Flashcard> getFlashcards() {
-        return flashcards;
     }
 }

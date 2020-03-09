@@ -42,7 +42,7 @@ public class InputTestUtil {
         return new AddFlashcardToGroupCommand(new Ui(), originalGroupList, flashcardList);
     }
 
-    public static int[] interpretIndexes(String givenIndexes) {
+    public static int[] convertStringIndexesToIntArray(String givenIndexes) {
         String[] idxs = givenIndexes.split(" ");
         int[] indexes = new int[idxs.length];
         for (int i = 0; i<indexes.length; i++){

@@ -21,17 +21,17 @@ import static seedu.tp.utils.ExampleInputConstants.SIMULATED_ADD_FLASHCARD_TO_GR
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_GROUP_COMMAND_INPUT_1;
 import static seedu.tp.utils.InputTestUtil.getGroupFactoryWithInput;
-import static seedu.tp.utils.InputTestUtil.interpretIndexes;
+import static seedu.tp.utils.InputTestUtil.convertStringIndexesToIntArray;
 import static seedu.tp.utils.InputTestUtil.getAddFlashcardToGroupCommandWithInput;
 
 public class AddFlashcardToGroupCommandTest {
     @Test
     public void addFlashcardToGroupCommand_execute_Successfully() throws HistoryFlashcardException {
-        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST, interpretIndexes(INDEXES_2));
+        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST, convertStringIndexesToIntArray(INDEXES_2));
         GroupList expectedGroupList = new GroupList();
         expectedGroupList.addFlashcardGroup(expectedGroup);
 
-        FlashcardGroup actualGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST, interpretIndexes(INDEXES_1));
+        FlashcardGroup actualGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST, convertStringIndexesToIntArray(INDEXES_1));
         GroupList actualGroupList = new GroupList();
         actualGroupList.addFlashcardGroup(actualGroup);
 

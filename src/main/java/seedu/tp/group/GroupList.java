@@ -3,8 +3,6 @@ package seedu.tp.group;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.GroupLayout;
-
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnrecognizedFlashcardGroupException;

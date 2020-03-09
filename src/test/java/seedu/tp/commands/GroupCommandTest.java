@@ -14,13 +14,13 @@ import static seedu.tp.utils.ExampleInputConstants.GROUP_NAME;
 import static seedu.tp.utils.ExampleInputConstants.INDEXES_1;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_GROUP_COMMAND_INPUT_1;
 import static seedu.tp.utils.InputTestUtil.getGroupFactoryWithInput;
-import static seedu.tp.utils.InputTestUtil.interpretIndexes;
+import static seedu.tp.utils.InputTestUtil.convertStringIndexesToIntArray;
 
 public class GroupCommandTest {
     @Test
     public void groupCommand_execute_Successfully() throws InvalidFlashcardIndexException {
         FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST,
-                interpretIndexes(INDEXES_1));
+                convertStringIndexesToIntArray(INDEXES_1));
         GroupList expectedGroupList = new GroupList();
         expectedGroupList.addFlashcardGroup(expectedGroup);
 

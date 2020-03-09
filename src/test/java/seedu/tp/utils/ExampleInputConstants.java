@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.tp.flashcard.EventFlashcard;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
@@ -25,7 +26,7 @@ public class ExampleInputConstants {
     public static final String INDEX_1 = "2";
     public static final String INDEX_2 = "-1";
     public static final String INDEXES_1 = "1 3";
-    public static final String INDEXES_2 = "1 2 3";
+    public static final String INDEXES_2 = "1 3 2";
     public static final String INVALID_INDEXES = "0 -1 5";
     public static final FlashcardList FLASHCARD_LIST = new FlashcardList()
             .addFlashcard(new EventFlashcard(FLASHCARD_NAME, START_LOCAL_DATE, END_LOCAL_DATE, SUMMARY, DETAILS))
