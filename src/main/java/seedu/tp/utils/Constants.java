@@ -9,6 +9,7 @@ public class Constants {
     public static final String REVIEWED_COMMAND = "reviewed";
     public static final String DELETE_COMMAND = "delete";
     public static final String PRIORITY_COMMAND = "priority";
+    public static final String TIMELINE_COMMAND = "timeline";
     public static final String GROUP_COMMAND = "group";
     public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
     public static final String HELP_COMMAND = "help";
