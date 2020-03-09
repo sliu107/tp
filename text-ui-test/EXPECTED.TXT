@@ -1,4 +1,16 @@
 Welcome to History Flashcard App!
+Followings are the formats of commands used in the main menu:
+Add an event flashcard: event
+Add a person flashcard: person
+Add an other flashcard: other
+List out all the flashcards: list
+Delete a flashcard from the flashcard list: delete i/INDEX
+Set up a new flashcard group: group
+Add a flashcard to an existing group: add
+To exit the History Flashcard: bye
+To get help message: help
+Then please follow the instruction given by the program in each situation.
+Sorry, I don't know how to help with that yet.
 Sorry, I don't know how to help with that yet.
 Please enter name:
 Please enter start date:

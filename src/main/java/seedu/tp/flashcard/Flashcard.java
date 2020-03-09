@@ -85,4 +85,43 @@ public abstract class Flashcard {
             return "Not indicated";
         }
     }
+
+    /**
+     * Gets the summary of the flashcard.
+     *
+     * @return the summary of the flashcard.
+     */
+    public String getSummary() {
+        return summary;
+    }
+
+    /**
+     * Gets the details of the flashcard.
+     *
+     * @return the details of the flashcard
+     */
+    public List<String> getDetails() {
+        return details;
+    }
+
+    /**
+     * Check if the current instance is equal to the object passed in.
+     *
+     * @param obj The object to be compared against the current instance
+     * @return whether or not the two objects are equal
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Flashcard)) {
+            return false;
+        }
+
+        if (obj == this) {
+            return true;
+        }
+
+        Flashcard otherFlashcard = (Flashcard) obj;
+        return name.equals(otherFlashcard.getName()) && summary.equals(otherFlashcard.getSummary())
+                && details.equals(otherFlashcard.getDetails());
+    }
 }
