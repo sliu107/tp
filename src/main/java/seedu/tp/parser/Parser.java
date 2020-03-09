@@ -85,7 +85,7 @@ public class Parser {
                 throw new InvalidFlashcardIndexException();
             }
         case GROUP_COMMAND:
-            return new GroupCommand(flashcardList, groupFactory, groupList);
+            return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
         case HELP_COMMAND:

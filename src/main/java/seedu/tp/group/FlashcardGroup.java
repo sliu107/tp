@@ -76,7 +76,8 @@ public class FlashcardGroup {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Group name: ").append(name).append(System.lineSeparator());
         stringBuilder.append("Group description: ").append(description).append(System.lineSeparator());
-        stringBuilder.append("There are ").append(groupCards.getTotalFlashcardNum()).append(" in this group.");
+        stringBuilder.append("There are ").append(groupCards.getTotalFlashcardNum())
+                .append(" flashcards in this group.");
         stringBuilder.append(System.lineSeparator());
         return stringBuilder.toString();
     }

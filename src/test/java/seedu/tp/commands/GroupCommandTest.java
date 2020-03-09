@@ -25,7 +25,7 @@ public class GroupCommandTest {
 
         GroupList actualGroupList = new GroupList();
         GroupFactory groupFactory = getGroupFactoryWithInput(SIMULATED_GROUP_COMMAND_INPUT1);
-        GroupCommand groupCommand = new GroupCommand(FLASHCARD_LIST, groupFactory, actualGroupList);
+        GroupCommand groupCommand = new GroupCommand(groupFactory, actualGroupList);
         groupCommand.execute();
 
         assertEquals(expectedGroupList, actualGroupList);
