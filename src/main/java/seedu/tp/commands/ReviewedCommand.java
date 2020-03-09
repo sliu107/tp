@@ -14,7 +14,7 @@ public class ReviewedCommand extends Command {
     private Ui ui;
 
     /**
-     * Constructor for ReviewedCommand
+     * Constructor for ReviewedCommand.
      *
      * @param flashcardList list containing all flashcards
      * @param index index of the flashcard to show

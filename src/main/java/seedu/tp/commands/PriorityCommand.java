@@ -15,7 +15,7 @@ public class PriorityCommand extends Command {
     private Flashcard.PriorityLevel pl;
 
     /**
-     * Constructor for the PriorityCommand
+     * Constructor for the PriorityCommand.
      *
      * @param flashcardList list containing all flashcards
      * @param index index of the flashcard to show

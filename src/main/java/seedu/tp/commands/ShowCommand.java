@@ -15,7 +15,7 @@ public class ShowCommand extends Command {
     private Ui ui;
 
     /**
-     * Constructor for the ShowCommand
+     * Constructor for the ShowCommand.
      *
      * @param flashcardList list containing all flashcards
      * @param index index of the flashcard to show
