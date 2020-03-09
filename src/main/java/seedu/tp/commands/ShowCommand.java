@@ -5,6 +5,9 @@ import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.ui.Ui;
 
+/**
+ * Command to show the details of a specified flashcard.
+ */
 public class ShowCommand extends Command {
 
     private FlashcardList flashcardList;
@@ -20,7 +23,7 @@ public class ShowCommand extends Command {
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         try {
-            Flashcard flashcard = flashcardList.getFlashcardAtIdx(index - 1);
+            Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
             ui.showFlashcard(flashcard);
         } catch (IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();

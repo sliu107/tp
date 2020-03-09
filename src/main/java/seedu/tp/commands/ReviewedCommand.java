@@ -5,6 +5,9 @@ import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.ui.Ui;
 
+/**
+ * Command to mark a flashcard as Reviewed.
+ */
 public class ReviewedCommand extends Command {
     private FlashcardList flashcardList;
     private int index;

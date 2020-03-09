@@ -3,6 +3,9 @@ package seedu.tp.commands;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
+/**
+ * Command to list all existing flashcards.
+ */
 public class ListCommand extends Command {
 
     private FlashcardList flashcardList;

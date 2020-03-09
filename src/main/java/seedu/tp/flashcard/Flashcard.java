@@ -10,14 +10,21 @@ public abstract class Flashcard {
     protected String summary;
     protected List<String> details;
     protected boolean isReviewed;
-    protected int priorityLevel;
+
+    public enum priorityLevel {
+        LOW,
+        MEDIUM,
+        HIGH,
+        DEFAULT
+    }
+    protected priorityLevel pl;
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
         this.summary = summary;
         this.details = details;
         this.isReviewed = false;
-        this.priorityLevel = 0;
+        this.pl = priorityLevel.DEFAULT;
     }
 
     protected static String getDetailsString(List<String> details) {
@@ -58,10 +65,10 @@ public abstract class Flashcard {
     /**
      * Sets the flashcard's priority level.
      *
-     * @param priorityLevel priority level to be set
+     * @param pl priority level to be set
      */
-    public void setPriorityLevel(int priorityLevel) {
-        this.priorityLevel = priorityLevel;
+    public void setPriorityLevel(priorityLevel pl) {
+        this.pl = pl;
     }
 
     /**
@@ -70,17 +77,13 @@ public abstract class Flashcard {
      * @return "*"s to indicate priority level
      */
     public String getPriorityAsString() {
-        switch (priorityLevel) {
-        case 1:
+        switch (pl) {
+        case LOW:
             return "*";
-        case 2:
+        case MEDIUM:
             return "**";
-        case 3:
+        case HIGH:
             return "***";
-        case 4:
-            return "****";
-        case 5:
-            return "*****";
         default:
             return "Not indicated";
         }

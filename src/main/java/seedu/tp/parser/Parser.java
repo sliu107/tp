@@ -16,6 +16,7 @@ import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnknownCommandException;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
@@ -86,7 +87,7 @@ public class Parser {
             return new ListCommand(flashcardList, ui);
         case SHOW_COMMAND:
             try {
-                return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]), ui);
+                return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
             } catch (Exception e) {
                 throw new InvalidFlashcardIndexException();
             }
@@ -104,8 +105,8 @@ public class Parser {
             }
         case PRIORITY_COMMAND:
             try {
-                int priorityLevel = Integer.parseInt(splitInput[2]);
-                return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, priorityLevel);
+                Flashcard.priorityLevel pl = Flashcard.priorityLevel.valueOf(splitInput[2]);
+                return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl);
             } catch (IndexOutOfBoundsException e) {
                 throw new InvalidFlashcardIndexException();
             }
