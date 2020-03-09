@@ -8,6 +8,9 @@ import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
+import seedu.tp.commands.ShowCommand;
+import seedu.tp.commands.ReviewedCommand;
+import seedu.tp.commands.PriorityCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.TimelineCommand;
@@ -15,6 +18,7 @@ import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnknownCommandException;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
@@ -35,6 +39,9 @@ import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
+import static seedu.tp.utils.Constants.SHOW_COMMAND;
+import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
+import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
@@ -75,8 +82,8 @@ public class Parser {
      * @throws HistoryFlashcardException exception that occurred when parsing user input
      */
     public Command parseCommand(String userInput) throws HistoryFlashcardException {
-        String[] splittedInput = userInput.split(" ", 2);
-        String commandType = splittedInput[0].toLowerCase();
+        String[] splitInput = userInput.split(" ", 3);
+        String commandType = splitInput[0].toLowerCase();
 
         switch (commandType) {
         case EVENT_FLASHCARD_COMMAND:
@@ -87,10 +94,29 @@ public class Parser {
             return new OtherFlashcardCommand(flashcardList, flashcardFactory);
         case LIST_COMMAND:
             return new ListCommand(flashcardList, ui);
+        case SHOW_COMMAND:
+            try {
+                return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+            } catch (Exception e) {
+                throw new InvalidFlashcardIndexException();
+            }
+        case REVIEWED_COMMAND:
+            try {
+                return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+            } catch (Exception e) {
+                throw new InvalidFlashcardIndexException();
+            }
         case DELETE_COMMAND:
             try {
-                return new DeleteCommand(flashcardList, Integer.parseInt(splittedInput[1]) - 1);
+                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
             } catch (Exception e) {
+                throw new InvalidFlashcardIndexException();
+            }
+        case PRIORITY_COMMAND:
+            try {
+                Flashcard.PriorityLevel pl = Flashcard.PriorityLevel.valueOf(splitInput[2]);
+                return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl);
+            } catch (IndexOutOfBoundsException e) {
                 throw new InvalidFlashcardIndexException();
             }
         case TIMELINE_COMMAND:

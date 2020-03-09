@@ -161,10 +161,40 @@ public class Ui {
     }
 
     /**
-     * Sends flashcard group creation confirmation to user.
+     * Prints confirmation that flashcard has been marked as reviewed.
      *
-     * @param flashcardGroup the flashcard group created
+     * @param flashcard the flashcard that was reviewed
      */
+    public void confirmFlashcardReview(Flashcard flashcard) {
+        System.out.println("You have marked the following flashcard as Reviewed: ");
+        System.out.println(flashcard.getName());
+    }
+
+    /**
+     * Prints confirmation that flashcard priority level has been updated.
+     *
+     * @param flashcard the flashcard that had its priority updated
+     */
+    public void confirmFlashcardPriority(Flashcard flashcard) {
+        System.out.println("Priority has been updated: ");
+        System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString());
+    }
+
+    /**
+     * Displays flashcard details according to index specified.
+     *
+     * @param flashcard the flashcard to be displayed
+     */
+    public void showFlashcard(Flashcard flashcard) {
+        System.out.println("These are the flashcard details:");
+        System.out.println(flashcard);
+    }
+
+    /**
+    * Sends flashcard group creation confirmation to user.
+    *
+    * @param flashcardGroup the flashcard group created
+    */
     public void confirmFlashcardGroupCreation(FlashcardGroup flashcardGroup) {
         System.out.println("You've successfully created the group below:");
         System.out.println(flashcardGroup);
@@ -197,7 +227,8 @@ public class Ui {
         System.out.println("Here's the list of flashcards you have:");
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
-            System.out.println((i + 1) + ": " + flashcard.getName());
+            System.out.println((i + 1) + ": " + flashcard.getName() + " | Reviewed: " + flashcard.getReviewIcon()
+                                + " | " + flashcard.getPriorityAsString());
         }
     }
 
