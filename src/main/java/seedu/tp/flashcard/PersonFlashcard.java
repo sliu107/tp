@@ -73,7 +73,7 @@ public class PersonFlashcard extends Flashcard {
         stringBuilder.append("Born: ").append(Parser.localDateToString(birthDate)).append(System.lineSeparator());
         stringBuilder.append("Died: ").append(Parser.localDateToString(deathDate)).append(System.lineSeparator());
         stringBuilder.append("Summary: ").append(summary).append(System.lineSeparator());
-        stringBuilder.append("Details: ").append(System.lineSeparator());
+        stringBuilder.append("Details:").append(System.lineSeparator());
         stringBuilder.append(getDetailsString(details));
         return stringBuilder.toString();
     }
