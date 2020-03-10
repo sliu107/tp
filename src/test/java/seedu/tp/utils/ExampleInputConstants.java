@@ -56,6 +56,6 @@ public class ExampleInputConstants {
     );
 
     public static final FlashcardList EMPTY_FLASHCARD_LIST = new FlashcardList();
-    public static final FlashcardList FULL_FLAHSHCARD_LIST =
+    public static final FlashcardList FULL_FLASHCARD_LIST =
         new FlashcardList(Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD));
 }

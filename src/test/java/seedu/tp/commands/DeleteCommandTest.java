@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static seedu.tp.utils.ExampleInputConstants.EMPTY_FLASHCARD_LIST;
 import static seedu.tp.utils.ExampleInputConstants.EVENT_FLASHCARD;
-import static seedu.tp.utils.ExampleInputConstants.FULL_FLAHSHCARD_LIST;
+import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
 import static seedu.tp.utils.ExampleInputConstants.OTHER_FLASHCARD;
 
 public class DeleteCommandTest {
@@ -19,7 +19,7 @@ public class DeleteCommandTest {
         expectedFlashcardList.addFlashcard(EVENT_FLASHCARD);
         expectedFlashcardList.addFlashcard(OTHER_FLASHCARD);
 
-        FlashcardList flashcardList = new FlashcardList(FULL_FLAHSHCARD_LIST);
+        FlashcardList flashcardList = new FlashcardList(FULL_FLASHCARD_LIST);
         DeleteCommand deleteCommand = new DeleteCommand(flashcardList, 1);
         deleteCommand.execute();
 
@@ -38,7 +38,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_deleteNegativeIndex_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(FULL_FLAHSHCARD_LIST, -10);
+        DeleteCommand deleteCommand = new DeleteCommand(FULL_FLASHCARD_LIST, -10);
         assertThrows(
             InvalidFlashcardIndexException.class,
             deleteCommand::execute,
@@ -48,7 +48,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_deleteOutOfBoundIndex_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(FULL_FLAHSHCARD_LIST, 100);
+        DeleteCommand deleteCommand = new DeleteCommand(FULL_FLASHCARD_LIST, 100);
         assertThrows(
             InvalidFlashcardIndexException.class,
             deleteCommand::execute,

@@ -10,7 +10,7 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.tp.utils.ExampleInputConstants.EMPTY_FLASHCARD_LIST;
-import static seedu.tp.utils.ExampleInputConstants.FULL_FLAHSHCARD_LIST;
+import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
 
 public class ListCommandTest {
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
@@ -34,7 +34,7 @@ public class ListCommandTest {
         expectedOutput.append("2: Person 1 | Reviewed: N | Not indicated" + System.lineSeparator());
         expectedOutput.append("3: Title 1 | Reviewed: N | Not indicated" + System.lineSeparator());
 
-        ListCommand listCommand = new ListCommand(FULL_FLAHSHCARD_LIST, new Ui());
+        ListCommand listCommand = new ListCommand(FULL_FLASHCARD_LIST, new Ui());
         listCommand.execute();
         assertEquals(expectedOutput.toString(), capturedOut.toString());
     }
