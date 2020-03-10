@@ -4,7 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
-import seedu.tp.flashcard.*;
+import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
@@ -12,8 +13,11 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.tp.utils.ExampleInputConstants.*;
-import java.time.LocalDate;
+import static seedu.tp.utils.ExampleInputConstants.DETAILS_BULLET_FORM;
+import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
+import static seedu.tp.utils.ExampleInputConstants.NAME;
+import static seedu.tp.utils.ExampleInputConstants.SUMMARY;
+import static seedu.tp.utils.ExampleInputConstants.DETAILS;
 
 public class ShowCommandTest {
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
