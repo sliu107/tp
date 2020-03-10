@@ -35,28 +35,28 @@ public class AddFlashcardToGroupCommandTest {
         expectedGroupList.addFlashcardGroup(expectedGroup);
 
         //Test case1: Adding flashcards in the order as expected
-        FlashcardGroup actualGroup_1 = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST,
+        FlashcardGroup actualGroup1 = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST,
                 convertStringIndexesToIntArray(INDEXES_1));
-        GroupList actualGroupList_1 = new GroupList();
-        actualGroupList_1.addFlashcardGroup(actualGroup_1);
+        GroupList actualGroupList1 = new GroupList();
+        actualGroupList1.addFlashcardGroup(actualGroup1);
 
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand_1 = getAddFlashcardToGroupCommandWithInput(
-                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3, FLASHCARD_LIST,actualGroupList_1);
-        addFlashcardToGroupCommand_1.execute();
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand1 = getAddFlashcardToGroupCommandWithInput(
+                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3, FLASHCARD_LIST,actualGroupList1);
+        addFlashcardToGroupCommand1.execute();
 
-        assertEquals(expectedGroupList, actualGroupList_1);
+        assertEquals(expectedGroupList, actualGroupList1);
 
         //Test case2: Adding flashcards in an different order
-        FlashcardGroup actualGroup_2 = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST,
+        FlashcardGroup actualGroup2 = new FlashcardGroup(GROUP_NAME, DESCRIPTION, FLASHCARD_LIST,
                 convertStringIndexesToIntArray(INDEXES_2));
-        GroupList actualGroupList_2 = new GroupList();
-        actualGroupList_2.addFlashcardGroup(actualGroup_2);
+        GroupList actualGroupList2 = new GroupList();
+        actualGroupList2.addFlashcardGroup(actualGroup2);
 
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand_2 = getAddFlashcardToGroupCommandWithInput(
-                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_1, FLASHCARD_LIST, actualGroupList_2);
-        addFlashcardToGroupCommand_2.execute();
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand2 = getAddFlashcardToGroupCommandWithInput(
+                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_1, FLASHCARD_LIST, actualGroupList2);
+        addFlashcardToGroupCommand2.execute();
 
-        assertEquals(expectedGroupList, actualGroupList_2);
+        assertEquals(expectedGroupList, actualGroupList2);
     }
 
     @Test
