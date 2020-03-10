@@ -3,19 +3,20 @@ package seedu.tp.flashcard;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * List of flashcards.
  */
 public class FlashcardList {
-    private ArrayList<Flashcard> flashcards;
+    private List<Flashcard> flashcards;
 
     /**
      * Constructor for FlashcardList.
      */
     public FlashcardList() {
-        this.flashcards = new ArrayList<>();
+        this.flashcards = new ArrayList<Flashcard>();
     }
 
     /**
@@ -88,13 +89,18 @@ public class FlashcardList {
      */
     @Override
     public boolean equals(Object obj) {
-        FlashcardList otherFlashcardList = (FlashcardList) obj;
-        if (this.getTotalFlashcardNum() != otherFlashcardList.getTotalFlashcardNum()) {
+        FlashcardList otherFlashcards = (FlashcardList) obj;
+        if (this.getTotalFlashcardNum() != otherFlashcards.getTotalFlashcardNum()) {
             return false;
         }
 
+        List<Flashcard> flashcardList = new ArrayList<Flashcard>(this.getFlashcards());
+        Collections.sort(flashcardList);
+        List<Flashcard> otherFlashcardList = new ArrayList<Flashcard>(otherFlashcards.getFlashcards());
+        Collections.sort(otherFlashcardList);
+
         for (int idx = 0; idx < this.getTotalFlashcardNum(); idx++) {
-            if (!this.getFlashcardAtIdx(idx).equals(otherFlashcardList.getFlashcardAtIdx(idx))) {
+            if (!flashcardList.get(idx).equals(otherFlashcardList.get(idx))) {
                 return false;
             }
         }

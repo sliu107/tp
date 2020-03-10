@@ -1,6 +1,7 @@
 package seedu.tp.group;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import seedu.tp.exceptions.HistoryFlashcardException;
@@ -101,7 +102,7 @@ public class GroupList {
         }
 
         for (int idx = 0; idx < otherGroupList.getTotalGroupNum(); idx++) {
-            if (!this.getGroups().contains(otherGroupList.getGroupAtIdx(idx))) {
+            if (!this.getGroupAtIdx(idx).equals(otherGroupList.getGroupAtIdx(idx))) {
                 return false;
             }
         }

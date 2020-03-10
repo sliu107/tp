@@ -25,8 +25,10 @@ public class ExampleInputConstants {
     public static final List<String> DETAILS = Arrays.asList(DETAIL_1, DETAIL_2);
     public static final String INDEX_1 = "2";
     public static final String INDEX_2 = "-1";
-    public static final String INDEXES_1 = "1 3";
-    public static final String INDEXES_2 = "1 3 2";
+    public static final String INDEX_3 = "3";
+    public static final String INDEXES_1 = "1 2";
+    public static final String INDEXES_2 = "1 3";
+    public static final String INDEXES_3 = "1 2 3";
     public static final String INVALID_INDEXES = "0 -1 5";
     public static final FlashcardList FLASHCARD_LIST = new FlashcardList()
             .addFlashcard(new EventFlashcard(FLASHCARD_NAME, START_LOCAL_DATE, END_LOCAL_DATE, SUMMARY, DETAILS))
@@ -59,7 +61,10 @@ public class ExampleInputConstants {
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_2 = INDEX_2 + NEWLINE
             + GROUP_NAME + NEWLINE
             + NEWLINE;
-    public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3 = INDEX_1 + NEWLINE
+    public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3 = INDEX_3 + NEWLINE
+            + GROUP_NAME + NEWLINE
+            + NEWLINE;
+    public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4 = INDEX_1 + NEWLINE
             + UNIONIZED_GROUP_NAME + NEWLINE
             + NEWLINE;
 }
