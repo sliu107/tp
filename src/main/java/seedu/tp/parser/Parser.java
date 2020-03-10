@@ -168,7 +168,7 @@ public class Parser {
         case TIMELINE_COMMAND:
             return new TimelineCommand(flashcardList, ui);
         case GROUP_COMMAND:
-            return new GroupCommand(flashcardList, groupFactory, groupList);
+            return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
         case HELP_COMMAND:
