@@ -22,85 +22,105 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // Solution below referenced and adopted from:
 // https://github.com/se-edu/addressbook-level2/blob/master/test/java/seedu/addressbook/parser/ParserTest.java
 public class ParserTest {
 
     private Parser parser;
+    private Ui ui;
+    private FlashcardFactory flashcardFactory;
+    private FlashcardList flashcardList;
+    private GroupFactory groupFactory;
+    private GroupList groupList;
 
     /**
      * Initializes a new Parser for each test case.
      */
     @BeforeEach
     public void setUp() {
-        Ui ui = new Ui();
-        FlashcardFactory flashcardFactory = new FlashcardFactory(ui);
-        FlashcardList flashcardList = new FlashcardList();
-        GroupFactory groupFactory = new GroupFactory(ui, flashcardList);
-        GroupList groupList = new GroupList();
+        ui = new Ui();
+        flashcardFactory = new FlashcardFactory(ui);
+        flashcardList = new FlashcardList();
+        groupFactory = new GroupFactory(ui, flashcardList);
+        groupList = new GroupList();
         parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui);
     }
 
     @Test
     public void parse_eventFlashcardCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("event");
-        assertTrue(command instanceof EventFlashcardCommand);
+        EventFlashcardCommand expectedEventFlashcardCommand = new EventFlashcardCommand(flashcardList,
+            flashcardFactory);
+        assertEquals(expectedEventFlashcardCommand, command);
     }
 
     @Test
     public void parse_eventFlashcardCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("EveNt");
-        assertTrue(command instanceof EventFlashcardCommand);
+        EventFlashcardCommand expectedEventFlashcardCommand = new EventFlashcardCommand(flashcardList,
+            flashcardFactory);
+        assertEquals(expectedEventFlashcardCommand, command);
     }
 
     @Test
     public void parse_personFlashcardCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("person");
-        assertTrue(command instanceof PersonFlashcardCommand);
+        PersonFlashcardCommand expectedPersonFlashcardCommand =
+            new PersonFlashcardCommand(flashcardList, flashcardFactory);
+        assertEquals(expectedPersonFlashcardCommand, command);
     }
 
     @Test
     public void parse_personFlashcardCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("pERson");
-        assertTrue(command instanceof PersonFlashcardCommand);
+        PersonFlashcardCommand expectedPersonFlashcardCommand =
+            new PersonFlashcardCommand(flashcardList, flashcardFactory);
+        assertEquals(expectedPersonFlashcardCommand, command);
     }
 
     @Test
     public void parse_otherFlashcardCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("other");
-        assertTrue(command instanceof OtherFlashcardCommand);
+        OtherFlashcardCommand expectedOtherFlashcardCommand =
+            new OtherFlashcardCommand(flashcardList, flashcardFactory);
+        assertEquals(expectedOtherFlashcardCommand, command);
     }
 
     @Test
     public void parse_otherFlashcardCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("oThER");
-        assertTrue(command instanceof OtherFlashcardCommand);
+        OtherFlashcardCommand expectedOtherFlashcardCommand =
+            new OtherFlashcardCommand(flashcardList, flashcardFactory);
+        assertEquals(expectedOtherFlashcardCommand, command);
     }
 
     @Test
     public void parse_listCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("list");
-        assertTrue(command instanceof ListCommand);
+        ListCommand expectedListCommand = new ListCommand(flashcardList, ui);
+        assertEquals(expectedListCommand, command);
     }
 
     @Test
     public void parse_listCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("LISt");
-        assertTrue(command instanceof ListCommand);
+        ListCommand expectedListCommand = new ListCommand(flashcardList, ui);
+        assertEquals(expectedListCommand, command);
     }
 
     @Test
     public void parse_deleteCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("delete 1");
-        assertTrue(command instanceof DeleteCommand);
+        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0);
+        assertEquals(expectedDeleteCommand, command);
     }
 
     @Test
     public void parse_deleteCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("dELEte 1");
-        assertTrue(command instanceof DeleteCommand);
+        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0);
+        assertEquals(expectedDeleteCommand, command);
     }
 
     @Test
@@ -108,7 +128,7 @@ public class ParserTest {
         // Solution below adopted from:
         // https://stackoverflow.com/questions/40268446/junit-5-how-to-assert-an-exception-is-thrown
         assertThrows(
-            InvalidFlashcardIndexException.class, 
+            InvalidFlashcardIndexException.class,
             () -> parser.parseCommand("delete random"),
             "Expected InvalidFlashcardIndexException"
         );
@@ -117,13 +137,15 @@ public class ParserTest {
     @Test
     public void parse_byeCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("bye");
-        assertTrue(command instanceof ByeCommand);
+        ByeCommand expectedByeCommand = new ByeCommand();
+        assertEquals(expectedByeCommand, command);
     }
 
     @Test
     public void parse_byeCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("ByE");
-        assertTrue(command instanceof ByeCommand);
+        ByeCommand expectedByeCommand = new ByeCommand();
+        assertEquals(expectedByeCommand, command);
     }
 
     @Test
@@ -140,7 +162,7 @@ public class ParserTest {
             "1-8-2012",
             "8-2012"
         };
-        
+
         LocalDate[] expectedLocalDates = {
             LocalDate.of(1999, 7, 31),
             LocalDate.of(1999, 7, 31),
@@ -153,7 +175,7 @@ public class ParserTest {
             LocalDate.of(2012, 8, 1),
             LocalDate.of(2012, 8, 1)
         };
-        
+
         for (int i = 0; i < dateStrings.length; i++) {
             LocalDate actualLocalDate = Parser.parseDate(dateStrings[i]);
             assertEquals(expectedLocalDates[i], actualLocalDate);
@@ -173,7 +195,7 @@ public class ParserTest {
             "31/7-1999",
             "31 7-1999"
         };
-        
+
         for (String invalidDateString : invalidDateStrings) {
             assertThrows(
                 InvalidDateFormatException.class,

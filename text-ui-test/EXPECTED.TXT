@@ -25,7 +25,7 @@ You've successfully created the flashcard below:
 Event name: Meiji Restoration
 Event period: January 1, 1868-January 1, 1868
 Summary: Turning point in Japanese history
-Details: 
+Details:
 * End of Shogunate
 * Centralization of power
 * Functional end of Samurai Class
@@ -45,7 +45,7 @@ Person name: Albus Dumbledore
 Born: August 1, 1881
 Died: June 30, 1997
 Summary: Albus Dumbledore was never proud or vain.
-Details: 
+Details:
 * He could find something to value in anyone, however apparently insignificant or wretched
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 
@@ -61,7 +61,7 @@ Please enter detail (optional):
 You've successfully created the flashcard below:
 Title: Resurrection Stone
 Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
-Details: 
+Details:
 * In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
 * It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
 * According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
@@ -76,13 +76,13 @@ Person name: Quinn
 Born: July 31, 1870
 Died: February 24, 1943
 Summary: 8)
-Details: 
+Details:
 
 Here's a sorted list of the flashcards you have:
 Event name: Meiji Restoration
 Event period: January 1, 1868-January 1, 1868
 Summary: Turning point in Japanese history
-Details: 
+Details:
 * End of Shogunate
 * Centralization of power
 * Functional end of Samurai Class
@@ -91,19 +91,19 @@ Person name: Quinn
 Born: July 31, 1870
 Died: February 24, 1943
 Summary: 8)
-Details: 
+Details:
 
 Person name: Albus Dumbledore
 Born: August 1, 1881
 Died: June 30, 1997
 Summary: Albus Dumbledore was never proud or vain.
-Details: 
+Details:
 * He could find something to value in anyone, however apparently insignificant or wretched
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 
 Title: Resurrection Stone
 Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
-Details: 
+Details:
 * In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
 * It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
 * According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
@@ -145,7 +145,7 @@ Person name: Albus Dumbledore
 Born: August 1, 1881
 Died: June 30, 1997
 Summary: Albus Dumbledore was never proud or vain.
-Details: 
+Details:
 * He could find something to value in anyone, however apparently insignificant or wretched
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 

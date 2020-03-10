@@ -17,11 +17,11 @@ public class GroupCommand extends Command {
      * Constructs a group command.
      *
      * @param flashcardList flashcard list for the command to execute on
-     * @param groupFactory groupFactory the groupCommand use
-     * @param groupList groupList where the groupCommand execute on
+     * @param groupFactory  groupFactory the groupCommand use
+     * @param groupList     groupList where the groupCommand execute on
      */
     public GroupCommand(FlashcardList flashcardList, GroupFactory groupFactory, GroupList groupList) {
-        this.flashcardList  = flashcardList;
+        this.flashcardList = flashcardList;
         this.groupFactory = groupFactory;
         this.groupList = groupList;
     }

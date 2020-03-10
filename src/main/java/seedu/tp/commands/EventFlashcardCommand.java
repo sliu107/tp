@@ -25,8 +25,26 @@ public class EventFlashcardCommand extends Command {
         this.flashcardFactory = flashcardFactory;
     }
 
+    /**
+     * Gets the flashcard list in the event flashcard command.
+     *
+     * @return the flashcard list
+     */
+    public FlashcardList getFlashcardList() {
+        return flashcardList;
+    }
+
     @Override
     public void execute() throws UnrecognizedFlashcardTypeException {
         flashcardList.addFlashcard(flashcardFactory.create(EVENT_FLASHCARD_COMMAND));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof EventFlashcardCommand)) {
+            return false;
+        }
+        EventFlashcardCommand otherEventFlashcardCommand = (EventFlashcardCommand) obj;
+        return otherEventFlashcardCommand.getFlashcardList().equals(this.flashcardList);
     }
 }

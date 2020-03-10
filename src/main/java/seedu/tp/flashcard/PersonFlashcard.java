@@ -73,7 +73,7 @@ public class PersonFlashcard extends Flashcard {
         stringBuilder.append("Born: ").append(Parser.localDateToString(birthDate)).append(System.lineSeparator());
         stringBuilder.append("Died: ").append(Parser.localDateToString(deathDate)).append(System.lineSeparator());
         stringBuilder.append("Summary: ").append(summary).append(System.lineSeparator());
-        stringBuilder.append("Details: ").append(System.lineSeparator());
+        stringBuilder.append("Details:").append(System.lineSeparator());
         stringBuilder.append(getDetailsString(details));
         return stringBuilder.toString();
     }
@@ -97,7 +97,7 @@ public class PersonFlashcard extends Flashcard {
         // Will have to make sure in the future to check for null here if we make other optional fields.
         PersonFlashcard otherEventFlashcard = (PersonFlashcard) obj;
         return super.equals(obj) && birthDate.equals(otherEventFlashcard.getBirthDate())
-                && deathDate.equals(otherEventFlashcard.getDeathDate());
+            && deathDate.equals(otherEventFlashcard.getDeathDate());
     }
 
     @Override

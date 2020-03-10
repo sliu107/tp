@@ -1,6 +1,5 @@
 package seedu.tp.flashcard;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -11,14 +10,6 @@ public abstract class Flashcard implements Comparable<Flashcard> {
     protected String summary;
     protected List<String> details;
     protected boolean isReviewed;
-
-    public enum PriorityLevel {
-        LOW,
-        MEDIUM,
-        HIGH,
-        DEFAULT
-    }
-
     protected PriorityLevel pl;
 
     protected Flashcard(String name, String summary, List<String> details) {
@@ -36,7 +27,7 @@ public abstract class Flashcard implements Comparable<Flashcard> {
         }
         return detailsStringBuilder.toString();
     }
-    
+
     /**
      * Gets the name of the flashcard.
      *
@@ -127,9 +118,16 @@ public abstract class Flashcard implements Comparable<Flashcard> {
 
         Flashcard otherFlashcard = (Flashcard) obj;
         return name.equals(otherFlashcard.getName()) && summary.equals(otherFlashcard.getSummary())
-                && details.equals(otherFlashcard.getDetails());
+            && details.equals(otherFlashcard.getDetails());
     }
-    
+
     @Override
     public abstract int compareTo(Flashcard flashcard);
+
+    public enum PriorityLevel {
+        LOW,
+        MEDIUM,
+        HIGH,
+        DEFAULT
+    }
 }
