@@ -29,14 +29,14 @@ public class AddFlashcardToGroupCommand extends Command {
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(!(obj instanceof AddFlashcardToGroupCommand)){
+    public boolean equals(Object obj) {
+        if (!(obj instanceof AddFlashcardToGroupCommand)) {
             return false;
         }
 
         AddFlashcardToGroupCommand otherAddFlashcardToGroupCommand = (AddFlashcardToGroupCommand) obj;
-        return this.getFlashcardList().equals(otherAddFlashcardToGroupCommand.getFlashcardList()) &&
-                this.getGroupList().equals(otherAddFlashcardToGroupCommand.getGroupList());
+        return this.getFlashcardList().equals(otherAddFlashcardToGroupCommand.getFlashcardList())
+                && this.getGroupList().equals(otherAddFlashcardToGroupCommand.getGroupList());
     }
 
     public GroupList getGroupList() {
