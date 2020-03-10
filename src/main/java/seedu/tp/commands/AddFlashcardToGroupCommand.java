@@ -27,4 +27,23 @@ public class AddFlashcardToGroupCommand extends Command {
     public void execute() throws HistoryFlashcardException {
         groupList.addFlashcardToOneGroup(ui, flashcardList);
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(!(obj instanceof AddFlashcardToGroupCommand)){
+            return false;
+        }
+
+        AddFlashcardToGroupCommand otherAddFlashcardToGroupCommand = (AddFlashcardToGroupCommand) obj;
+        return this.getFlashcardList().equals(otherAddFlashcardToGroupCommand.getFlashcardList()) &&
+                this.getGroupList().equals(otherAddFlashcardToGroupCommand.getGroupList());
+    }
+
+    public GroupList getGroupList() {
+        return groupList;
+    }
+
+    public FlashcardList getFlashcardList() {
+        return flashcardList;
+    }
 }

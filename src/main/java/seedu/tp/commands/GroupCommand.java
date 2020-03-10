@@ -27,4 +27,18 @@ public class GroupCommand extends Command {
     public void execute() throws InvalidFlashcardIndexException {
         groupList.addFlashcardGroup(groupFactory.form());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof GroupCommand)) {
+            return false;
+        }
+
+        GroupCommand otherGroupCommand = (GroupCommand) obj;
+        return this.getGroupList().equals(otherGroupCommand.getGroupList());
+    }
+
+    public GroupList getGroupList() {
+        return groupList;
+    }
 }

@@ -2,10 +2,13 @@ package seedu.tp.parser;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
+import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
@@ -29,17 +32,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ParserTest {
 
     private Parser parser;
+    private Ui ui;
+    private FlashcardFactory flashcardFactory;
+    private FlashcardList flashcardList;
+    private GroupFactory groupFactory;
+    private GroupList groupList;
 
     /**
      * Initializes a new Parser for each test case.
      */
     @BeforeEach
     public void setUp() {
-        Ui ui = new Ui();
-        FlashcardFactory flashcardFactory = new FlashcardFactory(ui);
-        FlashcardList flashcardList = new FlashcardList();
-        GroupFactory groupFactory = new GroupFactory(ui, flashcardList);
-        GroupList groupList = new GroupList();
+        ui = new Ui();
+        flashcardFactory = new FlashcardFactory(ui);
+        flashcardList = new FlashcardList();
+        groupFactory = new GroupFactory(ui, flashcardList);
+        groupList = new GroupList();
         parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui);
     }
 
@@ -124,6 +132,36 @@ public class ParserTest {
     public void parse_byeCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("ByE");
         assertTrue(command instanceof ByeCommand);
+    }
+
+    @Test
+    public void parse_groupCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        GroupCommand expectedGroupCommand = new GroupCommand(groupFactory, groupList);
+        Command actualGroupCommand = parser.parseCommand("group");
+        assertEquals(expectedGroupCommand, actualGroupCommand);
+    }
+
+    @Test
+    public void parse_groupCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        GroupCommand expectedGroupCommand = new GroupCommand(groupFactory, groupList);
+        Command actualGroupCommand = parser.parseCommand("gRouP");
+        assertEquals(expectedGroupCommand, actualGroupCommand);
+    }
+
+    @Test
+    public void parse_addFlashcardToGroupCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        AddFlashcardToGroupCommand expectedAddFlashcardToGroupCommand = new AddFlashcardToGroupCommand(ui,
+                groupList, flashcardList);
+        Command actualAddFlashcardToGroupCommand = parser.parseCommand("add");
+        assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
+    }
+
+    @Test
+    public void parse_addFlashcardToGroupCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        AddFlashcardToGroupCommand expectedAddFlashcardToGroupCommand = new AddFlashcardToGroupCommand(ui,
+                groupList, flashcardList);
+        Command actualAddFlashcardToGroupCommand = parser.parseCommand("aDd");
+        assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
     }
 
     @Test
