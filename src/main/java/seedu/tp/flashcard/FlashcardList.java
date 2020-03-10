@@ -19,6 +19,24 @@ public class FlashcardList {
         this.flashcards = new ArrayList<Flashcard>();
     }
 
+    public FlashcardList(List<Flashcard> flashcardList) {
+        this.flashcards = new ArrayList<>();
+        this.flashcards.addAll(flashcardList);
+    }
+
+    /**
+     * Copy constructor for FlashcardList.
+     * Note that this is a shallow copy.
+     *
+     * @param flashcardList the flashcard list to be copied from
+     */
+    public FlashcardList(FlashcardList flashcardList) {
+        this.flashcards = new ArrayList<>();
+        for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
+            this.flashcards.add(flashcardList.getFlashcardAtIdx(i));
+        }
+    }
+
     /**
      * Adds a flashcard to the list.
      *

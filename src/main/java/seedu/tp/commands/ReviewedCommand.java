@@ -1,8 +1,8 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
-import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.Flashcard;
+import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
 /**
@@ -17,8 +17,8 @@ public class ReviewedCommand extends Command {
      * Constructor for ReviewedCommand.
      *
      * @param flashcardList list containing all flashcards
-     * @param index index of the flashcard to show
-     * @param ui instance for user interaction
+     * @param index         index of the flashcard to show
+     * @param ui            instance for user interaction
      */
     public ReviewedCommand(FlashcardList flashcardList, int index, Ui ui) {
         this.flashcardList = flashcardList;

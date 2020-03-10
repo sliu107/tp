@@ -25,8 +25,26 @@ public class OtherFlashcardCommand extends Command {
         this.flashcardFactory = flashcardFactory;
     }
 
+    /**
+     * Gets the flashcard list in the other flashcard command.
+     *
+     * @return the flashcard list
+     */
+    public FlashcardList getFlashcardList() {
+        return flashcardList;
+    }
+
     @Override
     public void execute() throws UnrecognizedFlashcardTypeException {
         flashcardList.addFlashcard(flashcardFactory.create(OTHER_FLASHCARD_COMMAND));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof OtherFlashcardCommand)) {
+            return false;
+        }
+        OtherFlashcardCommand otherOtherFlashcardCommand = (OtherFlashcardCommand) obj;
+        return otherOtherFlashcardCommand.getFlashcardList().equals(this.flashcardList);
     }
 }

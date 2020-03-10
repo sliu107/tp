@@ -19,4 +19,9 @@ public class ByeCommand extends Command {
     public boolean isBye() {
         return true;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof ByeCommand;
+    }
 }

@@ -41,11 +41,11 @@ public class OtherFlashcard extends Flashcard {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Title: ").append(name).append(System.lineSeparator());
         stringBuilder.append("Summary: ").append(summary).append(System.lineSeparator());
-        stringBuilder.append("Details: ").append(System.lineSeparator());
+        stringBuilder.append("Details:").append(System.lineSeparator());
         stringBuilder.append(getDetailsString(details));
         return stringBuilder.toString();
     }
-    
+
     @Override
     public int compareTo(Flashcard flashcard) {
         if (flashcard instanceof OtherFlashcard) {

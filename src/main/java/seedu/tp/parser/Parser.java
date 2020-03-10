@@ -8,11 +8,11 @@ import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
-import seedu.tp.commands.ShowCommand;
-import seedu.tp.commands.ReviewedCommand;
-import seedu.tp.commands.PriorityCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
+import seedu.tp.commands.PriorityCommand;
+import seedu.tp.commands.ReviewedCommand;
+import seedu.tp.commands.ShowCommand;
 import seedu.tp.commands.TimelineCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
@@ -40,11 +40,11 @@ import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
-import static seedu.tp.utils.Constants.SHOW_COMMAND;
-import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
-import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
+import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
+import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
+import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 
 /**
@@ -62,8 +62,8 @@ public class Parser {
      *
      * @param flashcardFactory flashcard factory to be passed in as argument to commands
      * @param flashcardList    flashcard list to be passed in as argument to commands
-     * @param groupFactory  group factory to be passes in as argument to commands
-     * @param groupList group list to be passed in as argument to commands
+     * @param groupFactory     group factory to be passes in as argument to commands
+     * @param groupList        group list to be passed in as argument to commands
      * @param ui               UI to be passed in as argument to commands
      */
     public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList,
@@ -73,6 +73,51 @@ public class Parser {
         this.groupFactory = groupFactory;
         this.groupList = groupList;
         this.ui = ui;
+    }
+
+    /**
+     * Attempt to parse a string representing a date by matching it with formatters.
+     *
+     * @param date the string to be parsed
+     * @return LocalDate if the string was parsable, null if not
+     */
+    public static LocalDate parseDate(String date) throws InvalidDateFormatException {
+        final DateTimeFormatter[] dateTimeFormatters = {
+            DateTimeFormatter.ofPattern("d M yyyy"),
+            new DateTimeFormatterBuilder()
+                .appendPattern("M yyyy")
+                .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                .toFormatter(),
+            new DateTimeFormatterBuilder()
+                .appendPattern("yyyy")
+                .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                .parseDefaulting(ChronoField.MONTH_OF_YEAR, 1)
+                .toFormatter(),
+            DateTimeFormatter.ofPattern("d/M/yyyy"),
+            new DateTimeFormatterBuilder()
+                .appendPattern("M/yyyy")
+                .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                .toFormatter(),
+            DateTimeFormatter.ofPattern("d-M-yyyy"),
+            new DateTimeFormatterBuilder()
+                .appendPattern("M-yyyy")
+                .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+                .toFormatter(),
+        };
+
+        for (DateTimeFormatter formatter : dateTimeFormatters) {
+            try {
+                return LocalDate.parse(date, formatter);
+            } catch (DateTimeParseException e) {
+                continue;
+            }
+        }
+        throw new InvalidDateFormatException();
+    }
+
+    public static String localDateToString(LocalDate localDate) {
+        final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.US);
+        return localDate.format(formatter);
     }
 
     /**
@@ -133,50 +178,5 @@ public class Parser {
         default:
             throw new UnknownCommandException();
         }
-    }
-
-    /**
-     * Attempt to parse a string representing a date by matching it with formatters.
-     * 
-     * @param date the string to be parsed
-     * @return LocalDate if the string was parsable, null if not
-     */
-    public static LocalDate parseDate(String date) throws InvalidDateFormatException {
-        final DateTimeFormatter[] dateTimeFormatters = {
-                DateTimeFormatter.ofPattern("d M yyyy"),
-                new DateTimeFormatterBuilder()
-                        .appendPattern("M yyyy")
-                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                        .toFormatter(),
-                new DateTimeFormatterBuilder()
-                        .appendPattern("yyyy")
-                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                        .parseDefaulting(ChronoField.MONTH_OF_YEAR, 1)
-                        .toFormatter(),
-                DateTimeFormatter.ofPattern("d/M/yyyy"),
-                new DateTimeFormatterBuilder()
-                        .appendPattern("M/yyyy")
-                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                        .toFormatter(),
-                DateTimeFormatter.ofPattern("d-M-yyyy"),
-                new DateTimeFormatterBuilder()
-                        .appendPattern("M-yyyy")
-                        .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                        .toFormatter(),
-        };
-        
-        for (DateTimeFormatter formatter : dateTimeFormatters) {
-            try {
-                return LocalDate.parse(date, formatter);
-            } catch (DateTimeParseException e) {
-                continue;
-            }
-        }
-        throw new InvalidDateFormatException();
-    }
-    
-    public static String localDateToString(LocalDate localDate) {
-        final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.US);
-        return localDate.format(formatter);
     }
 }

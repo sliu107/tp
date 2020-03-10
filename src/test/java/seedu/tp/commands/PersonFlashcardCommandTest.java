@@ -26,7 +26,7 @@ public class PersonFlashcardCommandTest {
         FlashcardList actualFlashcardList = new FlashcardList();
         FlashcardFactory flashcardFactory = getFlashcardFactoryWithInput(FULL_SIMULATED_INPUT);
         PersonFlashcardCommand personFlashcardCommand = new PersonFlashcardCommand(actualFlashcardList,
-                flashcardFactory);
+            flashcardFactory);
         personFlashcardCommand.execute();
 
         assertEquals(expectedFlashcardList, actualFlashcardList);

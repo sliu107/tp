@@ -43,7 +43,7 @@ public class EventFlashcard extends Flashcard {
     }
 
     /**
-     * Get the start date of this event flashcard.
+     * Gets the start date of this event flashcard.
      *
      * @return the start date of this event flashcard
      */
@@ -52,7 +52,7 @@ public class EventFlashcard extends Flashcard {
     }
 
     /**
-     * Get the end date of this event flashcard.
+     * Gets the end date of this event flashcard.
      *
      * @return the end date of this event flashcard
      */
@@ -70,15 +70,15 @@ public class EventFlashcard extends Flashcard {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Event name: ").append(name).append(System.lineSeparator());
         stringBuilder.append("Event period: ").append(Parser.localDateToString(startDate)).append("-")
-                .append(Parser.localDateToString(endDate)).append(System.lineSeparator());
+            .append(Parser.localDateToString(endDate)).append(System.lineSeparator());
         stringBuilder.append("Summary: ").append(summary).append(System.lineSeparator());
-        stringBuilder.append("Details: ").append(System.lineSeparator());
+        stringBuilder.append("Details:").append(System.lineSeparator());
         stringBuilder.append(getDetailsString(details));
         return stringBuilder.toString();
     }
 
     /**
-     * Check if the current instance is equal to the object passed in.
+     * Checks if the current instance is equal to the object passed in.
      *
      * @param obj The object to be compared against the current instance
      * @return whether or not the two objects are equal
@@ -96,9 +96,15 @@ public class EventFlashcard extends Flashcard {
         // Will have to make sure in the future to check for null here if we make other optional fields.
         EventFlashcard otherEventFlashcard = (EventFlashcard) obj;
         return super.equals(obj) && startDate.equals(otherEventFlashcard.getStartDate())
-                && endDate.equals(otherEventFlashcard.getEndDate());
+            && endDate.equals(otherEventFlashcard.getEndDate());
     }
-    
+
+    /**
+     * Compares the current instance with the flashcard passed in.
+     *
+     * @param flashcard the flashcard to be compared with
+     * @return the comparison result
+     */
     @Override
     public int compareTo(Flashcard flashcard) {
         if (flashcard instanceof EventFlashcard) {

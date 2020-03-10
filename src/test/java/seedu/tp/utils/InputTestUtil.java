@@ -15,7 +15,7 @@ public class InputTestUtil {
 
     /**
      * Used to simulate user creation of a flashcard in JUnit testing environment.
-     * 
+     *
      * @param simulatedInput The desired input of the user
      * @return a <code>FlashcardFactory</code> object that can be used to create Flashcards based on simulatedInput
      */

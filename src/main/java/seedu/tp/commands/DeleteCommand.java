@@ -19,9 +19,37 @@ public class DeleteCommand extends Command {
         this.index = index;
     }
 
+    /**
+     * Gets index in the delete command.
+     *
+     * @return the index
+     */
+    public int getIndex() {
+        return index;
+    }
+
+    /**
+     * Gets the flashcard list in the delete command.
+     *
+     * @return the flashcard list
+     */
+    public FlashcardList getFlashcardList() {
+        return flashcardList;
+    }
+
     @Override
     public void execute()
         throws InvalidFlashcardIndexException {
         flashcardList.deleteFlashcard(index);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof DeleteCommand)) {
+            return false;
+        }
+        DeleteCommand otherDeleteCommand = (DeleteCommand) obj;
+        return otherDeleteCommand.getIndex() == this.index
+            && otherDeleteCommand.getFlashcardList().equals(this.flashcardList);
     }
 }

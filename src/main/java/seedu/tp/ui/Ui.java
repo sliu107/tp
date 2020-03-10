@@ -3,8 +3,8 @@ package seedu.tp.ui;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.parser.Parser;
 import seedu.tp.group.FlashcardGroup;
+import seedu.tp.parser.Parser;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import static seedu.tp.utils.Constants.EMPTY_STRING;
  */
 public class Ui {
     private final Scanner scanner = new Scanner(System.in);
-    
+
     /**
      * Sends welcome message to user.
      */
@@ -42,13 +42,13 @@ public class Ui {
     public void sendHelpMessage() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Followings are the formats of commands used in the main menu:")
-                .append(System.lineSeparator());
+            .append(System.lineSeparator());
         stringBuilder.append("Add an event flashcard: event").append(System.lineSeparator());
         stringBuilder.append("Add a person flashcard: person").append(System.lineSeparator());
         stringBuilder.append("Add an other flashcard: other").append(System.lineSeparator());
         stringBuilder.append("List out all the flashcards: list").append(System.lineSeparator());
         stringBuilder.append("Delete a flashcard from the flashcard list: delete i/INDEX")
-                .append(System.lineSeparator());
+            .append(System.lineSeparator());
         stringBuilder.append("Set up a new flashcard group: group").append(System.lineSeparator());
         stringBuilder.append("Add a flashcard to an existing group: add").append(System.lineSeparator());
         stringBuilder.append("To exit the History Flashcard: bye").append(System.lineSeparator());
@@ -111,7 +111,7 @@ public class Ui {
         System.out.println("Please enter " + fieldName + " (optional):");
         String input;
         LocalDate localDate = null;
-        
+
         do {
             input = getNextLine().trim();
             if (input.equals(EMPTY_STRING)) {
@@ -123,13 +123,13 @@ public class Ui {
                 System.out.println("That date format couldn't be parsed! Please enter again.");
             }
         } while (localDate == null);
-        
+
         return Optional.of(localDate);
     }
 
     /**
      * Prompts the user for a required date used in the construction of a <code>Flashcard</code>.
-     * 
+     *
      * @param fieldName string representing name of the date to prompt for
      * @return the parsed date
      */
@@ -137,7 +137,7 @@ public class Ui {
         System.out.println("Please enter " + fieldName + ":");
         String input;
         LocalDate localDate = null;
-        
+
         do {
             input = getNextLine().trim();
             try {
@@ -146,7 +146,7 @@ public class Ui {
                 System.out.println("That date format couldn't be parsed! Please enter again.");
             }
         } while (localDate == null);
-        
+
         return localDate;
     }
 
@@ -191,10 +191,10 @@ public class Ui {
     }
 
     /**
-    * Sends flashcard group creation confirmation to user.
-    *
-    * @param flashcardGroup the flashcard group created
-    */
+     * Sends flashcard group creation confirmation to user.
+     *
+     * @param flashcardGroup the flashcard group created
+     */
     public void confirmFlashcardGroupCreation(FlashcardGroup flashcardGroup) {
         System.out.println("You've successfully created the group below:");
         System.out.println(flashcardGroup);
@@ -202,11 +202,12 @@ public class Ui {
 
     /**
      * Sends confirmation message that the flashcard is successfully added to a group.
-     *      *
+     * *
+     *
      * @param flashcardGroup the flashcard group the flashcard is added into.
-     * @param flashcard the flashcard just be added into the group
+     * @param flashcard      the flashcard just be added into the group
      */
-    public void confirmFlashcardAdditionToGroup(FlashcardGroup flashcardGroup,Flashcard flashcard) {
+    public void confirmFlashcardAdditionToGroup(FlashcardGroup flashcardGroup, Flashcard flashcard) {
         System.out.println("You've successfully add the flashcard below:");
         System.out.println(flashcard);
         System.out.println("To the group:");
@@ -228,13 +229,13 @@ public class Ui {
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
             System.out.println((i + 1) + ": " + flashcard.getName() + " | Reviewed: " + flashcard.getReviewIcon()
-                                + " | " + flashcard.getPriorityAsString());
+                + " | " + flashcard.getPriorityAsString());
         }
     }
 
     /**
      * Prints out all flashcards in the list ordered by start/birth date. Other cards come last
-     * 
+     *
      * @param flashcardList the list of flashcards to be printed out
      */
     public void listAllFlashcardsOrdered(FlashcardList flashcardList) {
@@ -242,7 +243,7 @@ public class Ui {
             System.out.println("You have no flashcards at this moment!");
             return;
         }
-        
+
         List<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
         Collections.sort(flashcards);
         System.out.println("Here's a sorted list of the flashcards you have:");

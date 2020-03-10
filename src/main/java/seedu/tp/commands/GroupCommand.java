@@ -15,8 +15,8 @@ public class GroupCommand extends Command {
     /**
      * Constructs a group command.
      *
-     * @param groupFactory groupFactory the groupCommand use
-     * @param groupList groupList where the groupCommand execute on
+     * @param groupFactory  groupFactory the groupCommand use
+     * @param groupList     groupList where the groupCommand execute on
      */
     public GroupCommand(GroupFactory groupFactory, GroupList groupList) {
         this.groupFactory = groupFactory;
