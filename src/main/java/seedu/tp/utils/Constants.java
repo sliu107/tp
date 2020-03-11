@@ -24,6 +24,7 @@ public class Constants {
     public static final String DEATH_DATE_FIELD = "death date";
     public static final String DESCRIPTION_FIELD = "description";
     public static final String INDEXES_FIELD = "indexes";
+    public static final String INDEX_FIELD = "index";
 
     public static final String EMPTY_STRING = "";
 }

@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
 import static seedu.tp.utils.ExampleInputConstants.END_LOCAL_DATE;
-import static seedu.tp.utils.ExampleInputConstants.FULL_SIMULATED_INPUT;
 import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_NAME;
+import static seedu.tp.utils.ExampleInputConstants.FULL_SIMULATED_INPUT;
 import static seedu.tp.utils.ExampleInputConstants.START_LOCAL_DATE;
 import static seedu.tp.utils.ExampleInputConstants.SUMMARY;
 import static seedu.tp.utils.InputTestUtil.getFlashcardFactoryWithInput;
@@ -19,9 +19,10 @@ import static seedu.tp.utils.InputTestUtil.getFlashcardFactoryWithInput;
 public class EventFlashcardCommandTest {
     @Test
     public void eventFlashcardCommand_execute_addsFlashcardSuccessfully() throws UnrecognizedFlashcardTypeException {
-        FlashcardList expectedFlashcardList = new FlashcardList();;
+        FlashcardList expectedFlashcardList = new FlashcardList();
+        ;
         expectedFlashcardList.addFlashcard(new EventFlashcard(FLASHCARD_NAME, START_LOCAL_DATE, END_LOCAL_DATE, SUMMARY,
-                DETAILS));
+            DETAILS));
 
         FlashcardList actualFlashcardList = new FlashcardList();
         FlashcardFactory flashcardFactory = getFlashcardFactoryWithInput(FULL_SIMULATED_INPUT);

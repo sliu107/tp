@@ -2,7 +2,6 @@ package seedu.tp.parser;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
@@ -168,7 +167,7 @@ public class ParserTest {
     @Test
     public void parse_addFlashcardToGroupCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         AddFlashcardToGroupCommand expectedAddFlashcardToGroupCommand = new AddFlashcardToGroupCommand(ui,
-                groupList, flashcardList);
+            groupList, flashcardList);
         Command actualAddFlashcardToGroupCommand = parser.parseCommand("add");
         assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
     }
@@ -176,7 +175,7 @@ public class ParserTest {
     @Test
     public void parse_addFlashcardToGroupCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         AddFlashcardToGroupCommand expectedAddFlashcardToGroupCommand = new AddFlashcardToGroupCommand(ui,
-                groupList, flashcardList);
+            groupList, flashcardList);
         Command actualAddFlashcardToGroupCommand = parser.parseCommand("aDd");
         assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
     }

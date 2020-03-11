@@ -1,8 +1,5 @@
 package seedu.tp.group;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnrecognizedFlashcardGroupException;
@@ -10,7 +7,10 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
-import static seedu.tp.utils.Constants.INDEXES_FIELD;
+import java.util.ArrayList;
+import java.util.List;
+
+import static seedu.tp.utils.Constants.INDEX_FIELD;
 import static seedu.tp.utils.Constants.NAME_FIELD;
 
 /**
@@ -43,7 +43,7 @@ public class GroupList {
      */
     public void addFlashcardToOneGroup(Ui ui, FlashcardList flashcardList) throws HistoryFlashcardException {
         try {
-            int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEXES_FIELD)) - 1;
+            int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEX_FIELD)) - 1;
             String groupName = ui.promptUserForRequiredField(NAME_FIELD);
             Flashcard flashcard = null;
             FlashcardGroup group = null;

@@ -36,37 +36,37 @@ public class ExampleInputConstants {
     public static final String INVALID_INDEXES = "0 -1 5";
 
     public static final String FULL_SIMULATED_INPUT = FLASHCARD_NAME + NEWLINE
-            + START_DATE + NEWLINE
-            + END_DATE + NEWLINE
-            + SUMMARY + NEWLINE
-            + DETAIL_1 + NEWLINE
-            + DETAIL_2 + NEWLINE
-            + NEWLINE;
+        + START_DATE + NEWLINE
+        + END_DATE + NEWLINE
+        + SUMMARY + NEWLINE
+        + DETAIL_1 + NEWLINE
+        + DETAIL_2 + NEWLINE
+        + NEWLINE;
     public static final String PARTIAL_SIMULATED_INPUT = FLASHCARD_NAME + NEWLINE
-            + SUMMARY + NEWLINE
-            + DETAIL_1 + NEWLINE
-            + DETAIL_2 + NEWLINE
-            + NEWLINE;
+        + SUMMARY + NEWLINE
+        + DETAIL_1 + NEWLINE
+        + DETAIL_2 + NEWLINE
+        + NEWLINE;
     public static final String SIMULATED_GROUP_COMMAND_INPUT_1 = GROUP_NAME + NEWLINE
-            + DESCRIPTION + NEWLINE
-            + INDEXES_1 + NEWLINE
-            + NEWLINE;
+        + DESCRIPTION + NEWLINE
+        + INDEXES_1 + NEWLINE
+        + NEWLINE;
     public static final String SIMULATED_GROUP_COMMAND_INPUT_2 = GROUP_NAME + NEWLINE
-            + DESCRIPTION + NEWLINE
-            + INVALID_INDEXES + NEWLINE
-            + NEWLINE;
+        + DESCRIPTION + NEWLINE
+        + INVALID_INDEXES + NEWLINE
+        + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_1 = INDEX_1 + NEWLINE
-            + GROUP_NAME + NEWLINE
-            + NEWLINE;
+        + GROUP_NAME + NEWLINE
+        + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_2 = INDEX_2 + NEWLINE
-            + GROUP_NAME + NEWLINE
-            + NEWLINE;
+        + GROUP_NAME + NEWLINE
+        + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3 = INDEX_3 + NEWLINE
-            + GROUP_NAME + NEWLINE
-            + NEWLINE;
+        + GROUP_NAME + NEWLINE
+        + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4 = INDEX_1 + NEWLINE
-            + UNIONIZED_GROUP_NAME + NEWLINE
-            + NEWLINE;
+        + UNIONIZED_GROUP_NAME + NEWLINE
+        + NEWLINE;
 
     public static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
         "Event 1",

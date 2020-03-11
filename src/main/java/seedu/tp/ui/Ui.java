@@ -208,7 +208,7 @@ public class Ui {
      * @param flashcard      the flashcard just be added into the group
      */
     public void confirmFlashcardAdditionToGroup(FlashcardGroup flashcardGroup, Flashcard flashcard) {
-        System.out.println("You've successfully add the flashcard below:");
+        System.out.println("You've successfully added the flashcard below:");
         System.out.println(flashcard);
         System.out.println("To the group:");
         System.out.println(flashcardGroup);
