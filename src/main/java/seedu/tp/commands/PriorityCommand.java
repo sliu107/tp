@@ -28,6 +28,24 @@ public class PriorityCommand extends Command {
         this.ui = ui;
         this.pl = pl;
     }
+    /**
+     * Gets index in the priority command.
+     *
+     * @return the index
+     */
+    public int getIndex() {
+        return index;
+    }
+
+
+    /**
+     * Gets the priority level in the priority command.
+     *
+     * @return the priority level
+     */
+    public Flashcard.PriorityLevel getPl() {
+        return pl;
+    }
 
     @Override
     public void execute() throws InvalidFlashcardIndexException {
@@ -37,5 +55,20 @@ public class PriorityCommand extends Command {
         } catch (IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof PriorityCommand)) {
+            return false;
+        }
+
+        if (obj == this) {
+            return true;
+        }
+
+        PriorityCommand otherPriorityCommand = (PriorityCommand) obj;
+        return otherPriorityCommand.getIndex() == this.index
+                && otherPriorityCommand.getPl().equals(this.pl);
     }
 }
