@@ -32,10 +32,15 @@ import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
 import java.util.Locale;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
+import static seedu.tp.utils.Constants.EMPTY_SPACE;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
@@ -51,6 +56,9 @@ import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
  * Parser class to handle parsing of user input.
  */
 public class Parser {
+
+    private static Logger logger = Logger.getLogger(Parser.class.getName());
+
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
     private GroupFactory groupFactory;
@@ -108,16 +116,34 @@ public class Parser {
         for (DateTimeFormatter formatter : dateTimeFormatters) {
             try {
                 return LocalDate.parse(date, formatter);
-            } catch (DateTimeParseException e) {
+            } catch (DateTimeParseException ignored) {
                 continue;
             }
         }
+
+        logger.warning("User entered invalid date time: ");
+        logger.warning(date);
         throw new InvalidDateFormatException();
     }
 
+    /**
+     * Converts local date type object to string representation.
+     *
+     * @param localDate the local date object
+     * @return string representation of the local date object
+     */
     public static String localDateToString(LocalDate localDate) {
         final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.US);
         return localDate.format(formatter);
+    }
+
+    private void setupLogger() {
+        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
+        LogManager.getLogManager().reset();
+        logger.setLevel(Level.ALL);
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(Level.SEVERE);
+        logger.addHandler(consoleHandler);
     }
 
     /**
@@ -128,7 +154,9 @@ public class Parser {
      * @throws HistoryFlashcardException exception that occurred when parsing user input
      */
     public Command parseCommand(String userInput) throws HistoryFlashcardException {
-        String[] splitInput = userInput.split(" ", 3);
+        this.setupLogger();
+
+        String[] splitInput = userInput.split(EMPTY_SPACE, 3);
         String commandType = splitInput[0].toLowerCase();
 
         switch (commandType) {
@@ -143,26 +171,25 @@ public class Parser {
         case SHOW_COMMAND:
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
-            } catch (Exception e) {
+            } catch (IndexOutOfBoundsException e) {
+                logger.warning("InvalidFlashcardIndexException");
                 throw new InvalidFlashcardIndexException();
             }
         case REVIEWED_COMMAND:
-            try {
-                return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
-            } catch (Exception e) {
-                throw new InvalidFlashcardIndexException();
-            }
+            return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
         case DELETE_COMMAND:
             try {
                 return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
+                logger.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
             }
         case PRIORITY_COMMAND:
             try {
                 Flashcard.PriorityLevel pl = Flashcard.PriorityLevel.valueOf(splitInput[2]);
                 return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl);
-            } catch (IndexOutOfBoundsException e) {
+            } catch (NumberFormatException e) {
+                logger.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
             }
         case TIMELINE_COMMAND:
@@ -176,6 +203,7 @@ public class Parser {
         case BYE_COMMAND:
             return new ByeCommand();
         default:
+            logger.warning("UnknownCommandException occurred when parsing: " + userInput);
             throw new UnknownCommandException();
         }
     }
