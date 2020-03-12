@@ -4,18 +4,26 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.flashcard.Flashcard;
+import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
+import static seedu.tp.utils.ExampleInputConstants.EVENT_FLASHCARD;
+import static seedu.tp.utils.ExampleInputConstants.PERSON_FLASHCARD;
+import static seedu.tp.utils.ExampleInputConstants.OTHER_FLASHCARD;
 import static seedu.tp.flashcard.Flashcard.PriorityLevel;
 
 public class PriorityCommandTest {
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
     private final PrintStream backupStdout = System.out;
+    private List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
+    private FlashcardList flashcardList = new FlashcardList(flashcards);
 
     @BeforeEach
     public void captureStdout() {
@@ -33,7 +41,7 @@ public class PriorityCommandTest {
         expectedEventOutputDefault.append("Priority has been updated:" + System.lineSeparator());
         expectedEventOutputDefault.append("Event 1 | New priority: Not indicated" + System.lineSeparator());
 
-        PriorityCommand priorityCommand = new PriorityCommand(FULL_FLASHCARD_LIST, 0, new Ui(), PriorityLevel.DEFAULT);
+        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 0, new Ui(), PriorityLevel.DEFAULT);
         priorityCommand.execute();
         assertEquals(expectedEventOutputDefault.toString(), capturedOut.toString());
     }
@@ -44,7 +52,7 @@ public class PriorityCommandTest {
         expectedEventOutputHigh.append("Priority has been updated:" + System.lineSeparator());
         expectedEventOutputHigh.append("Event 1 | New priority: ***" + System.lineSeparator());
 
-        PriorityCommand priorityCommand = new PriorityCommand(FULL_FLASHCARD_LIST, 0, new Ui(), PriorityLevel.HIGH);
+        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 0, new Ui(), PriorityLevel.HIGH);
         priorityCommand.execute();
         assertEquals(expectedEventOutputHigh.toString(), capturedOut.toString());
     }
@@ -55,7 +63,7 @@ public class PriorityCommandTest {
         expectedPersonOutput.append("Priority has been updated:" + System.lineSeparator());
         expectedPersonOutput.append("Person 1 | New priority: **" + System.lineSeparator());
 
-        PriorityCommand priorityCommand = new PriorityCommand(FULL_FLASHCARD_LIST, 1, new Ui(), PriorityLevel.MEDIUM);
+        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 1, new Ui(), PriorityLevel.MEDIUM);
         priorityCommand.execute();
         assertEquals(expectedPersonOutput.toString(), capturedOut.toString());
     }
@@ -66,7 +74,7 @@ public class PriorityCommandTest {
         expectedOtherOutput.append("Priority has been updated:" + System.lineSeparator());
         expectedOtherOutput.append("Title 1 | New priority: *" + System.lineSeparator());
 
-        PriorityCommand priorityCommand = new PriorityCommand(FULL_FLASHCARD_LIST, 2, new Ui(), PriorityLevel.LOW);
+        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 2, new Ui(), PriorityLevel.LOW);
         priorityCommand.execute();
         assertEquals(expectedOtherOutput.toString(), capturedOut.toString());
     }

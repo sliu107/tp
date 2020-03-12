@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS_BULLET_FORM;
 import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
-import static seedu.tp.utils.ExampleInputConstants.NAME;
+import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_NAME;
 import static seedu.tp.utils.ExampleInputConstants.SUMMARY;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
 
@@ -81,7 +81,7 @@ public class ShowCommandTest {
     @Test
     public void showCommand_getFlashcardFromInvalidIndex_throwsInvalidFlashcardIndexException() {
         FlashcardList flashcardList = new FlashcardList();
-        flashcardList.addFlashcard(new OtherFlashcard(NAME, SUMMARY, DETAILS));
+        flashcardList.addFlashcard(new OtherFlashcard(FLASHCARD_NAME, SUMMARY, DETAILS));
         Ui ui = new Ui();
         ShowCommand showCommand = new ShowCommand(flashcardList, 1, ui);
         assertThrows(
