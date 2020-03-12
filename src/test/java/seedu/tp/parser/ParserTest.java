@@ -2,10 +2,13 @@ package seedu.tp.parser;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
+import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
@@ -146,6 +149,36 @@ public class ParserTest {
         Command command = parser.parseCommand("ByE");
         ByeCommand expectedByeCommand = new ByeCommand();
         assertEquals(expectedByeCommand, command);
+    }
+
+    @Test
+    public void parse_groupCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        GroupCommand expectedGroupCommand = new GroupCommand(groupFactory, groupList);
+        Command actualGroupCommand = parser.parseCommand("group");
+        assertEquals(expectedGroupCommand, actualGroupCommand);
+    }
+
+    @Test
+    public void parse_groupCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        GroupCommand expectedGroupCommand = new GroupCommand(groupFactory, groupList);
+        Command actualGroupCommand = parser.parseCommand("gRouP");
+        assertEquals(expectedGroupCommand, actualGroupCommand);
+    }
+
+    @Test
+    public void parse_addFlashcardToGroupCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        AddFlashcardToGroupCommand expectedAddFlashcardToGroupCommand = new AddFlashcardToGroupCommand(ui,
+                groupList, flashcardList);
+        Command actualAddFlashcardToGroupCommand = parser.parseCommand("add");
+        assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
+    }
+
+    @Test
+    public void parse_addFlashcardToGroupCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        AddFlashcardToGroupCommand expectedAddFlashcardToGroupCommand = new AddFlashcardToGroupCommand(ui,
+                groupList, flashcardList);
+        Command actualAddFlashcardToGroupCommand = parser.parseCommand("aDd");
+        assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
     }
 
     @Test

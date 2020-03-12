@@ -3,6 +3,7 @@ package seedu.tp.flashcard;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class FlashcardList {
      * Constructor for FlashcardList.
      */
     public FlashcardList() {
-        this.flashcards = new ArrayList<>();
+        this.flashcards = new ArrayList<Flashcard>();
     }
 
     public FlashcardList(List<Flashcard> flashcardList) {
@@ -40,9 +41,11 @@ public class FlashcardList {
      * Adds a flashcard to the list.
      *
      * @param flashcard the task to be added to the list
+     * @return the updated flashcardList with new flashcard just be added in
      */
-    public void addFlashcard(Flashcard flashcard) {
+    public FlashcardList addFlashcard(Flashcard flashcard) {
         flashcards.add(flashcard);
+        return this;
     }
 
     /**
@@ -104,13 +107,18 @@ public class FlashcardList {
      */
     @Override
     public boolean equals(Object obj) {
-        FlashcardList otherFlashcardList = (FlashcardList) obj;
-        if (this.getTotalFlashcardNum() != otherFlashcardList.getTotalFlashcardNum()) {
+        FlashcardList otherFlashcards = (FlashcardList) obj;
+        if (this.getTotalFlashcardNum() != otherFlashcards.getTotalFlashcardNum()) {
             return false;
         }
 
+        List<Flashcard> flashcardList = new ArrayList<Flashcard>(this.getFlashcards());
+        Collections.sort(flashcardList);
+        List<Flashcard> otherFlashcardList = new ArrayList<Flashcard>(otherFlashcards.getFlashcards());
+        Collections.sort(otherFlashcardList);
+
         for (int idx = 0; idx < this.getTotalFlashcardNum(); idx++) {
-            if (!this.getFlashcardAtIdx(idx).equals(otherFlashcardList.getFlashcardAtIdx(idx))) {
+            if (!flashcardList.get(idx).equals(otherFlashcardList.get(idx))) {
                 return false;
             }
         }

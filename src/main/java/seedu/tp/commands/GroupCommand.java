@@ -11,17 +11,14 @@ import seedu.tp.group.GroupList;
 public class GroupCommand extends Command {
     private GroupFactory groupFactory;
     private GroupList groupList;
-    private FlashcardList flashcardList;
 
     /**
      * Constructs a group command.
      *
-     * @param flashcardList flashcard list for the command to execute on
      * @param groupFactory  groupFactory the groupCommand use
      * @param groupList     groupList where the groupCommand execute on
      */
-    public GroupCommand(FlashcardList flashcardList, GroupFactory groupFactory, GroupList groupList) {
-        this.flashcardList = flashcardList;
+    public GroupCommand(GroupFactory groupFactory, GroupList groupList) {
         this.groupFactory = groupFactory;
         this.groupList = groupList;
     }
@@ -29,5 +26,19 @@ public class GroupCommand extends Command {
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         groupList.addFlashcardGroup(groupFactory.form());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof GroupCommand)) {
+            return false;
+        }
+
+        GroupCommand otherGroupCommand = (GroupCommand) obj;
+        return this.getGroupList().equals(otherGroupCommand.getGroupList());
+    }
+
+    public GroupList getGroupList() {
+        return groupList;
     }
 }
