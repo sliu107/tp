@@ -1,7 +1,6 @@
 package seedu.tp.group;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
-import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
@@ -77,7 +76,7 @@ public class FlashcardGroup {
         stringBuilder.append("Group name: ").append(name).append(System.lineSeparator());
         stringBuilder.append("Group description: ").append(description).append(System.lineSeparator());
         stringBuilder.append("There are ").append(groupCards.getTotalFlashcardNum())
-                .append(" flashcards in this group.");
+            .append(" flashcards in this group.");
         stringBuilder.append(System.lineSeparator());
         return stringBuilder.toString();
     }
@@ -112,6 +111,6 @@ public class FlashcardGroup {
 
         FlashcardGroup otherFlashcardGroup = (FlashcardGroup) obj;
         return name.equals(otherFlashcardGroup.getName()) && description.equals(otherFlashcardGroup.getDescription())
-                && groupCards.equals(otherFlashcardGroup.getGroupCards());
+            && groupCards.equals(otherFlashcardGroup.getGroupCards());
     }
 }

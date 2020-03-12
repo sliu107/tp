@@ -113,6 +113,41 @@ Here's the list of flashcards you have:
 2: Albus Dumbledore | Reviewed: N | Not indicated
 3: Resurrection Stone | Reviewed: N | Not indicated
 4: Quinn | Reviewed: N | Not indicated
+Please enter name:
+Please enter description:
+Please enter indexes:
+The flashcard index you entered is invalid
+Please enter name:
+Please enter description:
+Please enter indexes:
+You've successfully created the group below:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 2 flashcards in this group.
+
+Please enter index:
+Please enter name:
+An exception has occurred!
+There is no such group.
+Please enter index:
+The flashcard index you entered is invalid
+Sorry, I don't know how to help with that yet.
+Please enter index:
+Please enter name:
+You've successfully added the flashcard below:
+Event name: Meiji Restoration
+Event period: January 1, 1868-January 1, 1868
+Summary: Turning point in Japanese history
+Details:
+* End of Shogunate
+* Centralization of power
+* Functional end of Samurai Class
+
+To the group:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.
+
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
 1: Meiji Restoration | Reviewed: N | Not indicated
