@@ -1,13 +1,9 @@
 package seedu.tp.commands;
 
-import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
-import seedu.tp.exceptions.InvalidInputFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
-
-import java.util.InputMismatchException;
 
 /**
  * Command to configure priority level of a flashcard.
@@ -53,7 +49,7 @@ public class PriorityCommand extends Command {
     }
 
     @Override
-    public void execute() throws HistoryFlashcardException {
+    public void execute() throws InvalidFlashcardIndexException {
         try {
             flashcardList.getFlashcardAtIdx(index).setPriorityLevel(pl);
             ui.confirmFlashcardPriority(flashcardList.getFlashcardAtIdx(index));
