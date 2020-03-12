@@ -28,6 +28,7 @@ public class PriorityCommand extends Command {
         this.ui = ui;
         this.pl = pl;
     }
+
     /**
      * Gets index in the priority command.
      *
