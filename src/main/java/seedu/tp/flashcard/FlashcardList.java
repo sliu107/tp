@@ -5,21 +5,34 @@ import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 /**
  * List of flashcards.
  */
 public class FlashcardList {
+
+    private static Logger logger = Logger.getLogger(FlashcardList.class.getName());
     private List<Flashcard> flashcards;
 
     /**
      * Constructor for FlashcardList.
      */
     public FlashcardList() {
-        this.flashcards = new ArrayList<Flashcard>();
+        setupLogger();
+        this.flashcards = new ArrayList<>();
     }
 
+    /**
+     * Constructor for FlashcardList.
+     *
+     * @param flashcardList the list of flashcards to be added
+     */
     public FlashcardList(List<Flashcard> flashcardList) {
+        setupLogger();
         this.flashcards = new ArrayList<>();
         this.flashcards.addAll(flashcardList);
     }
@@ -31,10 +44,20 @@ public class FlashcardList {
      * @param flashcardList the flashcard list to be copied from
      */
     public FlashcardList(FlashcardList flashcardList) {
+        setupLogger();
         this.flashcards = new ArrayList<>();
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             this.flashcards.add(flashcardList.getFlashcardAtIdx(i));
         }
+    }
+
+    private static void setupLogger() {
+        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
+        LogManager.getLogManager().reset();
+        logger.setLevel(Level.ALL);
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(Level.SEVERE);
+        logger.addHandler(consoleHandler);
     }
 
     /**
@@ -45,6 +68,7 @@ public class FlashcardList {
      */
     public FlashcardList addFlashcard(Flashcard flashcard) {
         flashcards.add(flashcard);
+        logger.info("Added flashcard " + flashcard.getName() + " to list");
         return this;
     }
 
@@ -56,8 +80,12 @@ public class FlashcardList {
      */
     public Flashcard deleteFlashcard(int index) throws InvalidFlashcardIndexException {
         try {
-            return flashcards.remove(index);
+            Flashcard flashcard = flashcards.remove(index);
+            logger.info("Deleted flashcard " + flashcard.getName() + " from list");
+            return flashcard;
         } catch (IndexOutOfBoundsException e) {
+            logger.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
+            logger.warning("Throwing InvalidFlashcardIndexException...");
             throw new InvalidFlashcardIndexException();
         }
     }
@@ -107,6 +135,13 @@ public class FlashcardList {
      */
     @Override
     public boolean equals(Object obj) {
+        if (!(obj instanceof FlashcardList)) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+
         FlashcardList otherFlashcards = (FlashcardList) obj;
         if (this.getTotalFlashcardNum() != otherFlashcards.getTotalFlashcardNum()) {
             return false;
@@ -116,7 +151,6 @@ public class FlashcardList {
         Collections.sort(flashcardList);
         List<Flashcard> otherFlashcardList = new ArrayList<Flashcard>(otherFlashcards.getFlashcards());
         Collections.sort(otherFlashcardList);
-
         for (int idx = 0; idx < this.getTotalFlashcardNum(); idx++) {
             if (!flashcardList.get(idx).equals(otherFlashcardList.get(idx))) {
                 return false;
