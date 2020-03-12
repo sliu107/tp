@@ -17,6 +17,7 @@ import seedu.tp.commands.TimelineCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.exceptions.InvalidInputFormatException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
@@ -31,6 +32,7 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
+import java.util.InputMismatchException;
 import java.util.Locale;
 
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
@@ -164,6 +166,8 @@ public class Parser {
                 return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl);
             } catch (IndexOutOfBoundsException e) {
                 throw new InvalidFlashcardIndexException();
+            } catch (IllegalArgumentException e) {
+                throw new InvalidInputFormatException();
             }
         case TIMELINE_COMMAND:
             return new TimelineCommand(flashcardList, ui);
