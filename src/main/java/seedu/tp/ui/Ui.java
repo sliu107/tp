@@ -12,6 +12,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 import static seedu.tp.utils.Constants.DETAIL_FIELD;
 import static seedu.tp.utils.Constants.EMPTY_STRING;
@@ -20,7 +24,24 @@ import static seedu.tp.utils.Constants.EMPTY_STRING;
  * Ui class.
  */
 public class Ui {
+    private static Logger logger = Logger.getLogger(Ui.class.getName());
     private final Scanner scanner = new Scanner(System.in);
+
+    /**
+     * Constructor for Ui class.
+     */
+    public Ui() {
+        setupLogger();
+    }
+
+    private static void setupLogger() {
+        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
+        LogManager.getLogManager().reset();
+        logger.setLevel(Level.ALL);
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(Level.SEVERE);
+        logger.addHandler(consoleHandler);
+    }
 
     /**
      * Sends welcome message to user.
@@ -63,12 +84,14 @@ public class Ui {
      * @return the list of details entered by user
      */
     public List<String> promptUserForDetails() {
+        logger.info("Prompting user for details...");
         List<String> details = new ArrayList<>();
         Optional<String> newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
         while (newDetailOptional.isPresent()) {
             details.add(newDetailOptional.get());
             newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
         }
+        logger.info("Returning details...");
         return details;
     }
 
@@ -80,8 +103,10 @@ public class Ui {
      * @return the user's input
      */
     public Optional<String> promptUserForOptionalField(String fieldName) {
+        logger.info("Prompting user for optional field " + fieldName + "...");
         System.out.println("Please enter " + fieldName + " (optional):");
         String input = getNextLine().trim();
+        logger.info("Returning optional field " + fieldName + "...");
         return input.equals(EMPTY_STRING) ? Optional.empty() : Optional.of(input);
     }
 
@@ -92,12 +117,14 @@ public class Ui {
      * @return the user's input
      */
     public String promptUserForRequiredField(String fieldName) {
+        logger.info("Prompting user for required field " + fieldName + "...");
         System.out.println("Please enter " + fieldName + ":");
         String input = getNextLine().trim();
         while (input.equals(EMPTY_STRING)) {
             System.out.println("That is a required field! Please enter again.");
             input = getNextLine().trim();
         }
+        logger.info("Returning required field " + fieldName + "...");
         return input;
     }
 
@@ -108,6 +135,7 @@ public class Ui {
      * @return the parsed date
      */
     public Optional<LocalDate> promptUserForOptionalLocalDate(String fieldName) {
+        logger.info("Prompting user for optional local date field " + fieldName + "...");
         System.out.println("Please enter " + fieldName + " (optional):");
         String input;
         LocalDate localDate = null;
@@ -124,6 +152,7 @@ public class Ui {
             }
         } while (localDate == null);
 
+        logger.info("Returning optional local date field " + fieldName + "...");
         return Optional.of(localDate);
     }
 
@@ -134,6 +163,7 @@ public class Ui {
      * @return the parsed date
      */
     public LocalDate promptUserForRequiredLocalDate(String fieldName) {
+        logger.info("Prompting user for required local date field " + fieldName + "...");
         System.out.println("Please enter " + fieldName + ":");
         String input;
         LocalDate localDate = null;
@@ -147,6 +177,7 @@ public class Ui {
             }
         } while (localDate == null);
 
+        logger.info("Returning required local date field " + fieldName + "...");
         return localDate;
     }
 
@@ -258,6 +289,8 @@ public class Ui {
      * @param exception the exception to be printed out
      */
     public void printException(Exception exception) {
+        logger.warning("Sending exception to user:");
+        logger.warning(exception.toString());
         System.out.println("An exception has occurred!");
         System.out.println(exception.getMessage());
     }
@@ -266,6 +299,7 @@ public class Ui {
      * Sends response to unknown command entered by user.
      */
     public void sendUnknownCommandResponse() {
+        logger.info("Sending unknown command response to user...");
         System.out.println("Sorry, I don't know how to help with that yet.");
     }
 
@@ -273,6 +307,7 @@ public class Ui {
      * Sends response to invalid flashcard index entered by user.
      */
     public void sendInvalidFlashcardIndexResponse() {
+        logger.info("Sending invalid flashcard index response to user...");
         System.out.println("The flashcard index you entered is invalid");
     }
 
@@ -284,5 +319,4 @@ public class Ui {
     public String getNextLine() {
         return scanner.nextLine();
     }
-
 }

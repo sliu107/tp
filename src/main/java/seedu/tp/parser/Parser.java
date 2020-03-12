@@ -76,11 +76,21 @@ public class Parser {
      */
     public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList,
                   GroupFactory groupFactory, GroupList groupList, Ui ui) {
+        setupLogger();
         this.flashcardFactory = flashcardFactory;
         this.flashcardList = flashcardList;
         this.groupFactory = groupFactory;
         this.groupList = groupList;
         this.ui = ui;
+    }
+
+    private static void setupLogger() {
+        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
+        LogManager.getLogManager().reset();
+        logger.setLevel(Level.ALL);
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(Level.SEVERE);
+        logger.addHandler(consoleHandler);
     }
 
     /**
@@ -137,15 +147,6 @@ public class Parser {
         return localDate.format(formatter);
     }
 
-    private void setupLogger() {
-        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
-        LogManager.getLogManager().reset();
-        logger.setLevel(Level.ALL);
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.SEVERE);
-        logger.addHandler(consoleHandler);
-    }
-
     /**
      * Parses user input and return the command parsed.
      *
@@ -154,8 +155,6 @@ public class Parser {
      * @throws HistoryFlashcardException exception that occurred when parsing user input
      */
     public Command parseCommand(String userInput) throws HistoryFlashcardException {
-        this.setupLogger();
-
         String[] splitInput = userInput.split(EMPTY_SPACE, 3);
         String commandType = splitInput[0].toLowerCase();
 
