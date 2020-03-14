@@ -19,7 +19,14 @@ public class FlashcardList {
         this.flashcards = new ArrayList<Flashcard>();
     }
 
+    /**
+     * Constructor for FlashcardList.
+     *
+     * @param flashcardList the list of flashcards to be added to the flashcard list
+     */
     public FlashcardList(List<Flashcard> flashcardList) {
+        assert flashcardList != null : "Invalid null flashcard list!";
+
         this.flashcards = new ArrayList<>();
         this.flashcards.addAll(flashcardList);
     }
@@ -31,6 +38,8 @@ public class FlashcardList {
      * @param flashcardList the flashcard list to be copied from
      */
     public FlashcardList(FlashcardList flashcardList) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.flashcards = new ArrayList<>();
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             this.flashcards.add(flashcardList.getFlashcardAtIdx(i));
@@ -44,6 +53,8 @@ public class FlashcardList {
      * @return the updated flashcardList with new flashcard just be added in
      */
     public FlashcardList addFlashcard(Flashcard flashcard) {
+        assert flashcard != null : "Invalid null flashcard!";
+
         flashcards.add(flashcard);
         return this;
     }
