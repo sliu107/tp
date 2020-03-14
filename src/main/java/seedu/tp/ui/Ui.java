@@ -6,41 +6,43 @@ import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.parser.Parser;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
-import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
-import java.util.logging.LogManager;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import static seedu.tp.utils.Constants.DETAIL_FIELD;
 import static seedu.tp.utils.Constants.EMPTY_STRING;
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 
 /**
  * Ui class.
  */
 public class Ui {
-    private static Logger logger = Logger.getLogger(Ui.class.getName());
+
+    private static final String FILE_PATH = LOG_FOLDER + "ui.log";
+    private static final Logger LOGGER = Logger.getLogger(Ui.class.getName());
+
     private final Scanner scanner = new Scanner(System.in);
 
     /**
-     * Constructor for Ui class.
+     * Set up the Ui logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
      */
-    public Ui() {
-        setupLogger();
-    }
-
-    private static void setupLogger() {
-        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
-        LogManager.getLogManager().reset();
-        logger.setLevel(Level.ALL);
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.SEVERE);
-        logger.addHandler(consoleHandler);
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
     }
 
     /**
@@ -84,14 +86,14 @@ public class Ui {
      * @return the list of details entered by user
      */
     public List<String> promptUserForDetails() {
-        logger.info("Prompting user for details...");
+        LOGGER.info("Prompting user for details...");
         List<String> details = new ArrayList<>();
         Optional<String> newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
         while (newDetailOptional.isPresent()) {
             details.add(newDetailOptional.get());
             newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
         }
-        logger.info("Returning details...");
+        LOGGER.info("Returning details...");
         return details;
     }
 
@@ -104,12 +106,12 @@ public class Ui {
      */
     public Optional<String> promptUserForOptionalField(String fieldName) {
         assert !fieldName.isEmpty() : "Invalid empty field name!";
-
-        logger.info("Prompting user for optional field " + fieldName + "...");
+        LOGGER.info("Prompting user for optional field " + fieldName + "...");
 
         System.out.println("Please enter " + fieldName + " (optional):");
         String input = getNextLine().trim();
-        logger.info("Returning optional field " + fieldName + "...");
+
+        LOGGER.info("Returning optional field " + fieldName + "...");
         return input.equals(EMPTY_STRING) ? Optional.empty() : Optional.of(input);
     }
 
@@ -121,8 +123,7 @@ public class Ui {
      */
     public String promptUserForRequiredField(String fieldName) {
         assert !fieldName.isEmpty() : "Invalid empty field name!";
-
-        logger.info("Prompting user for required field " + fieldName + "...");
+        LOGGER.info("Prompting user for required field " + fieldName + "...");
 
         System.out.println("Please enter " + fieldName + ":");
         String input = getNextLine().trim();
@@ -130,7 +131,8 @@ public class Ui {
             System.out.println("That is a required field! Please enter again.");
             input = getNextLine().trim();
         }
-        logger.info("Returning required field " + fieldName + "...");
+
+        LOGGER.info("Returning required field " + fieldName + "...");
         return input;
     }
 
@@ -142,7 +144,7 @@ public class Ui {
      */
     public Optional<LocalDate> promptUserForOptionalLocalDate(String fieldName) {
         assert !fieldName.isEmpty() : "Invalid empty field name!";
-        logger.info("Prompting user for optional local date field " + fieldName + "...");
+        LOGGER.info("Prompting user for optional local date field " + fieldName + "...");
 
         System.out.println("Please enter " + fieldName + " (optional):");
         String input;
@@ -160,7 +162,7 @@ public class Ui {
             }
         } while (localDate == null);
 
-        logger.info("Returning optional local date field " + fieldName + "...");
+        LOGGER.info("Returning optional local date field " + fieldName + "...");
         return Optional.of(localDate);
     }
 
@@ -172,7 +174,7 @@ public class Ui {
      */
     public LocalDate promptUserForRequiredLocalDate(String fieldName) {
         assert !fieldName.isEmpty() : "Invalid empty field name!";
-        logger.info("Prompting user for required local date field " + fieldName + "...");
+        LOGGER.info("Prompting user for required local date field " + fieldName + "...");
 
         System.out.println("Please enter " + fieldName + ":");
         String input;
@@ -187,7 +189,7 @@ public class Ui {
             }
         } while (localDate == null);
 
-        logger.info("Returning required local date field " + fieldName + "...");
+        LOGGER.info("Returning required local date field " + fieldName + "...");
         return localDate;
     }
 
@@ -316,8 +318,8 @@ public class Ui {
      * @param exception the exception to be printed out
      */
     public void printException(Exception exception) {
-        logger.warning("Sending exception to user:");
-        logger.warning(exception.toString());
+        LOGGER.warning("Sending exception to user:");
+        LOGGER.warning(exception.toString());
         System.out.println("An exception has occurred!");
         System.out.println(exception.getMessage());
     }
@@ -326,7 +328,7 @@ public class Ui {
      * Sends response to unknown command entered by user.
      */
     public void sendUnknownCommandResponse() {
-        logger.info("Sending unknown command response to user...");
+        LOGGER.info("Sending unknown command response to user...");
         System.out.println("Sorry, I don't know how to help with that yet.");
     }
 
@@ -334,7 +336,7 @@ public class Ui {
      * Sends response to invalid flashcard index entered by user.
      */
     public void sendInvalidFlashcardIndexResponse() {
-        logger.info("Sending invalid flashcard index response to user...");
+        LOGGER.info("Sending invalid flashcard index response to user...");
         System.out.println("The flashcard index you entered is invalid");
     }
 
