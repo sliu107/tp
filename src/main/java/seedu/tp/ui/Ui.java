@@ -279,6 +279,10 @@ public class Ui {
     public void sendInvalidInputFormatResponse() {
         System.out.println("Please use the correct input format. Use \"help\" to view all commands.");
     }
+    
+    public void sendDuplicateFlashcardResponse() {
+        System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
+    }
 
     /**
      * Gets the next user input line.

@@ -63,6 +63,16 @@ public class FlashcardList {
     }
 
     /**
+     * Return whether or not this FlashcardList contains specified flashcard.
+     * 
+     * @param flashcard the flashcard to check
+     * @return whether or not this FlashcardList contains specified flashcard
+     */
+    public boolean contains(Flashcard flashcard) {
+        return flashcards.contains(flashcard);
+    }
+
+    /**
      * Gets the flashcard at a specific index.
      *
      * @param idx the index.
