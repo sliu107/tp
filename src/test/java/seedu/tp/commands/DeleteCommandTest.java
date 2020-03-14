@@ -1,17 +1,53 @@
 package seedu.tp.commands;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.flashcard.EventFlashcard;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.flashcard.OtherFlashcard;
+import seedu.tp.flashcard.PersonFlashcard;
+
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static seedu.tp.utils.ExampleInputConstants.EMPTY_FLASHCARD_LIST;
-import static seedu.tp.utils.ExampleInputConstants.EVENT_FLASHCARD;
-import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
-import static seedu.tp.utils.ExampleInputConstants.OTHER_FLASHCARD;
+
 
 public class DeleteCommandTest {
+
+    public static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
+        "Event 1",
+        LocalDate.of(1843, 7, 31),
+        LocalDate.of(1892, 12, 25),
+        "This is an event summary",
+        Arrays.asList("Detail 1", "Detail 2")
+    );
+    public static final PersonFlashcard PERSON_FLASHCARD = new PersonFlashcard(
+        "Person 1",
+        LocalDate.of(1843, 7, 31),
+        LocalDate.of(1892, 12, 25),
+        "This is a person's summary",
+        Arrays.asList("Detail 1", "Detail 2")
+    );
+    public static final OtherFlashcard OTHER_FLASHCARD = new OtherFlashcard(
+        "Title 1",
+        "This is a summary",
+        Arrays.asList("Detail 1", "Detail 2")
+    );
+
+    private FlashcardList emptyFlashcardList;
+    private FlashcardList fullFlashcardList;
+
+    @BeforeEach
+    public void setup() {
+        emptyFlashcardList = new FlashcardList();
+        List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
+        fullFlashcardList = new FlashcardList(flashcards);
+    }
 
     @Test
     public void execute_delete_successful() throws InvalidFlashcardIndexException {
@@ -19,7 +55,7 @@ public class DeleteCommandTest {
         expectedFlashcardList.addFlashcard(EVENT_FLASHCARD);
         expectedFlashcardList.addFlashcard(OTHER_FLASHCARD);
 
-        FlashcardList flashcardList = new FlashcardList(FULL_FLASHCARD_LIST);
+        FlashcardList flashcardList = new FlashcardList(fullFlashcardList);
         DeleteCommand deleteCommand = new DeleteCommand(flashcardList, 1);
         deleteCommand.execute();
 
@@ -28,7 +64,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_deleteFromEmptyList_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(EMPTY_FLASHCARD_LIST, 1);
+        DeleteCommand deleteCommand = new DeleteCommand(emptyFlashcardList, 1);
         assertThrows(
             InvalidFlashcardIndexException.class,
             deleteCommand::execute,
@@ -38,7 +74,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_deleteNegativeIndex_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(FULL_FLASHCARD_LIST, -10);
+        DeleteCommand deleteCommand = new DeleteCommand(fullFlashcardList, -10);
         assertThrows(
             InvalidFlashcardIndexException.class,
             deleteCommand::execute,
@@ -48,7 +84,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_deleteOutOfBoundIndex_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(FULL_FLASHCARD_LIST, 100);
+        DeleteCommand deleteCommand = new DeleteCommand(fullFlashcardList, 100);
         assertThrows(
             InvalidFlashcardIndexException.class,
             deleteCommand::execute,

@@ -14,7 +14,6 @@ import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
-
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
@@ -58,7 +57,7 @@ public class ParserTest {
     public void parse_eventFlashcardCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("event");
         EventFlashcardCommand expectedEventFlashcardCommand = new EventFlashcardCommand(flashcardList,
-                flashcardFactory);
+            flashcardFactory);
         assertEquals(expectedEventFlashcardCommand, command);
     }
 
@@ -66,7 +65,7 @@ public class ParserTest {
     public void parse_eventFlashcardCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("EveNt");
         EventFlashcardCommand expectedEventFlashcardCommand = new EventFlashcardCommand(flashcardList,
-                flashcardFactory);
+            flashcardFactory);
         assertEquals(expectedEventFlashcardCommand, command);
     }
 
@@ -74,7 +73,7 @@ public class ParserTest {
     public void parse_personFlashcardCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("person");
         PersonFlashcardCommand expectedPersonFlashcardCommand =
-                new PersonFlashcardCommand(flashcardList, flashcardFactory);
+            new PersonFlashcardCommand(flashcardList, flashcardFactory);
         assertEquals(expectedPersonFlashcardCommand, command);
     }
 
@@ -82,7 +81,7 @@ public class ParserTest {
     public void parse_personFlashcardCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("pERson");
         PersonFlashcardCommand expectedPersonFlashcardCommand =
-                new PersonFlashcardCommand(flashcardList, flashcardFactory);
+            new PersonFlashcardCommand(flashcardList, flashcardFactory);
         assertEquals(expectedPersonFlashcardCommand, command);
     }
 
@@ -90,7 +89,7 @@ public class ParserTest {
     public void parse_otherFlashcardCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("other");
         OtherFlashcardCommand expectedOtherFlashcardCommand =
-                new OtherFlashcardCommand(flashcardList, flashcardFactory);
+            new OtherFlashcardCommand(flashcardList, flashcardFactory);
         assertEquals(expectedOtherFlashcardCommand, command);
     }
 
@@ -98,7 +97,7 @@ public class ParserTest {
     public void parse_otherFlashcardCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("oThER");
         OtherFlashcardCommand expectedOtherFlashcardCommand =
-                new OtherFlashcardCommand(flashcardList, flashcardFactory);
+            new OtherFlashcardCommand(flashcardList, flashcardFactory);
         assertEquals(expectedOtherFlashcardCommand, command);
     }
 
@@ -134,7 +133,7 @@ public class ParserTest {
     public void parse_priorityCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("priority 1 LOW");
         PriorityCommand expectedPriorityCommand = new PriorityCommand(flashcardList, 0,
-                ui, Flashcard.PriorityLevel.LOW);
+            ui, Flashcard.PriorityLevel.LOW);
         assertEquals(expectedPriorityCommand, command);
     }
 
@@ -142,7 +141,7 @@ public class ParserTest {
     public void parse_priorityCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("PriOriTY 1 LOW");
         PriorityCommand expectedPriorityCommand = new PriorityCommand(flashcardList, 0,
-                ui, Flashcard.PriorityLevel.LOW);
+            ui, Flashcard.PriorityLevel.LOW);
         assertEquals(expectedPriorityCommand, command);
     }
 
