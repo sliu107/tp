@@ -20,6 +20,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReviewedCommandTest {
+
     public static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
         "Event 1",
         LocalDate.of(1843, 7, 31),
