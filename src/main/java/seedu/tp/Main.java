@@ -3,6 +3,7 @@ package seedu.tp;
 import seedu.tp.commands.Command;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.exceptions.InvalidInputFormatException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
@@ -58,6 +59,8 @@ public class Main {
                 ui.sendUnknownCommandResponse();
             } catch (InvalidFlashcardIndexException e) {
                 ui.sendInvalidFlashcardIndexResponse();
+            } catch (InvalidInputFormatException e) {
+                ui.sendInvalidInputFormatResponse();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
             }

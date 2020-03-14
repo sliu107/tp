@@ -26,6 +26,8 @@ public class ExampleInputConstants {
     public static final String DETAIL_1 = "Detail 1";
     public static final String DETAIL_2 = "Detail 2";
     public static final List<String> DETAILS = Arrays.asList(DETAIL_1, DETAIL_2);
+    public static final String DETAILS_BULLET_FORM = "* " + DETAIL_1 + System.lineSeparator()
+            + "* " + DETAIL_2 + System.lineSeparator();
 
     public static final String INDEX_1 = "2";
     public static final String INDEX_2 = "-1";
@@ -79,7 +81,7 @@ public class ExampleInputConstants {
         "Person 1",
         START_LOCAL_DATE,
         END_LOCAL_DATE,
-        "This is a person's summmary",
+        "This is a person's summary",
         DETAILS
     );
     public static final OtherFlashcard OTHER_FLASHCARD = new OtherFlashcard(
