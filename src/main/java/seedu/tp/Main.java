@@ -1,6 +1,7 @@
 package seedu.tp;
 
 import seedu.tp.commands.Command;
+import seedu.tp.exceptions.DuplicateFlashcardException;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.InvalidInputFormatException;
@@ -61,6 +62,8 @@ public class Main {
                 ui.sendInvalidFlashcardIndexResponse();
             } catch (InvalidInputFormatException e) {
                 ui.sendInvalidInputFormatResponse();
+            } catch (DuplicateFlashcardException e) {
+                ui.sendDuplicateFlashcardResponse();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
             }
