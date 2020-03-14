@@ -7,10 +7,16 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import static seedu.tp.utils.Constants.INDEX_FIELD;
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.NAME_FIELD;
 
 /**
@@ -25,7 +31,7 @@ public class GroupList {
     public GroupList() {
         this.groups = new ArrayList<FlashcardGroup>();
     }
-
+    
     /**
      * Adds a new group to the group list.
      *

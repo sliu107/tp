@@ -3,16 +3,38 @@ package seedu.tp.flashcard;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.ui.Ui;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+import static seedu.tp.utils.Constants.LOG_FOLDER;
+
 /**
  * Flashcard factory class to create flashcards given string.
  */
 public class FlashcardFactory {
     private Ui ui;
-
+    private static Logger LOGGER = Logger.getLogger(FlashcardFactory.class.getName());
+    
     public FlashcardFactory(Ui ui) {
         this.ui = ui;
     }
 
+    /**
+     * Set up the FlashcardFactory logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
+     */
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(Flashcard.FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
+    }
+    
     /**
      * Create a <code>Flashcard</code> given a string.
      *
@@ -35,6 +57,7 @@ public class FlashcardFactory {
             ui.confirmFlashcardCreation(otherFlashcard);
             return otherFlashcard;
         default:
+            LOGGER.info("Received unknown flashcard type: " + flashcardType);
             throw new UnrecognizedFlashcardTypeException("Flashcard types: event, person, other");
         }
     }

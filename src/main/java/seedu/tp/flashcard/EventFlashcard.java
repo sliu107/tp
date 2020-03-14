@@ -17,7 +17,7 @@ import static seedu.tp.utils.Constants.SUMMARY_FIELD;
 public class EventFlashcard extends Flashcard {
     private LocalDate startDate;
     private LocalDate endDate;
-
+    
     /**
      * Constructs an <code>EventFlashcard</code>.
      */
@@ -25,6 +25,7 @@ public class EventFlashcard extends Flashcard {
         super(name, summary, details);
         this.startDate = startDate;
         this.endDate = endDate;
+        LOGGER.info("Constructed new EventFlashcard: " + this);
     }
 
     /**
