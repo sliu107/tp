@@ -46,6 +46,9 @@ public class ListCommandTest {
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
     private final PrintStream backupStdout = System.out;
 
+    /**
+     * Set up variables before each test.
+     */
     @BeforeEach
     public void setup() {
         System.setOut(new PrintStream(capturedOut));

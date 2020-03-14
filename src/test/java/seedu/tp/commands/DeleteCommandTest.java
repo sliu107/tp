@@ -42,6 +42,9 @@ public class DeleteCommandTest {
     private FlashcardList emptyFlashcardList;
     private FlashcardList fullFlashcardList;
 
+    /**
+     * Set up variables before each test.
+     */
     @BeforeEach
     public void setup() {
         emptyFlashcardList = new FlashcardList();
