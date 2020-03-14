@@ -70,6 +70,6 @@ public class PriorityCommand extends Command {
 
         PriorityCommand otherPriorityCommand = (PriorityCommand) obj;
         return otherPriorityCommand.getIndex() == this.index
-                && otherPriorityCommand.getPl().equals(this.pl);
+            && otherPriorityCommand.getPl().equals(this.pl);
     }
 }

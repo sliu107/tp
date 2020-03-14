@@ -11,13 +11,13 @@ import seedu.tp.ui.Ui;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.tp.utils.ExampleInputConstants.DETAILS_BULLET_FORM;
-import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
-import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_NAME;
-import static seedu.tp.utils.ExampleInputConstants.SUMMARY;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
+import static seedu.tp.utils.ExampleInputConstants.DETAILS_BULLET_FORM;
+import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_NAME;
+import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
+import static seedu.tp.utils.ExampleInputConstants.SUMMARY;
 
 public class ShowCommandTest {
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
@@ -85,9 +85,9 @@ public class ShowCommandTest {
         Ui ui = new Ui();
         ShowCommand showCommand = new ShowCommand(flashcardList, 1, ui);
         assertThrows(
-                InvalidFlashcardIndexException.class,
-                showCommand::execute,
-                "Expected InvalidFlashcardIndexException"
+            InvalidFlashcardIndexException.class,
+            showCommand::execute,
+            "Expected InvalidFlashcardIndexException"
         );
     }
 }
