@@ -25,6 +25,7 @@ public class EventFlashcard extends Flashcard {
         super(name, summary, details);
         this.startDate = startDate;
         this.endDate = endDate;
+        LOGGER.info("Constructed new EventFlashcard: " + this);
     }
 
     /**

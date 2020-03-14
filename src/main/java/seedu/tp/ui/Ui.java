@@ -103,7 +103,10 @@ public class Ui {
      * @return the user's input
      */
     public Optional<String> promptUserForOptionalField(String fieldName) {
+        assert !fieldName.isEmpty() : "Invalid empty field name!";
+
         logger.info("Prompting user for optional field " + fieldName + "...");
+
         System.out.println("Please enter " + fieldName + " (optional):");
         String input = getNextLine().trim();
         logger.info("Returning optional field " + fieldName + "...");
@@ -117,7 +120,10 @@ public class Ui {
      * @return the user's input
      */
     public String promptUserForRequiredField(String fieldName) {
+        assert !fieldName.isEmpty() : "Invalid empty field name!";
+
         logger.info("Prompting user for required field " + fieldName + "...");
+
         System.out.println("Please enter " + fieldName + ":");
         String input = getNextLine().trim();
         while (input.equals(EMPTY_STRING)) {
@@ -135,7 +141,9 @@ public class Ui {
      * @return the parsed date
      */
     public Optional<LocalDate> promptUserForOptionalLocalDate(String fieldName) {
+        assert !fieldName.isEmpty() : "Invalid empty field name!";
         logger.info("Prompting user for optional local date field " + fieldName + "...");
+
         System.out.println("Please enter " + fieldName + " (optional):");
         String input;
         LocalDate localDate = null;
@@ -163,7 +171,9 @@ public class Ui {
      * @return the parsed date
      */
     public LocalDate promptUserForRequiredLocalDate(String fieldName) {
+        assert !fieldName.isEmpty() : "Invalid empty field name!";
         logger.info("Prompting user for required local date field " + fieldName + "...");
+
         System.out.println("Please enter " + fieldName + ":");
         String input;
         LocalDate localDate = null;
@@ -187,6 +197,8 @@ public class Ui {
      * @param flashcard the flashcard created
      */
     public void confirmFlashcardCreation(Flashcard flashcard) {
+        assert flashcard != null : "Invalid null flashcard!";
+
         System.out.println("You've successfully created the flashcard below:");
         System.out.println(flashcard);
     }
@@ -197,6 +209,8 @@ public class Ui {
      * @param flashcard the flashcard that was reviewed
      */
     public void confirmFlashcardReview(Flashcard flashcard) {
+        assert flashcard != null : "Invalid null flashcard!";
+
         System.out.println("You have marked the following flashcard as Reviewed:");
         System.out.println(flashcard.getName());
     }
@@ -207,6 +221,8 @@ public class Ui {
      * @param flashcard the flashcard that had its priority updated
      */
     public void confirmFlashcardPriority(Flashcard flashcard) {
+        assert flashcard != null : "Invalid null flashcard!";
+
         System.out.println("Priority has been updated:");
         System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString());
     }
@@ -217,6 +233,8 @@ public class Ui {
      * @param flashcard the flashcard to be displayed
      */
     public void showFlashcard(Flashcard flashcard) {
+        assert flashcard != null : "Invalid null flashcard!";
+
         System.out.println("These are the flashcard details:");
         System.out.println(flashcard);
     }
@@ -227,6 +245,8 @@ public class Ui {
      * @param flashcardGroup the flashcard group created
      */
     public void confirmFlashcardGroupCreation(FlashcardGroup flashcardGroup) {
+        assert flashcardGroup != null : "Invalid null flashcard group!";
+
         System.out.println("You've successfully created the group below:");
         System.out.println(flashcardGroup);
     }
@@ -239,6 +259,9 @@ public class Ui {
      * @param flashcard      the flashcard just be added into the group
      */
     public void confirmFlashcardAdditionToGroup(FlashcardGroup flashcardGroup, Flashcard flashcard) {
+        assert flashcardGroup != null : "Invalid null flashcard group!";
+        assert flashcard != null : "Invalid null flashcard!";
+
         System.out.println("You've successfully added the flashcard below:");
         System.out.println(flashcard);
         System.out.println("To the group:");
@@ -251,6 +274,8 @@ public class Ui {
      * @param flashcardList the list of flashcards to be printed out
      */
     public void listAllFlashcards(FlashcardList flashcardList) {
+        assert flashcardList != null : "Invalid null flashcard list!";
+
         if (flashcardList.isEmpty()) {
             System.out.println("You have no flashcard at this moment!");
             return;
@@ -270,6 +295,8 @@ public class Ui {
      * @param flashcardList the list of flashcards to be printed out
      */
     public void listAllFlashcardsOrdered(FlashcardList flashcardList) {
+        assert flashcardList != null : "Invalid null flashcard list!";
+
         if (flashcardList.isEmpty()) {
             System.out.println("You have no flashcards at this moment!");
             return;
@@ -311,8 +338,16 @@ public class Ui {
         System.out.println("The flashcard index you entered is invalid");
     }
 
+    public void sendLoggingSetupFailedMessage() {
+        System.out.println("Logging setup failed! Logs will be printed to console instead of saved to file.");
+    }
+
     public void sendInvalidInputFormatResponse() {
         System.out.println("Please use the correct input format. Use \"help\" to view all commands.");
+    }
+
+    public void sendDuplicateFlashcardResponse() {
+        System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
     }
 
     /**

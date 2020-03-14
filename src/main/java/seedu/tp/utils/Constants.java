@@ -28,4 +28,6 @@ public class Constants {
 
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";
+
+    public static final String LOG_FOLDER = "logs/";
 }

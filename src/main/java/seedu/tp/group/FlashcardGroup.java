@@ -1,18 +1,28 @@
 package seedu.tp.group;
 
+import seedu.tp.exceptions.DuplicateFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
 import static seedu.tp.utils.Constants.DESCRIPTION_FIELD;
 import static seedu.tp.utils.Constants.INDEXES_FIELD;
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.NAME_FIELD;
 
 /**
  * A group of flashcards which have some of the same characteristics.
  */
 public class FlashcardGroup {
+    protected static final Logger LOGGER = Logger.getLogger(FlashcardGroup.class.getName());
+    private static final String FILE_PATH = LOG_FOLDER + "flashcard_group.log";
     private String name;
     private String description;
     private FlashcardList groupCards = new FlashcardList();
@@ -31,6 +41,20 @@ public class FlashcardGroup {
         for (int i : indexes) {
             groupCards.addFlashcard(originalList.getFlashcardAtIdx(i));
         }
+        LOGGER.info("Constructed new Flashcard Group: " + this);
+    }
+
+    /**
+     * Set up the Flashcard Group logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
+     */
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
     }
 
     /**
@@ -61,8 +85,12 @@ public class FlashcardGroup {
      *
      * @param flashcard the flashcard to be added.
      */
-    public void addFlashcardToTheGroup(Flashcard flashcard) {
+    public void addFlashcardToTheGroup(Flashcard flashcard) throws DuplicateFlashcardException {
+        if (groupCards.contains(flashcard)) {
+            throw new DuplicateFlashcardException();
+        }
         groupCards.addFlashcard(flashcard);
+        LOGGER.info("Added " + flashcard.getName() + " to " + name);
     }
 
     /**

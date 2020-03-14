@@ -32,7 +32,6 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
-import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
@@ -102,6 +101,8 @@ public class Parser {
      * @return LocalDate if the string was parsable, null if not
      */
     public static LocalDate parseDate(String date) throws InvalidDateFormatException {
+        assert date != null : "Invalid null date!";
+
         final DateTimeFormatter[] dateTimeFormatters = {
             DateTimeFormatter.ofPattern("d M yyyy"),
             new DateTimeFormatterBuilder()
@@ -139,12 +140,17 @@ public class Parser {
     }
 
     /**
+     * <<<<<<< HEAD
      * Converts local date type object to string representation.
      *
      * @param localDate the local date object
-     * @return string representation of the local date object
+     * @param localDate the LocalDate object
+     * @return string representation of the LocalDate object
+     * >>>>>>> master
      */
     public static String localDateToString(LocalDate localDate) {
+        assert localDate != null : "Invalid null LocalDate!";
+
         final DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.US);
         return localDate.format(formatter);
     }
@@ -157,6 +163,8 @@ public class Parser {
      * @throws HistoryFlashcardException exception that occurred when parsing user input
      */
     public Command parseCommand(String userInput) throws HistoryFlashcardException {
+        assert userInput != null : "Invalid null user input!";
+
         String[] splitInput = userInput.split(EMPTY_SPACE, 3);
         String commandType = splitInput[0].toLowerCase();
 

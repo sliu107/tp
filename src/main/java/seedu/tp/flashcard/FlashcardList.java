@@ -33,6 +33,9 @@ public class FlashcardList {
      */
     public FlashcardList(List<Flashcard> flashcardList) {
         this();
+
+        assert flashcardList != null : "Invalid null flashcard list!";
+
         this.flashcards.addAll(flashcardList);
     }
 
@@ -44,6 +47,9 @@ public class FlashcardList {
      */
     public FlashcardList(FlashcardList flashcardList) {
         this();
+
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             this.flashcards.add(flashcardList.getFlashcardAtIdx(i));
         }
@@ -65,6 +71,8 @@ public class FlashcardList {
      * @return the updated flashcardList with new flashcard just be added in
      */
     public FlashcardList addFlashcard(Flashcard flashcard) {
+        assert flashcard != null : "Invalid null flashcard!";
+
         flashcards.add(flashcard);
         logger.info("Added flashcard " + flashcard.getName() + " to list");
         return this;
@@ -86,6 +94,16 @@ public class FlashcardList {
             logger.warning("Throwing InvalidFlashcardIndexException...");
             throw new InvalidFlashcardIndexException();
         }
+    }
+
+    /**
+     * Return whether or not this FlashcardList contains specified flashcard.
+     *
+     * @param flashcard the flashcard to check
+     * @return whether or not this FlashcardList contains specified flashcard
+     */
+    public boolean contains(Flashcard flashcard) {
+        return flashcards.contains(flashcard);
     }
 
     /**

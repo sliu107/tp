@@ -4,28 +4,60 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.flashcard.EventFlashcard;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
+import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.tp.utils.ExampleInputConstants.DETAILS_BULLET_FORM;
-import static seedu.tp.utils.ExampleInputConstants.FULL_FLASHCARD_LIST;
-import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_NAME;
-import static seedu.tp.utils.ExampleInputConstants.SUMMARY;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
+import static seedu.tp.utils.ExampleInputConstants.DETAILS_BULLET_FORM;
+import static seedu.tp.utils.ExampleInputConstants.END_LOCAL_DATE;
+import static seedu.tp.utils.ExampleInputConstants.FLASHCARD_NAME;
+import static seedu.tp.utils.ExampleInputConstants.START_LOCAL_DATE;
+import static seedu.tp.utils.ExampleInputConstants.SUMMARY;
 
 public class ShowCommandTest {
+
+    private static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
+        "Event 1",
+        START_LOCAL_DATE,
+        END_LOCAL_DATE,
+        "This is an event summary",
+        DETAILS
+    );
+    private static final PersonFlashcard PERSON_FLASHCARD = new PersonFlashcard(
+        "Person 1",
+        START_LOCAL_DATE,
+        END_LOCAL_DATE,
+        "This is a person's summary",
+        DETAILS
+    );
+    private static final OtherFlashcard OTHER_FLASHCARD = new OtherFlashcard(
+        "Title 1",
+        "This is a summary",
+        DETAILS
+    );
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
     private final PrintStream backupStdout = System.out;
+    private FlashcardList fullFlashcardList;
 
+    /**
+     * Set up variables before each test.
+     */
     @BeforeEach
-    public void captureStdout() {
+    public void setup() {
         System.setOut(new PrintStream(capturedOut));
+        List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
+        fullFlashcardList = new FlashcardList(flashcards);
     }
 
     @AfterEach
@@ -43,7 +75,7 @@ public class ShowCommandTest {
         expectedEventOutput.append("Details:" + System.lineSeparator());
         expectedEventOutput.append(DETAILS_BULLET_FORM + System.lineSeparator());
 
-        ShowCommand showCommand = new ShowCommand(FULL_FLASHCARD_LIST, 0, new Ui());
+        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 0, new Ui());
         showCommand.execute();
         assertEquals(expectedEventOutput.toString(), capturedOut.toString());
     }
@@ -59,7 +91,7 @@ public class ShowCommandTest {
         expectedPersonOutput.append("Details:" + System.lineSeparator());
         expectedPersonOutput.append(DETAILS_BULLET_FORM + System.lineSeparator());
 
-        ShowCommand showCommand = new ShowCommand(FULL_FLASHCARD_LIST, 1, new Ui());
+        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 1, new Ui());
         showCommand.execute();
         assertEquals(expectedPersonOutput.toString(), capturedOut.toString());
     }
@@ -73,7 +105,7 @@ public class ShowCommandTest {
         expectedOtherOutput.append("Details:" + System.lineSeparator());
         expectedOtherOutput.append(DETAILS_BULLET_FORM + System.lineSeparator());
 
-        ShowCommand showCommand = new ShowCommand(FULL_FLASHCARD_LIST, 2, new Ui());
+        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 2, new Ui());
         showCommand.execute();
         assertEquals(expectedOtherOutput.toString(), capturedOut.toString());
     }
@@ -85,9 +117,9 @@ public class ShowCommandTest {
         Ui ui = new Ui();
         ShowCommand showCommand = new ShowCommand(flashcardList, 1, ui);
         assertThrows(
-                InvalidFlashcardIndexException.class,
-                showCommand::execute,
-                "Expected InvalidFlashcardIndexException"
+            InvalidFlashcardIndexException.class,
+            showCommand::execute,
+            "Expected InvalidFlashcardIndexException"
         );
     }
 }

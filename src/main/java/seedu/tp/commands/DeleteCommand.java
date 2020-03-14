@@ -21,7 +21,8 @@ public class DeleteCommand extends Command {
      * @param index         index in the delete command
      */
     public DeleteCommand(FlashcardList flashcardList, int index) {
-        setupLogger();
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.flashcardList = flashcardList;
         this.index = index;
     }

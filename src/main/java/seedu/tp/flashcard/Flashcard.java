@@ -1,11 +1,20 @@
 package seedu.tp.flashcard;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 
 /**
  * Abstract flashcard class to represent basic properties of flashcard.
  */
 public abstract class Flashcard implements Comparable<Flashcard> {
+    public static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
+    protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
     protected String name;
     protected String summary;
     protected List<String> details;
@@ -18,6 +27,19 @@ public abstract class Flashcard implements Comparable<Flashcard> {
         this.details = details;
         this.isReviewed = false;
         this.pl = PriorityLevel.DEFAULT;
+    }
+
+    /**
+     * Set up the flashcard logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
+     */
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
     }
 
     protected static String getDetailsString(List<String> details) {

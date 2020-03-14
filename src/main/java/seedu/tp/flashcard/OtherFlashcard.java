@@ -16,6 +16,7 @@ public class OtherFlashcard extends Flashcard {
      */
     public OtherFlashcard(String name, String summary, List<String> details) {
         super(name, summary, details);
+        LOGGER.info("Constructed new OtherFlashcard: " + this);
     }
 
     /**
