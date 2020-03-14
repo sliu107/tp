@@ -1,5 +1,6 @@
 package seedu.tp.group;
 
+import seedu.tp.exceptions.DuplicateFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
@@ -61,7 +62,10 @@ public class FlashcardGroup {
      *
      * @param flashcard the flashcard to be added.
      */
-    public void addFlashcardToTheGroup(Flashcard flashcard) {
+    public void addFlashcardToTheGroup(Flashcard flashcard) throws DuplicateFlashcardException {
+        if (groupCards.contains(flashcard)) {
+            throw new DuplicateFlashcardException();
+        }
         groupCards.addFlashcard(flashcard);
     }
 

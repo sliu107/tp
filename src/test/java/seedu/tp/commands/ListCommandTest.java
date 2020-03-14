@@ -39,12 +39,10 @@ public class ListCommandTest {
         "This is a summary",
         Arrays.asList("Detail 1", "Detail 2")
     );
-
-    private FlashcardList emptyFlashcardList;
-    private FlashcardList fullFlashcardList;
-
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
     private final PrintStream backupStdout = System.out;
+    private FlashcardList emptyFlashcardList;
+    private FlashcardList fullFlashcardList;
 
     /**
      * Set up variables before each test.

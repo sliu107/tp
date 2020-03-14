@@ -15,6 +15,8 @@ public class DeleteCommand extends Command {
      * @param index         index in the delete command
      */
     public DeleteCommand(FlashcardList flashcardList, int index) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.flashcardList = flashcardList;
         this.index = index;
     }
@@ -48,6 +50,10 @@ public class DeleteCommand extends Command {
         if (!(obj instanceof DeleteCommand)) {
             return false;
         }
+        if (obj == this) {
+            return true;
+        }
+
         DeleteCommand otherDeleteCommand = (DeleteCommand) obj;
         return otherDeleteCommand.getIndex() == this.index
             && otherDeleteCommand.getFlashcardList().equals(this.flashcardList);

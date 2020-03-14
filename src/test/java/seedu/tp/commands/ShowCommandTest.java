@@ -46,11 +46,9 @@ public class ShowCommandTest {
         "This is a summary",
         DETAILS
     );
-
-    private FlashcardList fullFlashcardList;
-
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
     private final PrintStream backupStdout = System.out;
+    private FlashcardList fullFlashcardList;
 
     /**
      * Set up variables before each test.
