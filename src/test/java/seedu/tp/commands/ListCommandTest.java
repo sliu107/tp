@@ -15,8 +15,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.tp.utils.ExampleInputConstants.EMPTY_FLASHCARD_LIST;
 import static seedu.tp.utils.ExampleInputConstants.EVENT_FLASHCARD;
-import static seedu.tp.utils.ExampleInputConstants.PERSON_FLASHCARD;
 import static seedu.tp.utils.ExampleInputConstants.OTHER_FLASHCARD;
+import static seedu.tp.utils.ExampleInputConstants.PERSON_FLASHCARD;
 
 public class ListCommandTest {
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();

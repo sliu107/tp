@@ -11,7 +11,15 @@ public class ListCommand extends Command {
     private FlashcardList flashcardList;
     private Ui ui;
 
+    /**
+     * Constructor for ListCommand.
+     *
+     * @param flashcardList the flashcard list to be used in the command
+     * @param ui            the UI object ot be used in the command
+     */
     public ListCommand(FlashcardList flashcardList, Ui ui) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.flashcardList = flashcardList;
         this.ui = ui;
     }
@@ -35,6 +43,10 @@ public class ListCommand extends Command {
         if (!(obj instanceof ListCommand)) {
             return false;
         }
+        if (obj == this) {
+            return true;
+        }
+
         ListCommand otherListCommand = (ListCommand) obj;
         return otherListCommand.getFlashcardList().equals(this.flashcardList);
     }
