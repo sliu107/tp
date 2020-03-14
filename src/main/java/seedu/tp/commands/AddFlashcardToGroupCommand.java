@@ -36,7 +36,7 @@ public class AddFlashcardToGroupCommand extends Command {
 
         AddFlashcardToGroupCommand otherAddFlashcardToGroupCommand = (AddFlashcardToGroupCommand) obj;
         return this.getFlashcardList().equals(otherAddFlashcardToGroupCommand.getFlashcardList())
-                && this.getGroupList().equals(otherAddFlashcardToGroupCommand.getGroupList());
+            && this.getGroupList().equals(otherAddFlashcardToGroupCommand.getGroupList());
     }
 
     public GroupList getGroupList() {

@@ -31,13 +31,13 @@ public class InputTestUtil {
      * Used to simulate user creation of a group in JUnit testing environment.
      *
      * @param simulatedInput The desired input of the use
-     * @param flashcardList The flashcard list used to create the group
+     * @param flashcardList  The flashcard list used to create the group
      * @return a <code>GroupFactory</code> object that can be used to create Flashcard Group based on simulatedInput
      */
     public static GroupFactory getGroupFactoryWithInput(String simulatedInput, FlashcardList flashcardList) {
         ByteArrayInputStream simulatedSystemIn = new ByteArrayInputStream(simulatedInput.getBytes());
         System.setIn(simulatedSystemIn);
-        GroupFactory groupFactory = new GroupFactory(new Ui(),flashcardList);
+        GroupFactory groupFactory = new GroupFactory(new Ui(), flashcardList);
         System.setIn(SYS_IN_BACKUP);
         return groupFactory;
     }
@@ -45,13 +45,13 @@ public class InputTestUtil {
     /**
      * Used to simulate user creation of an addFlashcardToGroupCommand in JUnit testing environment.
      *
-     * @param simulatedInput The desired input of the use
-     * @param flashcardList The flashcard list used to create the group
+     * @param simulatedInput    The desired input of the use
+     * @param flashcardList     The flashcard list used to create the group
      * @param originalGroupList The group list before the addition
      * @return A <code>addFlashcardToGroupCommand</code> object based on simulatedInput
      */
     public static AddFlashcardToGroupCommand getAddFlashcardToGroupCommandWithInput(
-            String simulatedInput, FlashcardList flashcardList, GroupList originalGroupList) {
+        String simulatedInput, FlashcardList flashcardList, GroupList originalGroupList) {
         ByteArrayInputStream simulatedSystemIn = new ByteArrayInputStream(simulatedInput.getBytes());
         System.setIn(simulatedSystemIn);
         return new AddFlashcardToGroupCommand(new Ui(), originalGroupList, flashcardList);
