@@ -40,12 +40,10 @@ public class PriorityCommandTest {
         "This is a summary",
         Arrays.asList("Detail 1", "Detail 2")
     );
-
-    private List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
-    private FlashcardList flashcardList = new FlashcardList(flashcards);
-
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
     private final PrintStream backupStdout = System.out;
+    private List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
+    private FlashcardList flashcardList = new FlashcardList(flashcards);
 
     @BeforeEach
     public void captureStdout() {
