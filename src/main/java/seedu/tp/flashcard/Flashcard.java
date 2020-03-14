@@ -13,8 +13,9 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
  * Abstract flashcard class to represent basic properties of flashcard.
  */
 public abstract class Flashcard implements Comparable<Flashcard> {
-    public static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
+    protected static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
     protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
+
     protected String name;
     protected String summary;
     protected List<String> details;

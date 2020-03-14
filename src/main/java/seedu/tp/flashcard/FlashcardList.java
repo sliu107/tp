@@ -2,27 +2,31 @@ package seedu.tp.flashcard;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
-import java.util.logging.LogManager;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 
 /**
  * List of flashcards.
  */
 public class FlashcardList {
 
-    private static Logger logger = Logger.getLogger(FlashcardList.class.getName());
+    private static final String FILE_PATH = LOG_FOLDER + "flashcard_list.log";
+    private static final Logger LOGGER = Logger.getLogger(FlashcardList.class.getName());
+
     private List<Flashcard> flashcards;
 
     /**
      * Constructor for FlashcardList.
      */
     public FlashcardList() {
-        setupLogger();
         this.flashcards = new ArrayList<>();
     }
 
@@ -55,13 +59,17 @@ public class FlashcardList {
         }
     }
 
-    private static void setupLogger() {
-        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
-        LogManager.getLogManager().reset();
-        logger.setLevel(Level.ALL);
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.SEVERE);
-        logger.addHandler(consoleHandler);
+    /**
+     * Set up the FlashcardList logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
+     */
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
     }
 
     /**
@@ -74,7 +82,7 @@ public class FlashcardList {
         assert flashcard != null : "Invalid null flashcard!";
 
         flashcards.add(flashcard);
-        logger.info("Added flashcard " + flashcard.getName() + " to list");
+        LOGGER.info("Added flashcard " + flashcard.getName() + " to list");
         return this;
     }
 
@@ -87,11 +95,11 @@ public class FlashcardList {
     public Flashcard deleteFlashcard(int index) throws InvalidFlashcardIndexException {
         try {
             Flashcard flashcard = flashcards.remove(index);
-            logger.info("Deleted flashcard " + flashcard.getName() + " from list");
+            LOGGER.info("Deleted flashcard " + flashcard.getName() + " from list");
             return flashcard;
         } catch (IndexOutOfBoundsException e) {
-            logger.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
-            logger.warning("Throwing InvalidFlashcardIndexException...");
+            LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
+            LOGGER.warning("Throwing InvalidFlashcardIndexException...");
             throw new InvalidFlashcardIndexException();
         }
     }
