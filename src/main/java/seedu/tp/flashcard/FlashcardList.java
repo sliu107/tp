@@ -32,8 +32,7 @@ public class FlashcardList {
      * @param flashcardList the list of flashcards to be added
      */
     public FlashcardList(List<Flashcard> flashcardList) {
-        setupLogger();
-        this.flashcards = new ArrayList<>();
+        this();
         this.flashcards.addAll(flashcardList);
     }
 
@@ -44,8 +43,7 @@ public class FlashcardList {
      * @param flashcardList the flashcard list to be copied from
      */
     public FlashcardList(FlashcardList flashcardList) {
-        setupLogger();
-        this.flashcards = new ArrayList<>();
+        this();
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             this.flashcards.add(flashcardList.getFlashcardAtIdx(i));
         }
