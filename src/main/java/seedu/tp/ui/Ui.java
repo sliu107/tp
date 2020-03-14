@@ -311,6 +311,10 @@ public class Ui {
         System.out.println("The flashcard index you entered is invalid");
     }
 
+    public void sendInvalidInputFormatResponse() {
+        System.out.println("Please use the correct input format. Use \"help\" to view all commands.");
+    }
+
     /**
      * Gets the next user input line.
      *

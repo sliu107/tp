@@ -27,6 +27,15 @@ public class ShowCommand extends Command {
         this.ui = ui;
     }
 
+    /**
+     * Gets index in the show command.
+     *
+     * @return the index
+     */
+    public int getIndex() {
+        return index;
+    }
+
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         try {
@@ -35,5 +44,19 @@ public class ShowCommand extends Command {
         } catch (IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof ShowCommand)) {
+            return false;
+        }
+
+        if (obj == this) {
+            return true;
+        }
+
+        ShowCommand otherShowCommand = (ShowCommand) obj;
+        return otherShowCommand.getIndex() == this.index;
     }
 }

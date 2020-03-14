@@ -26,6 +26,15 @@ public class ReviewedCommand extends Command {
         this.ui = ui;
     }
 
+    /**
+     * Gets index in the reviewed command.
+     *
+     * @return the index
+     */
+    public int getIndex() {
+        return index;
+    }
+
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         try {
@@ -35,5 +44,19 @@ public class ReviewedCommand extends Command {
         } catch (IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof ReviewedCommand)) {
+            return false;
+        }
+
+        if (obj == this) {
+            return true;
+        }
+
+        ReviewedCommand otherReviewedCommand = (ReviewedCommand) obj;
+        return otherReviewedCommand.getIndex() == this.index;
     }
 }
