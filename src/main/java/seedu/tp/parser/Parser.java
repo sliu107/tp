@@ -26,6 +26,7 @@ import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -33,10 +34,10 @@ import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
 import java.util.Locale;
-import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
-import java.util.logging.LogManager;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
@@ -46,6 +47,7 @@ import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
@@ -58,7 +60,8 @@ import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
  */
 public class Parser {
 
-    private static Logger logger = Logger.getLogger(Parser.class.getName());
+    private static final String FILE_PATH = LOG_FOLDER + "parser.log";
+    private static final Logger LOGGER = Logger.getLogger(Parser.class.getName());
 
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
@@ -77,7 +80,6 @@ public class Parser {
      */
     public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList,
                   GroupFactory groupFactory, GroupList groupList, Ui ui) {
-        setupLogger();
         this.flashcardFactory = flashcardFactory;
         this.flashcardList = flashcardList;
         this.groupFactory = groupFactory;
@@ -85,13 +87,17 @@ public class Parser {
         this.ui = ui;
     }
 
-    private static void setupLogger() {
-        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
-        LogManager.getLogManager().reset();
-        logger.setLevel(Level.ALL);
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.SEVERE);
-        logger.addHandler(consoleHandler);
+    /**
+     * Set up the Parser logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
+     */
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
     }
 
     /**
@@ -134,19 +140,16 @@ public class Parser {
             }
         }
 
-        logger.warning("User entered invalid date time: ");
-        logger.warning(date);
+        LOGGER.warning("User entered invalid date time: ");
+        LOGGER.warning(date);
         throw new InvalidDateFormatException();
     }
 
     /**
-     * <<<<<<< HEAD
      * Converts local date type object to string representation.
      *
      * @param localDate the local date object
-     * @param localDate the LocalDate object
      * @return string representation of the LocalDate object
-     * >>>>>>> master
      */
     public static String localDateToString(LocalDate localDate) {
         assert localDate != null : "Invalid null LocalDate!";
@@ -181,7 +184,7 @@ public class Parser {
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
             } catch (IndexOutOfBoundsException e) {
-                logger.warning("InvalidFlashcardIndexException");
+                LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
             }
         case REVIEWED_COMMAND:
@@ -190,7 +193,7 @@ public class Parser {
             try {
                 return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
             } catch (NumberFormatException e) {
-                logger.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
+                LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
             }
         case PRIORITY_COMMAND:
@@ -198,7 +201,7 @@ public class Parser {
                 Flashcard.PriorityLevel pl = Flashcard.PriorityLevel.valueOf(splitInput[2]);
                 return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl);
             } catch (NumberFormatException e) {
-                logger.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
+                LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
             } catch (IllegalArgumentException e) {
                 throw new InvalidInputFormatException();
@@ -214,7 +217,7 @@ public class Parser {
         case BYE_COMMAND:
             return new ByeCommand();
         default:
-            logger.warning("UnknownCommandException occurred when parsing: " + userInput);
+            LOGGER.warning("UnknownCommandException occurred when parsing: " + userInput);
             throw new UnknownCommandException();
         }
     }
