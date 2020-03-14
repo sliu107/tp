@@ -3,17 +3,11 @@ package seedu.tp.commands;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
-
 /**
  * Command to list all existing flashcards.
  */
 public class ListCommand extends Command {
 
-    private static Logger logger = Logger.getLogger(ListCommand.class.getName());
     private FlashcardList flashcardList;
     private Ui ui;
 
@@ -30,15 +24,6 @@ public class ListCommand extends Command {
         this.ui = ui;
     }
 
-    private static void setupLogger() {
-        // Solution below referenced and adopted from: https://www.youtube.com/watch?v=W0_Man88Z3Q&feature=youtu.be
-        LogManager.getLogManager().reset();
-        logger.setLevel(Level.ALL);
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.SEVERE);
-        logger.addHandler(consoleHandler);
-    }
-
     /**
      * Gets the flashcard list in the list command.
      *
@@ -50,9 +35,9 @@ public class ListCommand extends Command {
 
     @Override
     public void execute() {
-        logger.info("Listing flashcards...");
+        LOGGER.info("Listing flashcards...");
         ui.listAllFlashcards(flashcardList);
-        logger.info("Listed flashcards");
+        LOGGER.info("Listed flashcards");
     }
 
     @Override
