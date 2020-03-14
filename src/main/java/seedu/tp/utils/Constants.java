@@ -27,4 +27,6 @@ public class Constants {
     public static final String INDEX_FIELD = "index";
 
     public static final String EMPTY_STRING = "";
+    
+    public static final String LOG_FOLDER = "logs/";
 }

@@ -5,8 +5,15 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
 import static seedu.tp.utils.Constants.DESCRIPTION_FIELD;
 import static seedu.tp.utils.Constants.INDEXES_FIELD;
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.NAME_FIELD;
 
 /**
@@ -16,6 +23,8 @@ public class FlashcardGroup {
     private String name;
     private String description;
     private FlashcardList groupCards = new FlashcardList();
+    protected static final Logger LOGGER = Logger.getLogger(FlashcardGroup.class.getName());
+    private static final String FILE_PATH = LOG_FOLDER + "flashcard_group.log";
 
     /**
      * Constructs a <code>FlashcardGroup</code> using some existing cards from the users original list.
@@ -31,6 +40,20 @@ public class FlashcardGroup {
         for (int i : indexes) {
             groupCards.addFlashcard(originalList.getFlashcardAtIdx(i));
         }
+        LOGGER.info("Constructed new Flashcard Group: " + this);
+    }
+
+    /**
+     * Set up the Flashcard Group logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
+     */
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
     }
 
     /**
@@ -63,6 +86,7 @@ public class FlashcardGroup {
      */
     public void addFlashcardToTheGroup(Flashcard flashcard) {
         groupCards.addFlashcard(flashcard);
+        LOGGER.info("Added " + flashcard.getName() + " to " + name);
     }
 
     /**

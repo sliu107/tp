@@ -26,6 +26,7 @@ public class PersonFlashcard extends Flashcard {
         super(name, summary, details);
         this.birthDate = birthDate;
         this.deathDate = deathDate;
+        LOGGER.info("Constructed new PersonFlashcard: " + this);
     }
 
     /**

@@ -275,6 +275,10 @@ public class Ui {
     public void sendInvalidFlashcardIndexResponse() {
         System.out.println("The flashcard index you entered is invalid");
     }
+    
+    public void sendLoggingSetupFailedMessage() {
+        System.out.println("Logging setup failed! Logs will be printed to console instead of saved to file.");
+    }
 
     /**
      * Gets the next user input line.
