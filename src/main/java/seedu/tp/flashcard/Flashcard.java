@@ -19,7 +19,7 @@ public abstract class Flashcard implements Comparable<Flashcard> {
     protected boolean isReviewed;
     protected PriorityLevel pl;
     protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
-    private static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
+    public  static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;

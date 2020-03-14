@@ -17,7 +17,6 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
 public class FlashcardFactory {
     private Ui ui;
     private static Logger LOGGER = Logger.getLogger(FlashcardFactory.class.getName());
-    private static String FILE_PATH = LOG_FOLDER + "flashcard_factory.log";
     
     public FlashcardFactory(Ui ui) {
         this.ui = ui;
@@ -31,7 +30,7 @@ public class FlashcardFactory {
     public static void setupLogger() throws IOException {
         LOGGER.setLevel(Level.ALL);
         LOGGER.setUseParentHandlers(false);
-        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        FileHandler fileHandler = new FileHandler(Flashcard.FILE_PATH, true);
         fileHandler.setFormatter(new SimpleFormatter());
         LOGGER.addHandler(fileHandler);
     }
@@ -48,17 +47,14 @@ public class FlashcardFactory {
         case "event":
             EventFlashcard eventFlashcard = EventFlashcard.createEventFlashcard(ui);
             ui.confirmFlashcardCreation(eventFlashcard);
-            LOGGER.info("Created Event Flashcard");
             return eventFlashcard;
         case "person":
             PersonFlashcard personFlashcard = PersonFlashcard.createPersonFlashcard(ui);
             ui.confirmFlashcardCreation(personFlashcard);
-            LOGGER.info("Created Person Flashcard");
             return personFlashcard;
         case "other":
             OtherFlashcard otherFlashcard = OtherFlashcard.createOtherFlashcard(ui);
             ui.confirmFlashcardCreation(otherFlashcard);
-            LOGGER.info("Created Other Flashcard");
             return otherFlashcard;
         default:
             LOGGER.info("Received unknown flashcard type: " + flashcardType);
