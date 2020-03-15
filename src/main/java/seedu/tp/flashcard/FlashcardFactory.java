@@ -9,15 +9,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import static seedu.tp.utils.Constants.LOG_FOLDER;
-
 /**
  * Flashcard factory class to create flashcards given string.
  */
 public class FlashcardFactory {
-    private Ui ui;
     private static Logger LOGGER = Logger.getLogger(FlashcardFactory.class.getName());
-    
+    private Ui ui;
+
     public FlashcardFactory(Ui ui) {
         this.ui = ui;
     }
@@ -34,7 +32,7 @@ public class FlashcardFactory {
         fileHandler.setFormatter(new SimpleFormatter());
         LOGGER.addHandler(fileHandler);
     }
-    
+
     /**
      * Create a <code>Flashcard</code> given a string.
      *

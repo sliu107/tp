@@ -21,11 +21,11 @@ import static seedu.tp.utils.Constants.NAME_FIELD;
  * A group of flashcards which have some of the same characteristics.
  */
 public class FlashcardGroup {
+    protected static final Logger LOGGER = Logger.getLogger(FlashcardGroup.class.getName());
+    private static final String FILE_PATH = LOG_FOLDER + "flashcard_group.log";
     private String name;
     private String description;
     private FlashcardList groupCards = new FlashcardList();
-    protected static final Logger LOGGER = Logger.getLogger(FlashcardGroup.class.getName());
-    private static final String FILE_PATH = LOG_FOLDER + "flashcard_group.log";
 
     /**
      * Constructs a <code>FlashcardGroup</code> using some existing cards from the users original list.

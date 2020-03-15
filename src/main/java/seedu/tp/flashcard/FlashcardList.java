@@ -2,32 +2,44 @@ package seedu.tp.flashcard;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 
 /**
  * List of flashcards.
  */
 public class FlashcardList {
+
+    private static final String FILE_PATH = LOG_FOLDER + "flashcard_list.log";
+    private static final Logger LOGGER = Logger.getLogger(FlashcardList.class.getName());
+
     private List<Flashcard> flashcards;
 
     /**
      * Constructor for FlashcardList.
      */
     public FlashcardList() {
-        this.flashcards = new ArrayList<Flashcard>();
+        this.flashcards = new ArrayList<>();
     }
 
     /**
      * Constructor for FlashcardList.
      *
-     * @param flashcardList the list of flashcards to be added to the flashcard list
+     * @param flashcardList the list of flashcards to be added
      */
     public FlashcardList(List<Flashcard> flashcardList) {
+        this();
+
         assert flashcardList != null : "Invalid null flashcard list!";
 
-        this.flashcards = new ArrayList<>();
         this.flashcards.addAll(flashcardList);
     }
 
@@ -38,12 +50,26 @@ public class FlashcardList {
      * @param flashcardList the flashcard list to be copied from
      */
     public FlashcardList(FlashcardList flashcardList) {
+        this();
+
         assert flashcardList != null : "Invalid null FlashcardList!";
 
-        this.flashcards = new ArrayList<>();
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             this.flashcards.add(flashcardList.getFlashcardAtIdx(i));
         }
+    }
+
+    /**
+     * Set up the FlashcardList logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
+     */
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
     }
 
     /**
@@ -56,6 +82,7 @@ public class FlashcardList {
         assert flashcard != null : "Invalid null flashcard!";
 
         flashcards.add(flashcard);
+        LOGGER.info("Added flashcard " + flashcard.getName() + " to list");
         return this;
     }
 
@@ -67,15 +94,19 @@ public class FlashcardList {
      */
     public Flashcard deleteFlashcard(int index) throws InvalidFlashcardIndexException {
         try {
-            return flashcards.remove(index);
+            Flashcard flashcard = flashcards.remove(index);
+            LOGGER.info("Deleted flashcard " + flashcard.getName() + " from list");
+            return flashcard;
         } catch (IndexOutOfBoundsException e) {
+            LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
+            LOGGER.warning("Throwing InvalidFlashcardIndexException...");
             throw new InvalidFlashcardIndexException();
         }
     }
 
     /**
      * Return whether or not this FlashcardList contains specified flashcard.
-     * 
+     *
      * @param flashcard the flashcard to check
      * @return whether or not this FlashcardList contains specified flashcard
      */
@@ -128,6 +159,13 @@ public class FlashcardList {
      */
     @Override
     public boolean equals(Object obj) {
+        if (!(obj instanceof FlashcardList)) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+
         FlashcardList otherFlashcards = (FlashcardList) obj;
         if (this.getTotalFlashcardNum() != otherFlashcards.getTotalFlashcardNum()) {
             return false;
@@ -137,7 +175,6 @@ public class FlashcardList {
         Collections.sort(flashcardList);
         List<Flashcard> otherFlashcardList = new ArrayList<Flashcard>(otherFlashcards.getFlashcards());
         Collections.sort(otherFlashcardList);
-
         for (int idx = 0; idx < this.getTotalFlashcardNum(); idx++) {
             if (!flashcardList.get(idx).equals(otherFlashcardList.get(idx))) {
                 return false;

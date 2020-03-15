@@ -6,21 +6,44 @@ import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.parser.Parser;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import static seedu.tp.utils.Constants.DETAIL_FIELD;
 import static seedu.tp.utils.Constants.EMPTY_STRING;
+import static seedu.tp.utils.Constants.LOG_FOLDER;
 
 /**
  * Ui class.
  */
 public class Ui {
+
+    private static final String FILE_PATH = LOG_FOLDER + "ui.log";
+    private static final Logger LOGGER = Logger.getLogger(Ui.class.getName());
+
     private final Scanner scanner = new Scanner(System.in);
+
+    /**
+     * Set up the Ui logger. Call once at the start of the program.
+     *
+     * @throws IOException when logger set up failed
+     */
+    public static void setupLogger() throws IOException {
+        LOGGER.setLevel(Level.ALL);
+        LOGGER.setUseParentHandlers(false);
+        FileHandler fileHandler = new FileHandler(FILE_PATH, true);
+        fileHandler.setFormatter(new SimpleFormatter());
+        LOGGER.addHandler(fileHandler);
+    }
 
     /**
      * Sends welcome message to user.
@@ -63,12 +86,14 @@ public class Ui {
      * @return the list of details entered by user
      */
     public List<String> promptUserForDetails() {
+        LOGGER.info("Prompting user for details...");
         List<String> details = new ArrayList<>();
         Optional<String> newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
         while (newDetailOptional.isPresent()) {
             details.add(newDetailOptional.get());
             newDetailOptional = promptUserForOptionalField(DETAIL_FIELD);
         }
+        LOGGER.info("Returning details...");
         return details;
     }
 
@@ -81,9 +106,12 @@ public class Ui {
      */
     public Optional<String> promptUserForOptionalField(String fieldName) {
         assert !fieldName.isEmpty() : "Invalid empty field name!";
+        LOGGER.info("Prompting user for optional field " + fieldName + "...");
 
         System.out.println("Please enter " + fieldName + " (optional):");
         String input = getNextLine().trim();
+
+        LOGGER.info("Returning optional field " + fieldName + "...");
         return input.equals(EMPTY_STRING) ? Optional.empty() : Optional.of(input);
     }
 
@@ -95,6 +123,7 @@ public class Ui {
      */
     public String promptUserForRequiredField(String fieldName) {
         assert !fieldName.isEmpty() : "Invalid empty field name!";
+        LOGGER.info("Prompting user for required field " + fieldName + "...");
 
         System.out.println("Please enter " + fieldName + ":");
         String input = getNextLine().trim();
@@ -102,6 +131,8 @@ public class Ui {
             System.out.println("That is a required field! Please enter again.");
             input = getNextLine().trim();
         }
+
+        LOGGER.info("Returning required field " + fieldName + "...");
         return input;
     }
 
@@ -113,6 +144,7 @@ public class Ui {
      */
     public Optional<LocalDate> promptUserForOptionalLocalDate(String fieldName) {
         assert !fieldName.isEmpty() : "Invalid empty field name!";
+        LOGGER.info("Prompting user for optional local date field " + fieldName + "...");
 
         System.out.println("Please enter " + fieldName + " (optional):");
         String input;
@@ -130,6 +162,7 @@ public class Ui {
             }
         } while (localDate == null);
 
+        LOGGER.info("Returning optional local date field " + fieldName + "...");
         return Optional.of(localDate);
     }
 
@@ -141,6 +174,7 @@ public class Ui {
      */
     public LocalDate promptUserForRequiredLocalDate(String fieldName) {
         assert !fieldName.isEmpty() : "Invalid empty field name!";
+        LOGGER.info("Prompting user for required local date field " + fieldName + "...");
 
         System.out.println("Please enter " + fieldName + ":");
         String input;
@@ -155,6 +189,7 @@ public class Ui {
             }
         } while (localDate == null);
 
+        LOGGER.info("Returning required local date field " + fieldName + "...");
         return localDate;
     }
 
@@ -283,6 +318,8 @@ public class Ui {
      * @param exception the exception to be printed out
      */
     public void printException(Exception exception) {
+        LOGGER.warning("Sending exception to user:");
+        LOGGER.warning(exception.toString());
         System.out.println("An exception has occurred!");
         System.out.println(exception.getMessage());
     }
@@ -291,6 +328,7 @@ public class Ui {
      * Sends response to unknown command entered by user.
      */
     public void sendUnknownCommandResponse() {
+        LOGGER.info("Sending unknown command response to user...");
         System.out.println("Sorry, I don't know how to help with that yet.");
     }
 
@@ -298,18 +336,22 @@ public class Ui {
      * Sends response to invalid flashcard index entered by user.
      */
     public void sendInvalidFlashcardIndexResponse() {
+        LOGGER.info("Sending invalid flashcard index response to user...");
         System.out.println("The flashcard index you entered is invalid");
     }
-    
+
     public void sendLoggingSetupFailedMessage() {
+        LOGGER.info("Sending logging set up failed response to user...");
         System.out.println("Logging setup failed! Logs will be printed to console instead of saved to file.");
     }
 
     public void sendInvalidInputFormatResponse() {
+        LOGGER.info("Sending invalid input format response to user...");
         System.out.println("Please use the correct input format. Use \"help\" to view all commands.");
     }
-    
+
     public void sendDuplicateFlashcardResponse() {
+        LOGGER.info("Send duplicate flashcard response to user...");
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
     }
 
@@ -321,5 +363,4 @@ public class Ui {
     public String getNextLine() {
         return scanner.nextLine();
     }
-
 }

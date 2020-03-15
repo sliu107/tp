@@ -13,13 +13,14 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
  * Abstract flashcard class to represent basic properties of flashcard.
  */
 public abstract class Flashcard implements Comparable<Flashcard> {
+    protected static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
+    protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
+
     protected String name;
     protected String summary;
     protected List<String> details;
     protected boolean isReviewed;
     protected PriorityLevel pl;
-    protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
-    public  static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
@@ -31,7 +32,7 @@ public abstract class Flashcard implements Comparable<Flashcard> {
 
     /**
      * Set up the flashcard logger. Call once at the start of the program.
-     * 
+     *
      * @throws IOException when logger set up failed
      */
     public static void setupLogger() throws IOException {
@@ -41,7 +42,7 @@ public abstract class Flashcard implements Comparable<Flashcard> {
         fileHandler.setFormatter(new SimpleFormatter());
         LOGGER.addHandler(fileHandler);
     }
-    
+
     protected static String getDetailsString(List<String> details) {
         StringBuilder detailsStringBuilder = new StringBuilder();
         for (String detail : details) {

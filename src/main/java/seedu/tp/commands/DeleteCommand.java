@@ -40,9 +40,10 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute()
-        throws InvalidFlashcardIndexException {
+    public void execute() throws InvalidFlashcardIndexException {
+        LOGGER.info("Deleting flashcard at index: " + index);
         flashcardList.deleteFlashcard(index);
+        LOGGER.info("Deleted flashcard at index: " + index);
     }
 
     @Override
@@ -50,7 +51,7 @@ public class DeleteCommand extends Command {
         if (!(obj instanceof DeleteCommand)) {
             return false;
         }
-        if (obj == this) {
+        if (this == obj) {
             return true;
         }
 

@@ -54,14 +54,18 @@ public class Main {
         parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui);
 
         LoggerUtils.createFolder(LOG_FOLDER);
-        
+
         try {
             Flashcard.setupLogger();
             FlashcardFactory.setupLogger();
+            FlashcardList.setupLogger();
             FlashcardGroup.setupLogger();
+            Command.setupLogger();
+            Ui.setupLogger();
+            Parser.setupLogger();
         } catch (IOException e) {
             ui.sendLoggingSetupFailedMessage();
-        } 
+        }
     }
 
     private void runLoop() {

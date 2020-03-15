@@ -12,10 +12,10 @@ public class ListCommand extends Command {
     private Ui ui;
 
     /**
-     * Constructor for ListCommand.
+     * Constructor for list command.
      *
-     * @param flashcardList the flashcard list to be used in the command
-     * @param ui            the UI object ot be used in the command
+     * @param flashcardList flashcard list for the command to execute on
+     * @param ui            the UI class to be used by the command
      */
     public ListCommand(FlashcardList flashcardList, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";
@@ -35,7 +35,9 @@ public class ListCommand extends Command {
 
     @Override
     public void execute() {
+        LOGGER.info("Listing flashcards...");
         ui.listAllFlashcards(flashcardList);
+        LOGGER.info("Listed flashcards");
     }
 
     @Override
