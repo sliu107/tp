@@ -23,6 +23,11 @@ public class EventFlashcard extends Flashcard {
      */
     public EventFlashcard(String name, LocalDate startDate, LocalDate endDate, String summary, List<String> details) {
         super(name, summary, details);
+        assert !name.isEmpty() : "Invalid empty name!";
+        assert startDate != null : "Invalid null startDate!";
+        assert endDate != null : "Invalid null endDate!";
+        assert !summary.isEmpty() : "Invalid empty summary!";
+
         this.startDate = startDate;
         this.endDate = endDate;
         LOGGER.info("Constructed new EventFlashcard: " + this);

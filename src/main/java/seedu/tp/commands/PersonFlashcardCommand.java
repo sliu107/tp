@@ -21,6 +21,8 @@ public class PersonFlashcardCommand extends Command {
      * @param flashcardFactory the flashcard factory to be used in the command
      */
     public PersonFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.flashcardList = flashcardList;
         this.flashcardFactory = flashcardFactory;
     }

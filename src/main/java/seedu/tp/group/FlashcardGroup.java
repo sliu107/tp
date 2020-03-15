@@ -36,6 +36,10 @@ public class FlashcardGroup {
      * @param indexes      the indexes of the flashcards which are going to be added to this group.
      */
     public FlashcardGroup(String name, String description, FlashcardList originalList, int[] indexes) {
+        assert originalList != null : "Invalid null FlashcardList!";
+        assert !name.isEmpty() : "Invalid empty name!";
+        assert !description.isEmpty() : "Invalid empty description!";
+
         this.name = name;
         this.description = description;
         for (int i : indexes) {

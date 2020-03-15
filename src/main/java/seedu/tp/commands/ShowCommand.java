@@ -22,6 +22,8 @@ public class ShowCommand extends Command {
      * @param ui            instance for user interaction
      */
     public ShowCommand(FlashcardList flashcardList, int index, Ui ui) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.flashcardList = flashcardList;
         this.index = index;
         this.ui = ui;

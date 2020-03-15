@@ -21,6 +21,8 @@ public class ReviewedCommand extends Command {
      * @param ui            instance for user interaction
      */
     public ReviewedCommand(FlashcardList flashcardList, int index, Ui ui) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.flashcardList = flashcardList;
         this.index = index;
         this.ui = ui;

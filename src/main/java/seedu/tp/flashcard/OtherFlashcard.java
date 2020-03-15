@@ -16,6 +16,9 @@ public class OtherFlashcard extends Flashcard {
      */
     public OtherFlashcard(String name, String summary, List<String> details) {
         super(name, summary, details);
+        assert !name.isEmpty() : "Invalid empty name!";
+        assert !summary.isEmpty() : "Invalid empty summary!";
+
         LOGGER.info("Constructed new OtherFlashcard: " + this);
     }
 

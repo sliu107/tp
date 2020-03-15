@@ -8,6 +8,8 @@ public class TimelineCommand extends Command {
     private Ui ui;
 
     public TimelineCommand(FlashcardList flashcardList, Ui ui) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.flashcardList = flashcardList;
         this.ui = ui;
     }

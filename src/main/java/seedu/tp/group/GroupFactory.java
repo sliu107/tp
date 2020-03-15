@@ -12,6 +12,8 @@ public class GroupFactory {
     private FlashcardList flashcardList;
 
     public GroupFactory(Ui ui, FlashcardList flashcardList) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.ui = ui;
         this.flashcardList = flashcardList;
     }
