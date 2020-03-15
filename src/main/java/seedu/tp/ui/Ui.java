@@ -341,14 +341,17 @@ public class Ui {
     }
 
     public void sendLoggingSetupFailedMessage() {
+        LOGGER.info("Sending logging set up failed response to user...");
         System.out.println("Logging setup failed! Logs will be printed to console instead of saved to file.");
     }
 
     public void sendInvalidInputFormatResponse() {
+        LOGGER.info("Sending invalid input format response to user...");
         System.out.println("Please use the correct input format. Use \"help\" to view all commands.");
     }
 
     public void sendDuplicateFlashcardResponse() {
+        LOGGER.info("Send duplicate flashcard response to user...");
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
     }
 
