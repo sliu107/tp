@@ -87,7 +87,7 @@ public class Ui {
         stringBuilder.append("13. To get help message: help").append(System.lineSeparator());
         stringBuilder.append("Then please follow the instruction given by the program in each situation.")
             .append(System.lineSeparator());
-        stringBuilder.append("(Note: Whenever requiring a date, you should pick one of the following format: ")
+        stringBuilder.append("(Note: Whenever requiring a date, you should pick one of the following format:")
             .append(System.lineSeparator());
         stringBuilder.append("       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)")
             .append(System.lineSeparator());

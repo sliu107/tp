@@ -1,15 +1,23 @@
 Welcome to History Flashcard App!
 Followings are the formats of commands used in the main menu:
-Add an event flashcard: event
-Add a person flashcard: person
-Add an other flashcard: other
-List out all the flashcards: list
-Delete a flashcard from the flashcard list: delete i/INDEX
-Set up a new flashcard group: group
-Add a flashcard to an existing group: add
-To exit the History Flashcard: bye
-To get help message: help
+1. Add an event flashcard: event
+2. Add a person flashcard: person
+3. Add an other flashcard: other
+4. List out all the flashcards: list
+5. List the flashcards in time order: timeline
+6. Set the priority of an existing flashcard: priority i/INDEX p/PRIORITY
+  (Note: There are 4 priority levels: LOW, MEDIUM, HIGH, DEFAULT)
+7. Set an existing flashcard as reviewed: reviewed i/INDEX
+8. Show the detailed information of an existing flashcard: show i/INDEX
+9. Delete a flashcard from the flashcard list: delete i/INDEX
+10. Set up a new flashcard group: group
+11. Add a flashcard to an existing group: add
+12. To exit the History Flashcard: bye
+13. To get help message: help
 Then please follow the instruction given by the program in each situation.
+(Note: Whenever requiring a date, you should pick one of the following format:
+       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)
+
 Sorry, I don't know how to help with that yet.
 Sorry, I don't know how to help with that yet.
 Please enter name:
