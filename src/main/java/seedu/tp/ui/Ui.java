@@ -66,17 +66,31 @@ public class Ui {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Followings are the formats of commands used in the main menu:")
             .append(System.lineSeparator());
-        stringBuilder.append("Add an event flashcard: event").append(System.lineSeparator());
-        stringBuilder.append("Add a person flashcard: person").append(System.lineSeparator());
-        stringBuilder.append("Add an other flashcard: other").append(System.lineSeparator());
-        stringBuilder.append("List out all the flashcards: list").append(System.lineSeparator());
-        stringBuilder.append("Delete a flashcard from the flashcard list: delete i/INDEX")
+        stringBuilder.append("1. Add an event flashcard: event").append(System.lineSeparator());
+        stringBuilder.append("2. Add a person flashcard: person").append(System.lineSeparator());
+        stringBuilder.append("3. Add an other flashcard: other").append(System.lineSeparator());
+        stringBuilder.append("4. List out all the flashcards: list").append(System.lineSeparator());
+        stringBuilder.append("5. List the flashcards in time order: timeline").append(System.lineSeparator());
+        stringBuilder.append("6. Set the priority of an existing flashcard: priority i/INDEX p/PRIORITY")
             .append(System.lineSeparator());
-        stringBuilder.append("Set up a new flashcard group: group").append(System.lineSeparator());
-        stringBuilder.append("Add a flashcard to an existing group: add").append(System.lineSeparator());
-        stringBuilder.append("To exit the History Flashcard: bye").append(System.lineSeparator());
-        stringBuilder.append("To get help message: help").append(System.lineSeparator());
-        stringBuilder.append("Then please follow the instruction given by the program in each situation.");
+        stringBuilder.append("  (Note: There are 4 priority levels: LOW, MEDIUM, HIGH, DEFAULT)")
+            .append(System.lineSeparator());
+        stringBuilder.append("7. Set an existing flashcard as reviewed: reviewed i/INDEX")
+            .append(System.lineSeparator());
+        stringBuilder.append("8. Show the detailed information of an existing flashcard: show i/INDEX")
+            .append(System.lineSeparator());
+        stringBuilder.append("9. Delete a flashcard from the flashcard list: delete i/INDEX")
+            .append(System.lineSeparator());
+        stringBuilder.append("10. Set up a new flashcard group: group").append(System.lineSeparator());
+        stringBuilder.append("11. Add a flashcard to an existing group: add").append(System.lineSeparator());
+        stringBuilder.append("12. To exit the History Flashcard: bye").append(System.lineSeparator());
+        stringBuilder.append("13. To get help message: help").append(System.lineSeparator());
+        stringBuilder.append("Then please follow the instruction given by the program in each situation.")
+            .append(System.lineSeparator());
+        stringBuilder.append("(Note: Whenever requiring a date, you should pick one of the following format: ")
+            .append(System.lineSeparator());
+        stringBuilder.append("       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)")
+            .append(System.lineSeparator());
         System.out.println(stringBuilder);
     }
 
