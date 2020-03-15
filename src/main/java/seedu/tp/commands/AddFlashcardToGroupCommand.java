@@ -25,7 +25,9 @@ public class AddFlashcardToGroupCommand extends Command {
 
     @Override
     public void execute() throws HistoryFlashcardException {
+        LOGGER.info("Adding a flashcard to an existing group...");
         groupList.addFlashcardToOneGroup(ui, flashcardList);
+        LOGGER.info("Added the flashcard to the group");
     }
 
     @Override
