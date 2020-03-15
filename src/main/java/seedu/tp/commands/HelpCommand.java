@@ -7,6 +7,8 @@ public class HelpCommand extends Command {
     Ui ui;
 
     public HelpCommand(Ui ui) {
+        assert ui != null : "Invalid null Ui!";
+
         this.ui = ui;
     }
 

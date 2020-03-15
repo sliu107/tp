@@ -18,6 +18,7 @@ public class GroupCommand extends Command {
      * @param groupList    groupList where the groupCommand execute on
      */
     public GroupCommand(GroupFactory groupFactory, GroupList groupList) {
+        assert groupFactory != null : "Invalid null GroupFactory!";
         assert groupList != null : "Invalid null GroupList!";
 
         this.groupFactory = groupFactory;

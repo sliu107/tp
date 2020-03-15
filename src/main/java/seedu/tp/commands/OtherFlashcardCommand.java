@@ -22,6 +22,7 @@ public class OtherFlashcardCommand extends Command {
      */
     public OtherFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory) {
         assert flashcardList != null : "Invalid null FlashcardList!";
+        assert flashcardFactory != null : "Invalid null FlashcardFactory!";
 
         this.flashcardList = flashcardList;
         this.flashcardFactory = flashcardFactory;

@@ -18,6 +18,7 @@ public class AddFlashcardToGroupCommand extends Command {
      * @param flashcardList the flashcardList where the flashcard is in
      */
     public AddFlashcardToGroupCommand(Ui ui, GroupList groupList, FlashcardList flashcardList) {
+        assert ui != null : "Invalid null Ui!";
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert groupList != null : "Invalid null GroupList!";
 

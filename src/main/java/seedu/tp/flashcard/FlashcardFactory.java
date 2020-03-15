@@ -17,6 +17,8 @@ public class FlashcardFactory {
     private Ui ui;
 
     public FlashcardFactory(Ui ui) {
+        assert ui != null : "Invalid null Ui!";
+
         this.ui = ui;
     }
 

@@ -23,6 +23,7 @@ public class ShowCommand extends Command {
      */
     public ShowCommand(FlashcardList flashcardList, int index, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";
+        assert ui != null : "Invalid null Ui!";
 
         this.flashcardList = flashcardList;
         this.index = index;

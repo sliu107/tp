@@ -22,6 +22,7 @@ public class EventFlashcardCommand extends Command {
      */
     public EventFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory) {
         assert flashcardList != null : "Invalid null FlashcardList!";
+        assert flashcardFactory != null : "Invalid null FlashcardFactory!";
         
         this.flashcardList = flashcardList;
         this.flashcardFactory = flashcardFactory;

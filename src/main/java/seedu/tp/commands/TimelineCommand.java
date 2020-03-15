@@ -18,6 +18,7 @@ public class TimelineCommand extends Command {
      */
     public TimelineCommand(FlashcardList flashcardList, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";
+        assert ui != null : "Invalid null Ui!";
 
         this.flashcardList = flashcardList;
         this.ui = ui;

@@ -24,6 +24,7 @@ public class PriorityCommand extends Command {
      */
     public PriorityCommand(FlashcardList flashcardList, int index, Ui ui, Flashcard.PriorityLevel pl) {
         assert flashcardList != null : "Invalid null FlashcardList!";
+        assert ui != null : "Invalid null Ui!";
 
         this.flashcardList = flashcardList;
         this.index = index;

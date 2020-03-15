@@ -18,6 +18,7 @@ public class GroupFactory {
      * @param flashcardList     list containing all flashcards
      */
     public GroupFactory(Ui ui, FlashcardList flashcardList) {
+        assert ui != null : "Invalid null Ui!";
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.ui = ui;
