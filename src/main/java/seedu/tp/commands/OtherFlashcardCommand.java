@@ -36,7 +36,7 @@ public class OtherFlashcardCommand extends Command {
 
     @Override
     public void execute() throws UnrecognizedFlashcardTypeException {
-        LOGGER.info("Creating an other flashcard and adding it to the flashcard list");
+        LOGGER.info("Creating an other flashcard and adding it to the flashcard list...");
         flashcardList.addFlashcard(flashcardFactory.create(OTHER_FLASHCARD_COMMAND));
         LOGGER.info("Created an other flashcard and added it to the flashcard list");
     }

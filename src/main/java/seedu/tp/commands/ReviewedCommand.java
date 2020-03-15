@@ -38,7 +38,7 @@ public class ReviewedCommand extends Command {
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         try {
-            LOGGER.info("Setting flashcard " + index + " as reviewed");
+            LOGGER.info("Setting flashcard " + index + " as reviewed...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
             flashcard.setReviewStatus(true);
             LOGGER.info("Set flashcard " + index + " as reviewed");

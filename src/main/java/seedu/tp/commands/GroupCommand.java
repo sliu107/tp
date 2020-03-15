@@ -24,7 +24,7 @@ public class GroupCommand extends Command {
 
     @Override
     public void execute() throws InvalidFlashcardIndexException {
-        LOGGER.info("Creating a new group");
+        LOGGER.info("Creating a new group...");
         groupList.addFlashcardGroup(groupFactory.form());
         LOGGER.info("Created a new group");
     }

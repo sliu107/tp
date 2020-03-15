@@ -51,7 +51,7 @@ public class PriorityCommand extends Command {
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         try {
-            LOGGER.info("Setting the priority for the flashcard " + index);
+            LOGGER.info("Setting the priority for the flashcard " + index + "...");
             flashcardList.getFlashcardAtIdx(index).setPriorityLevel(pl);
             LOGGER.info("Set the priority for the flashcard " + index);
             ui.confirmFlashcardPriority(flashcardList.getFlashcardAtIdx(index));

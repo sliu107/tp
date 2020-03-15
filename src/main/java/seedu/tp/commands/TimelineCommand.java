@@ -14,7 +14,7 @@ public class TimelineCommand extends Command {
 
     @Override
     public void execute() {
-        LOGGER.info("Listing the flashcards in time order");
+        LOGGER.info("Listing the flashcards in time order...");
         ui.listAllFlashcardsOrdered(flashcardList);
         LOGGER.info("Listed the flashcards in time order");
     }

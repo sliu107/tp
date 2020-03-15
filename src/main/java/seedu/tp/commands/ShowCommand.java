@@ -39,7 +39,7 @@ public class ShowCommand extends Command {
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         try {
-            LOGGER.info("Showing the information of flashcard " + index);
+            LOGGER.info("Showing the information of flashcard " + index + "...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
             ui.showFlashcard(flashcard);
             LOGGER.info("Showed the information of the flashcard " + index);
