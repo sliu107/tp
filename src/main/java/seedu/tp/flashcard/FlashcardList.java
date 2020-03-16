@@ -111,6 +111,7 @@ public class FlashcardList {
      * @return whether or not this FlashcardList contains specified flashcard
      */
     public boolean contains(Flashcard flashcard) {
+        assert flashcard != null : "Invalid null flashcard";
         return flashcards.contains(flashcard);
     }
 
