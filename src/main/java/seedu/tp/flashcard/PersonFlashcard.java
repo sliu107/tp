@@ -29,7 +29,7 @@ public class PersonFlashcard extends Flashcard {
         assert deathDate != null : "Invalid null deathDate!";
         assert !birthDate.isAfter(deathDate) : "Invalid birthDate and deathDate";
         assert !summary.isEmpty() : "Invalid empty summary!";
-        
+
         this.birthDate = birthDate;
         this.deathDate = deathDate;
         LOGGER.info("Constructed new PersonFlashcard: " + this);
