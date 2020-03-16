@@ -43,7 +43,10 @@ public class GroupList {
      */
     public void addFlashcardToOneGroup(Ui ui, FlashcardList flashcardList) throws HistoryFlashcardException {
         try {
-            int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEX_FIELD)) - 1;
+            String indexGiven = ui.promptUserForRequiredField(INDEX_FIELD);
+            assert !indexGiven.isEmpty() : "Invalid index";
+
+            int flashcardIndex = Integer.parseInt(indexGiven) - 1;
             String groupName = ui.promptUserForRequiredField(NAME_FIELD);
             Flashcard flashcard = null;
             FlashcardGroup group = null;

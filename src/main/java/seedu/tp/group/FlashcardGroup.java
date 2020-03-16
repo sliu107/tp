@@ -70,6 +70,9 @@ public class FlashcardGroup {
             String name = ui.promptUserForRequiredField(NAME_FIELD);
             String description = ui.promptUserForRequiredField(DESCRIPTION_FIELD);
             String[] indexesGiven = ui.promptUserForRequiredField(INDEXES_FIELD).split(" ");
+
+            assert indexesGiven != null : "Invalid null indexes";
+
             int[] indexes = new int[indexesGiven.length];
             for (int i = 0; i < indexes.length; i++) {
                 indexes[i] = Integer.parseInt(indexesGiven[i]) - 1;
@@ -83,7 +86,8 @@ public class FlashcardGroup {
     /**
      * Adds a flashcard to an existing group.
      *
-     * @param flashcard the flashcard to be added.
+     * @param flashcard the flashcard to be added
+     * @throws DuplicateFlashcardException if the flashcard is already in the group
      */
     public void addFlashcardToTheGroup(Flashcard flashcard) throws DuplicateFlashcardException {
         if (groupCards.contains(flashcard)) {
