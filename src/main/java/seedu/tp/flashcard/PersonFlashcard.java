@@ -27,7 +27,6 @@ public class PersonFlashcard extends Flashcard {
         assert !name.isEmpty() : "Invalid empty name!";
         assert birthDate != null : "Invalid null birthDate!";
         assert deathDate != null : "Invalid null deathDate!";
-        assert !birthDate.isAfter(deathDate) : "Invalid birthDate and deathDate";
         assert !summary.isEmpty() : "Invalid empty summary!";
 
         this.birthDate = birthDate;

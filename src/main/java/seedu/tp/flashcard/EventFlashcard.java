@@ -26,7 +26,6 @@ public class EventFlashcard extends Flashcard {
         assert !name.isEmpty() : "Invalid empty name!";
         assert startDate != null : "Invalid null startDate!";
         assert endDate != null : "Invalid null endDate!";
-        assert !startDate.isAfter(endDate) : "Invalid startDate and endDate";
         assert !summary.isEmpty() : "Invalid empty summary!";
 
         this.startDate = startDate;
