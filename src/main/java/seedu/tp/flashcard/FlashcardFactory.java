@@ -16,7 +16,14 @@ public class FlashcardFactory {
     private static Logger LOGGER = Logger.getLogger(FlashcardFactory.class.getName());
     private Ui ui;
 
+    /**
+     * Constructor for FlashcardFactory.
+     *
+     * @param ui the instance for user interaction
+     */
     public FlashcardFactory(Ui ui) {
+        assert ui != null : "Invalid null Ui!";
+
         this.ui = ui;
     }
 

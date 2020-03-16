@@ -24,7 +24,12 @@ public class PersonFlashcard extends Flashcard {
     public PersonFlashcard(String name, LocalDate birthDate, LocalDate deathDate, String summary,
                            List<String> details) {
         super(name, summary, details);
+        assert !name.isEmpty() : "Invalid empty name!";
+        assert birthDate != null : "Invalid null birthDate!";
+        assert deathDate != null : "Invalid null deathDate!";
         assert !birthDate.isAfter(deathDate) : "Invalid birthDate and deathDate";
+        assert !summary.isEmpty() : "Invalid empty summary!";
+        
         this.birthDate = birthDate;
         this.deathDate = deathDate;
         LOGGER.info("Constructed new PersonFlashcard: " + this);
