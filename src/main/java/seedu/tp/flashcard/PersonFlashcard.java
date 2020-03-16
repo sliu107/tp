@@ -24,7 +24,7 @@ public class PersonFlashcard extends Flashcard {
     public PersonFlashcard(String name, LocalDate birthDate, LocalDate deathDate, String summary,
                            List<String> details) {
         super(name, summary, details);
-        assert birthDate.isBefore(deathDate) : "Invalid birthDate and deathDate";
+        assert !birthDate.isAfter(deathDate) : "Invalid birthDate and deathDate";
         this.birthDate = birthDate;
         this.deathDate = deathDate;
         LOGGER.info("Constructed new PersonFlashcard: " + this);

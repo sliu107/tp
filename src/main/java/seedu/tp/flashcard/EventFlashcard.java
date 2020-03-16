@@ -23,7 +23,7 @@ public class EventFlashcard extends Flashcard {
      */
     public EventFlashcard(String name, LocalDate startDate, LocalDate endDate, String summary, List<String> details) {
         super(name, summary, details);
-        assert startDate.isBefore(endDate) : "Invalid startDate and endDate";
+        assert !startDate.isAfter(endDate) : "Invalid startDate and endDate";
 
         this.startDate = startDate;
         this.endDate = endDate;
