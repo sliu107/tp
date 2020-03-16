@@ -19,6 +19,7 @@ public class ListCommand extends Command {
      */
     public ListCommand(FlashcardList flashcardList, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";
+        assert ui != null : "Invalid null Ui!";
 
         this.flashcardList = flashcardList;
         this.ui = ui;

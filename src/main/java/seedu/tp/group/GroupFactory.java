@@ -11,7 +11,16 @@ public class GroupFactory {
     private Ui ui;
     private FlashcardList flashcardList;
 
+    /**
+     * Constructor for the GroupFactory.
+     *
+     * @param ui                instance for user interaction
+     * @param flashcardList     list containing all flashcards
+     */
     public GroupFactory(Ui ui, FlashcardList flashcardList) {
+        assert ui != null : "Invalid null Ui!";
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.ui = ui;
         this.flashcardList = flashcardList;
     }
