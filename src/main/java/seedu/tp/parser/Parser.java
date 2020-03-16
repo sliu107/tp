@@ -183,18 +183,32 @@ public class Parser {
         case SHOW_COMMAND:
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
-            } catch (IndexOutOfBoundsException e) {
+            } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
             }
         case REVIEWED_COMMAND:
-            return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+            try {
+                return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+            } catch (NumberFormatException e) {
+                LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
+                throw new InvalidFlashcardIndexException();
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
+            }
         case DELETE_COMMAND:
             try {
                 return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
             }
         case PRIORITY_COMMAND:
             try {
@@ -203,7 +217,8 @@ public class Parser {
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                 throw new InvalidInputFormatException();
             }
         case TIMELINE_COMMAND:
