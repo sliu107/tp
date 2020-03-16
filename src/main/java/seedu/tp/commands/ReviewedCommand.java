@@ -38,10 +38,13 @@ public class ReviewedCommand extends Command {
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         try {
+            LOGGER.info("Setting flashcard " + index + " as reviewed...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
             flashcard.setReviewStatus(true);
+            LOGGER.info("Set flashcard " + index + " as reviewed");
             ui.confirmFlashcardReview(flashcard);
         } catch (IndexOutOfBoundsException e) {
+            LOGGER.warning("InvalidFlashcardIndexException occurred when executing the reviewed command");
             throw new InvalidFlashcardIndexException();
         }
     }

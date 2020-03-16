@@ -36,7 +36,9 @@ public class EventFlashcardCommand extends Command {
 
     @Override
     public void execute() throws UnrecognizedFlashcardTypeException {
+        LOGGER.info("Creating an event flashcard and adding it to the flashcard list...");
         flashcardList.addFlashcard(flashcardFactory.create(EVENT_FLASHCARD_COMMAND));
+        LOGGER.info("Created an event flashcard and added it to the flashcard list");
     }
 
     @Override

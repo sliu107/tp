@@ -36,7 +36,9 @@ public class PersonFlashcardCommand extends Command {
 
     @Override
     public void execute() throws UnrecognizedFlashcardTypeException {
+        LOGGER.info("Creating a person flashcard and adding it to the flashcard list...");
         flashcardList.addFlashcard(flashcardFactory.create(PERSON_FLASHCARD_COMMAND));
+        LOGGER.info("Created a person flashcard and added it to the flashcard list");
     }
 
     @Override

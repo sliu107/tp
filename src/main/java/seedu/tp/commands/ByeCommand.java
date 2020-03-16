@@ -17,6 +17,7 @@ public class ByeCommand extends Command {
      */
     @Override
     public boolean isBye() {
+        LOGGER.info("Ready to quit the program...");
         return true;
     }
 
