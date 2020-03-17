@@ -59,7 +59,7 @@ public class PriorityCommand extends Command {
             LOGGER.info("Set the priority for the flashcard " + index);
             ui.confirmFlashcardPriority(flashcardList.getFlashcardAtIdx(index));
         } catch (IndexOutOfBoundsException e) {
-            LOGGER.warning("IndexOutOfBoundsException occurred when executing the priority command");
+            LOGGER.warning("IndexOutOfBoundsException occurred when executing the priority command.");
             throw new InvalidFlashcardIndexException();
         }
     }
