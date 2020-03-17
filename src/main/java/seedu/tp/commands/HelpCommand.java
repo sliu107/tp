@@ -23,6 +23,6 @@ public class HelpCommand extends Command {
     @Override
     public void execute() throws HistoryFlashcardException {
         ui.sendHelpMessage();
-        LOGGER.info("Showed the help message");
+        LOGGER.info("Showed the help message.");
     }
 }

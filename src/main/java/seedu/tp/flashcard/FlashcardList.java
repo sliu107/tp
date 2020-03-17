@@ -82,7 +82,7 @@ public class FlashcardList {
         assert flashcard != null : "Invalid null flashcard!";
 
         flashcards.add(flashcard);
-        LOGGER.info("Added flashcard " + flashcard.getName() + " to list");
+        LOGGER.info("Added flashcard " + flashcard.getName() + " to list.");
         return this;
     }
 
@@ -95,7 +95,7 @@ public class FlashcardList {
     public Flashcard deleteFlashcard(int index) throws InvalidFlashcardIndexException {
         try {
             Flashcard flashcard = flashcards.remove(index);
-            LOGGER.info("Deleted flashcard " + flashcard.getName() + " from list");
+            LOGGER.info("Deleted flashcard " + flashcard.getName() + " from list.");
             return flashcard;
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
@@ -111,7 +111,7 @@ public class FlashcardList {
      * @return whether or not this FlashcardList contains specified flashcard
      */
     public boolean contains(Flashcard flashcard) {
-        assert flashcard != null : "Invalid null flashcard";
+        assert flashcard != null : "Invalid null flashcard!";
         return flashcards.contains(flashcard);
     }
 

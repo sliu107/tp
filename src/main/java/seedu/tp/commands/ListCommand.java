@@ -36,9 +36,9 @@ public class ListCommand extends Command {
 
     @Override
     public void execute() {
-        LOGGER.info("Listing flashcards...");
+        LOGGER.info("Listing all existing flashcards...");
         ui.listAllFlashcards(flashcardList);
-        LOGGER.info("Listed flashcards");
+        LOGGER.info("Listed all existing flashcards.");
     }
 
     @Override

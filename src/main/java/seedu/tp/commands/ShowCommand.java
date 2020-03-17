@@ -47,7 +47,7 @@ public class ShowCommand extends Command {
             ui.showFlashcard(flashcard);
             LOGGER.info("Showed the information of the flashcard " + index);
         } catch (IndexOutOfBoundsException e) {
-            LOGGER.warning("InvalidFlashcardIndexException occurred when executing the show command");
+            LOGGER.warning("InvalidFlashcardIndexException occurred when executing the show command.");
             throw new InvalidFlashcardIndexException();
         }
     }
