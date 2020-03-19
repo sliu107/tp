@@ -334,6 +334,9 @@ public class Ui {
      * @param studyPlan the study plan to be displayed
      */
     public void displayStudyPlan(StudyPlan studyPlan, FlashcardList flashcardList) {
+        assert studyPlan != null : "Invalid null StudyPlan!";
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         LOGGER.info("Displaying study plan...");
         List<Map.Entry<LocalDate, List<Integer>>> studyPlanList = studyPlan.getStudyPlanList();
         for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlanList) {

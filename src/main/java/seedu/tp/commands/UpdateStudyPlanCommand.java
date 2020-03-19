@@ -18,6 +18,10 @@ public class UpdateStudyPlanCommand extends Command {
      * @param studyPlan the Study Plan to be updated
      */
     public UpdateStudyPlanCommand(Ui ui, StudyPlan studyPlan, FlashcardList flashcardList) {
+        assert ui != null : "Invalid null Ui!";
+        assert studyPlan != null : "Invalid null StudyPlan!";
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.ui = ui;
         this.studyPlan = studyPlan;
         this.flashcardList = flashcardList;

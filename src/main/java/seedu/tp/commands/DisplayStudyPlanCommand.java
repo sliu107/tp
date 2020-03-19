@@ -18,6 +18,10 @@ public class DisplayStudyPlanCommand extends Command {
      * @param flashcardList the flashcard list to be used by the command
      */
     public DisplayStudyPlanCommand(Ui ui, StudyPlan studyPlan, FlashcardList flashcardList) {
+        assert ui != null : "Invalid null Ui!";
+        assert studyPlan != null : "Invalid null StudyPlan!";
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         this.ui = ui;
         this.studyPlan = studyPlan;
         this.flashcardList = flashcardList;

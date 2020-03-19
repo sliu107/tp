@@ -41,6 +41,9 @@ public class StudyPlan {
      */
     public StudyPlan(List<Map.Entry<LocalDate, List<Integer>>> studyPlanList) {
         this();
+
+        assert studyPlanList != null : "Invalid null study plan list!";
+
         for (Map.Entry<LocalDate, List<Integer>> entry : studyPlanList) {
             this.studyPlan.put(entry.getKey(), entry.getValue());
         }
@@ -67,6 +70,9 @@ public class StudyPlan {
      * @throws InvalidFlashcardIndexException exception thrown when user input invalid indexes
      */
     public void updateStudyPlan(Ui ui, FlashcardList flashcardList) throws InvalidFlashcardIndexException {
+        assert ui != null : "Invalid null Ui!";
+        assert flashcardList != null : "Invalid null FlashcardList!";
+
         LocalDate date = ui.promptUserForRequiredLocalDate(DATE_FIELD);
         String[] indexesStr = ui.promptUserForRequiredField(INDEXES_FIELD).split(EMPTY_SPACE);
         List<Integer> indexes = new ArrayList<>();
