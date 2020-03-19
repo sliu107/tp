@@ -64,7 +64,11 @@ delete 1
 list
 delete 2
 list
+list-reviewed
 reviewed 1
+list-reviewed
+reviewed 2
+list-reviewed
 show 1
 priority 2 MEDIUM
 list

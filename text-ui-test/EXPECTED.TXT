@@ -181,8 +181,16 @@ Here's the list of flashcards you have:
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Reviewed: N | Not indicated
 2: Quinn | Reviewed: N | Not indicated
+You have no flashcard matching your query!
 You have marked the following flashcard as Reviewed:
 Albus Dumbledore
+Here's the list of flashcards you are looking for:
+1: Albus Dumbledore | Reviewed: Y | Not indicated | ID: 1
+You have marked the following flashcard as Reviewed:
+Quinn
+Here's the list of flashcards you are looking for:
+1: Albus Dumbledore | Reviewed: Y | Not indicated | ID: 1
+2: Quinn | Reviewed: Y | Not indicated | ID: 2
 These are the flashcard details:
 Person name: Albus Dumbledore
 Born: August 1, 1881
@@ -196,5 +204,5 @@ Priority has been updated:
 Quinn | New priority: **
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Reviewed: Y | Not indicated
-2: Quinn | Reviewed: N | **
+2: Quinn | Reviewed: Y | **
 Thanks for using History Flashcard!
