@@ -9,6 +9,7 @@ import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.ListCommand;
+import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
@@ -226,6 +227,20 @@ public class ParserTest {
             groupList, flashcardList);
         Command actualAddFlashcardToGroupCommand = parser.parseCommand("aDd");
         assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
+    }
+
+    @Test
+    public void parse_listReviewedCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        ListReviewedCommand expectedListReviewedCommand = new ListReviewedCommand(flashcardList, ui);
+        Command actualListReviewedCommand = parser.parseCommand("list-reviewed");
+        assertEquals(expectedListReviewedCommand, actualListReviewedCommand);
+    }
+
+    @Test
+    public void parse_listReviewedCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        ListReviewedCommand expectedListReviewedCommand = new ListReviewedCommand(flashcardList, ui);
+        Command actualListReviewedCommand = parser.parseCommand("liST-revIewEd");
+        assertEquals(expectedListReviewedCommand, actualListReviewedCommand);
     }
 
     @Test
