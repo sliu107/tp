@@ -4,6 +4,7 @@ import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
+import seedu.tp.commands.DisplayStudyPlanCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
@@ -14,6 +15,7 @@ import seedu.tp.commands.PriorityCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
 import seedu.tp.commands.TimelineCommand;
+import seedu.tp.commands.UpdateStudyPlanCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
@@ -24,6 +26,7 @@ import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
+import seedu.tp.studyplan.StudyPlan;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -42,6 +45,7 @@ import java.util.logging.SimpleFormatter;
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
+import static seedu.tp.utils.Constants.DISPLAY_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.EMPTY_SPACE;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
@@ -54,6 +58,7 @@ import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
 import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
+import static seedu.tp.utils.Constants.UPDATE_STUDY_PLAN_COMMAND;
 
 /**
  * Parser class to handle parsing of user input.
@@ -67,6 +72,7 @@ public class Parser {
     private FlashcardList flashcardList;
     private GroupFactory groupFactory;
     private GroupList groupList;
+    private StudyPlan studyPlan;
     private Ui ui;
 
     /**
@@ -79,11 +85,12 @@ public class Parser {
      * @param ui               UI to be passed in as argument to commands
      */
     public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList,
-                  GroupFactory groupFactory, GroupList groupList, Ui ui) {
+                  GroupFactory groupFactory, GroupList groupList, StudyPlan studyPlan, Ui ui) {
         this.flashcardFactory = flashcardFactory;
         this.flashcardList = flashcardList;
         this.groupFactory = groupFactory;
         this.groupList = groupList;
+        this.studyPlan = studyPlan;
         this.ui = ui;
     }
 
@@ -227,6 +234,10 @@ public class Parser {
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
+        case UPDATE_STUDY_PLAN_COMMAND:
+            return new UpdateStudyPlanCommand(ui, studyPlan, flashcardList);
+        case DISPLAY_STUDY_PLAN_COMMAND:
+            return new DisplayStudyPlanCommand(ui, studyPlan, flashcardList);
         case HELP_COMMAND:
             return new HelpCommand(ui);
         case BYE_COMMAND:
