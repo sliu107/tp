@@ -14,8 +14,8 @@ public class GroupFactory {
     /**
      * Constructor for the GroupFactory.
      *
-     * @param ui                instance for user interaction
-     * @param flashcardList     list containing all flashcards
+     * @param ui            instance for user interaction
+     * @param flashcardList list containing all flashcards
      */
     public GroupFactory(Ui ui, FlashcardList flashcardList) {
         assert ui != null : "Invalid null Ui!";
