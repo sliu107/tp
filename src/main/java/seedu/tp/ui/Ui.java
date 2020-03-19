@@ -5,12 +5,14 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.parser.Parser;
+import seedu.tp.studyplan.StudyPlan;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
@@ -327,12 +329,32 @@ public class Ui {
     }
 
     /**
+     * Displays the user's study plan.
+     *
+     * @param studyPlan the study plan to be displayed
+     */
+    public void displayStudyPlan(StudyPlan studyPlan, FlashcardList flashcardList) {
+        LOGGER.info("Displaying study plan...");
+        List<Map.Entry<LocalDate, List<Integer>>> studyPlanList = studyPlan.getStudyPlanList();
+        for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlanList) {
+            System.out.println("Date: " + studyPlanForDay.getKey());
+            for (int index : studyPlanForDay.getValue()) {
+                Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
+                System.out.println((index + 1) + ": " + flashcard.getName()
+                    + " | Reviewed: " + flashcard.getReviewIcon()
+                    + " | " + flashcard.getPriorityAsString());
+            }
+        }
+        LOGGER.info("study plan displayed!");
+    }
+
+    /**
      * Prints out exception to UI.
      *
      * @param exception the exception to be printed out
      */
     public void printException(Exception exception) {
-        LOGGER.warning("Sending exception to user:");
+        LOGGER.warning("Sending exception to user...");
         LOGGER.warning(exception.toString());
         System.out.println("An exception has occurred!");
         System.out.println(exception.getMessage());
