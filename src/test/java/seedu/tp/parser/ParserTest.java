@@ -6,6 +6,7 @@ import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
+import seedu.tp.commands.DisplayStudyPlanCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.ListCommand;
@@ -14,6 +15,7 @@ import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
+import seedu.tp.commands.UpdateStudyPlanCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
@@ -22,6 +24,7 @@ import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
+import seedu.tp.studyplan.StudyPlan;
 import seedu.tp.ui.Ui;
 
 import java.time.LocalDate;
@@ -39,6 +42,7 @@ public class ParserTest {
     private FlashcardList flashcardList;
     private GroupFactory groupFactory;
     private GroupList groupList;
+    private StudyPlan studyPlan;
 
     /**
      * Initializes a new Parser for each test case.
@@ -50,7 +54,8 @@ public class ParserTest {
         flashcardList = new FlashcardList();
         groupFactory = new GroupFactory(ui, flashcardList);
         groupList = new GroupList();
-        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui);
+        studyPlan = new StudyPlan();
+        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlan, ui);
     }
 
     @Test
@@ -226,6 +231,38 @@ public class ParserTest {
             groupList, flashcardList);
         Command actualAddFlashcardToGroupCommand = parser.parseCommand("aDd");
         assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
+    }
+
+    @Test
+    public void parse_updateStudyPlanCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        UpdateStudyPlanCommand expectedUpdateStudyPlanCommand = new UpdateStudyPlanCommand(ui, studyPlan,
+            flashcardList);
+        Command actualUpdateStudyPlanCommand = parser.parseCommand("plan");
+        assertEquals(expectedUpdateStudyPlanCommand, actualUpdateStudyPlanCommand);
+    }
+
+    @Test
+    public void parse_updateStudyPlanCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        UpdateStudyPlanCommand expectedUpdateStudyPlanCommand = new UpdateStudyPlanCommand(ui, studyPlan,
+            flashcardList);
+        Command actualUpdateStudyPlanCommand = parser.parseCommand("pLAn");
+        assertEquals(expectedUpdateStudyPlanCommand, actualUpdateStudyPlanCommand);
+    }
+
+    @Test
+    public void parse_displayStudyPlanCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        DisplayStudyPlanCommand expectedDisplayStudyPlanCommand = new DisplayStudyPlanCommand(ui, studyPlan,
+            flashcardList);
+        Command actualDisplayStudyPlanCommand = parser.parseCommand("showplan");
+        assertEquals(expectedDisplayStudyPlanCommand, actualDisplayStudyPlanCommand);
+    }
+
+    @Test
+    public void parse_displayStudyPlanCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        DisplayStudyPlanCommand expectedDisplayStudyPlanCommand = new DisplayStudyPlanCommand(ui, studyPlan,
+            flashcardList);
+        Command actualDisplayStudyPlanCommand = parser.parseCommand("shOwplAn");
+        assertEquals(expectedDisplayStudyPlanCommand, actualDisplayStudyPlanCommand);
     }
 
     @Test
