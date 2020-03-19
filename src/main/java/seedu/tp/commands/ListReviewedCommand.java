@@ -19,6 +19,9 @@ public class ListReviewedCommand extends Command {
      * @param ui            the UI class for handling interaction with the user
      */
     public ListReviewedCommand(FlashcardList flashcardList, Ui ui) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+        assert ui != null : "Invalid null Ui!";
+
         this.ui = ui;
         this.flashcardList = flashcardList;
     }

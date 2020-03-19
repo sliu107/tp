@@ -315,6 +315,7 @@ public class Ui {
     public void listAllFlashcardsWithId(List<Map.Entry<Integer, Flashcard>> flashcardListWithId) {
         assert flashcardListWithId != null : "Invalid null flashcard list!";
 
+        LOGGER.info("Listing flashcards with ID...");
         if (flashcardListWithId.isEmpty()) {
             System.out.println("You have no flashcard matching your query!");
             return;
@@ -328,6 +329,7 @@ public class Ui {
                 + " | " + flashcardEntry.getValue().getPriorityAsString()
                 + " | ID: " + (flashcardEntry.getKey() + 1));
         }
+        LOGGER.info("Listed flashcards with ID!");
     }
 
     /**

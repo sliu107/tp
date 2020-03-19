@@ -160,6 +160,7 @@ public class FlashcardList {
      * @return the list of reviewed flashcards with IDs
      */
     public List<Map.Entry<Integer, Flashcard>> getAllReviewedFlashcards() {
+        LOGGER.info("Getting all reviewed flashcards...");
         List<Map.Entry<Integer, Flashcard>> reviewedFlashcards = new ArrayList<>();
         for (int i = 0; i < flashcards.size(); i++) {
             Flashcard flashcard = flashcards.get(i);
@@ -167,6 +168,7 @@ public class FlashcardList {
                 reviewedFlashcards.add(new AbstractMap.SimpleEntry(i, flashcard));
             }
         }
+        LOGGER.info("Got all reviewed flashcards!");
         return reviewedFlashcards;
     }
 
