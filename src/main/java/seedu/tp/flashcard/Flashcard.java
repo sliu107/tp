@@ -78,6 +78,16 @@ public abstract class Flashcard implements Comparable<Flashcard> {
         return (isReviewed ? "Y" : "N");
     }
 
+
+    /**
+     * Returns boolean value indicating whether or not the flashcards has been reviewed.
+     *
+     * @return true if flashcard is reviewed, else false
+     */
+    public boolean isReviewed() {
+        return isReviewed;
+    }
+
     /**
      * Sets the flashcard's priority level.
      *

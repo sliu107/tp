@@ -3,9 +3,11 @@ package seedu.tp.flashcard;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 
 import java.io.IOException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -150,6 +152,22 @@ public class FlashcardList {
      */
     public List<Flashcard> getFlashcards() {
         return flashcards;
+    }
+
+    /**
+     * Gets all reviewed flashcards with IDs.
+     *
+     * @return the list of reviewed flashcards with IDs
+     */
+    public List<Map.Entry<Integer, Flashcard>> getAllReviewedFlashcards() {
+        List<Map.Entry<Integer, Flashcard>> reviewedFlashcards = new ArrayList<>();
+        for (int i = 0; i < flashcards.size(); i++) {
+            Flashcard flashcard = flashcards.get(i);
+            if (flashcard.isReviewed()) {
+                reviewedFlashcards.add(new AbstractMap.SimpleEntry(i, flashcard));
+            }
+        }
+        return reviewedFlashcards;
     }
 
     /**
