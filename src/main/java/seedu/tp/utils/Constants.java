@@ -13,6 +13,8 @@ public class Constants {
     public static final String TIMELINE_COMMAND = "timeline";
     public static final String GROUP_COMMAND = "group";
     public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
+    public static final String UPDATE_STUDY_PLAN_COMMAND = "plan";
+    public static final String DISPLAY_STUDY_PLAN_COMMAND = "showplan";
     public static final String FIND_FLASHCARD_COMMAND = "find";
     public static final String HELP_COMMAND = "help";
     public static final String BYE_COMMAND = "bye";
@@ -27,6 +29,7 @@ public class Constants {
     public static final String DESCRIPTION_FIELD = "description";
     public static final String INDEXES_FIELD = "indexes";
     public static final String INDEX_FIELD = "index";
+    public static final String DATE_FIELD = "date";
 
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";

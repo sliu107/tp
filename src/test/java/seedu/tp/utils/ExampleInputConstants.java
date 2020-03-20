@@ -32,6 +32,11 @@ public class ExampleInputConstants {
     public static final String INDEXES_3 = "1 2 3";
     public static final String INVALID_INDEXES = "0 -1 5";
 
+    public static final String DATE_1 = "27 02 2020";
+    public static final String DATE_2 = "18 01 2020";
+    public static final LocalDate LOCAL_DATE_1 = LocalDate.of(2020, 2, 27);
+    public static final LocalDate LOCAL_DATE_2 = LocalDate.of(2020, 1, 18);
+
     public static final String FULL_SIMULATED_INPUT = FLASHCARD_NAME + NEWLINE
         + START_DATE + NEWLINE
         + END_DATE + NEWLINE
@@ -44,6 +49,7 @@ public class ExampleInputConstants {
         + DETAIL_1 + NEWLINE
         + DETAIL_2 + NEWLINE
         + NEWLINE;
+
     public static final String SIMULATED_GROUP_COMMAND_INPUT_1 = GROUP_NAME + NEWLINE
         + DESCRIPTION + NEWLINE
         + INDEXES_1 + NEWLINE
@@ -52,6 +58,7 @@ public class ExampleInputConstants {
         + DESCRIPTION + NEWLINE
         + INVALID_INDEXES + NEWLINE
         + NEWLINE;
+
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_1 = INDEX_1 + NEWLINE
         + GROUP_NAME + NEWLINE
         + NEWLINE;
@@ -64,4 +71,9 @@ public class ExampleInputConstants {
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4 = INDEX_1 + NEWLINE
         + UNIONIZED_GROUP_NAME + NEWLINE
         + NEWLINE;
+
+    public static final String SIMULATED_UPDATE_STUDY_PLAN_INPUT_1 =
+        DATE_1 + NEWLINE + INDEXES_1 + NEWLINE;
+    public static final String SIMULATED_UPDATE_STUDY_PLAN_INPUT_2 =
+        DATE_2 + NEWLINE + INDEX_1 + NEWLINE;
 }

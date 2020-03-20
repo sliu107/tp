@@ -121,6 +121,19 @@ Here's the list of flashcards you have:
 2: Albus Dumbledore | Reviewed: N | Not indicated
 3: Resurrection Stone | Reviewed: N | Not indicated
 4: Quinn | Reviewed: N | Not indicated
+Please enter date:
+Please enter indexes:
+Date: 2020-01-01
+1: Meiji Restoration | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+Please enter date:
+That date format couldn't be parsed! Please enter again.
+Please enter indexes:
+Date: 2020-01-01
+1: Meiji Restoration | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+Date: 2020-03-01
+2: Albus Dumbledore | Reviewed: N | Not indicated
 Please enter name:
 Please enter description:
 Please enter indexes:
