@@ -161,6 +161,15 @@ Here's the list of flashcards you have:
 2: Albus Dumbledore | Reviewed: N | Not indicated
 3: Resurrection Stone | Reviewed: N | Not indicated
 4: Quinn | Reviewed: N | Not indicated
+Please use the correct input format. Use "help" to view all commands.
+Here's the list of flashcards you are looking for:
+1: Meiji Restoration | Reviewed: N | Not indicated | ID: 1
+Here's the list of flashcards you are looking for:
+1: Meiji Restoration | Reviewed: N | Not indicated | ID: 1
+2: Albus Dumbledore | Reviewed: N | Not indicated | ID: 2
+3: Resurrection Stone | Reviewed: N | Not indicated | ID: 3
+Here's the list of flashcards you are looking for:
+1: Resurrection Stone | Reviewed: N | Not indicated | ID: 3
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
 1: Meiji Restoration | Reviewed: N | Not indicated
