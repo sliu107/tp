@@ -331,6 +331,28 @@ public class Ui {
     }
 
     /**
+     * Lists all flashcards in a specified group.
+     *
+     * @param flashcardList list of all flashcards in the group
+     * @param groupName     name of the group
+     */
+    public void listFlashcardsInGroup(FlashcardList flashcardList, String groupName) {
+        assert flashcardList != null : "Invalid null flashcard list!";
+
+        if (flashcardList.isEmpty()) {
+            System.out.println("There are no flashcards in the group!");
+            return;
+        }
+
+        System.out.println(groupName + " contains the following flashcards:");
+        for (Flashcard flashcard : flashcardList.getFlashcards()) {
+            System.out.println(BULLET_POINT + flashcard.getName()
+                + " | Reviewed: " + flashcard.getReviewIcon()
+                + " | " + flashcard.getPriorityAsString());
+        }
+    }
+
+    /**
      * Lists all flashcards along with their IDs.
      *
      * @param flashcardListWithId the list of flashcards with IDs.
@@ -441,6 +463,11 @@ public class Ui {
     public void sendDuplicateFlashcardResponse() {
         LOGGER.info("Send duplicate flashcard response to user...");
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
+    }
+
+    public void sendInvalidFlashcardGroupResponse() {
+        LOGGER.info("Send invalid flashcard group response to user...");
+        System.out.println("Please enter a valid flashcard group. Use \"showgroups\" to view all groups.");
     }
 
     /**

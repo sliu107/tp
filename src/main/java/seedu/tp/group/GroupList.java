@@ -73,6 +73,24 @@ public class GroupList {
     }
 
     /**
+     * Returns a FlashcardList of flashcards belonging to the group specified by groupName.
+     *
+     * @param groupName the name of the group of flashcards
+     * @return FlashcardList of flashcards belonging to the group
+     */
+    public FlashcardList getFlashcardsInGroup(String groupName) throws UnrecognizedFlashcardGroupException {
+        FlashcardList flashcardsInGroup;
+        for (FlashcardGroup g : groups) {
+            if (g.getName().equals(groupName)) {
+                flashcardsInGroup = g.getGroupCards();
+                return flashcardsInGroup;
+            }
+        }
+
+        throw new UnrecognizedFlashcardGroupException("Invalid group name!");
+    }
+
+    /**
      * Gets the flashcard group at a specific index.
      *
      * @param index the index.

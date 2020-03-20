@@ -10,6 +10,7 @@ import seedu.tp.commands.FindCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
+import seedu.tp.commands.ListGroupCommand;
 import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
@@ -65,6 +66,7 @@ import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 import static seedu.tp.utils.Constants.UPDATE_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.SHOWGROUPS_COMMAND;
+import static seedu.tp.utils.Constants.LIST_GROUP_COMMAND;
 
 /**
  * Parser class to handle parsing of user input.
@@ -195,6 +197,8 @@ public class Parser {
             return new ListCommand(flashcardList, ui);
         case LIST_REVIEWED_COMMAND:
             return new ListReviewedCommand(flashcardList, ui);
+        case LIST_GROUP_COMMAND:
+            return new ListGroupCommand(groupList, ui, splitInput[1]);
         case SHOW_COMMAND:
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
