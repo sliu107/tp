@@ -368,6 +368,11 @@ public class Ui {
         LOGGER.info("Send duplicate flashcard response to user...");
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
     }
+    
+    public void sendFailedToSaveResponse() {
+        LOGGER.info("Send failed to save response to user...");
+        System.out.println("Uh oh. Couldn't save this change. Sorry.");
+    }
 
     /**
      * Gets the next user input line.

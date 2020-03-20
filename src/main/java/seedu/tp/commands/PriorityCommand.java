@@ -3,12 +3,13 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 
 /**
  * Command to configure priority level of a flashcard.
  */
-public class PriorityCommand extends Command {
+public class PriorityCommand extends ModifyingCommand {
     private FlashcardList flashcardList;
     private int index;
     private Ui ui;
@@ -22,7 +23,8 @@ public class PriorityCommand extends Command {
      * @param ui            instance for user interaction
      * @param pl            priority level to set the flashcard to
      */
-    public PriorityCommand(FlashcardList flashcardList, int index, Ui ui, Flashcard.PriorityLevel pl) {
+    public PriorityCommand(FlashcardList flashcardList, int index, Ui ui, Flashcard.PriorityLevel pl, Storage storage) {
+        super(storage, ui);
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert ui != null : "Invalid null Ui!";
 

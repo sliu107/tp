@@ -3,9 +3,10 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupList;
+import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 
-public class AddFlashcardToGroupCommand extends Command {
+public class AddFlashcardToGroupCommand extends ModifyingCommand {
     private Ui ui;
     private GroupList groupList;
     private FlashcardList flashcardList;
@@ -17,8 +18,8 @@ public class AddFlashcardToGroupCommand extends Command {
      * @param groupList     the groupList where the flashcard wants to be added in
      * @param flashcardList the flashcardList where the flashcard is in
      */
-    public AddFlashcardToGroupCommand(Ui ui, GroupList groupList, FlashcardList flashcardList) {
-        assert ui != null : "Invalid null Ui!";
+    public AddFlashcardToGroupCommand(Ui ui, GroupList groupList, FlashcardList flashcardList, Storage storage) {
+        super(storage, ui);
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert groupList != null : "Invalid null GroupList!";
 

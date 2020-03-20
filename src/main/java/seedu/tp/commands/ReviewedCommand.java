@@ -3,12 +3,13 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 
 /**
  * Command to mark a flashcard as Reviewed.
  */
-public class ReviewedCommand extends Command {
+public class ReviewedCommand extends ModifyingCommand {
     private FlashcardList flashcardList;
     private int index;
     private Ui ui;
@@ -20,7 +21,8 @@ public class ReviewedCommand extends Command {
      * @param index         index of the flashcard to show
      * @param ui            instance for user interaction
      */
-    public ReviewedCommand(FlashcardList flashcardList, int index, Ui ui) {
+    public ReviewedCommand(FlashcardList flashcardList, int index, Ui ui, Storage storage) {
+        super(storage, ui);
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert ui != null : "Invalid null Ui!";
 

@@ -3,11 +3,13 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
+import seedu.tp.storage.Storage;
+import seedu.tp.ui.Ui;
 
 /**
  * Commands to create a new group.
  */
-public class GroupCommand extends Command {
+public class GroupCommand extends ModifyingCommand {
     private GroupFactory groupFactory;
     private GroupList groupList;
 
@@ -17,7 +19,8 @@ public class GroupCommand extends Command {
      * @param groupFactory groupFactory the groupCommand use
      * @param groupList    groupList where the groupCommand execute on
      */
-    public GroupCommand(GroupFactory groupFactory, GroupList groupList) {
+    public GroupCommand(GroupFactory groupFactory, GroupList groupList, Ui ui, Storage storage) {
+        super(storage, ui);
         assert groupFactory != null : "Invalid null GroupFactory!";
         assert groupList != null : "Invalid null GroupList!";
 

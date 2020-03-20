@@ -3,13 +3,15 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.storage.Storage;
+import seedu.tp.ui.Ui;
 
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 
 /**
  * Command to create an other flashcard.
  */
-public class OtherFlashcardCommand extends Command {
+public class OtherFlashcardCommand extends ModifyingCommand {
 
     private FlashcardList flashcardList;
     private FlashcardFactory flashcardFactory;
@@ -20,7 +22,9 @@ public class OtherFlashcardCommand extends Command {
      * @param flashcardList    flashcard list for the command to execute on
      * @param flashcardFactory the flashcard factory to be used in the command
      */
-    public OtherFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory) {
+    public OtherFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory,
+                                 Ui ui, Storage storage) {
+        super(storage, ui);
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert flashcardFactory != null : "Invalid null FlashcardFactory!";
 

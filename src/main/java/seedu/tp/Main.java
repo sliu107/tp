@@ -54,6 +54,7 @@ public class Main {
         groupFactory = new GroupFactory(ui, flashcardList);
         groupList = new GroupList();
         parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui);
+        storage = new Storage();
 
         LoggerUtils.createFolder(LOG_FOLDER);
 
