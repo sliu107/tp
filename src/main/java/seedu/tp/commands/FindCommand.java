@@ -21,6 +21,10 @@ public class FindCommand extends Command {
      * @param keyword       the specified keyword
      */
     public FindCommand(FlashcardList flashcardList, Ui ui, String keyword) {
+        assert flashcardList != null : "Invalid null FlashcardList!";
+        assert ui != null : "Invalid null Ui!";
+        assert keyword != null : "Invalid null keyword!";
+
         this.flashcardList = flashcardList;
         this.ui = ui;
         this.keyword = keyword;
@@ -28,8 +32,10 @@ public class FindCommand extends Command {
 
     @Override
     public void execute() {
+        LOGGER.info("Executing FindCommand...");
         List<Map.Entry<Integer, Flashcard>> flashcardsWithKeyword = flashcardList.getAllFlashcardsWithKeyword(keyword);
         ui.listAllFlashcardsWithId(flashcardsWithKeyword);
+        LOGGER.info("Finished executing FindCommand!");
     }
 
     @Override
