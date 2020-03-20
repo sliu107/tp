@@ -51,6 +51,7 @@ import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.DISPLAY_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.EMPTY_SPACE;
+import static seedu.tp.utils.Constants.EMPTY_STRING;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.FIND_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
@@ -198,7 +199,16 @@ public class Parser {
         case LIST_REVIEWED_COMMAND:
             return new ListReviewedCommand(flashcardList, ui);
         case LIST_GROUP_COMMAND:
-            return new ListGroupCommand(groupList, ui, splitInput[1]);
+            try {
+                return new ListGroupCommand(groupList, ui, splitInput[1] + " " + splitInput[2]);
+            } catch (IndexOutOfBoundsException e1) {
+                try {
+                    return new ListGroupCommand(groupList, ui, splitInput[1]);
+                } catch (IndexOutOfBoundsException e2) {
+                    LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                    throw new InvalidInputFormatException();
+                }
+            }
         case SHOW_COMMAND:
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);

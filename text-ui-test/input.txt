@@ -88,4 +88,8 @@ show 1
 priority 2 MEDIUM
 list
 showgroups
+list-group Harry Potter Flashcards
+list-group
+list-group abc
+list-group abc def
 bye
