@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import static seedu.tp.utils.Constants.LOG_FOLDER;
+import static seedu.tp.utils.Constants.REGEX_MATCH_ALL_CHARACTER;
 
 /**
  * List of flashcards.
@@ -165,11 +166,30 @@ public class FlashcardList {
         for (int i = 0; i < flashcards.size(); i++) {
             Flashcard flashcard = flashcards.get(i);
             if (flashcard.isReviewed()) {
-                reviewedFlashcards.add(new AbstractMap.SimpleEntry(i, flashcard));
+                reviewedFlashcards.add(new AbstractMap.SimpleEntry<>(i, flashcard));
             }
         }
         LOGGER.info("Got all reviewed flashcards!");
         return reviewedFlashcards;
+    }
+
+    /**
+     * Gets all flashcards which contain a certain keyword with IDs.
+     *
+     * @param keyword the specified keyword
+     * @return the list of flashcards containing the specified keyword with IDs
+     */
+    public List<Map.Entry<Integer, Flashcard>> getAllFlashcardsWithKeyword(String keyword) {
+        LOGGER.info("Getting all flashcards with keyword " + keyword + "...");
+        List<Map.Entry<Integer, Flashcard>> flashcardsWithKeyword = new ArrayList<>();
+        for (int i = 0; i < flashcards.size(); i++) {
+            Flashcard flashcard = flashcards.get(i);
+            if (flashcard.getName().matches(REGEX_MATCH_ALL_CHARACTER + keyword + REGEX_MATCH_ALL_CHARACTER)) {
+                flashcardsWithKeyword.add(new AbstractMap.SimpleEntry<>(i, flashcard));
+            }
+        }
+        LOGGER.info("Got all flashcards with keyword " + keyword + "!");
+        return flashcardsWithKeyword;
     }
 
     /**
