@@ -5,6 +5,7 @@ import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
+import seedu.tp.commands.FindCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
@@ -45,6 +46,7 @@ import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.EMPTY_SPACE;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
+import static seedu.tp.utils.Constants.FIND_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
@@ -231,6 +233,13 @@ public class Parser {
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
+        case FIND_FLASHCARD_COMMAND:
+            try {
+                return new FindCommand(flashcardList, ui, splitInput[1]);
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
+            }
         case HELP_COMMAND:
             return new HelpCommand(ui);
         case BYE_COMMAND:
