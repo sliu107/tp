@@ -2,6 +2,7 @@ package seedu.tp.storage;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import seedu.tp.exceptions.DeletionFailedException;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -45,5 +46,15 @@ public class Storage {
         FileWriter fileWriter = new FileWriter(pathName);
         fileWriter.write(fileContents);
         fileWriter.close();
+    }
+    
+    public void delete(Savable savable) throws DeletionFailedException {
+        String pathName = SAVE_FOLDER + savable.getFileName() + FILE_EXTENSION;
+        File file = new File(pathName);
+        
+        boolean success = file.delete();
+        if (!success) {
+            throw new DeletionFailedException();
+        }
     }
 }

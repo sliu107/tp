@@ -373,6 +373,15 @@ public class Ui {
         LOGGER.info("Send failed to save response to user...");
         System.out.println("Uh oh. Couldn't save this change. Sorry.");
     }
+    
+    public void sendDeletionFailedResponse() {
+        LOGGER.info("Send failed deletion response to user...");
+        System.out.println("Deletion could not be saved to disk. Sorry.");
+    }
+    
+    public void confirmDeletion(Flashcard flashcard) {
+        System.out.println("You have successfully deleted: " + flashcard.getName());
+    }
 
     /**
      * Gets the next user input line.

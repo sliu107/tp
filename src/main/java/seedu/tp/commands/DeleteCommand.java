@@ -1,7 +1,10 @@
 package seedu.tp.commands;
 
+import seedu.tp.exceptions.DeletionFailedException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.storage.Savable;
 import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 
@@ -44,9 +47,20 @@ public class DeleteCommand extends ModifyingCommand {
 
     @Override
     public void execute() throws InvalidFlashcardIndexException {
+        Flashcard deletedFlashcard = flashcardList.getFlashcardAtIdx(index);
         LOGGER.info("Deleting flashcard at index: " + index);
         flashcardList.deleteFlashcard(index);
+        ui.confirmDeletion(deletedFlashcard);
         LOGGER.info("Deleted flashcard at index: " + index);
+        delete(deletedFlashcard);
+    }
+    
+    private void delete(Savable savable) {
+        try {
+            storage.delete(savable);
+        } catch (DeletionFailedException e) {
+            ui.sendDeletionFailedResponse();
+        }
     }
 
     @Override
