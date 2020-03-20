@@ -134,6 +134,7 @@ Date: 2020-01-01
 3: Resurrection Stone | Reviewed: N | Not indicated
 Date: 2020-03-01
 2: Albus Dumbledore | Reviewed: N | Not indicated
+There are no existing groups. Use "group" to create a new group.
 Please enter name:
 Please enter description:
 Please enter indexes:
@@ -232,4 +233,6 @@ Quinn | New priority: **
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Reviewed: Y | Not indicated
 2: Quinn | Reviewed: Y | **
+Here are all existing groups:
+- Harry Potter Flashcards
 Thanks for using History Flashcard!

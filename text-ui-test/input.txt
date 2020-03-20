@@ -46,6 +46,7 @@ random date
 01/03/2020
 2
 showplan
+showgroups
 group
 New Flashcard Group
 Blah Blah Blah
@@ -86,4 +87,5 @@ list-reviewed
 show 1
 priority 2 MEDIUM
 list
+showgroups
 bye
