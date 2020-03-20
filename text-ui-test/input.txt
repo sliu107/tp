@@ -63,6 +63,11 @@ Harry Potter Flashcards
 add
 1
 Harry Potter Flashcards
+list
+find
+find Meiji
+find o
+find Stone
 delete random
 list
 delete -1
@@ -73,7 +78,11 @@ delete 1
 list
 delete 2
 list
+list-reviewed
 reviewed 1
+list-reviewed
+reviewed 2
+list-reviewed
 show 1
 priority 2 MEDIUM
 list

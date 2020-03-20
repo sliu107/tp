@@ -5,6 +5,7 @@ public class Constants {
     public static final String PERSON_FLASHCARD_COMMAND = "person";
     public static final String OTHER_FLASHCARD_COMMAND = "other";
     public static final String LIST_COMMAND = "list";
+    public static final String LIST_REVIEWED_COMMAND = "list-reviewed";
     public static final String SHOW_COMMAND = "show";
     public static final String REVIEWED_COMMAND = "reviewed";
     public static final String DELETE_COMMAND = "delete";
@@ -14,6 +15,7 @@ public class Constants {
     public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
     public static final String UPDATE_STUDY_PLAN_COMMAND = "plan";
     public static final String DISPLAY_STUDY_PLAN_COMMAND = "showplan";
+    public static final String FIND_FLASHCARD_COMMAND = "find";
     public static final String HELP_COMMAND = "help";
     public static final String BYE_COMMAND = "bye";
 
@@ -31,6 +33,8 @@ public class Constants {
 
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";
+
+    public static final String REGEX_MATCH_ALL_CHARACTER = ".*";
 
     public static final String LOG_FOLDER = "logs/";
 }

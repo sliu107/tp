@@ -6,9 +6,11 @@ import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.DisplayStudyPlanCommand;
 import seedu.tp.commands.EventFlashcardCommand;
+import seedu.tp.commands.FindCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
+import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
@@ -48,9 +50,11 @@ import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.DISPLAY_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.EMPTY_SPACE;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
+import static seedu.tp.utils.Constants.FIND_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
+import static seedu.tp.utils.Constants.LIST_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
@@ -187,6 +191,8 @@ public class Parser {
             return new OtherFlashcardCommand(flashcardList, flashcardFactory);
         case LIST_COMMAND:
             return new ListCommand(flashcardList, ui);
+        case LIST_REVIEWED_COMMAND:
+            return new ListReviewedCommand(flashcardList, ui);
         case SHOW_COMMAND:
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
@@ -238,6 +244,13 @@ public class Parser {
             return new UpdateStudyPlanCommand(ui, studyPlan, flashcardList);
         case DISPLAY_STUDY_PLAN_COMMAND:
             return new DisplayStudyPlanCommand(ui, studyPlan, flashcardList);
+        case FIND_FLASHCARD_COMMAND:
+            try {
+                return new FindCommand(flashcardList, ui, splitInput[1]);
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
+            }
         case HELP_COMMAND:
             return new HelpCommand(ui);
         case BYE_COMMAND:
