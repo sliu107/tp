@@ -18,7 +18,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ListReviewedCommandTest {
+public class FindCommandTest {
 
     public static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
         "Event 1",
@@ -51,40 +51,34 @@ public class ListReviewedCommandTest {
     public void setup() {
         System.setOut(new PrintStream(capturedOut));
         emptyFlashcardList = new FlashcardList();
-        EVENT_FLASHCARD.setReviewStatus(true);
-        OTHER_FLASHCARD.setReviewStatus(true);
         List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
         fullFlashcardList = new FlashcardList(flashcards);
     }
 
-    /**
-     * Restores standard output and variables.
-     */
     @AfterEach
-    public void restoreStdoutAndVariables() {
+    public void restoreStdout() {
         System.setOut(backupStdout);
-        EVENT_FLASHCARD.setReviewStatus(false);
-        OTHER_FLASHCARD.setReviewStatus(false);
     }
 
     @Test
-    public void listReviewedCommand_execute_listsFlashcardsSuccessfully() {
+    public void findCommand_execute_listsFlashcardsSuccessfully() {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here's the list of flashcards you are looking for:" + System.lineSeparator());
-        expectedOutput.append("1: Event 1 | Reviewed: Y | Not indicated | ID: 1" + System.lineSeparator());
-        expectedOutput.append("2: Title 1 | Reviewed: Y | Not indicated | ID: 3" + System.lineSeparator());
+        expectedOutput.append("1: Event 1 | Reviewed: N | Not indicated | ID: 1" + System.lineSeparator());
+        expectedOutput.append("2: Person 1 | Reviewed: N | Not indicated | ID: 2" + System.lineSeparator());
+        expectedOutput.append("3: Title 1 | Reviewed: N | Not indicated | ID: 3" + System.lineSeparator());
 
-        ListReviewedCommand listReviewedCommand = new ListReviewedCommand(fullFlashcardList, new Ui());
-        listReviewedCommand.execute();
+        FindCommand findCommand = new FindCommand(fullFlashcardList, new Ui(), "1");
+        findCommand.execute();
         assertEquals(expectedOutput.toString(), capturedOut.toString());
     }
 
     @Test
-    public void listReviewedCommand_executeEmptyList_listsFlashcardsSuccessfully() {
+    public void findCommand_executeEmptyList_listsFlashcardsSuccessfully() {
         String expectedOutput = "You have no flashcard matching your query!" + System.lineSeparator();
 
-        ListReviewedCommand listReviewedCommand = new ListReviewedCommand(emptyFlashcardList, new Ui());
-        listReviewedCommand.execute();
+        FindCommand findCommand = new FindCommand(emptyFlashcardList, new Ui(), "1");
+        findCommand.execute();
         assertEquals(expectedOutput, capturedOut.toString());
     }
 }
