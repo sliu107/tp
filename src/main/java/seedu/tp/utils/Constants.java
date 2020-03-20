@@ -30,4 +30,5 @@ public class Constants {
     public static final String EMPTY_SPACE = " ";
 
     public static final String LOG_FOLDER = "logs/";
+    public static final String SAVE_FOLDER = "flashcards/";
 }

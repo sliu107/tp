@@ -13,6 +13,7 @@ import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
 import seedu.tp.parser.Parser;
+import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 import seedu.tp.utils.LoggerUtils;
 
@@ -30,6 +31,7 @@ public class Main {
     private GroupFactory groupFactory;
     private GroupList groupList;
     private Parser parser;
+    private Storage storage;
 
     /**
      * Program entry point.
