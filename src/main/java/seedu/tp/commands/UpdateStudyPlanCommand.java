@@ -2,35 +2,35 @@ package seedu.tp.commands;
 
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.studyplan.StudyPlan;
+import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 
 public class UpdateStudyPlanCommand extends Command {
 
     private Ui ui;
-    private StudyPlan studyPlan;
+    private StudyPlanList studyPlanList;
     private FlashcardList flashcardList;
 
     /**
      * Constructor for UpdateStudyPlanCommand.
      *
-     * @param ui        the UI class to be used in the command
-     * @param studyPlan the Study Plan to be updated
+     * @param ui            the UI class to be used in the command
+     * @param studyPlanList the StudyPlanList to be updated
      */
-    public UpdateStudyPlanCommand(Ui ui, StudyPlan studyPlan, FlashcardList flashcardList) {
+    public UpdateStudyPlanCommand(Ui ui, StudyPlanList studyPlanList, FlashcardList flashcardList) {
         assert ui != null : "Invalid null Ui!";
-        assert studyPlan != null : "Invalid null StudyPlan!";
+        assert studyPlanList != null : "Invalid null StudyPlan!";
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.ui = ui;
-        this.studyPlan = studyPlan;
+        this.studyPlanList = studyPlanList;
         this.flashcardList = flashcardList;
     }
 
     @Override
     public void execute() throws HistoryFlashcardException {
         LOGGER.info("Executing UpdateStudyPlanCommand...");
-        studyPlan.updateStudyPlan(ui, flashcardList);
+        studyPlanList.updateStudyPlan(ui, flashcardList);
         LOGGER.info("UpdateStudyPlanCommand executed!");
     }
 
@@ -45,7 +45,7 @@ public class UpdateStudyPlanCommand extends Command {
 
         UpdateStudyPlanCommand otherUpdateStudyPlanCommand = (UpdateStudyPlanCommand) obj;
         return this.ui.equals(otherUpdateStudyPlanCommand.ui)
-            & this.studyPlan.equals(otherUpdateStudyPlanCommand.studyPlan)
+            & this.studyPlanList.equals(otherUpdateStudyPlanCommand.studyPlanList)
             & this.flashcardList.equals(otherUpdateStudyPlanCommand.flashcardList);
     }
 }

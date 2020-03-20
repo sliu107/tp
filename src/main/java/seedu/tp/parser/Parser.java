@@ -28,7 +28,7 @@ import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
-import seedu.tp.studyplan.StudyPlan;
+import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ public class Parser {
     private FlashcardList flashcardList;
     private GroupFactory groupFactory;
     private GroupList groupList;
-    private StudyPlan studyPlan;
+    private StudyPlanList studyPlanList;
     private Ui ui;
 
     /**
@@ -89,12 +89,12 @@ public class Parser {
      * @param ui               UI to be passed in as argument to commands
      */
     public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList,
-                  GroupFactory groupFactory, GroupList groupList, StudyPlan studyPlan, Ui ui) {
+                  GroupFactory groupFactory, GroupList groupList, StudyPlanList studyPlanList, Ui ui) {
         this.flashcardFactory = flashcardFactory;
         this.flashcardList = flashcardList;
         this.groupFactory = groupFactory;
         this.groupList = groupList;
-        this.studyPlan = studyPlan;
+        this.studyPlanList = studyPlanList;
         this.ui = ui;
     }
 
@@ -241,9 +241,9 @@ public class Parser {
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
         case UPDATE_STUDY_PLAN_COMMAND:
-            return new UpdateStudyPlanCommand(ui, studyPlan, flashcardList);
+            return new UpdateStudyPlanCommand(ui, studyPlanList, flashcardList);
         case DISPLAY_STUDY_PLAN_COMMAND:
-            return new DisplayStudyPlanCommand(ui, studyPlan, flashcardList);
+            return new DisplayStudyPlanCommand(ui, studyPlanList, flashcardList);
         case FIND_FLASHCARD_COMMAND:
             try {
                 return new FindCommand(flashcardList, ui, splitInput[1]);

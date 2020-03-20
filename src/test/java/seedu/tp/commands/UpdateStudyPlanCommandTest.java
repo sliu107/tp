@@ -9,7 +9,7 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
-import seedu.tp.studyplan.StudyPlan;
+import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayInputStream;
@@ -57,7 +57,7 @@ public class UpdateStudyPlanCommandTest {
         new AbstractMap.SimpleEntry<>(LOCAL_DATE_2, Arrays.asList(1));
     private static final InputStream backupStdin = System.in;
     private FlashcardList fullFlashcardList;
-    private StudyPlan studyPlan;
+    private StudyPlanList studyPlanList;
 
     /**
      * Set up variables before each test.
@@ -66,7 +66,7 @@ public class UpdateStudyPlanCommandTest {
     public void setup() {
         List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
         fullFlashcardList = new FlashcardList(flashcards);
-        studyPlan = new StudyPlan();
+        studyPlanList = new StudyPlanList();
     }
 
     @AfterEach
@@ -79,15 +79,15 @@ public class UpdateStudyPlanCommandTest {
         ByteArrayInputStream simulatedSystemIn =
             new ByteArrayInputStream(SIMULATED_UPDATE_STUDY_PLAN_INPUT_1.getBytes());
         System.setIn(simulatedSystemIn);
-        UpdateStudyPlanCommand updateStudyPlanCommand = new UpdateStudyPlanCommand(new Ui(), studyPlan,
+        UpdateStudyPlanCommand updateStudyPlanCommand = new UpdateStudyPlanCommand(new Ui(), studyPlanList,
             fullFlashcardList);
         updateStudyPlanCommand.execute();
 
         List<Map.Entry<LocalDate, List<Integer>>> expectedStudyPlanList =
             Arrays.asList(STUDY_PLAN_ENTRY_1);
-        StudyPlan expectedStudyPlan = new StudyPlan(expectedStudyPlanList);
+        StudyPlanList expectedStudyPlan = new StudyPlanList(expectedStudyPlanList);
 
-        assertEquals(expectedStudyPlan, studyPlan);
+        assertEquals(expectedStudyPlan, studyPlanList);
     }
 
     @Test
@@ -95,15 +95,15 @@ public class UpdateStudyPlanCommandTest {
         ByteArrayInputStream simulatedSystemIn =
             new ByteArrayInputStream(SIMULATED_UPDATE_STUDY_PLAN_INPUT_2.getBytes());
         System.setIn(simulatedSystemIn);
-        studyPlan = new StudyPlan(Arrays.asList(STUDY_PLAN_ENTRY_1));
-        UpdateStudyPlanCommand updateStudyPlanCommand = new UpdateStudyPlanCommand(new Ui(), studyPlan,
+        studyPlanList = new StudyPlanList(Arrays.asList(STUDY_PLAN_ENTRY_1));
+        UpdateStudyPlanCommand updateStudyPlanCommand = new UpdateStudyPlanCommand(new Ui(), studyPlanList,
             fullFlashcardList);
         updateStudyPlanCommand.execute();
 
         List<Map.Entry<LocalDate, List<Integer>>> expectedStudyPlanList =
             Arrays.asList(STUDY_PLAN_ENTRY_1, STUDY_PLAN_ENTRY_2);
-        StudyPlan expectedStudyPlan = new StudyPlan(expectedStudyPlanList);
+        StudyPlanList expectedStudyPlan = new StudyPlanList(expectedStudyPlanList);
 
-        assertEquals(expectedStudyPlan, studyPlan);
+        assertEquals(expectedStudyPlan, studyPlanList);
     }
 }

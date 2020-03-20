@@ -9,7 +9,7 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
-import seedu.tp.studyplan.StudyPlan;
+import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
@@ -57,7 +57,7 @@ public class DisplayStudyPlanCommandTest {
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
     private final PrintStream backupStdout = System.out;
     private FlashcardList fullFlashcardList;
-    private StudyPlan studyPlan;
+    private StudyPlanList studyPlanList;
 
     /**
      * Set up variables before each test.
@@ -67,8 +67,8 @@ public class DisplayStudyPlanCommandTest {
         System.setOut(new PrintStream(capturedOut));
         List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
         fullFlashcardList = new FlashcardList(flashcards);
-        List<Map.Entry<LocalDate, List<Integer>>> studyPlanList = Arrays.asList(STUDY_PLAN_ENTRY_1, STUDY_PLAN_ENTRY_2);
-        studyPlan = new StudyPlan(studyPlanList);
+        List<Map.Entry<LocalDate, List<Integer>>> studyPlans = Arrays.asList(STUDY_PLAN_ENTRY_1, STUDY_PLAN_ENTRY_2);
+        studyPlanList = new StudyPlanList(studyPlans);
     }
 
     @AfterEach
@@ -86,7 +86,7 @@ public class DisplayStudyPlanCommandTest {
         expectedEventOutput.append("1: Event 1 | Reviewed: N | Not indicated" + System.lineSeparator());
         expectedEventOutput.append("2: Person 1 | Reviewed: N | Not indicated" + System.lineSeparator());
 
-        DisplayStudyPlanCommand displayStudyPlanCommand = new DisplayStudyPlanCommand(new Ui(), studyPlan,
+        DisplayStudyPlanCommand displayStudyPlanCommand = new DisplayStudyPlanCommand(new Ui(), studyPlanList,
             fullFlashcardList);
         displayStudyPlanCommand.execute();
         assertEquals(expectedEventOutput.toString(), capturedOut.toString());

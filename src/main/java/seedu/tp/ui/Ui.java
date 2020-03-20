@@ -5,7 +5,7 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.parser.Parser;
-import seedu.tp.studyplan.StudyPlan;
+import seedu.tp.studyplan.StudyPlanList;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -355,17 +355,18 @@ public class Ui {
     }
 
     /**
-     * Displays the user's study plan.
+     * Displays a list of all the user's study plan(s) sorted by date.
      *
-     * @param studyPlan the study plan to be displayed
+     * @param studyPlanList the study plan to be displayed
+     * @param flashcardList the flashcard list
      */
-    public void displayStudyPlan(StudyPlan studyPlan, FlashcardList flashcardList) {
-        assert studyPlan != null : "Invalid null StudyPlan!";
+    public void displayStudyPlan(StudyPlanList studyPlanList, FlashcardList flashcardList) {
+        assert studyPlanList != null : "Invalid null StudyPlan!";
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         LOGGER.info("Displaying study plan...");
-        List<Map.Entry<LocalDate, List<Integer>>> studyPlanList = studyPlan.getStudyPlanList();
-        for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlanList) {
+        List<Map.Entry<LocalDate, List<Integer>>> studyPlans = studyPlanList.getStudyPlanList();
+        for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlans) {
             System.out.println("Date: " + studyPlanForDay.getKey());
             for (int index : studyPlanForDay.getValue()) {
                 Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);

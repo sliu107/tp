@@ -20,32 +20,32 @@ import static seedu.tp.utils.Constants.EMPTY_SPACE;
 import static seedu.tp.utils.Constants.INDEXES_FIELD;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 
-public class StudyPlan {
+public class StudyPlanList {
 
-    protected static final Logger LOGGER = Logger.getLogger(StudyPlan.class.getName());
+    protected static final Logger LOGGER = Logger.getLogger(StudyPlanList.class.getName());
     private static final String FILE_PATH = LOG_FOLDER + "study_plan.log";
 
-    private Map<LocalDate, List<Integer>> studyPlan;
+    private Map<LocalDate, List<Integer>> studyPlanList;
 
     /**
      * Constructor for StudyPlan.
      */
-    public StudyPlan() {
-        this.studyPlan = new TreeMap<>();
+    public StudyPlanList() {
+        this.studyPlanList = new TreeMap<>();
     }
 
     /**
-     * Constructor for StudyPlan.
+     * Constructor for StudyPlanList.
      *
      * @param studyPlanList the list of daily study plans to be added
      */
-    public StudyPlan(List<Map.Entry<LocalDate, List<Integer>>> studyPlanList) {
+    public StudyPlanList(List<Map.Entry<LocalDate, List<Integer>>> studyPlanList) {
         this();
 
         assert studyPlanList != null : "Invalid null study plan list!";
 
         for (Map.Entry<LocalDate, List<Integer>> entry : studyPlanList) {
-            this.studyPlan.put(entry.getKey(), entry.getValue());
+            this.studyPlanList.put(entry.getKey(), entry.getValue());
         }
     }
 
@@ -87,23 +87,23 @@ public class StudyPlan {
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
-        studyPlan.put(date, indexes);
+        studyPlanList.put(date, indexes);
     }
 
     public List<Map.Entry<LocalDate, List<Integer>>> getStudyPlanList() {
-        return new ArrayList<>(studyPlan.entrySet());
+        return new ArrayList<>(studyPlanList.entrySet());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof StudyPlan)) {
+        if (!(obj instanceof StudyPlanList)) {
             return false;
         }
         if (this == obj) {
             return true;
         }
 
-        StudyPlan otherStudyPlan = (StudyPlan) obj;
+        StudyPlanList otherStudyPlan = (StudyPlanList) obj;
         List<Map.Entry<LocalDate, List<Integer>>> otherStudyPlanList = otherStudyPlan.getStudyPlanList();
         List<Map.Entry<LocalDate, List<Integer>>> studyPlanList = this.getStudyPlanList();
         if (otherStudyPlanList.size() != studyPlanList.size()) {

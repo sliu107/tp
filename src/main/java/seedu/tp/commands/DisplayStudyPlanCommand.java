@@ -1,36 +1,36 @@
 package seedu.tp.commands;
 
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.studyplan.StudyPlan;
+import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 
 public class DisplayStudyPlanCommand extends Command {
 
     Ui ui;
-    StudyPlan studyPlan;
+    StudyPlanList studyPlanList;
     FlashcardList flashcardList;
 
     /**
      * Constructor for DisplayStudyPlanCommand.
      *
      * @param ui            the UI class to be used by the command
-     * @param studyPlan     the study plan to be displayed
+     * @param studyPlanList the study plan to be displayed
      * @param flashcardList the flashcard list to be used by the command
      */
-    public DisplayStudyPlanCommand(Ui ui, StudyPlan studyPlan, FlashcardList flashcardList) {
+    public DisplayStudyPlanCommand(Ui ui, StudyPlanList studyPlanList, FlashcardList flashcardList) {
         assert ui != null : "Invalid null Ui!";
-        assert studyPlan != null : "Invalid null StudyPlan!";
+        assert studyPlanList != null : "Invalid null StudyPlan!";
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.ui = ui;
-        this.studyPlan = studyPlan;
+        this.studyPlanList = studyPlanList;
         this.flashcardList = flashcardList;
     }
 
     @Override
     public void execute() {
         LOGGER.info("Executing DisplayStudyPlanCommand...");
-        ui.displayStudyPlan(studyPlan, flashcardList);
+        ui.displayStudyPlan(studyPlanList, flashcardList);
         LOGGER.info("DisplayStudyPlanCommand executed!");
     }
 
@@ -45,7 +45,7 @@ public class DisplayStudyPlanCommand extends Command {
 
         DisplayStudyPlanCommand otherDisplayStudyPlanCommand = (DisplayStudyPlanCommand) obj;
         return this.ui.equals(otherDisplayStudyPlanCommand.ui)
-            & this.studyPlan.equals(otherDisplayStudyPlanCommand.studyPlan)
+            & this.studyPlanList.equals(otherDisplayStudyPlanCommand.studyPlanList)
             & this.flashcardList.equals(otherDisplayStudyPlanCommand.flashcardList);
     }
 }

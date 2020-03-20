@@ -13,7 +13,7 @@ import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
 import seedu.tp.parser.Parser;
-import seedu.tp.studyplan.StudyPlan;
+import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 import seedu.tp.utils.LoggerUtils;
 
@@ -30,7 +30,7 @@ public class Main {
     private FlashcardList flashcardList;
     private GroupFactory groupFactory;
     private GroupList groupList;
-    private StudyPlan studyPlan;
+    private StudyPlanList studyPlanList;
     private Parser parser;
 
     /**
@@ -53,8 +53,8 @@ public class Main {
         flashcardList = new FlashcardList();
         groupFactory = new GroupFactory(ui, flashcardList);
         groupList = new GroupList();
-        studyPlan = new StudyPlan();
-        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlan, ui);
+        studyPlanList = new StudyPlanList();
+        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlanList, ui);
 
         LoggerUtils.createFolder(LOG_FOLDER);
 
@@ -63,7 +63,7 @@ public class Main {
             FlashcardFactory.setupLogger();
             FlashcardList.setupLogger();
             FlashcardGroup.setupLogger();
-            StudyPlan.setupLogger();
+            StudyPlanList.setupLogger();
             Command.setupLogger();
             Ui.setupLogger();
             Parser.setupLogger();
