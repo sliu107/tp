@@ -382,6 +382,10 @@ public class Ui {
     public void confirmDeletion(Flashcard flashcard) {
         System.out.println("You have successfully deleted: " + flashcard.getName());
     }
+    
+    public void confirmAddToGroup(Flashcard flashcard, FlashcardGroup group) {
+        System.out.println("You have successfully added flashcard: " + flashcard.getName() + " to " + group.getName());
+    }
 
     /**
      * Gets the next user input line.

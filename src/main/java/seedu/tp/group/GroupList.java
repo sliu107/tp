@@ -36,33 +36,21 @@ public class GroupList {
     }
 
     /**
-     * Adds a flashcard to an existing group.
-     *
-     * @param ui used to prompt the user
-     * @throws InvalidFlashcardIndexException if the user gives an index not an integer of out of bound
+     * Get a flashcard group by name.
+     * 
+     * @param groupName the name of the flashcard group
+     * @return the flashcard group
+     * @throws UnrecognizedFlashcardGroupException if such a group does not exist
      */
-    public void addFlashcardToOneGroup(Ui ui, FlashcardList flashcardList) throws HistoryFlashcardException {
-        try {
-            int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEX_FIELD)) - 1;
-            String groupName = ui.promptUserForRequiredField(NAME_FIELD);
-            Flashcard flashcard = null;
-            FlashcardGroup group = null;
-            for (FlashcardGroup g : groups) {
-                if (g.getName().equals(groupName)) {
-                    flashcard = flashcardList.getFlashcardAtIdx(flashcardIndex);
-                    g.addFlashcardToTheGroup(flashcard);
-                    group = g;
-                    break;
-                }
+    public FlashcardGroup getGroupByName(String groupName) throws UnrecognizedFlashcardGroupException {
+        FlashcardGroup group = null;
+        for (FlashcardGroup g : groups) {
+            if (g.getName().equals(groupName)) {
+                return g;
             }
-            if (group != null) {
-                ui.confirmFlashcardAdditionToGroup(group, flashcard);
-            } else {
-                throw new UnrecognizedFlashcardGroupException("There is no such group.");
-            }
-        } catch (NumberFormatException | IndexOutOfBoundsException e) {
-            throw new InvalidFlashcardIndexException();
         }
+        
+        throw new UnrecognizedFlashcardGroupException("There is no such group.");
     }
 
     public List<FlashcardGroup> getGroups() {

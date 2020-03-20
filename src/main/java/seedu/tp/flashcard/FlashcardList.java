@@ -120,7 +120,7 @@ public class FlashcardList {
      * @param idx the index.
      * @return the flashcard at the specified index
      */
-    public Flashcard getFlashcardAtIdx(int idx) {
+    public Flashcard getFlashcardAtIdx(int idx) throws IndexOutOfBoundsException {
         return flashcards.get(idx);
     }
 
