@@ -156,6 +156,11 @@ Group name: Harry Potter Flashcards
 Group description: This is a group for HP related stuff.
 There are 3 flashcards in this group.
 
+Here's the list of flashcards you have:
+1: Meiji Restoration | Reviewed: N | Not indicated
+2: Albus Dumbledore | Reviewed: N | Not indicated
+3: Resurrection Stone | Reviewed: N | Not indicated
+4: Quinn | Reviewed: N | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
 1: Meiji Restoration | Reviewed: N | Not indicated

@@ -54,6 +54,11 @@ Harry Potter Flashcards
 add
 1
 Harry Potter Flashcards
+list
+find
+find Meiji
+find o
+find Stone
 delete random
 list
 delete -1
