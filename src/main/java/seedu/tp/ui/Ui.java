@@ -4,6 +4,7 @@ import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
+import seedu.tp.group.GroupList;
 import seedu.tp.parser.Parser;
 import seedu.tp.studyplan.StudyPlanList;
 
@@ -23,6 +24,7 @@ import java.util.logging.SimpleFormatter;
 import static seedu.tp.utils.Constants.DETAIL_FIELD;
 import static seedu.tp.utils.Constants.EMPTY_STRING;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
+import static seedu.tp.utils.Constants.BULLET_POINT;
 
 /**
  * Ui class.
@@ -284,6 +286,26 @@ public class Ui {
         System.out.println(flashcard);
         System.out.println("To the group:");
         System.out.println(flashcardGroup);
+    }
+
+    /**
+     * Lists all existing groups created by the user.
+     *
+     * @param groupList the list of all flashcard groups
+     */
+    public void listAllGroups(GroupList groupList) {
+        assert groupList != null : "Invalid null GroupList!";
+
+        if (groupList.getTotalGroupNum() == 0) {
+            System.out.println("There are no existing groups. Use \"group\" to create a new group.");
+            return;
+        }
+        List<FlashcardGroup> groups = groupList.getGroups();
+        System.out.println("Here are all existing groups:");
+        for (FlashcardGroup group : groups) {
+            String groupName = group.getName();
+            System.out.println(BULLET_POINT + groupName);
+        }
     }
 
     /**

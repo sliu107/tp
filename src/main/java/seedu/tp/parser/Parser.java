@@ -16,6 +16,7 @@ import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
+import seedu.tp.commands.ShowGroupsCommand;
 import seedu.tp.commands.TimelineCommand;
 import seedu.tp.commands.UpdateStudyPlanCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
@@ -63,6 +64,7 @@ import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 import static seedu.tp.utils.Constants.UPDATE_STUDY_PLAN_COMMAND;
+import static seedu.tp.utils.Constants.SHOWGROUPS_COMMAND;
 
 /**
  * Parser class to handle parsing of user input.
@@ -240,6 +242,8 @@ public class Parser {
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
+        case SHOWGROUPS_COMMAND:
+            return new ShowGroupsCommand(groupList, ui);
         case UPDATE_STUDY_PLAN_COMMAND:
             return new UpdateStudyPlanCommand(ui, studyPlanList, flashcardList);
         case DISPLAY_STUDY_PLAN_COMMAND:
