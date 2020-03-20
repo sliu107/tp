@@ -7,8 +7,10 @@ import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
 import seedu.tp.commands.EventFlashcardCommand;
+import seedu.tp.commands.FindCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.ListCommand;
+import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
@@ -17,6 +19,7 @@ import seedu.tp.commands.ShowCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.exceptions.InvalidInputFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
@@ -226,6 +229,43 @@ public class ParserTest {
             groupList, flashcardList);
         Command actualAddFlashcardToGroupCommand = parser.parseCommand("aDd");
         assertEquals(expectedAddFlashcardToGroupCommand, actualAddFlashcardToGroupCommand);
+    }
+
+    @Test
+    public void parse_listReviewedCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        ListReviewedCommand expectedListReviewedCommand = new ListReviewedCommand(flashcardList, ui);
+        Command actualListReviewedCommand = parser.parseCommand("list-reviewed");
+        assertEquals(expectedListReviewedCommand, actualListReviewedCommand);
+    }
+
+    @Test
+    public void parse_listReviewedCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        ListReviewedCommand expectedListReviewedCommand = new ListReviewedCommand(flashcardList, ui);
+        Command actualListReviewedCommand = parser.parseCommand("liST-revIewEd");
+        assertEquals(expectedListReviewedCommand, actualListReviewedCommand);
+    }
+
+    @Test
+    public void parse_findCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        FindCommand expectedFindCommand = new FindCommand(flashcardList, ui, "word");
+        Command actualFindCommand = parser.parseCommand("find word");
+        assertEquals(expectedFindCommand, actualFindCommand);
+    }
+
+    @Test
+    public void parse_findCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        FindCommand expectedFindCommand = new FindCommand(flashcardList, ui, "word");
+        Command actualFindCommand = parser.parseCommand("FInD word");
+        assertEquals(expectedFindCommand, actualFindCommand);
+    }
+
+    @Test
+    public void parse_findCommand_throwsInvalidInputFormatException() {
+        assertThrows(
+            InvalidInputFormatException.class,
+            () -> parser.parseCommand("find"),
+            "Expected InvalidInputFormatException"
+        );
     }
 
     @Test

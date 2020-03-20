@@ -13,8 +13,8 @@ public class TimelineCommand extends Command {
     /**
      * Constructor for TimelineCommand.
      *
-     * @param flashcardList     list containing all flashcards
-     * @param ui                instance for user interaction
+     * @param flashcardList list containing all flashcards
+     * @param ui            instance for user interaction
      */
     public TimelineCommand(FlashcardList flashcardList, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";

@@ -3,15 +3,18 @@ package seedu.tp.flashcard;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 
 import java.io.IOException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import static seedu.tp.utils.Constants.LOG_FOLDER;
+import static seedu.tp.utils.Constants.REGEX_MATCH_ALL_CHARACTER;
 
 /**
  * List of flashcards.
@@ -150,6 +153,43 @@ public class FlashcardList {
      */
     public List<Flashcard> getFlashcards() {
         return flashcards;
+    }
+
+    /**
+     * Gets all reviewed flashcards with IDs.
+     *
+     * @return the list of reviewed flashcards with IDs
+     */
+    public List<Map.Entry<Integer, Flashcard>> getAllReviewedFlashcards() {
+        LOGGER.info("Getting all reviewed flashcards...");
+        List<Map.Entry<Integer, Flashcard>> reviewedFlashcards = new ArrayList<>();
+        for (int i = 0; i < flashcards.size(); i++) {
+            Flashcard flashcard = flashcards.get(i);
+            if (flashcard.isReviewed()) {
+                reviewedFlashcards.add(new AbstractMap.SimpleEntry<>(i, flashcard));
+            }
+        }
+        LOGGER.info("Got all reviewed flashcards!");
+        return reviewedFlashcards;
+    }
+
+    /**
+     * Gets all flashcards which contain a certain keyword with IDs.
+     *
+     * @param keyword the specified keyword
+     * @return the list of flashcards containing the specified keyword with IDs
+     */
+    public List<Map.Entry<Integer, Flashcard>> getAllFlashcardsWithKeyword(String keyword) {
+        LOGGER.info("Getting all flashcards with keyword " + keyword + "...");
+        List<Map.Entry<Integer, Flashcard>> flashcardsWithKeyword = new ArrayList<>();
+        for (int i = 0; i < flashcards.size(); i++) {
+            Flashcard flashcard = flashcards.get(i);
+            if (flashcard.getName().matches(REGEX_MATCH_ALL_CHARACTER + keyword + REGEX_MATCH_ALL_CHARACTER)) {
+                flashcardsWithKeyword.add(new AbstractMap.SimpleEntry<>(i, flashcard));
+            }
+        }
+        LOGGER.info("Got all flashcards with keyword " + keyword + "!");
+        return flashcardsWithKeyword;
     }
 
     /**

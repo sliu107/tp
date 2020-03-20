@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
@@ -300,9 +301,35 @@ public class Ui {
         System.out.println("Here's the list of flashcards you have:");
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
-            System.out.println((i + 1) + ": " + flashcard.getName() + " | Reviewed: " + flashcard.getReviewIcon()
+            System.out.println((i + 1) + ": " + flashcard.getName()
+                + " | Reviewed: " + flashcard.getReviewIcon()
                 + " | " + flashcard.getPriorityAsString());
         }
+    }
+
+    /**
+     * Lists all flashcards along with their IDs.
+     *
+     * @param flashcardListWithId the list of flashcards with IDs.
+     */
+    public void listAllFlashcardsWithId(List<Map.Entry<Integer, Flashcard>> flashcardListWithId) {
+        assert flashcardListWithId != null : "Invalid null flashcard list!";
+
+        LOGGER.info("Listing flashcards with ID...");
+        if (flashcardListWithId.isEmpty()) {
+            System.out.println("You have no flashcard matching your query!");
+            return;
+        }
+
+        System.out.println("Here's the list of flashcards you are looking for:");
+        for (int i = 0; i < flashcardListWithId.size(); i++) {
+            Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
+            System.out.println((i + 1) + ": " + flashcardEntry.getValue().getName()
+                + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
+                + " | " + flashcardEntry.getValue().getPriorityAsString()
+                + " | ID: " + (flashcardEntry.getKey() + 1));
+        }
+        LOGGER.info("Listed flashcards with ID!");
     }
 
     /**
