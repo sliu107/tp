@@ -24,6 +24,7 @@ import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
+import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -68,6 +69,7 @@ public class Parser {
     private GroupFactory groupFactory;
     private GroupList groupList;
     private Ui ui;
+    private Storage storage;
 
     /**
      * Constructs the Parser class.
@@ -79,12 +81,13 @@ public class Parser {
      * @param ui               UI to be passed in as argument to commands
      */
     public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList,
-                  GroupFactory groupFactory, GroupList groupList, Ui ui) {
+                  GroupFactory groupFactory, GroupList groupList, Ui ui, Storage storage) {
         this.flashcardFactory = flashcardFactory;
         this.flashcardList = flashcardList;
         this.groupFactory = groupFactory;
         this.groupList = groupList;
         this.ui = ui;
+        this.storage = storage;
     }
 
     /**
@@ -173,11 +176,11 @@ public class Parser {
 
         switch (commandType) {
         case EVENT_FLASHCARD_COMMAND:
-            return new EventFlashcardCommand(flashcardList, flashcardFactory);
+            return new EventFlashcardCommand(flashcardList, flashcardFactory, ui, storage);
         case PERSON_FLASHCARD_COMMAND:
-            return new PersonFlashcardCommand(flashcardList, flashcardFactory);
+            return new PersonFlashcardCommand(flashcardList, flashcardFactory, ui, storage);
         case OTHER_FLASHCARD_COMMAND:
-            return new OtherFlashcardCommand(flashcardList, flashcardFactory);
+            return new OtherFlashcardCommand(flashcardList, flashcardFactory, ui, storage);
         case LIST_COMMAND:
             return new ListCommand(flashcardList, ui);
         case SHOW_COMMAND:
@@ -188,10 +191,10 @@ public class Parser {
                 throw new InvalidFlashcardIndexException();
             }
         case REVIEWED_COMMAND:
-            return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+            return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, storage);
         case DELETE_COMMAND:
             try {
-                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
+                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, storage);
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
@@ -199,7 +202,7 @@ public class Parser {
         case PRIORITY_COMMAND:
             try {
                 Flashcard.PriorityLevel pl = Flashcard.PriorityLevel.valueOf(splitInput[2]);
-                return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl);
+                return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl, storage);
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
@@ -209,9 +212,9 @@ public class Parser {
         case TIMELINE_COMMAND:
             return new TimelineCommand(flashcardList, ui);
         case GROUP_COMMAND:
-            return new GroupCommand(groupFactory, groupList);
+            return new GroupCommand(groupFactory, groupList, ui, storage);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
-            return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
+            return new AddFlashcardToGroupCommand(ui, groupList, flashcardList, storage);
         case HELP_COMMAND:
             return new HelpCommand(ui);
         case BYE_COMMAND:

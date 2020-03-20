@@ -57,9 +57,11 @@ public class PriorityCommand extends ModifyingCommand {
     public void execute() throws InvalidFlashcardIndexException {
         try {
             LOGGER.info("Setting the priority for the flashcard " + index + "...");
-            flashcardList.getFlashcardAtIdx(index).setPriorityLevel(pl);
+            Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
+            flashcard.setPriorityLevel(pl);
             LOGGER.info("Set the priority for the flashcard " + index);
-            ui.confirmFlashcardPriority(flashcardList.getFlashcardAtIdx(index));
+            ui.confirmFlashcardPriority(flashcard);
+            save(flashcard);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("IndexOutOfBoundsException occurred when executing the priority command");
             throw new InvalidFlashcardIndexException();

@@ -1,5 +1,7 @@
 package seedu.tp.flashcard;
 
+import seedu.tp.storage.Savable;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.FileHandler;
@@ -12,7 +14,7 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
 /**
  * Abstract flashcard class to represent basic properties of flashcard.
  */
-public abstract class Flashcard implements Comparable<Flashcard> {
+public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     protected static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
     protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
 
@@ -58,6 +60,15 @@ public abstract class Flashcard implements Comparable<Flashcard> {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Get the file name of the flashcard.
+     * 
+     * @return the file name of the flashcard.
+     */
+    public String getFileName() {
+        return getName();
     }
 
     /**

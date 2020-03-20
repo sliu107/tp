@@ -48,6 +48,7 @@ public class ReviewedCommand extends ModifyingCommand {
             flashcard.setReviewStatus(true);
             LOGGER.info("Set flashcard " + index + " as reviewed");
             ui.confirmFlashcardReview(flashcard);
+            save(flashcard);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("InvalidFlashcardIndexException occurred when executing the reviewed command");
             throw new InvalidFlashcardIndexException();

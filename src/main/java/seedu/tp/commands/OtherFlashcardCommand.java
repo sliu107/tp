@@ -1,6 +1,7 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.storage.Storage;
@@ -44,8 +45,10 @@ public class OtherFlashcardCommand extends ModifyingCommand {
     @Override
     public void execute() throws UnrecognizedFlashcardTypeException {
         LOGGER.info("Creating an other flashcard and adding it to the flashcard list...");
-        flashcardList.addFlashcard(flashcardFactory.create(OTHER_FLASHCARD_COMMAND));
+        Flashcard flashcard = flashcardFactory.create(OTHER_FLASHCARD_COMMAND);
+        flashcardList.addFlashcard(flashcard);
         LOGGER.info("Created an other flashcard and added it to the flashcard list");
+        save(flashcard);
     }
 
     @Override
