@@ -4,6 +4,7 @@ import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
+import seedu.tp.group.GroupList;
 import seedu.tp.parser.Parser;
 import seedu.tp.studyplan.StudyPlanList;
 
@@ -23,6 +24,7 @@ import java.util.logging.SimpleFormatter;
 import static seedu.tp.utils.Constants.DETAIL_FIELD;
 import static seedu.tp.utils.Constants.EMPTY_STRING;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
+import static seedu.tp.utils.Constants.BULLET_POINT;
 
 /**
  * Ui class.
@@ -287,6 +289,27 @@ public class Ui {
     }
 
     /**
+     * Lists all existing groups created by the user.
+     *
+     * @param groupList the list of all flashcard groups
+     */
+    public void listAllGroups(GroupList groupList) {
+        assert groupList != null : "Invalid null GroupList!";
+
+        if (groupList.getTotalGroupNum() == 0) {
+            System.out.println("There are no existing groups. Use \"group\" to create a new group.");
+            return;
+        }
+        List<FlashcardGroup> groups = groupList.getGroups();
+        System.out.println("Here are all existing groups:");
+        for (int i = 0; i < groups.size(); i++) {
+            FlashcardGroup group = groups.get(i);
+            String groupName = group.getName();
+            System.out.println(i + 1 + ". " + groupName);
+        }
+    }
+
+    /**
      * Prints out all flashcards in the list.
      *
      * @param flashcardList the list of flashcards to be printed out
@@ -303,6 +326,28 @@ public class Ui {
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
             System.out.println((i + 1) + ": " + flashcard.getName()
+                + " | Reviewed: " + flashcard.getReviewIcon()
+                + " | " + flashcard.getPriorityAsString());
+        }
+    }
+
+    /**
+     * Lists all flashcards in a specified group.
+     *
+     * @param flashcardList       list of all flashcards in the group
+     * @param groupIdentifier     name or index of the group
+     */
+    public void listFlashcardsInGroup(FlashcardList flashcardList, String groupIdentifier) {
+        assert flashcardList != null : "Invalid null flashcard list!";
+
+        if (flashcardList.isEmpty()) {
+            System.out.println("There are no flashcards in the group!");
+            return;
+        }
+
+        System.out.println(groupIdentifier + " contains the following flashcards:");
+        for (Flashcard flashcard : flashcardList.getFlashcards()) {
+            System.out.println(BULLET_POINT + flashcard.getName()
                 + " | Reviewed: " + flashcard.getReviewIcon()
                 + " | " + flashcard.getPriorityAsString());
         }
@@ -419,6 +464,15 @@ public class Ui {
     public void sendDuplicateFlashcardResponse() {
         LOGGER.info("Send duplicate flashcard response to user...");
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
+    }
+
+    /**
+     * Sends response to invalid flashcard group name/index entered by user.
+     */
+    public void sendInvalidFlashcardGroupResponse() {
+        LOGGER.info("Send invalid flashcard group response to user...");
+        System.out.println("Please enter a valid flashcard group name or index."
+                + " Use \"showgroups\" to view all groups.");
     }
 
     /**

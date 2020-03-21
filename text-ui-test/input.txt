@@ -46,6 +46,7 @@ random date
 01/03/2020
 2
 showplan
+showgroups
 group
 New Flashcard Group
 Blah Blah Blah
@@ -86,4 +87,10 @@ list-reviewed
 show 1
 priority 2 MEDIUM
 list
+showgroups
+list-group 1
+list-group Harry Potter Flashcards
+list-group
+list-group abc
+list-group abc def
 bye

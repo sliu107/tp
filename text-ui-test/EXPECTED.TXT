@@ -134,6 +134,7 @@ Date: 2020-01-01
 3: Resurrection Stone | Reviewed: N | Not indicated
 Date: 2020-03-01
 2: Albus Dumbledore | Reviewed: N | Not indicated
+There are no existing groups. Use "group" to create a new group.
 Please enter name:
 Please enter description:
 Please enter indexes:
@@ -232,4 +233,17 @@ Quinn | New priority: **
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Reviewed: Y | Not indicated
 2: Quinn | Reviewed: Y | **
+Here are all existing groups:
+1. Harry Potter Flashcards
+1 contains the following flashcards:
+- Albus Dumbledore | Reviewed: Y | Not indicated
+- Resurrection Stone | Reviewed: N | Not indicated
+- Meiji Restoration | Reviewed: N | Not indicated
+Harry Potter Flashcards contains the following flashcards:
+- Albus Dumbledore | Reviewed: Y | Not indicated
+- Resurrection Stone | Reviewed: N | Not indicated
+- Meiji Restoration | Reviewed: N | Not indicated
+Please use the correct input format. Use "help" to view all commands.
+Please enter a valid flashcard group name or index. Use "showgroups" to view all groups.
+Please enter a valid flashcard group name or index. Use "showgroups" to view all groups.
 Thanks for using History Flashcard!
