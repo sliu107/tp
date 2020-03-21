@@ -95,11 +95,12 @@ public class FlashcardList {
      * @param index the index of the flashcard to be deleted
      * @return the deleted flashcard
      */
-    public Flashcard deleteFlashcard(int index) throws InvalidFlashcardIndexException {
+    public void deleteFlashcard(int index) throws InvalidFlashcardIndexException {
         try {
             Flashcard flashcard = flashcards.remove(index);
             LOGGER.info("Deleted flashcard " + flashcard.getName() + " from list.");
-            return flashcard;
+            System.out.println("The following flashcard has been deleted.");
+            System.out.println(flashcard);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
             LOGGER.warning("Throwing InvalidFlashcardIndexException...");
