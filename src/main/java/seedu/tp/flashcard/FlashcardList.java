@@ -1,6 +1,9 @@
 package seedu.tp.flashcard;
 
+import seedu.tp.commands.ReviewedCommand;
+import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.ui.Ui;
 
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -8,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -105,6 +109,34 @@ public class FlashcardList {
             LOGGER.warning("Throwing InvalidFlashcardIndexException...");
             throw new InvalidFlashcardIndexException();
         }
+    }
+
+    /**
+     * Randomize the flashcard list to help user for reviewing
+     *
+     * @return the random flashcard list
+     */
+    public FlashcardList randomizeFlashcardsForReviewing(Ui ui) throws InvalidFlashcardIndexException {
+        assert flashcards != null : "Invalid null flashcard!";
+
+        FlashcardList randomFlashcards = new FlashcardList(flashcards);
+        Collections.shuffle(randomFlashcards.getFlashcards(), new Random(System.currentTimeMillis()));
+        LOGGER.info("The flashcards have been randomized.");
+
+        assert randomFlashcards != null : "Invalid flashcardList";
+        for(Flashcard flashcard : randomFlashcards.getFlashcards()) {
+            System.out.println(" ");
+            System.out.println(flashcard);
+            System.out.println("Do you want to mark this flashcard as reviewed?");
+            if (ui.getNextLine().toLowerCase().equals("yes")) {
+                ReviewedCommand reviewedCommand = new ReviewedCommand(this,
+                        flashcards.indexOf(flashcard), ui);
+                reviewedCommand.execute();
+            }
+            System.out.println(" ");
+        }
+        System.out.println("You have just reviewed all the flashcards.");
+        return randomFlashcards;
     }
 
     /**
