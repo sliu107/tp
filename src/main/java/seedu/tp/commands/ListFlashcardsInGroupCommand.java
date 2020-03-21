@@ -11,31 +11,31 @@ import seedu.tp.ui.Ui;
 public class ListFlashcardsInGroupCommand extends Command {
     private Ui ui;
     private GroupList groupList;
-    private String groupName;
+    private String groupIdentifier;
 
     /**
      * Constructor for ListGroupCommand.
      *
      * @param groupList list of all existing groups
      * @param ui        instance for user interaction
-     * @param groupName name of the group to list all flashcards for
+     * @param groupIdentifier name or index of the group to list all flashcards for
      */
-    public ListFlashcardsInGroupCommand(GroupList groupList, Ui ui, String groupName) {
+    public ListFlashcardsInGroupCommand(GroupList groupList, Ui ui, String groupIdentifier) {
         assert groupList != null : "Invalid null GroupList!";
         assert ui != null : "Invalid null Ui!";
-        assert !groupName.isEmpty() : "Invalid empty groupName!";
+        assert !groupIdentifier.isEmpty() : "Invalid empty groupIdentifier!";
 
         this.groupList = groupList;
         this.ui = ui;
-        this.groupName = groupName;
+        this.groupIdentifier = groupIdentifier;
     }
 
     @Override
-    public void execute() throws UnrecognizedFlashcardGroupException {
+    public void execute() {
         LOGGER.info("Executing ListGroupCommand...");
         try {
-            FlashcardList flashcardsInGroup = groupList.getFlashcardsInGroup(groupName);
-            ui.listFlashcardsInGroup(flashcardsInGroup, groupName);
+            FlashcardList flashcardsInGroup = groupList.getFlashcardsInGroup(groupIdentifier);
+            ui.listFlashcardsInGroup(flashcardsInGroup, groupIdentifier);
         } catch (UnrecognizedFlashcardGroupException e) {
             ui.sendInvalidFlashcardGroupResponse();
             LOGGER.warning("UnrecognizedFlashcardGroupException occurred when executing ListGroupCommand.");
@@ -55,6 +55,6 @@ public class ListFlashcardsInGroupCommand extends Command {
         ListFlashcardsInGroupCommand otherListFlashcardsInGroupCommand = (ListFlashcardsInGroupCommand) obj;
         return this.ui.equals(otherListFlashcardsInGroupCommand.ui)
                 && this.groupList.equals(otherListFlashcardsInGroupCommand.groupList)
-                && this.groupName.equals(otherListFlashcardsInGroupCommand.groupName);
+                && this.groupIdentifier.equals(otherListFlashcardsInGroupCommand.groupIdentifier);
     }
 }

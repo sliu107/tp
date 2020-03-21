@@ -302,9 +302,10 @@ public class Ui {
         }
         List<FlashcardGroup> groups = groupList.getGroups();
         System.out.println("Here are all existing groups:");
-        for (FlashcardGroup group : groups) {
+        for (int i=0; i<groups.size(); i++) {
+            FlashcardGroup group = groups.get(i);
             String groupName = group.getName();
-            System.out.println(BULLET_POINT + groupName);
+            System.out.println(i+1 + ". " + groupName);
         }
     }
 
@@ -333,10 +334,10 @@ public class Ui {
     /**
      * Lists all flashcards in a specified group.
      *
-     * @param flashcardList list of all flashcards in the group
-     * @param groupName     name of the group
+     * @param flashcardList       list of all flashcards in the group
+     * @param groupIdentifier     name or index of the group
      */
-    public void listFlashcardsInGroup(FlashcardList flashcardList, String groupName) {
+    public void listFlashcardsInGroup(FlashcardList flashcardList, String groupIdentifier) {
         assert flashcardList != null : "Invalid null flashcard list!";
 
         if (flashcardList.isEmpty()) {
@@ -344,7 +345,7 @@ public class Ui {
             return;
         }
 
-        System.out.println(groupName + " contains the following flashcards:");
+        System.out.println(groupIdentifier + " contains the following flashcards:");
         for (Flashcard flashcard : flashcardList.getFlashcards()) {
             System.out.println(BULLET_POINT + flashcard.getName()
                 + " | Reviewed: " + flashcard.getReviewIcon()
@@ -467,7 +468,8 @@ public class Ui {
 
     public void sendInvalidFlashcardGroupResponse() {
         LOGGER.info("Send invalid flashcard group response to user...");
-        System.out.println("Please enter a valid flashcard group. Use \"showgroups\" to view all groups.");
+        System.out.println("Please enter a valid flashcard group name or index." +
+                " Use \"showgroups\" to view all groups.");
     }
 
     /**
