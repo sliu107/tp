@@ -214,6 +214,26 @@ public class Ui {
     }
 
     /**
+     * Gets the response from the user after the user reviewed a flashcard
+     *
+     * @param flashcard the flashcard the user just reviewed
+     * @return the response given by the user
+     */
+    public String promptUserResponseForReviewing(Flashcard flashcard) {
+        System.out.println("Do you want to mark this flashcard as reviewed?");
+        String input = getNextLine().trim().toLowerCase();
+        System.out.println("");
+        return input;
+    }
+
+    public void confirmRandomFlashcardsReviewCompletion(int reviewedNumber, int remainedNumber) {
+        System.out.println("You have just gone through all the flashcard(s)");
+        System.out.println("You have marked " + reviewedNumber + " flashcard(s) as reviewed this time.");
+        System.out.println("You still have " + remainedNumber + " flashcard(s) have not been reviewed so far.");
+        System.out.println("");
+    }
+
+    /**
      * Sends flashcard creation confirmation to user.
      *
      * @param flashcard the flashcard created
@@ -223,6 +243,7 @@ public class Ui {
 
         System.out.println("You've successfully created the flashcard below:");
         System.out.println(flashcard);
+        System.out.println("");
     }
 
     /**
@@ -235,6 +256,7 @@ public class Ui {
 
         System.out.println("You have marked the following flashcard as Reviewed:");
         System.out.println(flashcard.getName());
+        System.out.println("");
     }
 
     /**
@@ -247,6 +269,7 @@ public class Ui {
 
         System.out.println("Priority has been updated:");
         System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString());
+        System.out.println("");
     }
 
     /**
@@ -259,6 +282,7 @@ public class Ui {
 
         System.out.println("These are the flashcard details:");
         System.out.println(flashcard);
+        System.out.println("");
     }
 
     /**
@@ -271,6 +295,7 @@ public class Ui {
 
         System.out.println("You've successfully created the group below:");
         System.out.println(flashcardGroup);
+        System.out.println("");
     }
 
     /**
@@ -399,6 +424,7 @@ public class Ui {
         for (Flashcard f : flashcards) {
             System.out.println(f);
         }
+        System.out.println("");
     }
 
     /**
