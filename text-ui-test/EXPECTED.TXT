@@ -234,7 +234,7 @@ Here's the list of flashcards you have:
 1: Albus Dumbledore | Reviewed: Y | Not indicated
 2: Quinn | Reviewed: Y | **
 Here are all existing groups:
-- Harry Potter Flashcards
+1. Harry Potter Flashcards
 1 contains the following flashcards:
 - Albus Dumbledore | Reviewed: Y | Not indicated
 - Resurrection Stone | Reviewed: N | Not indicated
