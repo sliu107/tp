@@ -235,11 +235,15 @@ Here's the list of flashcards you have:
 2: Quinn | Reviewed: Y | **
 Here are all existing groups:
 - Harry Potter Flashcards
+1 contains the following flashcards:
+- Albus Dumbledore | Reviewed: Y | Not indicated
+- Resurrection Stone | Reviewed: N | Not indicated
+- Meiji Restoration | Reviewed: N | Not indicated
 Harry Potter Flashcards contains the following flashcards:
 - Albus Dumbledore | Reviewed: Y | Not indicated
 - Resurrection Stone | Reviewed: N | Not indicated
 - Meiji Restoration | Reviewed: N | Not indicated
 Please use the correct input format. Use "help" to view all commands.
-Please enter a valid flashcard group. Use "showgroups" to view all groups.
-Please enter a valid flashcard group. Use "showgroups" to view all groups.
+Please enter a valid flashcard group name or index. Use "showgroups" to view all groups.
+Please enter a valid flashcard group name or index. Use "showgroups" to view all groups.
 Thanks for using History Flashcard!

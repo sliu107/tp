@@ -302,10 +302,10 @@ public class Ui {
         }
         List<FlashcardGroup> groups = groupList.getGroups();
         System.out.println("Here are all existing groups:");
-        for (int i=0; i<groups.size(); i++) {
+        for (int i = 0; i < groups.size(); i++) {
             FlashcardGroup group = groups.get(i);
             String groupName = group.getName();
-            System.out.println(i+1 + ". " + groupName);
+            System.out.println(i + 1 + ". " + groupName);
         }
     }
 
@@ -466,10 +466,13 @@ public class Ui {
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
     }
 
+    /**
+     * Sends response to invalid flashcard group name/index entered by user.
+     */
     public void sendInvalidFlashcardGroupResponse() {
         LOGGER.info("Send invalid flashcard group response to user...");
-        System.out.println("Please enter a valid flashcard group name or index." +
-                " Use \"showgroups\" to view all groups.");
+        System.out.println("Please enter a valid flashcard group name or index."
+                + " Use \"showgroups\" to view all groups.");
     }
 
     /**
