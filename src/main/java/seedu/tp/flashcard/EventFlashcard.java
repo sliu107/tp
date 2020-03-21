@@ -10,6 +10,7 @@ import static seedu.tp.utils.Constants.END_DATE_FIELD;
 import static seedu.tp.utils.Constants.NAME_FIELD;
 import static seedu.tp.utils.Constants.START_DATE_FIELD;
 import static seedu.tp.utils.Constants.SUMMARY_FIELD;
+import static seedu.tp.utils.Constants.DIVIDER;
 
 /**
  * Event flashcard.
@@ -64,6 +65,18 @@ public class EventFlashcard extends Flashcard {
      */
     public LocalDate getEndDate() {
         return endDate;
+    }
+
+    /**
+     * Gets a short description of the flashcard, without summary or details.
+     *
+     * @return String of shortDescription of the flashcard
+     */
+    @Override
+    public String getShortDescription() {
+        String shortDescription = this.name + DIVIDER + this.startDate + " to " + this.endDate
+                                    + DIVIDER + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
+        return shortDescription;
     }
 
     /**

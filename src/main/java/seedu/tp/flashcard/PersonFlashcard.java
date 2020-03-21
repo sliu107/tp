@@ -8,6 +8,7 @@ import java.util.List;
 
 import static seedu.tp.utils.Constants.BIRTH_DATE_FIELD;
 import static seedu.tp.utils.Constants.DEATH_DATE_FIELD;
+import static seedu.tp.utils.Constants.DIVIDER;
 import static seedu.tp.utils.Constants.NAME_FIELD;
 import static seedu.tp.utils.Constants.SUMMARY_FIELD;
 
@@ -82,6 +83,18 @@ public class PersonFlashcard extends Flashcard {
         stringBuilder.append("Details:").append(System.lineSeparator());
         stringBuilder.append(getDetailsString(details));
         return stringBuilder.toString();
+    }
+
+    /**
+     * Gets a short description of the flashcard, without summary or details.
+     *
+     * @return String of shortDescription of the flashcard
+     */
+    @Override
+    public String getShortDescription() {
+        String shortDescription = this.name + DIVIDER + this.birthDate + " to " + this.deathDate
+                + DIVIDER + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
+        return shortDescription;
     }
 
     /**

@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import static seedu.tp.utils.Constants.EMPTY_STRING;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 
 /**
@@ -75,7 +76,7 @@ public abstract class Flashcard implements Comparable<Flashcard> {
      * @return "Y" for Yes if reviewed, else "N" for No.
      */
     public String getReviewIcon() {
-        return (isReviewed ? "Y" : "N");
+        return (isReviewed ? "/" : "X");
     }
 
 
@@ -132,6 +133,13 @@ public abstract class Flashcard implements Comparable<Flashcard> {
     public List<String> getDetails() {
         return details;
     }
+
+    /**
+     * To be implemented by child classes.
+     *
+     * @return a shortened description of the flashcard
+     */
+    public String getShortDescription() { return EMPTY_STRING; }
 
     /**
      * Check if the current instance is equal to the object passed in.

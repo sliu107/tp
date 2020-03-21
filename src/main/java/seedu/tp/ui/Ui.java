@@ -379,7 +379,8 @@ public class Ui {
     }
 
     /**
-     * Prints out all flashcards in the list ordered by start/birth date. Other cards come last
+     * Prints out all flashcards in the list ordered by start/birth date. Other cards come last.
+     * Used for TimelineCommand.
      *
      * @param flashcardList the list of flashcards to be printed out
      */
@@ -393,9 +394,9 @@ public class Ui {
 
         List<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
         Collections.sort(flashcards);
-        System.out.println("Here's a sorted list of the flashcards you have:");
+        System.out.println("Flashcards sorted by date:");
         for (Flashcard f : flashcards) {
-            System.out.println(f);
+            System.out.println(BULLET_POINT + f.getShortDescription());
         }
     }
 
