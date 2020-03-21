@@ -10,7 +10,7 @@ import seedu.tp.commands.FindCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
-import seedu.tp.commands.ListGroupCommand;
+import seedu.tp.commands.ListFlashcardsInGroupCommand;
 import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
@@ -51,13 +51,13 @@ import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
 import static seedu.tp.utils.Constants.DISPLAY_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.EMPTY_SPACE;
-import static seedu.tp.utils.Constants.EMPTY_STRING;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.FIND_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
 import static seedu.tp.utils.Constants.LIST_REVIEWED_COMMAND;
+import static seedu.tp.utils.Constants.LIST_FLASHCARDS_IN_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
@@ -67,7 +67,6 @@ import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 import static seedu.tp.utils.Constants.UPDATE_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.SHOWGROUPS_COMMAND;
-import static seedu.tp.utils.Constants.LIST_GROUP_COMMAND;
 
 /**
  * Parser class to handle parsing of user input.
@@ -198,12 +197,12 @@ public class Parser {
             return new ListCommand(flashcardList, ui);
         case LIST_REVIEWED_COMMAND:
             return new ListReviewedCommand(flashcardList, ui);
-        case LIST_GROUP_COMMAND:
+        case LIST_FLASHCARDS_IN_GROUP_COMMAND:
             try {
-                return new ListGroupCommand(groupList, ui, splitInput[1] + " " + splitInput[2]);
+                return new ListFlashcardsInGroupCommand(groupList, ui, splitInput[1] + " " + splitInput[2]);
             } catch (IndexOutOfBoundsException e1) {
                 try {
-                    return new ListGroupCommand(groupList, ui, splitInput[1]);
+                    return new ListFlashcardsInGroupCommand(groupList, ui, splitInput[1]);
                 } catch (IndexOutOfBoundsException e2) {
                     LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                     throw new InvalidInputFormatException();

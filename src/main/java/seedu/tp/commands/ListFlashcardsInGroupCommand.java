@@ -8,7 +8,7 @@ import seedu.tp.ui.Ui;
 /**
  * Command to list all flashcards in a specified group.
  */
-public class ListGroupCommand extends Command {
+public class ListFlashcardsInGroupCommand extends Command {
     private Ui ui;
     private GroupList groupList;
     private String groupName;
@@ -20,7 +20,7 @@ public class ListGroupCommand extends Command {
      * @param ui        instance for user interaction
      * @param groupName name of the group to list all flashcards for
      */
-    public ListGroupCommand(GroupList groupList, Ui ui, String groupName) {
+    public ListFlashcardsInGroupCommand(GroupList groupList, Ui ui, String groupName) {
         assert groupList != null : "Invalid null GroupList!";
         assert ui != null : "Invalid null Ui!";
         assert !groupName.isEmpty() : "Invalid empty groupName!";
@@ -45,16 +45,16 @@ public class ListGroupCommand extends Command {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof ListGroupCommand)) {
+        if (!(obj instanceof ListFlashcardsInGroupCommand)) {
             return false;
         }
         if (this == obj) {
             return true;
         }
 
-        ListGroupCommand otherListGroupCommand = (ListGroupCommand) obj;
-        return this.ui.equals(otherListGroupCommand.ui)
-                && this.groupList.equals(otherListGroupCommand.groupList)
-                && this.groupName.equals(otherListGroupCommand.groupName);
+        ListFlashcardsInGroupCommand otherListFlashcardsInGroupCommand = (ListFlashcardsInGroupCommand) obj;
+        return this.ui.equals(otherListFlashcardsInGroupCommand.ui)
+                && this.groupList.equals(otherListFlashcardsInGroupCommand.groupList)
+                && this.groupName.equals(otherListFlashcardsInGroupCommand.groupName);
     }
 }
