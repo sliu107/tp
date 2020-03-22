@@ -418,7 +418,6 @@ public class Ui {
         for (Flashcard f : flashcards) {
             System.out.println(f);
         }
-        System.out.println("");
     }
 
     /**
