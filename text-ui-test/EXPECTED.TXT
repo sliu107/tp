@@ -85,6 +85,15 @@ Listing flashcards from 1868-01-01 to 2020-01-01...
 - Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
 Listing flashcards from 1850-01-01 to 1870-05-20...
 - Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+Flashcards sorted by date:
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+- Resurrection Stone | X | Not indicated
+That date format couldn't be parsed!
+Flashcards sorted by date:
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+- Resurrection Stone | X | Not indicated
 Please enter name:
 Please enter birth date:
 Please enter death date:
