@@ -64,9 +64,9 @@ public class ListCommandTest {
     public void listCommand_execute_listsFlashcardsSuccessfully() {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here's the list of flashcards you have:" + System.lineSeparator());
-        expectedOutput.append("1: Event 1 | Reviewed: N | Not indicated" + System.lineSeparator());
-        expectedOutput.append("2: Person 1 | Reviewed: N | Not indicated" + System.lineSeparator());
-        expectedOutput.append("3: Title 1 | Reviewed: N | Not indicated" + System.lineSeparator());
+        expectedOutput.append("1: Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedOutput.append("2: Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedOutput.append("3: Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
 
         ListCommand listCommand = new ListCommand(fullFlashcardList, new Ui());
         listCommand.execute();
