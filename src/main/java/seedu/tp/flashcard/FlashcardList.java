@@ -1,6 +1,7 @@
 package seedu.tp.flashcard;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.ui.Ui;
 
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -93,14 +94,12 @@ public class FlashcardList {
      * Deletes a flashcard from the list.
      *
      * @param index the index of the flashcard to be deleted
-     * @return the deleted flashcard
      */
-    public void deleteFlashcard(int index) throws InvalidFlashcardIndexException {
+    public void deleteFlashcard(Ui ui, int index) throws InvalidFlashcardIndexException {
         try {
             Flashcard flashcard = flashcards.remove(index);
             LOGGER.info("Deleted flashcard " + flashcard.getName() + " from list.");
-            System.out.println("The following flashcard has been deleted.");
-            System.out.println(flashcard);
+            ui.confirmFlashcardDeletion(flashcard);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
             LOGGER.warning("Throwing InvalidFlashcardIndexException...");

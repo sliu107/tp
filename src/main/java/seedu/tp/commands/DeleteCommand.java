@@ -2,11 +2,13 @@ package seedu.tp.commands;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.ui.Ui;
 
 public class DeleteCommand extends Command {
 
     private FlashcardList flashcardList;
     private int index;
+    private Ui ui;
 
     /**
      * Constructor for delete command.
@@ -14,11 +16,12 @@ public class DeleteCommand extends Command {
      * @param flashcardList flashcard list for the command to execute on
      * @param index         index in the delete command
      */
-    public DeleteCommand(FlashcardList flashcardList, int index) {
+    public DeleteCommand(FlashcardList flashcardList, int index, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.flashcardList = flashcardList;
         this.index = index;
+        this.ui = ui;
     }
 
     /**
@@ -42,7 +45,7 @@ public class DeleteCommand extends Command {
     @Override
     public void execute() throws InvalidFlashcardIndexException {
         LOGGER.info("Deleting flashcard at index: " + index);
-        flashcardList.deleteFlashcard(index);
+        flashcardList.deleteFlashcard(ui, index);
         LOGGER.info("Deleted flashcard at index: " + index);
     }
 
