@@ -15,6 +15,7 @@ import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
+import seedu.tp.commands.ResetCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
 import seedu.tp.commands.ShowGroupsCommand;
@@ -62,6 +63,7 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
+import static seedu.tp.utils.Constants.RESET_COMMAND;
 import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
@@ -268,6 +270,8 @@ public class Parser {
                 LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                 throw new InvalidInputFormatException();
             }
+        case RESET_COMMAND:
+            return new ResetCommand(ui, flashcardList);
         case HELP_COMMAND:
             return new HelpCommand(ui);
         case BYE_COMMAND:

@@ -1,6 +1,7 @@
 package seedu.tp.flashcard;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.ui.Ui;
 
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -105,6 +106,20 @@ public class FlashcardList {
             LOGGER.warning("Throwing InvalidFlashcardIndexException...");
             throw new InvalidFlashcardIndexException();
         }
+    }
+
+    /**
+     * Resets all the flashcards as unreviewed.
+     *
+     * @param ui the ui used to communicate with the user
+     */
+    public void resetAsUnreviewed(Ui ui) {
+        assert flashcards != null : "Invalid flashcardList";
+
+        for (Flashcard flashcard : flashcards) {
+            flashcard.setReviewStatus(false);
+        }
+        ui.confirmResetCompletion();
     }
 
     /**

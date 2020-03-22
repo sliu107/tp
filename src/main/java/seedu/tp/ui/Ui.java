@@ -272,6 +272,13 @@ public class Ui {
     }
 
     /**
+     * Sends reset completion confirmation message to user.
+     */
+    public void confirmResetCompletion() {
+        System.out.println("All the flashcards have been reset as unreviewed successfully.");
+    }
+
+    /**
      * Sends confirmation message that the flashcard is successfully added to a group.
      * *
      *
