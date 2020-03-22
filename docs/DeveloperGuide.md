@@ -18,8 +18,30 @@
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+|v1.0|student|add a Person flashcard|record the details about a historical figure|
+|v1.0|student|add an Event flashcard|record the details about a historical event|
+|v1.0|student|add an Other flashcard|record the details about any other historical item|
+|v1.0|student|list all flashcards|get an overview of all my existing flashcards|
+|v1.0|student|delete a flashcard|remove the flashcards that I no longer need|
+|v1.0|student|view all the fields of a flashcard|review the details of a specific flashcard|
+|v1.0|student|mark a flashcard as Reviewed|keep track of my learning progress|
+|v1.0|student|assign priority to flashcards|identify the relative importance of flashcards for review|
+|v1.0|student|view a timeline of all events and people|better organize my knowledge|
+|v1.0|student|make groups for flashcards|group related flashcards together for more organized revision|
+|v1.0|student|see all the commands available|find out what commands are available, and their format|
+|v2.0|student|set a daily study plan|keep myself motivated to review flashcards every day|
+|v2.0|student|list the flashcards which have been reviewed|keep track of my learning progress|
+|v2.0|student|list all existing flashcard groups|view all the groups I have created|
+|v2.0|student|list flashcards from a particular group|quickly identify the flashcards belonging to a group|
+|v2.0|student|search for flashcards using a keyword|quickly find the flashcard I am looking for|
+|v2.0|student|save flashcards to a storage file|flashcards are not lost when I exit the app|
+|v2.0|student|read in flashcards from a storage file|flashcards can be loaded when I enter the app|
+|v2.0|student|save my daily study plan to a storage file|study plans are not lost when I exit the app|
+|v2.0|student|read in study plans from a storage file|study plans can be loaded when I enter the app|
+|v2.0|student|save flashcard groups to a storage file|groups are not lost when I exit the app|
+|v2.0|student|read in flashcard groups from a storage file|groups can be loaded when I enter the app|
+|v2.0|student|restrict the timeline to a fixed period|keep track of flashcards belonging to a certain time period|
+|v2.0|student|shuffle and display random flashcards|test my knowledge using random flashcards|
 
 ## Non-Functional Requirements
 
