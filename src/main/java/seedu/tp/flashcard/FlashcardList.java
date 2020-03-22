@@ -113,7 +113,7 @@ public class FlashcardList {
     }
 
     /**
-     * Randomize the flashcard list to help user for reviewing
+     * Randomize the flashcard list to help user for reviewing.
      *
      * @return the random flashcard list
      */
@@ -125,7 +125,7 @@ public class FlashcardList {
         LOGGER.info("The flashcards have been randomized.");
 
         int reviewedNumber = 0;
-        for(Flashcard flashcard : randomFlashcards.getFlashcards()) {
+        for (Flashcard flashcard : randomFlashcards.getFlashcards()) {
             System.out.println(flashcard);
             if (flashcard.isReviewed) {
                 System.out.println("You have already reviewed this flashcard.");
