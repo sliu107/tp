@@ -15,6 +15,8 @@ public class RandomCommand extends Command {
 
     @Override
     public void execute() throws HistoryFlashcardException {
+        LOGGER.info("Randomizing flashcards for reviewing ...");
         flashcardList.reviewRandomFlashcards(ui);
+        LOGGER.info("Randomized flashcards and finished a review");
     }
 }

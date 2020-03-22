@@ -1,8 +1,6 @@
 package seedu.tp.ui;
 
-import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.exceptions.InvalidDateFormatException;
-import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
@@ -243,7 +241,6 @@ public class Ui {
 
         System.out.println("You've successfully created the flashcard below:");
         System.out.println(flashcard);
-        System.out.println("");
     }
 
     /**
@@ -269,7 +266,6 @@ public class Ui {
 
         System.out.println("Priority has been updated:");
         System.out.println(flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString());
-        System.out.println("");
     }
 
     /**
@@ -282,7 +278,6 @@ public class Ui {
 
         System.out.println("These are the flashcard details:");
         System.out.println(flashcard);
-        System.out.println("");
     }
 
     /**
@@ -295,7 +290,6 @@ public class Ui {
 
         System.out.println("You've successfully created the group below:");
         System.out.println(flashcardGroup);
-        System.out.println("");
     }
 
     /**

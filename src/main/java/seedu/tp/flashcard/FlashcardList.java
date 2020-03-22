@@ -140,8 +140,8 @@ public class FlashcardList {
                 continue;
             }
         }
-        int unreviewedNumber = flashcards.size() - totalReviewedNumber;
-        ui.confirmRandomFlashcardsReviewCompletion(reviewedNumber, unreviewedNumber);
+        int totalUnreviewedNumber = flashcards.size() - totalReviewedNumber;
+        ui.confirmRandomFlashcardsReviewCompletion(reviewedNumber, totalUnreviewedNumber);
         return randomFlashcards;
     }
 
