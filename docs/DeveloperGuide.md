@@ -8,11 +8,21 @@
 ## Product Scope
 ### Target user profile
 
-{Describe the target user profile}
+History Flashcard (HF) is for those who are studying history subjects to create flashcards which summarize 
+the most important information for historical events, figures and artifacts. HF is optimized for those who 
+prefer to use a simple Command Line Interface (CLI). 
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+History is a subject that usually relies on heavy memorisation of a large amount of content. In order to 
+make revision easier for history students, HF includes features that help with memory retention and organises 
+information in a way that makes it convenient to review.
+
+In HF, information can be entered in the form of flashcards with different fields, such as the name of the 
+historical event/person, the relevant dates, and a summary. Flashcards can be categorised into user-defined groups
+ to enable students to organise their knowledge better. Users can also create daily study plans.
+ 
+ In addition, the user can shuffle and display random flashcards for revision.
 
 ## User Stories
 
