@@ -404,30 +404,41 @@ public class Ui {
                 System.out.println(BULLET_POINT + f.getShortDescription());
             }
         } else {
-            System.out.println("Listing flashcards from " + startDate + " to " + endDate + "...");
-            boolean noFlashcards = true;
-            for (Flashcard f : flashcards) {
-                if (f instanceof EventFlashcard) {
-                    EventFlashcard eventFlashcard = (EventFlashcard) f;
-                    LocalDate eventStartDate = eventFlashcard.getStartDate();
-                    if (eventStartDate.compareTo(startDate) >= 0
+            listFlashcardsInPeriod(flashcards, startDate, endDate);
+        }
+    }
+
+    /**
+     * Lists flashcards from a specified time period only, in sorted order.
+     *
+     * @param sortedFlashcards the sorted list of all flashcards
+     * @param startDate        the date to start listing flashcards from (inclusive)
+     * @param endDate          the date after which to stop listing flashcards from
+     */
+    private void listFlashcardsInPeriod(List<Flashcard> sortedFlashcards, LocalDate startDate, LocalDate endDate) {
+        System.out.println("Listing flashcards from " + startDate + " to " + endDate + "...");
+        boolean noFlashcards = true;
+        for (Flashcard f : sortedFlashcards) {
+            if (f instanceof EventFlashcard) {
+                EventFlashcard eventFlashcard = (EventFlashcard) f;
+                LocalDate eventStartDate = eventFlashcard.getStartDate();
+                if (eventStartDate.compareTo(startDate) >= 0
                         && eventStartDate.compareTo(endDate) <= 0) {
-                        System.out.println(BULLET_POINT + f.getShortDescription());
-                        noFlashcards = false;
-                    }
-                } else if (f instanceof PersonFlashcard) {
-                    PersonFlashcard personFlashcard = (PersonFlashcard) f;
-                    LocalDate personBirthDate = personFlashcard.getBirthDate();
-                    if (personBirthDate.compareTo(startDate) >= 0
+                    System.out.println(BULLET_POINT + f.getShortDescription());
+                    noFlashcards = false;
+                }
+            } else if (f instanceof PersonFlashcard) {
+                PersonFlashcard personFlashcard = (PersonFlashcard) f;
+                LocalDate personBirthDate = personFlashcard.getBirthDate();
+                if (personBirthDate.compareTo(startDate) >= 0
                         && personBirthDate.compareTo(endDate) <= 0) {
-                        System.out.println(BULLET_POINT + f.getShortDescription());
-                        noFlashcards = false;
-                    }
+                    System.out.println(BULLET_POINT + f.getShortDescription());
+                    noFlashcards = false;
                 }
             }
-            if (noFlashcards) {
-                System.out.println("No flashcards found in this period.");
-            }
+        }
+        if (noFlashcards) {
+            System.out.println("No flashcards found in this period.");
         }
     }
 

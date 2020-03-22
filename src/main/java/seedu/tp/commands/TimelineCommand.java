@@ -32,6 +32,14 @@ public class TimelineCommand extends Command {
         this.endDate = null;
     }
 
+    /**
+     * Constructor for TimelineCommand.
+     *
+     * @param flashcardList list containing all flashcards
+     * @param ui            instance for user interaction
+     * @param startDate     the date to start listing flashcards from (inclusive)
+     * @param endDate       the date after which to stop listing flashcards from
+     */
     public TimelineCommand(FlashcardList flashcardList, Ui ui, String startDate, String endDate) {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert ui != null : "Invalid null Ui!";
