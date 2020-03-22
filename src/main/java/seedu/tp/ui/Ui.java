@@ -259,7 +259,6 @@ public class Ui {
 
         System.out.println("You have marked the following flashcard as Reviewed:");
         System.out.println(flashcard.getName());
-        System.out.println("");
     }
 
     /**
