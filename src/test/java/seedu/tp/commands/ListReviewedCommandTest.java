@@ -71,8 +71,8 @@ public class ListReviewedCommandTest {
     public void listReviewedCommand_execute_listsFlashcardsSuccessfully() {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here's the list of flashcards you are looking for:" + System.lineSeparator());
-        expectedOutput.append("1: Event 1 | Reviewed: Y | Not indicated | ID: 1" + System.lineSeparator());
-        expectedOutput.append("2: Title 1 | Reviewed: Y | Not indicated | ID: 3" + System.lineSeparator());
+        expectedOutput.append("1: Event 1 | Reviewed: / | Not indicated | ID: 1" + System.lineSeparator());
+        expectedOutput.append("2: Title 1 | Reviewed: / | Not indicated | ID: 3" + System.lineSeparator());
 
         ListReviewedCommand listReviewedCommand = new ListReviewedCommand(fullFlashcardList, new Ui());
         listReviewedCommand.execute();

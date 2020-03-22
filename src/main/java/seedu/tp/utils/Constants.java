@@ -36,6 +36,7 @@ public class Constants {
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";
     public static final String BULLET_POINT = "- ";
+    public static final String DIVIDER = " | ";
 
     public static final String REGEX_MATCH_ALL_CHARACTER = ".*";
 

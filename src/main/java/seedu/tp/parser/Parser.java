@@ -250,7 +250,11 @@ public class Parser {
                 throw new InvalidInputFormatException();
             }
         case TIMELINE_COMMAND:
-            return new TimelineCommand(flashcardList, ui);
+            try {
+                return new TimelineCommand(flashcardList, ui, splitInput[1], splitInput[2]);
+            } catch (IndexOutOfBoundsException e) {
+                return new TimelineCommand(flashcardList, ui);
+            }
         case GROUP_COMMAND:
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
