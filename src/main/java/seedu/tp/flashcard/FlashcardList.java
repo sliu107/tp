@@ -1,6 +1,8 @@
 package seedu.tp.flashcard;
 
+import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.ui.Ui;
 
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,12 +28,14 @@ public class FlashcardList {
     private static final Logger LOGGER = Logger.getLogger(FlashcardList.class.getName());
 
     private List<Flashcard> flashcards;
+    private int totalReviewedNumber;
 
     /**
      * Constructor for FlashcardList.
      */
     public FlashcardList() {
         this.flashcards = new ArrayList<>();
+        this.totalReviewedNumber = 0;
     }
 
     /**
@@ -108,6 +113,38 @@ public class FlashcardList {
     }
 
     /**
+     * Randomize the flashcard list to help user for reviewing.
+     *
+     * @return the random flashcard list
+     */
+    public FlashcardList reviewRandomFlashcards(Ui ui) throws InvalidFlashcardIndexException {
+        assert flashcards != null : "Invalid null flashcard!";
+
+        FlashcardList randomFlashcards = new FlashcardList(flashcards);
+        Collections.shuffle(randomFlashcards.getFlashcards(), new Random(System.currentTimeMillis()));
+        LOGGER.info("The flashcards have been randomized.");
+
+        int reviewedNumber = 0;
+        for (Flashcard flashcard : randomFlashcards.getFlashcards()) {
+            System.out.println(flashcard);
+            if (flashcard.isReviewed) {
+                System.out.println("You have already reviewed this flashcard.");
+                System.out.println("");
+            } else if (ui.promptUserResponseForReviewing(flashcard).equals("yes")) {
+                ReviewedCommand reviewedCommand = new ReviewedCommand(this,
+                        flashcards.indexOf(flashcard), ui);
+                reviewedCommand.execute();
+                reviewedNumber++;
+            } else {
+                continue;
+            }
+        }
+        int totalUnreviewedNumber = flashcards.size() - totalReviewedNumber;
+        ui.confirmRandomFlashcardsReviewCompletion(reviewedNumber, totalUnreviewedNumber);
+        return randomFlashcards;
+    }
+
+    /**
      * Return whether or not this FlashcardList contains specified flashcard.
      *
      * @param flashcard the flashcard to check
@@ -144,6 +181,24 @@ public class FlashcardList {
      */
     public int getTotalFlashcardNum() {
         return flashcards.size();
+    }
+
+    /**
+     * Updates the number of reviewed flashcards.
+     *
+     * @param totalReviewedNumber the updated number of reviewed flashcards
+     */
+    public void setTotalReviewedNumber(int totalReviewedNumber) {
+        this.totalReviewedNumber = totalReviewedNumber;
+    }
+
+    /**
+     * Gets the number of reviewed flashcards.
+     *
+     * @return the total number of reviewed flashcards at this moment
+     */
+    public int getTotalReviewedNumber() {
+        return totalReviewedNumber;
     }
 
     /**

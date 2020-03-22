@@ -17,3 +17,4 @@ bin/
 
 *.log
 logs/
+src/main/java/META-INF/MANIFEST.MF

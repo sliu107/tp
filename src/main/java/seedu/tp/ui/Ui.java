@@ -214,6 +214,32 @@ public class Ui {
     }
 
     /**
+     * Gets the response from the user after the user reviewed a flashcard.
+     *
+     * @param flashcard the flashcard the user just reviewed
+     * @return the response given by the user
+     */
+    public String promptUserResponseForReviewing(Flashcard flashcard) {
+        System.out.println("Do you want to mark this flashcard as reviewed?");
+        String input = getNextLine().trim().toLowerCase();
+        System.out.println("");
+        return input;
+    }
+
+    /**
+     * Sends confirmation message for completion o random flashcard review.
+     *
+     * @param reviewedNumber        the number of flashcards reviewed during this self test
+     * @param totalUnreviewedNumber the total number of unreviewed flashcards
+     */
+    public void confirmRandomFlashcardsReviewCompletion(int reviewedNumber, int totalUnreviewedNumber) {
+        System.out.println("You have just gone through all the flashcard(s)");
+        System.out.println("You have marked " + reviewedNumber + " flashcard(s) as reviewed this time.");
+        System.out.println("You still have " + totalUnreviewedNumber + " flashcard(s) have not been reviewed so far.");
+        System.out.println("");
+    }
+
+    /**
      * Sends flashcard creation confirmation to user.
      *
      * @param flashcard the flashcard created
