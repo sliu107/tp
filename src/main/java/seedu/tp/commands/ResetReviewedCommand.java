@@ -4,11 +4,11 @@ import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
-public class ResetCommand extends Command {
+public class ResetReviewedCommand extends Command {
     private Ui ui;
     private FlashcardList flashcardList;
     
-    public ResetCommand(Ui ui, FlashcardList flashcardList) {
+    public ResetReviewedCommand(Ui ui, FlashcardList flashcardList) {
         this.ui = ui;
         this.flashcardList = flashcardList;
     }

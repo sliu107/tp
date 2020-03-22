@@ -115,6 +115,7 @@ public class FlashcardList {
      */
     public void resetAsUnreviewed(Ui ui) {
         assert flashcards != null : "Invalid flashcardList";
+        assert ui != null : "Invalid ui";
 
         for (Flashcard flashcard : flashcards) {
             flashcard.setReviewStatus(false);
