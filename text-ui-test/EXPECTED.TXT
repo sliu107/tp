@@ -74,6 +74,17 @@ Details:
 * It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
 * According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
 
+Flashcards sorted by date:
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+- Resurrection Stone | X | Not indicated
+Listing flashcards from 2020-01-01 to 2020-01-01...
+No flashcards found in this period.
+Listing flashcards from 1868-01-01 to 2020-01-01...
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+Listing flashcards from 1850-01-01 to 1870-05-20...
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
 Please enter name:
 Please enter birth date:
 Please enter death date:
@@ -86,36 +97,11 @@ Died: February 24, 1943
 Summary: 8)
 Details:
 
-Here's a sorted list of the flashcards you have:
-Event name: Meiji Restoration
-Event period: January 1, 1868-January 1, 1868
-Summary: Turning point in Japanese history
-Details:
-* End of Shogunate
-* Centralization of power
-* Functional end of Samurai Class
-
-Person name: Quinn
-Born: July 31, 1870
-Died: February 24, 1943
-Summary: 8)
-Details:
-
-Person name: Albus Dumbledore
-Born: August 1, 1881
-Died: June 30, 1997
-Summary: Albus Dumbledore was never proud or vain.
-Details:
-* He could find something to value in anyone, however apparently insignificant or wretched
-* Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
-
-Title: Resurrection Stone
-Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
-Details:
-* In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
-* It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
-* According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
-
+Flashcards sorted by date:
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Quinn | 1870-07-31 to 1943-02-24 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+- Resurrection Stone | X | Not indicated
 Here's the list of flashcards you have:
 1: Meiji Restoration | Reviewed: N | Not indicated
 2: Albus Dumbledore | Reviewed: N | Not indicated
