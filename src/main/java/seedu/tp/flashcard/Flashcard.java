@@ -139,9 +139,7 @@ public abstract class Flashcard implements Comparable<Flashcard> {
      *
      * @return a shortened description of the flashcard
      */
-    public String getShortDescription() {
-        return EMPTY_STRING;
-    }
+    public abstract String getShortDescription();
 
     /**
      * Check if the current instance is equal to the object passed in.
