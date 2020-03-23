@@ -2,6 +2,8 @@
 
 ## Design & Implementation
 
+{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
+
 ### Design
 
 #### Architecture
