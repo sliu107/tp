@@ -72,7 +72,7 @@ public class RandomCommandTest {
     @Test
     public void randomCommand_execute_Successfully() throws HistoryFlashcardException {
         FlashcardList expectedRandomList = new FlashcardList(fullFlashcardList);
-        Collections.shuffle(expectedRandomList.getFlashcards(), new Random(System.currentTimeMillis()/1000));
+        Collections.shuffle(expectedRandomList.getFlashcards(), new Random(System.currentTimeMillis() / 1000));
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append(expectedRandomList.getFlashcardAtIdx(0).toString()).append(System.lineSeparator());;
         expectedOutput.append("Do you want to mark this flashcard as reviewed?").append(System.lineSeparator());
