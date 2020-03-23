@@ -8,6 +8,7 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
+import seedu.tp.ui.Ui;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class DeleteCommandTest {
+    private static Ui ui = new Ui();
 
     public static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
         "Event 1",
@@ -59,7 +61,7 @@ public class DeleteCommandTest {
         expectedFlashcardList.addFlashcard(OTHER_FLASHCARD);
 
         FlashcardList flashcardList = new FlashcardList(fullFlashcardList);
-        DeleteCommand deleteCommand = new DeleteCommand(flashcardList, 1);
+        DeleteCommand deleteCommand = new DeleteCommand(flashcardList, 1, ui);
         deleteCommand.execute();
 
         assertEquals(expectedFlashcardList, flashcardList);
@@ -67,7 +69,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_deleteFromEmptyList_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(emptyFlashcardList, 1);
+        DeleteCommand deleteCommand = new DeleteCommand(emptyFlashcardList, 1, ui);
         assertThrows(
             InvalidFlashcardIndexException.class,
             deleteCommand::execute,
@@ -77,7 +79,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_deleteNegativeIndex_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(fullFlashcardList, -10);
+        DeleteCommand deleteCommand = new DeleteCommand(fullFlashcardList, -10, ui);
         assertThrows(
             InvalidFlashcardIndexException.class,
             deleteCommand::execute,
@@ -87,7 +89,7 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_deleteOutOfBoundIndex_throwsInvalidFlashcardIndexException() {
-        DeleteCommand deleteCommand = new DeleteCommand(fullFlashcardList, 100);
+        DeleteCommand deleteCommand = new DeleteCommand(fullFlashcardList, 100, ui);
         assertThrows(
             InvalidFlashcardIndexException.class,
             deleteCommand::execute,

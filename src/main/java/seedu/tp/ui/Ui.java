@@ -300,6 +300,16 @@ public class Ui {
     }
 
     /**
+     * Sends flashcard deletion confirmation message to user.
+     *
+     * @param flashcard the flashcard deleted
+     */
+    public void confirmFlashcardDeletion(Flashcard flashcard) {
+        System.out.println("The following flashcard has been deleted.");
+        System.out.println(flashcard);
+    }
+
+    /**
      * Sends reset completion confirmation message to user.
      */
     public void confirmResetCompletion() {

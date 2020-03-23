@@ -236,7 +236,7 @@ public class Parser {
             return new RandomCommand(flashcardList, ui);
         case DELETE_COMMAND:
             try {
-                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
+                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();

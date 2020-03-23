@@ -197,10 +197,27 @@ Here's the list of flashcards you have:
 2: Albus Dumbledore | Reviewed: X | Not indicated
 3: Resurrection Stone | Reviewed: X | Not indicated
 4: Quinn | Reviewed: X | Not indicated
+The following flashcard has been deleted.
+Event name: Meiji Restoration
+Event period: January 1, 1868-January 1, 1868
+Summary: Turning point in Japanese history
+Details:
+* End of Shogunate
+* Centralization of power
+* Functional end of Samurai Class
+
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Reviewed: X | Not indicated
 2: Resurrection Stone | Reviewed: X | Not indicated
 3: Quinn | Reviewed: X | Not indicated
+The following flashcard has been deleted.
+Title: Resurrection Stone
+Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
+Details:
+* In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
+* It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
+* According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
+
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Reviewed: X | Not indicated
 2: Quinn | Reviewed: X | Not indicated

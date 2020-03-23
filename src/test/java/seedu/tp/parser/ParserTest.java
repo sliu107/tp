@@ -170,14 +170,14 @@ public class ParserTest {
     @Test
     public void parse_deleteCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("delete 1");
-        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0);
+        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0, ui);
         assertEquals(expectedDeleteCommand, command);
     }
 
     @Test
     public void parse_deleteCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("dELEte 1");
-        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0);
+        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0, ui);
         assertEquals(expectedDeleteCommand, command);
     }
 
