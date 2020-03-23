@@ -127,7 +127,7 @@ public class FlashcardList {
         ui.confirmResetCompletion();
     }
 
-     /**
+    /**
      * Randomize the flashcard list to help user for reviewing.
      *
      * @return the random flashcard list
