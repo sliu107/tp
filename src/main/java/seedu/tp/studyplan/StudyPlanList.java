@@ -28,7 +28,7 @@ public class StudyPlanList {
     private Map<LocalDate, List<Integer>> studyPlanList;
 
     /**
-     * Constructor for StudyPlan.
+     * Constructor for StudyPlanList.
      */
     public StudyPlanList() {
         this.studyPlanList = new TreeMap<>();
@@ -37,20 +37,20 @@ public class StudyPlanList {
     /**
      * Constructor for StudyPlanList.
      *
-     * @param studyPlanList the list of daily study plans to be added
+     * @param listOfStudyPlans the list of daily study plans to be added
      */
-    public StudyPlanList(List<Map.Entry<LocalDate, List<Integer>>> studyPlanList) {
+    public StudyPlanList(List<Map.Entry<LocalDate, List<Integer>>> listOfStudyPlans) {
         this();
 
-        assert studyPlanList != null : "Invalid null study plan list!";
+        assert listOfStudyPlans != null : "Invalid null study plan list!";
 
-        for (Map.Entry<LocalDate, List<Integer>> entry : studyPlanList) {
+        for (Map.Entry<LocalDate, List<Integer>> entry : listOfStudyPlans) {
             this.studyPlanList.put(entry.getKey(), entry.getValue());
         }
     }
 
     /**
-     * Set up the Study Plan logger. Call once at the start of the program.
+     * Set up the StudyPlanList logger. Call once at the start of the program.
      *
      * @throws IOException when logger set up failed
      */
@@ -63,7 +63,7 @@ public class StudyPlanList {
     }
 
     /**
-     * Updates the study plan.
+     * Updates the study plan list.
      *
      * @param ui            the Ui class to be used for interaction with user
      * @param flashcardList the flashcard list used for checking index boundary
@@ -90,6 +90,11 @@ public class StudyPlanList {
         studyPlanList.put(date, indexes);
     }
 
+    /**
+     * Gets the list of study plans.
+     *
+     * @return a list containing all the study plans
+     */
     public List<Map.Entry<LocalDate, List<Integer>>> getStudyPlanList() {
         return new ArrayList<>(studyPlanList.entrySet());
     }
