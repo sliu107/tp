@@ -136,7 +136,7 @@ public class FlashcardList {
         assert flashcards != null : "Invalid null flashcard!";
 
         FlashcardList randomFlashcards = new FlashcardList(flashcards);
-        Collections.shuffle(randomFlashcards.getFlashcards(), new Random(System.currentTimeMillis()));
+        Collections.shuffle(randomFlashcards.getFlashcards(), new Random(System.currentTimeMillis()/1000));
         LOGGER.info("The flashcards have been randomized.");
 
         int reviewedNumber = 0;

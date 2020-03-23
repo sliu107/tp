@@ -1,5 +1,7 @@
 package seedu.tp.utils;
 
+import com.sun.source.tree.NewArrayTree;
+
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +39,10 @@ public class ExampleInputConstants {
     public static final String DATE_2 = "18 01 2020";
     public static final LocalDate LOCAL_DATE_1 = LocalDate.of(2020, 2, 27);
     public static final LocalDate LOCAL_DATE_2 = LocalDate.of(2020, 1, 18);
+
+    public static final String RESPONSE_1 = "YeS";
+    public static final String RESPONSE_2 = "yes";
+    public static final String RESPONSE_3 = "nO";
 
     public static final String FULL_SIMULATED_INPUT = FLASHCARD_NAME + NEWLINE
         + START_DATE + NEWLINE
@@ -77,4 +83,9 @@ public class ExampleInputConstants {
         DATE_1 + NEWLINE + INDEXES_1 + NEWLINE;
     public static final String SIMULATED_UPDATE_STUDY_PLAN_INPUT_2 =
         DATE_2 + NEWLINE + INDEX_1 + NEWLINE;
+
+    public static final String SIMULATED_RANDOM_COMMAND_INPUT = RESPONSE_1 + NEWLINE
+        + RESPONSE_3 + NEWLINE
+        + RESPONSE_2 + NEWLINE
+        + NEWLINE;
 }
