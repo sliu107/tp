@@ -80,11 +80,11 @@ public class DisplayStudyPlanCommandTest {
     public void displayStudyPlanCommand_execute_success() {
         StringBuilder expectedEventOutput = new StringBuilder();
         expectedEventOutput.append("Date: 2020-01-18" + System.lineSeparator());
-        expectedEventOutput.append("1: Event 1 | Reviewed: N | Not indicated" + System.lineSeparator());
-        expectedEventOutput.append("3: Title 1 | Reviewed: N | Not indicated" + System.lineSeparator());
+        expectedEventOutput.append("1: Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedEventOutput.append("3: Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedEventOutput.append("Date: 2020-02-27" + System.lineSeparator());
-        expectedEventOutput.append("1: Event 1 | Reviewed: N | Not indicated" + System.lineSeparator());
-        expectedEventOutput.append("2: Person 1 | Reviewed: N | Not indicated" + System.lineSeparator());
+        expectedEventOutput.append("1: Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedEventOutput.append("2: Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
 
         DisplayStudyPlanCommand displayStudyPlanCommand = new DisplayStudyPlanCommand(new Ui(), studyPlanList,
             fullFlashcardList);

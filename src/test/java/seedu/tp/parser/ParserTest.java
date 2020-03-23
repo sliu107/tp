@@ -256,7 +256,7 @@ public class ParserTest {
     public void parse_displayStudyPlanCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         DisplayStudyPlanCommand expectedDisplayStudyPlanCommand = new DisplayStudyPlanCommand(ui, studyPlanList,
             flashcardList);
-        Command actualDisplayStudyPlanCommand = parser.parseCommand("showplan");
+        Command actualDisplayStudyPlanCommand = parser.parseCommand("show-plan");
         assertEquals(expectedDisplayStudyPlanCommand, actualDisplayStudyPlanCommand);
     }
 
@@ -264,7 +264,7 @@ public class ParserTest {
     public void parse_displayStudyPlanCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         DisplayStudyPlanCommand expectedDisplayStudyPlanCommand = new DisplayStudyPlanCommand(ui, studyPlanList,
             flashcardList);
-        Command actualDisplayStudyPlanCommand = parser.parseCommand("shOwplAn");
+        Command actualDisplayStudyPlanCommand = parser.parseCommand("shOw-plAn");
         assertEquals(expectedDisplayStudyPlanCommand, actualDisplayStudyPlanCommand);
     }
 

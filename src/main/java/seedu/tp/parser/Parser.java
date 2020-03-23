@@ -10,12 +10,16 @@ import seedu.tp.commands.FindCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
+import seedu.tp.commands.ListFlashcardsInGroupCommand;
 import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
+import seedu.tp.commands.RandomCommand;
+import seedu.tp.commands.ResetReviewedCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
+import seedu.tp.commands.ShowGroupsCommand;
 import seedu.tp.commands.TimelineCommand;
 import seedu.tp.commands.UpdateStudyPlanCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
@@ -54,13 +58,17 @@ import static seedu.tp.utils.Constants.FIND_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
+import static seedu.tp.utils.Constants.LIST_FLASHCARDS_IN_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
+import static seedu.tp.utils.Constants.RANDOM_COMMAND;
+import static seedu.tp.utils.Constants.RESET_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
+import static seedu.tp.utils.Constants.SHOW_GROUPS_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 import static seedu.tp.utils.Constants.UPDATE_STUDY_PLAN_COMMAND;
 
@@ -193,6 +201,17 @@ public class Parser {
             return new ListCommand(flashcardList, ui);
         case LIST_REVIEWED_COMMAND:
             return new ListReviewedCommand(flashcardList, ui);
+        case LIST_FLASHCARDS_IN_GROUP_COMMAND:
+            try {
+                return new ListFlashcardsInGroupCommand(groupList, ui, splitInput[1] + " " + splitInput[2]);
+            } catch (IndexOutOfBoundsException e1) {
+                try {
+                    return new ListFlashcardsInGroupCommand(groupList, ui, splitInput[1]);
+                } catch (IndexOutOfBoundsException e2) {
+                    LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                    throw new InvalidInputFormatException();
+                }
+            }
         case SHOW_COMMAND:
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
@@ -213,6 +232,8 @@ public class Parser {
                 LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                 throw new InvalidInputFormatException();
             }
+        case RANDOM_COMMAND:
+            return new RandomCommand(flashcardList, ui);
         case DELETE_COMMAND:
             try {
                 return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
@@ -235,11 +256,17 @@ public class Parser {
                 throw new InvalidInputFormatException();
             }
         case TIMELINE_COMMAND:
-            return new TimelineCommand(flashcardList, ui);
+            try {
+                return new TimelineCommand(flashcardList, ui, splitInput[1], splitInput[2]);
+            } catch (IndexOutOfBoundsException e) {
+                return new TimelineCommand(flashcardList, ui);
+            }
         case GROUP_COMMAND:
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
+        case SHOW_GROUPS_COMMAND:
+            return new ShowGroupsCommand(groupList, ui);
         case UPDATE_STUDY_PLAN_COMMAND:
             return new UpdateStudyPlanCommand(ui, studyPlanList, flashcardList);
         case DISPLAY_STUDY_PLAN_COMMAND:
@@ -251,6 +278,8 @@ public class Parser {
                 LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                 throw new InvalidInputFormatException();
             }
+        case RESET_REVIEWED_COMMAND:
+            return new ResetReviewedCommand(ui, flashcardList);
         case HELP_COMMAND:
             return new HelpCommand(ui);
         case BYE_COMMAND:
