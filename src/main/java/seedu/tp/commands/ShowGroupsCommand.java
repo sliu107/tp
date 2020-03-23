@@ -42,6 +42,6 @@ public class ShowGroupsCommand extends Command {
 
         ShowGroupsCommand otherShowGroupsCommand = (ShowGroupsCommand) obj;
         return this.groupList.equals(otherShowGroupsCommand.groupList)
-                && this.ui.equals(otherShowGroupsCommand.ui);
+            && this.ui.equals(otherShowGroupsCommand.ui);
     }
 }

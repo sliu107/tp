@@ -15,8 +15,8 @@ import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
-import seedu.tp.commands.ResetReviewedCommand;
 import seedu.tp.commands.RandomCommand;
+import seedu.tp.commands.ResetReviewedCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
 import seedu.tp.commands.ShowGroupsCommand;
@@ -58,19 +58,19 @@ import static seedu.tp.utils.Constants.FIND_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
-import static seedu.tp.utils.Constants.LIST_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.LIST_FLASHCARDS_IN_GROUP_COMMAND;
+import static seedu.tp.utils.Constants.LIST_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
-import static seedu.tp.utils.Constants.RESET_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.RANDOM_COMMAND;
+import static seedu.tp.utils.Constants.RESET_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
+import static seedu.tp.utils.Constants.SHOWGROUPS_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 import static seedu.tp.utils.Constants.UPDATE_STUDY_PLAN_COMMAND;
-import static seedu.tp.utils.Constants.SHOWGROUPS_COMMAND;
 
 /**
  * Parser class to handle parsing of user input.

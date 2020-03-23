@@ -6,11 +6,11 @@ import seedu.tp.ui.Ui;
 import java.time.LocalDate;
 import java.util.List;
 
+import static seedu.tp.utils.Constants.DIVIDER;
 import static seedu.tp.utils.Constants.END_DATE_FIELD;
 import static seedu.tp.utils.Constants.NAME_FIELD;
 import static seedu.tp.utils.Constants.START_DATE_FIELD;
 import static seedu.tp.utils.Constants.SUMMARY_FIELD;
-import static seedu.tp.utils.Constants.DIVIDER;
 
 /**
  * Event flashcard.
@@ -75,7 +75,7 @@ public class EventFlashcard extends Flashcard {
     @Override
     public String getShortDescription() {
         String shortDescription = this.name + DIVIDER + this.startDate + " to " + this.endDate
-                                    + DIVIDER + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
+            + DIVIDER + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
         return shortDescription;
     }
 

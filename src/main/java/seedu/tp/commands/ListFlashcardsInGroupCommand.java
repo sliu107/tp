@@ -16,8 +16,8 @@ public class ListFlashcardsInGroupCommand extends Command {
     /**
      * Constructor for ListGroupCommand.
      *
-     * @param groupList list of all existing groups
-     * @param ui        instance for user interaction
+     * @param groupList       list of all existing groups
+     * @param ui              instance for user interaction
      * @param groupIdentifier name or index of the group to list all flashcards for
      */
     public ListFlashcardsInGroupCommand(GroupList groupList, Ui ui, String groupIdentifier) {
@@ -54,7 +54,7 @@ public class ListFlashcardsInGroupCommand extends Command {
 
         ListFlashcardsInGroupCommand otherListFlashcardsInGroupCommand = (ListFlashcardsInGroupCommand) obj;
         return this.ui.equals(otherListFlashcardsInGroupCommand.ui)
-                && this.groupList.equals(otherListFlashcardsInGroupCommand.groupList)
-                && this.groupIdentifier.equals(otherListFlashcardsInGroupCommand.groupIdentifier);
+            && this.groupList.equals(otherListFlashcardsInGroupCommand.groupList)
+            && this.groupIdentifier.equals(otherListFlashcardsInGroupCommand.groupIdentifier);
     }
 }

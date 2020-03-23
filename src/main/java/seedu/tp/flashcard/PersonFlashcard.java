@@ -93,7 +93,7 @@ public class PersonFlashcard extends Flashcard {
     @Override
     public String getShortDescription() {
         String shortDescription = this.name + DIVIDER + this.birthDate + " to " + this.deathDate
-                + DIVIDER + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
+            + DIVIDER + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
         return shortDescription;
     }
 

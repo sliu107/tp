@@ -147,7 +147,7 @@ public class FlashcardList {
                 System.out.println("");
             } else if (ui.promptUserResponseForReviewing(flashcard).equals("yes")) {
                 ReviewedCommand reviewedCommand = new ReviewedCommand(this,
-                        flashcards.indexOf(flashcard), ui);
+                    flashcards.indexOf(flashcard), ui);
                 reviewedCommand.execute();
                 reviewedNumber++;
             } else {
@@ -199,21 +199,21 @@ public class FlashcardList {
     }
 
     /**
-     * Updates the number of reviewed flashcards.
-     *
-     * @param totalReviewedNumber the updated number of reviewed flashcards
-     */
-    public void setTotalReviewedNumber(int totalReviewedNumber) {
-        this.totalReviewedNumber = totalReviewedNumber;
-    }
-
-    /**
      * Gets the number of reviewed flashcards.
      *
      * @return the total number of reviewed flashcards at this moment
      */
     public int getTotalReviewedNumber() {
         return totalReviewedNumber;
+    }
+
+    /**
+     * Updates the number of reviewed flashcards.
+     *
+     * @param totalReviewedNumber the updated number of reviewed flashcards
+     */
+    public void setTotalReviewedNumber(int totalReviewedNumber) {
+        this.totalReviewedNumber = totalReviewedNumber;
     }
 
     /**
