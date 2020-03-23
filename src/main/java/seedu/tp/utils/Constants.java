@@ -18,6 +18,7 @@ public class Constants {
     public static final String UPDATE_STUDY_PLAN_COMMAND = "plan";
     public static final String DISPLAY_STUDY_PLAN_COMMAND = "showplan";
     public static final String FIND_FLASHCARD_COMMAND = "find";
+    public static final String RESET_REVIEWED_COMMAND = "reset-reviewed";
     public static final String RANDOM_COMMAND = "random";
     public static final String HELP_COMMAND = "help";
     public static final String BYE_COMMAND = "bye";

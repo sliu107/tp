@@ -113,6 +113,21 @@ public class FlashcardList {
     }
 
     /**
+     * Resets all the flashcards as unreviewed.
+     *
+     * @param ui the ui used to communicate with the user
+     */
+    public void resetAsUnreviewed(Ui ui) {
+        assert flashcards != null : "Invalid flashcardList";
+        assert ui != null : "Invalid ui";
+
+        for (Flashcard flashcard : flashcards) {
+            flashcard.setReviewStatus(false);
+        }
+        ui.confirmResetCompletion();
+    }
+
+    /**
      * Randomize the flashcard list to help user for reviewing.
      *
      * @return the random flashcard list
