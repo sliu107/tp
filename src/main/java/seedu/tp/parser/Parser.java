@@ -16,6 +16,7 @@ import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
 import seedu.tp.commands.ResetReviewedCommand;
+import seedu.tp.commands.RandomCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
 import seedu.tp.commands.ShowGroupsCommand;
@@ -64,6 +65,7 @@ import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
 import static seedu.tp.utils.Constants.RESET_REVIEWED_COMMAND;
+import static seedu.tp.utils.Constants.RANDOM_COMMAND;
 import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
@@ -230,6 +232,8 @@ public class Parser {
                 LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                 throw new InvalidInputFormatException();
             }
+        case RANDOM_COMMAND:
+            return new RandomCommand(flashcardList, ui);
         case DELETE_COMMAND:
             try {
                 return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
@@ -252,7 +256,11 @@ public class Parser {
                 throw new InvalidInputFormatException();
             }
         case TIMELINE_COMMAND:
-            return new TimelineCommand(flashcardList, ui);
+            try {
+                return new TimelineCommand(flashcardList, ui, splitInput[1], splitInput[2]);
+            } catch (IndexOutOfBoundsException e) {
+                return new TimelineCommand(flashcardList, ui);
+            }
         case GROUP_COMMAND:
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:

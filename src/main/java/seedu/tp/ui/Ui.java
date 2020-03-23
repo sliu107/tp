@@ -1,8 +1,10 @@
 package seedu.tp.ui;
 
 import seedu.tp.exceptions.InvalidDateFormatException;
+import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
 import seedu.tp.parser.Parser;
@@ -212,6 +214,32 @@ public class Ui {
     }
 
     /**
+     * Gets the response from the user after the user reviewed a flashcard.
+     *
+     * @param flashcard the flashcard the user just reviewed
+     * @return the response given by the user
+     */
+    public String promptUserResponseForReviewing(Flashcard flashcard) {
+        System.out.println("Do you want to mark this flashcard as reviewed?");
+        String input = getNextLine().trim().toLowerCase();
+        System.out.println("");
+        return input;
+    }
+
+    /**
+     * Sends confirmation message for completion o random flashcard review.
+     *
+     * @param reviewedNumber        the number of flashcards reviewed during this self test
+     * @param totalUnreviewedNumber the total number of unreviewed flashcards
+     */
+    public void confirmRandomFlashcardsReviewCompletion(int reviewedNumber, int totalUnreviewedNumber) {
+        System.out.println("You have just gone through all the flashcard(s)");
+        System.out.println("You have marked " + reviewedNumber + " flashcard(s) as reviewed this time.");
+        System.out.println("You still have " + totalUnreviewedNumber + " flashcard(s) have not been reviewed so far.");
+        System.out.println("");
+    }
+
+    /**
      * Sends flashcard creation confirmation to user.
      *
      * @param flashcard the flashcard created
@@ -386,11 +414,14 @@ public class Ui {
     }
 
     /**
-     * Prints out all flashcards in the list ordered by start/birth date. Other cards come last
+     * Prints out all flashcards in the list ordered by start/birth date. Other cards come last.
+     * If a startDate and endDate is specified, prints all flashcards with startDate or birthDate in the
+     * range [startDate, endDate].
+     * Used for TimelineCommand.
      *
      * @param flashcardList the list of flashcards to be printed out
      */
-    public void listAllFlashcardsOrdered(FlashcardList flashcardList) {
+    public void listAllFlashcardsOrdered(FlashcardList flashcardList, LocalDate startDate, LocalDate endDate) {
         assert flashcardList != null : "Invalid null flashcard list!";
 
         if (flashcardList.isEmpty()) {
@@ -400,9 +431,47 @@ public class Ui {
 
         List<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
         Collections.sort(flashcards);
-        System.out.println("Here's a sorted list of the flashcards you have:");
-        for (Flashcard f : flashcards) {
-            System.out.println(f);
+        if (startDate == null || endDate == null) {
+            System.out.println("Flashcards sorted by date:");
+            for (Flashcard f : flashcards) {
+                System.out.println(BULLET_POINT + f.getShortDescription());
+            }
+        } else {
+            listFlashcardsInPeriod(flashcards, startDate, endDate);
+        }
+    }
+
+    /**
+     * Lists flashcards from a specified time period only, in sorted order.
+     *
+     * @param sortedFlashcards the sorted list of all flashcards
+     * @param startDate        the date to start listing flashcards from (inclusive)
+     * @param endDate          the date after which to stop listing flashcards from
+     */
+    private void listFlashcardsInPeriod(List<Flashcard> sortedFlashcards, LocalDate startDate, LocalDate endDate) {
+        System.out.println("Listing flashcards from " + startDate + " to " + endDate + "...");
+        boolean noFlashcards = true;
+        for (Flashcard f : sortedFlashcards) {
+            if (f instanceof EventFlashcard) {
+                EventFlashcard eventFlashcard = (EventFlashcard) f;
+                LocalDate eventStartDate = eventFlashcard.getStartDate();
+                if (eventStartDate.compareTo(startDate) >= 0
+                        && eventStartDate.compareTo(endDate) <= 0) {
+                    System.out.println(BULLET_POINT + f.getShortDescription());
+                    noFlashcards = false;
+                }
+            } else if (f instanceof PersonFlashcard) {
+                PersonFlashcard personFlashcard = (PersonFlashcard) f;
+                LocalDate personBirthDate = personFlashcard.getBirthDate();
+                if (personBirthDate.compareTo(startDate) >= 0
+                        && personBirthDate.compareTo(endDate) <= 0) {
+                    System.out.println(BULLET_POINT + f.getShortDescription());
+                    noFlashcards = false;
+                }
+            }
+        }
+        if (noFlashcards) {
+            System.out.println("No flashcards found in this period.");
         }
     }
 

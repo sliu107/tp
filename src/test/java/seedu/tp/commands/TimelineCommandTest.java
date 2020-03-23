@@ -15,6 +15,7 @@ import java.io.PrintStream;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static seedu.tp.utils.ExampleInputConstants.BULLET_POINT;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
 import static seedu.tp.utils.ExampleInputConstants.SUMMARY;
 
@@ -45,11 +46,15 @@ public class TimelineCommandTest {
         flashcardList.addFlashcard(new PersonFlashcard("First", firstDate, firstDate, SUMMARY, DETAILS));
 
         StringBuilder expectedOutput = new StringBuilder();
-        expectedOutput.append("Here's a sorted list of the flashcards you have:" + System.lineSeparator());
-        expectedOutput.append(flashcardList.getFlashcardAtIdx(3) + System.lineSeparator());
-        expectedOutput.append(flashcardList.getFlashcardAtIdx(0) + System.lineSeparator());
-        expectedOutput.append(flashcardList.getFlashcardAtIdx(2) + System.lineSeparator());
-        expectedOutput.append(flashcardList.getFlashcardAtIdx(1) + System.lineSeparator());
+        expectedOutput.append("Flashcards sorted by date:" + System.lineSeparator());
+        expectedOutput.append(BULLET_POINT
+                + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
+        expectedOutput.append(BULLET_POINT
+                + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
+        expectedOutput.append(BULLET_POINT
+                + flashcardList.getFlashcardAtIdx(2).getShortDescription() + System.lineSeparator());
+        expectedOutput.append(BULLET_POINT
+                + flashcardList.getFlashcardAtIdx(1).getShortDescription() + System.lineSeparator());
 
         TimelineCommand timelineCommand = new TimelineCommand(flashcardList, new Ui());
         timelineCommand.execute();

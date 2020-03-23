@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ExampleInputConstants {
     public static final String NEWLINE = System.lineSeparator();
+    public static final String BULLET_POINT = "- ";
 
     public static final String FLASHCARD_NAME = "Example flashcard name";
     public static final String GROUP_NAME = "Example flashcard group name";
