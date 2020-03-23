@@ -56,6 +56,9 @@ public class RandomCommandTest {
     private final InputStream backupStdin = System.in;
     private final PrintStream backupStdout = System.out;
 
+    /**
+     * Set up variables before each test.
+     */
     @BeforeEach
     public void setup() {
         List<Flashcard> flashcards = Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD, OTHER_FLASHCARD);
@@ -64,7 +67,7 @@ public class RandomCommandTest {
     }
 
     @AfterEach
-    public void restoreStdout() {
+    public void restoreStdinStdout() {
         System.setIn(backupStdin);
         System.setOut(backupStdout);
     }
