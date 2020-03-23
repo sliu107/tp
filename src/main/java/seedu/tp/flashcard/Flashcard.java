@@ -7,7 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import static seedu.tp.utils.Constants.EMPTY_STRING;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 
 /**

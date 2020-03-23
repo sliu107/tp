@@ -48,13 +48,13 @@ public class TimelineCommandTest {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Flashcards sorted by date:" + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-                + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-                + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-                + flashcardList.getFlashcardAtIdx(2).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(2).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-                + flashcardList.getFlashcardAtIdx(1).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(1).getShortDescription() + System.lineSeparator());
 
         TimelineCommand timelineCommand = new TimelineCommand(flashcardList, new Ui());
         timelineCommand.execute();

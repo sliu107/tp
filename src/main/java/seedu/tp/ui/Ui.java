@@ -23,10 +23,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import static seedu.tp.utils.Constants.BULLET_POINT;
 import static seedu.tp.utils.Constants.DETAIL_FIELD;
 import static seedu.tp.utils.Constants.EMPTY_STRING;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
-import static seedu.tp.utils.Constants.BULLET_POINT;
 
 /**
  * Ui class.
@@ -369,8 +369,8 @@ public class Ui {
     /**
      * Lists all flashcards in a specified group.
      *
-     * @param flashcardList       list of all flashcards in the group
-     * @param groupIdentifier     name or index of the group
+     * @param flashcardList   list of all flashcards in the group
+     * @param groupIdentifier name or index of the group
      */
     public void listFlashcardsInGroup(FlashcardList flashcardList, String groupIdentifier) {
         assert flashcardList != null : "Invalid null flashcard list!";
@@ -456,7 +456,7 @@ public class Ui {
                 EventFlashcard eventFlashcard = (EventFlashcard) f;
                 LocalDate eventStartDate = eventFlashcard.getStartDate();
                 if (eventStartDate.compareTo(startDate) >= 0
-                        && eventStartDate.compareTo(endDate) <= 0) {
+                    && eventStartDate.compareTo(endDate) <= 0) {
                     System.out.println(BULLET_POINT + f.getShortDescription());
                     noFlashcards = false;
                 }
@@ -464,7 +464,7 @@ public class Ui {
                 PersonFlashcard personFlashcard = (PersonFlashcard) f;
                 LocalDate personBirthDate = personFlashcard.getBirthDate();
                 if (personBirthDate.compareTo(startDate) >= 0
-                        && personBirthDate.compareTo(endDate) <= 0) {
+                    && personBirthDate.compareTo(endDate) <= 0) {
                     System.out.println(BULLET_POINT + f.getShortDescription());
                     noFlashcards = false;
                 }
@@ -490,10 +490,14 @@ public class Ui {
         for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlans) {
             System.out.println("Date: " + studyPlanForDay.getKey());
             for (int index : studyPlanForDay.getValue()) {
-                Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
-                System.out.println((index + 1) + ": " + flashcard.getName()
-                    + " | Reviewed: " + flashcard.getReviewIcon()
-                    + " | " + flashcard.getPriorityAsString());
+                try {
+                    Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
+                    System.out.println((index + 1) + ": " + flashcard.getName()
+                        + " | Reviewed: " + flashcard.getReviewIcon()
+                        + " | " + flashcard.getPriorityAsString());
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Flashcard with index " + index + " not found.");
+                }
             }
         }
         LOGGER.info("study plan displayed!");
@@ -548,7 +552,7 @@ public class Ui {
     public void sendInvalidFlashcardGroupResponse() {
         LOGGER.info("Send invalid flashcard group response to user...");
         System.out.println("Please enter a valid flashcard group name or index."
-                + " Use \"showgroups\" to view all groups.");
+            + " Use \"showgroups\" to view all groups.");
     }
 
     /**

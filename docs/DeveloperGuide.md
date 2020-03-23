@@ -4,6 +4,37 @@
 
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
 
+### Study Plan Feature
+
+#### Proposed Implementation
+
+The Study Plan feature is facilitated by `StudyPlanList`.
+
+Internally, it implements a `TreeMap`, with date as key and the list of flashcard indexes to study as value. 
+Key-value pairs in the `TreeMap` are sorted by dates.
+
+It implements the following operations:
+
+- `StudyPlanList#updateStudyPlan()` - Updates the study plan list.
+- `StudyPlanList#getStudyPlanList()` - Gets the list of study plans.
+
+Given below is an example usage scenario and how the study plan mechanism behaves at each step.
+
+Step 1. The user launches the application and an empty `StudyPlanList` is initialized.
+
+Step 2. The user executes `plan` command and the `updateStudyPlan` operation is invoked. The application prompts the
+user for date and the corresponding list of flashcards indexes.
+
+The following sequence diagram shows how the `updateStudyPlan` operation works:
+
+![updateStudyPlanSequenceDiagram](images/updateStudyPlanSequenceDiagram.png)
+
+Step 3. The user executes `show-plan` command and the `getStudyPlanList` operation is invoked. The application
+displays the user's study plan list.
+
+The following sequence diagram shows how the `getStudyPlanList` operation works:
+
+![getStudyPlanListSequenceDiagram](images/getStudyPlanListSequenceDiagram.png)
 
 ## Product Scope
 ### Target user profile
