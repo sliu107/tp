@@ -490,10 +490,14 @@ public class Ui {
         for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlans) {
             System.out.println("Date: " + studyPlanForDay.getKey());
             for (int index : studyPlanForDay.getValue()) {
-                Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
-                System.out.println((index + 1) + ": " + flashcard.getName()
-                    + " | Reviewed: " + flashcard.getReviewIcon()
-                    + " | " + flashcard.getPriorityAsString());
+                try {
+                    Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
+                    System.out.println((index + 1) + ": " + flashcard.getName()
+                        + " | Reviewed: " + flashcard.getReviewIcon()
+                        + " | " + flashcard.getPriorityAsString());
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Flashcard with index " + index + " not found.");
+                }
             }
         }
         LOGGER.info("study plan displayed!");

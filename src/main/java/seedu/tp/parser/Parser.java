@@ -67,7 +67,7 @@ import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
 import static seedu.tp.utils.Constants.RANDOM_COMMAND;
 import static seedu.tp.utils.Constants.RESET_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
-import static seedu.tp.utils.Constants.SHOWGROUPS_COMMAND;
+import static seedu.tp.utils.Constants.SHOW_GROUPS_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
 import static seedu.tp.utils.Constants.UPDATE_STUDY_PLAN_COMMAND;
@@ -265,7 +265,7 @@ public class Parser {
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
-        case SHOWGROUPS_COMMAND:
+        case SHOW_GROUPS_COMMAND:
             return new ShowGroupsCommand(groupList, ui);
         case UPDATE_STUDY_PLAN_COMMAND:
             return new UpdateStudyPlanCommand(ui, studyPlanList, flashcardList);
