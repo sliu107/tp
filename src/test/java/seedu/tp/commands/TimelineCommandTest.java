@@ -34,7 +34,7 @@ public class TimelineCommandTest {
     }
 
     @Test
-    public void timelineCommand_execute_listsFlashcardsSuccessfully() throws UnrecognizedFlashcardTypeException {
+    public void timelineCommand_execute_listsAllFlashcardsSuccessfully() throws UnrecognizedFlashcardTypeException {
         FlashcardList flashcardList = new FlashcardList();
         LocalDate firstDate = LocalDate.of(1834, 2, 1);
         LocalDate middleDate = LocalDate.of(1834, 7, 3);
@@ -57,6 +57,31 @@ public class TimelineCommandTest {
             + flashcardList.getFlashcardAtIdx(1).getShortDescription() + System.lineSeparator());
 
         TimelineCommand timelineCommand = new TimelineCommand(flashcardList, new Ui());
+        timelineCommand.execute();
+        assertEquals(expectedOutput.toString(), capturedOut.toString());
+    }
+
+    @Test
+    public void timelineCommand_execute_listsRestrictedFlashcardsSuccessfully() {
+        FlashcardList flashcardList = new FlashcardList();
+        LocalDate firstDate = LocalDate.of(1834, 2, 1);
+        LocalDate middleDate = LocalDate.of(1834, 7, 3);
+        LocalDate lastDate = LocalDate.of(1921, 7, 3);
+
+        flashcardList.addFlashcard(new EventFlashcard("Middle", middleDate, middleDate, SUMMARY, DETAILS));
+        flashcardList.addFlashcard(new OtherFlashcard("Bottom", SUMMARY, DETAILS));
+        flashcardList.addFlashcard(new EventFlashcard("Last", lastDate, lastDate, SUMMARY, DETAILS));
+        flashcardList.addFlashcard(new PersonFlashcard("First", firstDate, firstDate, SUMMARY, DETAILS));
+
+        StringBuilder expectedOutput = new StringBuilder();
+        expectedOutput.append("Listing flashcards from 1834-02-01 to 1834-07-03..." + System.lineSeparator());
+        expectedOutput.append(BULLET_POINT
+                + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
+        expectedOutput.append(BULLET_POINT
+                + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
+
+        TimelineCommand timelineCommand = new TimelineCommand(flashcardList, new Ui(),
+                "01-02-1834", "03-07-1834");
         timelineCommand.execute();
         assertEquals(expectedOutput.toString(), capturedOut.toString());
     }

@@ -32,15 +32,16 @@ public class ListFlashcardsInGroupCommand extends Command {
 
     @Override
     public void execute() {
-        LOGGER.info("Executing ListGroupCommand...");
+        LOGGER.info("Executing ListFlashcardsInGroupCommand...");
         try {
             FlashcardList flashcardsInGroup = groupList.getFlashcardsInGroup(groupIdentifier);
             ui.listFlashcardsInGroup(flashcardsInGroup, groupIdentifier);
         } catch (UnrecognizedFlashcardGroupException e) {
             ui.sendInvalidFlashcardGroupResponse();
-            LOGGER.warning("UnrecognizedFlashcardGroupException occurred when executing ListGroupCommand.");
+            LOGGER.warning("UnrecognizedFlashcardGroupException occurred when executing "
+                    + "ListFlashcardsInGroupCommand.");
         }
-        LOGGER.info("Finished executing ListGroupCommand!");
+        LOGGER.info("Finished executing ListFlashcardsInGroupCommand!");
     }
 
     @Override
