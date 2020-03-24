@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import static seedu.tp.utils.Constants.LOG_FOLDER;
+import static seedu.tp.utils.Constants.MS_TO_S_CONVERSION_FACTOR;
 import static seedu.tp.utils.Constants.REGEX_MATCH_ALL_CHARACTER;
 
 /**
@@ -135,7 +136,8 @@ public class FlashcardList {
         assert flashcards != null : "Invalid null flashcard!";
 
         FlashcardList randomFlashcards = new FlashcardList(flashcards);
-        Collections.shuffle(randomFlashcards.getFlashcards(), new Random(System.currentTimeMillis()));
+        Collections.shuffle(randomFlashcards.getFlashcards(),
+                new Random(System.currentTimeMillis() / MS_TO_S_CONVERSION_FACTOR));
         LOGGER.info("The flashcards have been randomized.");
 
         int reviewedNumber = 0;
