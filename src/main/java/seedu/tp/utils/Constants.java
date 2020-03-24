@@ -35,6 +35,8 @@ public class Constants {
     public static final String INDEX_FIELD = "index";
     public static final String DATE_FIELD = "date";
 
+    public static final int MS_TO_S_CONVERSION_FACTOR = 1000;
+
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";
     public static final String BULLET_POINT = "- ";
