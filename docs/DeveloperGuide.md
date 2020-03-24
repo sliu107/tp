@@ -24,6 +24,37 @@
 
 ### Implementation
 
+#### Set Priority Feature
+
+The Set Priority feature allows users to mark a flashcard with a specified priority level. The priority level is
+then reflected when the user requests a list of existing flashcards.
+
+##### Proposed Implementation
+
+`PriorityLevel` is stored as an enum with four fields: LOW, MEDIUM, HIGH and DEFAULT.
+
+The feature implements the following operations:
+
+- `Flashcard#setPriorityLevel()` - Sets a flashcard to a specified priority level (LOW/MEDIUM/HIGH).
+- `Flashcard#getPriorityAsString()` - Return an icon indicating the flashcard's priority level.
+
+The following class diagram shows the structures relevant to the Set Priority feature:
+
+![SetPriorityFeatureClassDiagram](images/SetPriorityFeatureClassDiagram.png)
+
+Given below is an example usage scenario and how the set priority mechanism behaves at each step.
+
+Step 1. The user launches the application and creates a new `Flashcard` (of type Event, Person, or Other), 
+with a default priority level of DEFAULT.
+
+Step 2. The user executes `priority [flashcard index] [priority level]` command and the `setPriorityLevel` 
+operation is invoked. Subsequently, the flashcard of specified index is retrieved from the main `FlashcardList` 
+instance. Its priority level is set to the specified priority.
+
+The following sequence diagram shows the relevant interactions behind `setPriorityLevel`:
+
+![setPriorityLevelSequenceDiagram](images/setPriorityLevelSequenceDiagram.png)
+
 #### Study Plan Feature
 
 ##### Proposed Implementation
