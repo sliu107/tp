@@ -4,9 +4,29 @@
 
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
 
-### Study Plan Feature
+### Design
 
-#### Proposed Implementation
+#### Architecture
+
+{Description of overall architecture}
+
+#### Ui Component
+
+{Description for Ui Component}
+
+#### Parser Component
+
+{Description for Parser Component}
+
+#### Storage Component
+
+{Description for Storage Component}
+
+### Implementation
+
+#### Study Plan Feature
+
+##### Proposed Implementation
 
 The Study Plan feature is facilitated by `StudyPlanList`.
 

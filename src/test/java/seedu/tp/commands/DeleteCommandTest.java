@@ -19,8 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class DeleteCommandTest {
-    private static Ui ui = new Ui();
-
     public static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
         "Event 1",
         LocalDate.of(1843, 7, 31),
@@ -40,7 +38,7 @@ public class DeleteCommandTest {
         "This is a summary",
         Arrays.asList("Detail 1", "Detail 2")
     );
-
+    private static Ui ui = new Ui();
     private FlashcardList emptyFlashcardList;
     private FlashcardList fullFlashcardList;
 
