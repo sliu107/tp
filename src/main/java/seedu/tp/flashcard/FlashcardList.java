@@ -143,7 +143,7 @@ public class FlashcardList {
         int reviewedNumber = 0;
         for (Flashcard flashcard : randomFlashcards.getFlashcards()) {
             System.out.println(flashcard);
-            if (flashcard.isReviewed) {
+            if (flashcard.isReviewed()) {
                 System.out.println("You have already reviewed this flashcard.");
                 System.out.println("");
             } else if (ui.promptUserResponseForReviewing(flashcard).equals("yes")) {
