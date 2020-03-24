@@ -56,6 +56,33 @@ The following sequence diagram shows how the `getStudyPlanList` operation works:
 
 ![getStudyPlanListSequenceDiagram](images/getStudyPlanListSequenceDiagram.png)
 
+#### Random Review Feature
+
+##### Proposed Implementation
+
+The random review mechanism is facilitated by `FlashcardList`.It stores an `List<Flashcard>` internally which contains
+all the flashcards created by the user.
+
+It implements the following operation:
+
+- `FlashcardList#reviewRandomFlashcards()` -Randomize all the flashcards, then display the details of them one by one 
+to the user. And update the review status of the flashcards corresponding to the user's' responses.
+
+Given below is an example usage scenario and how the random review mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FlashcardsList` will be initialized with the empty 
+flashcards list.
+
+Step 2. The user executes `event/person/other commands` to add multiple flashcards to the flashcard list 
+(The detailed implementation of creating flashcards explained in the Flashcard Creation Feature)
+
+Step 3. The user executes `random command` and `reviewRandomFlashcards()` operation is invoked. The application prompts 
+responses for each unreviewed flashcard that whether the user want to mark it as reviewed or not.
+
+The following sequence diagram shows how the   `reviewRandomFlashcards()` operation works:
+
+![randomReviewSequenceDiagram](images/randomReviewSequenceDiagram.png)
+
 ## Product Scope
 ### Target user profile
 
@@ -103,6 +130,7 @@ historical event/person, the relevant dates, and a summary. Flashcards can be ca
 |v2.0|student|read in flashcard groups from a storage file|groups can be loaded when I enter the app|
 |v2.0|student|restrict the timeline to a fixed period|keep track of flashcards belonging to a certain time period|
 |v2.0|student|shuffle and display random flashcards|test my knowledge using random flashcards|
+|v2.0|student|reset all the flashcards as unreviewed|review flashcards for multiple times
 
 ## Non-Functional Requirements
 
