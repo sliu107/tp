@@ -75,17 +75,14 @@ public class RandomCommandTest {
         Collections.shuffle(expectedRandomList.getFlashcards(), new Random(System.currentTimeMillis() / 1000));
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append(expectedRandomList.getFlashcardAtIdx(0).toString()).append(System.lineSeparator());
-        ;
         expectedOutput.append("Do you want to mark this flashcard as reviewed?").append(System.lineSeparator());
         expectedOutput.append(NEWLINE);
         expectedOutput.append("You have marked the following flashcard as Reviewed:").append(System.lineSeparator());
         expectedOutput.append(expectedRandomList.getFlashcardAtIdx(0).getName()).append(System.lineSeparator());
         expectedOutput.append(expectedRandomList.getFlashcardAtIdx(1).toString()).append(System.lineSeparator());
-        ;
         expectedOutput.append("Do you want to mark this flashcard as reviewed?").append(System.lineSeparator());
         expectedOutput.append(NEWLINE);
         expectedOutput.append(expectedRandomList.getFlashcardAtIdx(2).toString()).append(System.lineSeparator());
-        ;
         expectedOutput.append("Do you want to mark this flashcard as reviewed?").append(System.lineSeparator());
         expectedOutput.append(NEWLINE);
         expectedOutput.append("You have marked the following flashcard as Reviewed:").append(System.lineSeparator());
