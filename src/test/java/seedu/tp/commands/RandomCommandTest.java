@@ -3,6 +3,13 @@ package seedu.tp.commands;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.tp.exceptions.HistoryFlashcardException;
+import seedu.tp.flashcard.EventFlashcard;
+import seedu.tp.flashcard.Flashcard;
+import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.flashcard.OtherFlashcard;
+import seedu.tp.flashcard.PersonFlashcard;
+import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -13,16 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import seedu.tp.exceptions.HistoryFlashcardException;
-import seedu.tp.flashcard.EventFlashcard;
-import seedu.tp.flashcard.Flashcard;
-import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.flashcard.OtherFlashcard;
-import seedu.tp.flashcard.PersonFlashcard;
-import seedu.tp.ui.Ui;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
 import static seedu.tp.utils.ExampleInputConstants.END_LOCAL_DATE;
 import static seedu.tp.utils.ExampleInputConstants.NEWLINE;
@@ -50,11 +48,10 @@ public class RandomCommandTest {
         "This is a summary",
         DETAILS
     );
-
-    private FlashcardList fullFlashcardList;
     private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
     private final InputStream backupStdin = System.in;
     private final PrintStream backupStdout = System.out;
+    private FlashcardList fullFlashcardList;
 
     /**
      * Set up variables before each test.
@@ -77,15 +74,18 @@ public class RandomCommandTest {
         FlashcardList expectedRandomList = new FlashcardList(fullFlashcardList);
         Collections.shuffle(expectedRandomList.getFlashcards(), new Random(System.currentTimeMillis() / 1000));
         StringBuilder expectedOutput = new StringBuilder();
-        expectedOutput.append(expectedRandomList.getFlashcardAtIdx(0).toString()).append(System.lineSeparator());;
+        expectedOutput.append(expectedRandomList.getFlashcardAtIdx(0).toString()).append(System.lineSeparator());
+        ;
         expectedOutput.append("Do you want to mark this flashcard as reviewed?").append(System.lineSeparator());
         expectedOutput.append(NEWLINE);
         expectedOutput.append("You have marked the following flashcard as Reviewed:").append(System.lineSeparator());
         expectedOutput.append(expectedRandomList.getFlashcardAtIdx(0).getName()).append(System.lineSeparator());
-        expectedOutput.append(expectedRandomList.getFlashcardAtIdx(1).toString()).append(System.lineSeparator());;
+        expectedOutput.append(expectedRandomList.getFlashcardAtIdx(1).toString()).append(System.lineSeparator());
+        ;
         expectedOutput.append("Do you want to mark this flashcard as reviewed?").append(System.lineSeparator());
         expectedOutput.append(NEWLINE);
-        expectedOutput.append(expectedRandomList.getFlashcardAtIdx(2).toString()).append(System.lineSeparator());;
+        expectedOutput.append(expectedRandomList.getFlashcardAtIdx(2).toString()).append(System.lineSeparator());
+        ;
         expectedOutput.append("Do you want to mark this flashcard as reviewed?").append(System.lineSeparator());
         expectedOutput.append(NEWLINE);
         expectedOutput.append("You have marked the following flashcard as Reviewed:").append(System.lineSeparator());

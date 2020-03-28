@@ -72,14 +72,14 @@ public class Ui {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append("Please follow the prompts given by the program in each situation.")
-                .append(System.lineSeparator());
+            .append(System.lineSeparator());
         stringBuilder.append("(Note: [] indicates a parameter)").append(System.lineSeparator());
         stringBuilder.append("(Note: When a date is required, you can enter it in any of these formats:")
-                .append(System.lineSeparator());
+            .append(System.lineSeparator());
         stringBuilder.append("       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)")
-                .append(System.lineSeparator());
+            .append(System.lineSeparator());
         stringBuilder.append("Commands for History Flashcard are as follows:")
-                .append(System.lineSeparator());
+            .append(System.lineSeparator());
 
         stringBuilder.append("FLASHCARD CREATION").append(System.lineSeparator());
         stringBuilder.append("1. Add an event flashcard: event").append(System.lineSeparator());
@@ -94,9 +94,9 @@ public class Ui {
         stringBuilder.append("4c. List all flashcards sorted by start/birth date, within a restricted time period: "
             + "timeline [STARTDATE] [ENDDATE]").append(System.lineSeparator());
         stringBuilder.append("5. Show all details of an existing flashcard: show [INDEX]")
-                .append(System.lineSeparator());
+            .append(System.lineSeparator());
         stringBuilder.append("6. Delete a flashcard from the flashcard list: delete [INDEX]")
-                .append(System.lineSeparator());
+            .append(System.lineSeparator());
         stringBuilder.append("7. Find flashcards matching a keyword: find [KEYWORD]").append(System.lineSeparator());
         stringBuilder.append(System.lineSeparator());
 
@@ -455,9 +455,9 @@ public class Ui {
         for (int i = 0; i < flashcardListWithId.size(); i++) {
             Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
             System.out.println((i + 1) + ": " + flashcardEntry.getValue().getName()
-                    + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
-                    + " | " + flashcardEntry.getValue().getPriorityAsString()
-                    + " | ID: " + (flashcardEntry.getKey() + 1));
+                + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
+                + " | " + flashcardEntry.getValue().getPriorityAsString()
+                + " | ID: " + (flashcardEntry.getKey() + 1));
         }
         LOGGER.info("Listed reviewed flashcards with ID!");
     }
@@ -580,7 +580,7 @@ public class Ui {
                 } catch (IndexOutOfBoundsException e) {
                     index++;
                     System.out.println("Flashcard with index " + index + " not found. "
-                            + "Did you delete this flashcard?");
+                        + "Did you delete this flashcard?");
                 }
             }
         }
