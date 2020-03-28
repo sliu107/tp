@@ -90,9 +90,9 @@ public class RandomCommandTest {
         expectedOutput.append(NEWLINE);
         expectedOutput.append("You have marked the following flashcard as Reviewed:").append(System.lineSeparator());
         expectedOutput.append(expectedRandomList.getFlashcardAtIdx(2).getName()).append(System.lineSeparator());
-        expectedOutput.append("You have just gone through all the flashcard(s)").append(System.lineSeparator());
+        expectedOutput.append("You have just gone through all the flashcard(s).").append(System.lineSeparator());
         expectedOutput.append("You have marked 2 flashcard(s) as reviewed this time.").append(System.lineSeparator());
-        expectedOutput.append("You still have 1 flashcard(s) have not been reviewed so far.")
+        expectedOutput.append("You still have 1 unreviewed flashcard(s).")
                 .append(System.lineSeparator()).append((NEWLINE));
 
         ByteArrayInputStream simulatedSystemIn = new ByteArrayInputStream(SIMULATED_RANDOM_COMMAND_INPUT.getBytes());

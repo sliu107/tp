@@ -270,9 +270,9 @@ public class Ui {
      * @param totalUnreviewedNumber the total number of unreviewed flashcards
      */
     public void confirmRandomFlashcardsReviewCompletion(int reviewedNumber, int totalUnreviewedNumber) {
-        System.out.println("You have just gone through all the flashcard(s)");
+        System.out.println("You have just gone through all the flashcard(s).");
         System.out.println("You have marked " + reviewedNumber + " flashcard(s) as reviewed this time.");
-        System.out.println("You still have " + totalUnreviewedNumber + " flashcard(s) have not been reviewed so far.");
+        System.out.println("You still have " + totalUnreviewedNumber + " unreviewed flashcard(s).");
         System.out.println("");
     }
 
@@ -437,6 +437,34 @@ public class Ui {
 
     /**
      * Lists all flashcards along with their IDs.
+     * Used for ListReviewedCommand.
+     *
+     * @param flashcardListWithId the list of flashcards with IDs.
+     */
+    public void listAllReviewedFlashcardsWithId(List<Map.Entry<Integer, Flashcard>> flashcardListWithId) {
+        assert flashcardListWithId != null : "Invalid null flashcard list!";
+
+        LOGGER.info("Listing reviewed flashcards with ID...");
+        if (flashcardListWithId.isEmpty()) {
+            System.out.println("You have no reviewed flashcards! "
+                + "Use \"reviewed [INDEX]\" to mark a flashcard as reviewed.");
+            return;
+        }
+
+        System.out.println("Here's the list of reviewed flashcards:");
+        for (int i = 0; i < flashcardListWithId.size(); i++) {
+            Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
+            System.out.println((i + 1) + ": " + flashcardEntry.getValue().getName()
+                    + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
+                    + " | " + flashcardEntry.getValue().getPriorityAsString()
+                    + " | ID: " + (flashcardEntry.getKey() + 1));
+        }
+        LOGGER.info("Listed reviewed flashcards with ID!");
+    }
+
+    /**
+     * Lists all flashcards along with their IDs.
+     * Similar to listAllReviewedFlashcardsWithId, but used for FindCommand.
      *
      * @param flashcardListWithId the list of flashcards with IDs.
      */
@@ -523,6 +551,13 @@ public class Ui {
     }
 
     /**
+     * Prints confirmation that study plan has been updated.
+     */
+    public void confirmStudyPlanUpdate() {
+        System.out.println("Your study plan has been updated.");
+    }
+
+    /**
      * Displays a list of all the user's study plan(s) sorted by date.
      *
      * @param studyPlanList the study plan to be displayed
@@ -543,7 +578,9 @@ public class Ui {
                         + " | Reviewed: " + flashcard.getReviewIcon()
                         + " | " + flashcard.getPriorityAsString());
                 } catch (IndexOutOfBoundsException e) {
-                    System.out.println("Flashcard with index " + index + " not found.");
+                    index++;
+                    System.out.println("Flashcard with index " + index + " not found. "
+                            + "Did you delete this flashcard?");
                 }
             }
         }
@@ -599,7 +636,7 @@ public class Ui {
     public void sendInvalidFlashcardGroupResponse() {
         LOGGER.info("Send invalid flashcard group response to user...");
         System.out.println("Please enter a valid flashcard group name or index."
-            + " Use \"showgroups\" to view all groups.");
+            + " Use \"show-groups\" to view all groups.");
     }
 
     /**

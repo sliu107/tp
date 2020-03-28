@@ -70,7 +70,7 @@ public class ListReviewedCommandTest {
     @Test
     public void listReviewedCommand_execute_listsFlashcardsSuccessfully() {
         StringBuilder expectedOutput = new StringBuilder();
-        expectedOutput.append("Here's the list of flashcards you are looking for:" + System.lineSeparator());
+        expectedOutput.append("Here's the list of reviewed flashcards:" + System.lineSeparator());
         expectedOutput.append("1: Event 1 | Reviewed: / | Not indicated | ID: 1" + System.lineSeparator());
         expectedOutput.append("2: Title 1 | Reviewed: / | Not indicated | ID: 3" + System.lineSeparator());
 
@@ -81,7 +81,8 @@ public class ListReviewedCommandTest {
 
     @Test
     public void listReviewedCommand_executeEmptyList_listsFlashcardsSuccessfully() {
-        String expectedOutput = "You have no flashcard matching your query!" + System.lineSeparator();
+        String expectedOutput = "You have no reviewed flashcards! "
+            + "Use \"reviewed [INDEX]\" to mark a flashcard as reviewed." + System.lineSeparator();
 
         ListReviewedCommand listReviewedCommand = new ListReviewedCommand(emptyFlashcardList, new Ui());
         listReviewedCommand.execute();
