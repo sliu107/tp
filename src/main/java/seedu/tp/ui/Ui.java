@@ -551,6 +551,13 @@ public class Ui {
     }
 
     /**
+     * Prints confirmation that study plan has been updated.
+     */
+    public void confirmStudyPlanUpdate() {
+        System.out.println("Your study plan has been updated.");
+    }
+
+    /**
      * Displays a list of all the user's study plan(s) sorted by date.
      *
      * @param studyPlanList the study plan to be displayed
