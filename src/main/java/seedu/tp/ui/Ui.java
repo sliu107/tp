@@ -270,9 +270,9 @@ public class Ui {
      * @param totalUnreviewedNumber the total number of unreviewed flashcards
      */
     public void confirmRandomFlashcardsReviewCompletion(int reviewedNumber, int totalUnreviewedNumber) {
-        System.out.println("You have just gone through all the flashcard(s)");
+        System.out.println("You have just gone through all the flashcard(s).");
         System.out.println("You have marked " + reviewedNumber + " flashcard(s) as reviewed this time.");
-        System.out.println("You still have " + totalUnreviewedNumber + " flashcard(s) have not been reviewed so far.");
+        System.out.println("You still have " + totalUnreviewedNumber + " unreviewed flashcard(s).");
         System.out.println("");
     }
 
@@ -578,7 +578,9 @@ public class Ui {
                         + " | Reviewed: " + flashcard.getReviewIcon()
                         + " | " + flashcard.getPriorityAsString());
                 } catch (IndexOutOfBoundsException e) {
-                    System.out.println("Flashcard with index " + index + " not found.");
+                    index++;
+                    System.out.println("Flashcard with index " + index + " not found. "
+                            + "Did you delete this flashcard?");
                 }
             }
         }
@@ -634,7 +636,7 @@ public class Ui {
     public void sendInvalidFlashcardGroupResponse() {
         LOGGER.info("Send invalid flashcard group response to user...");
         System.out.println("Please enter a valid flashcard group name or index."
-            + " Use \"showgroups\" to view all groups.");
+            + " Use \"show-groups\" to view all groups.");
     }
 
     /**
