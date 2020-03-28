@@ -437,6 +437,34 @@ public class Ui {
 
     /**
      * Lists all flashcards along with their IDs.
+     * Used for ListReviewedCommand.
+     *
+     * @param flashcardListWithId the list of flashcards with IDs.
+     */
+    public void listAllReviewedFlashcardsWithId(List<Map.Entry<Integer, Flashcard>> flashcardListWithId) {
+        assert flashcardListWithId != null : "Invalid null flashcard list!";
+
+        LOGGER.info("Listing reviewed flashcards with ID...");
+        if (flashcardListWithId.isEmpty()) {
+            System.out.println("You have no reviewed flashcards! "
+                + "Use \"reviewed [INDEX]\" to mark a flashcard as reviewed.");
+            return;
+        }
+
+        System.out.println("Here's the list of reviewed flashcards:");
+        for (int i = 0; i < flashcardListWithId.size(); i++) {
+            Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
+            System.out.println((i + 1) + ": " + flashcardEntry.getValue().getName()
+                    + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
+                    + " | " + flashcardEntry.getValue().getPriorityAsString()
+                    + " | ID: " + (flashcardEntry.getKey() + 1));
+        }
+        LOGGER.info("Listed reviewed flashcards with ID!");
+    }
+
+    /**
+     * Lists all flashcards along with their IDs.
+     * Similar to listAllReviewedFlashcardsWithId, but used for FindCommand.
      *
      * @param flashcardListWithId the list of flashcards with IDs.
      */

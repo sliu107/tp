@@ -30,7 +30,7 @@ public class ListReviewedCommand extends Command {
     public void execute() {
         LOGGER.info("Executing ListReviewedCommand...");
         List<Map.Entry<Integer, Flashcard>> reviewedFlashcards = flashcardList.getAllReviewedFlashcards();
-        ui.listAllFlashcardsWithId(reviewedFlashcards);
+        ui.listAllReviewedFlashcardsWithId(reviewedFlashcards);
         LOGGER.info("Finished executing ListReviewedCommand!");
     }
 
