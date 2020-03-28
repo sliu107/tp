@@ -88,6 +88,7 @@ public class StudyPlanList {
             throw new InvalidFlashcardIndexException();
         }
         studyPlanList.put(date, indexes);
+        ui.confirmStudyPlanUpdate();
     }
 
     /**

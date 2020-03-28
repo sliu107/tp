@@ -70,33 +70,70 @@ public class Ui {
      */
     public void sendHelpMessage() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Followings are the formats of commands used in the main menu:")
-            .append(System.lineSeparator());
+
+        stringBuilder.append("Please follow the prompts given by the program in each situation.")
+                .append(System.lineSeparator());
+        stringBuilder.append("(Note: [] indicates a parameter)").append(System.lineSeparator());
+        stringBuilder.append("(Note: When a date is required, you can enter it in any of these formats:")
+                .append(System.lineSeparator());
+        stringBuilder.append("       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)")
+                .append(System.lineSeparator());
+        stringBuilder.append("Commands for History Flashcard are as follows:")
+                .append(System.lineSeparator());
+
+        stringBuilder.append("FLASHCARD CREATION").append(System.lineSeparator());
         stringBuilder.append("1. Add an event flashcard: event").append(System.lineSeparator());
         stringBuilder.append("2. Add a person flashcard: person").append(System.lineSeparator());
         stringBuilder.append("3. Add an other flashcard: other").append(System.lineSeparator());
-        stringBuilder.append("4. List out all the flashcards: list").append(System.lineSeparator());
-        stringBuilder.append("5. List the flashcards in time order: timeline").append(System.lineSeparator());
-        stringBuilder.append("6. Set the priority of an existing flashcard: priority i/INDEX p/PRIORITY")
+        stringBuilder.append(System.lineSeparator());
+
+        stringBuilder.append("BASIC OPERATIONS").append(System.lineSeparator());
+        stringBuilder.append("4a. List out all the flashcards: list").append(System.lineSeparator());
+        stringBuilder.append("4b. List all flashcards in order sorted by start/birth date: timeline")
+            .append(System.lineSeparator());
+        stringBuilder.append("4c. List all flashcards sorted by start/birth date, within a restricted time period: "
+            + "timeline [STARTDATE] [ENDDATE]").append(System.lineSeparator());
+        stringBuilder.append("5. Show all details of an existing flashcard: show [INDEX]")
+                .append(System.lineSeparator());
+        stringBuilder.append("6. Delete a flashcard from the flashcard list: delete [INDEX]")
+                .append(System.lineSeparator());
+        stringBuilder.append("7. Find flashcards matching a keyword: find [KEYWORD]").append(System.lineSeparator());
+        stringBuilder.append(System.lineSeparator());
+
+        stringBuilder.append("FLASHCARD STATUS OPERATIONS").append(System.lineSeparator());
+        stringBuilder.append("8. Set the priority of an existing flashcard: priority [INDEX] [PRIORITY]")
             .append(System.lineSeparator());
         stringBuilder.append("  (Note: There are 4 priority levels: LOW, MEDIUM, HIGH, DEFAULT)")
             .append(System.lineSeparator());
-        stringBuilder.append("7. Set an existing flashcard as reviewed: reviewed i/INDEX")
+        stringBuilder.append("9a. Set an existing flashcard as reviewed: reviewed [INDEX]")
             .append(System.lineSeparator());
-        stringBuilder.append("8. Show the detailed information of an existing flashcard: show i/INDEX")
+        stringBuilder.append("9b. List all reviewed flashcards: list-reviewed").append(System.lineSeparator());
+        stringBuilder.append("9c. Reset status of all flashcards to Unreviewed: reset-reviewed")
             .append(System.lineSeparator());
-        stringBuilder.append("9. Delete a flashcard from the flashcard list: delete i/INDEX")
+        stringBuilder.append(System.lineSeparator());
+
+        stringBuilder.append("GROUPS").append(System.lineSeparator());
+        stringBuilder.append("10a. Set up a new flashcard group: group").append(System.lineSeparator());
+        stringBuilder.append("10b. List all existing groups: show-groups").append(System.lineSeparator());
+        stringBuilder.append("10c. Add a flashcard to an existing group: add").append(System.lineSeparator());
+        stringBuilder.append("10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]")
             .append(System.lineSeparator());
-        stringBuilder.append("10. Set up a new flashcard group: group").append(System.lineSeparator());
-        stringBuilder.append("11. Add a flashcard to an existing group: add").append(System.lineSeparator());
-        stringBuilder.append("12. To exit the History Flashcard: bye").append(System.lineSeparator());
-        stringBuilder.append("13. To get help message: help").append(System.lineSeparator());
-        stringBuilder.append("Then please follow the instruction given by the program in each situation.")
-            .append(System.lineSeparator());
-        stringBuilder.append("(Note: Whenever requiring a date, you should pick one of the following format:")
-            .append(System.lineSeparator());
-        stringBuilder.append("       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)")
-            .append(System.lineSeparator());
+        stringBuilder.append(System.lineSeparator());
+
+        stringBuilder.append("STUDY PLANS").append(System.lineSeparator());
+        stringBuilder.append("11a. Create or update today's study plan: plan").append(System.lineSeparator());
+        stringBuilder.append("11b. Show all study plans: show-plan").append(System.lineSeparator());
+        stringBuilder.append(System.lineSeparator());
+
+        stringBuilder.append("RANDOMIZED REVIEW").append(System.lineSeparator());
+        stringBuilder.append("12. Shuffle and display a random flashcard: random").append(System.lineSeparator());
+        stringBuilder.append(System.lineSeparator());
+
+        stringBuilder.append("OTHER").append(System.lineSeparator());
+        stringBuilder.append("13. Get the list of commands: help").append(System.lineSeparator());
+        stringBuilder.append("14. Exit History Flashcard: bye").append(System.lineSeparator());
+
+
         System.out.println(stringBuilder);
     }
 
@@ -233,9 +270,9 @@ public class Ui {
      * @param totalUnreviewedNumber the total number of unreviewed flashcards
      */
     public void confirmRandomFlashcardsReviewCompletion(int reviewedNumber, int totalUnreviewedNumber) {
-        System.out.println("You have just gone through all the flashcard(s)");
+        System.out.println("You have just gone through all the flashcard(s).");
         System.out.println("You have marked " + reviewedNumber + " flashcard(s) as reviewed this time.");
-        System.out.println("You still have " + totalUnreviewedNumber + " flashcard(s) have not been reviewed so far.");
+        System.out.println("You still have " + totalUnreviewedNumber + " unreviewed flashcard(s).");
         System.out.println("");
     }
 
@@ -400,6 +437,34 @@ public class Ui {
 
     /**
      * Lists all flashcards along with their IDs.
+     * Used for ListReviewedCommand.
+     *
+     * @param flashcardListWithId the list of flashcards with IDs.
+     */
+    public void listAllReviewedFlashcardsWithId(List<Map.Entry<Integer, Flashcard>> flashcardListWithId) {
+        assert flashcardListWithId != null : "Invalid null flashcard list!";
+
+        LOGGER.info("Listing reviewed flashcards with ID...");
+        if (flashcardListWithId.isEmpty()) {
+            System.out.println("You have no reviewed flashcards! "
+                + "Use \"reviewed [INDEX]\" to mark a flashcard as reviewed.");
+            return;
+        }
+
+        System.out.println("Here's the list of reviewed flashcards:");
+        for (int i = 0; i < flashcardListWithId.size(); i++) {
+            Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
+            System.out.println((i + 1) + ": " + flashcardEntry.getValue().getName()
+                    + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
+                    + " | " + flashcardEntry.getValue().getPriorityAsString()
+                    + " | ID: " + (flashcardEntry.getKey() + 1));
+        }
+        LOGGER.info("Listed reviewed flashcards with ID!");
+    }
+
+    /**
+     * Lists all flashcards along with their IDs.
+     * Similar to listAllReviewedFlashcardsWithId, but used for FindCommand.
      *
      * @param flashcardListWithId the list of flashcards with IDs.
      */
@@ -486,6 +551,13 @@ public class Ui {
     }
 
     /**
+     * Prints confirmation that study plan has been updated.
+     */
+    public void confirmStudyPlanUpdate() {
+        System.out.println("Your study plan has been updated.");
+    }
+
+    /**
      * Displays a list of all the user's study plan(s) sorted by date.
      *
      * @param studyPlanList the study plan to be displayed
@@ -506,7 +578,9 @@ public class Ui {
                         + " | Reviewed: " + flashcard.getReviewIcon()
                         + " | " + flashcard.getPriorityAsString());
                 } catch (IndexOutOfBoundsException e) {
-                    System.out.println("Flashcard with index " + index + " not found.");
+                    index++;
+                    System.out.println("Flashcard with index " + index + " not found. "
+                            + "Did you delete this flashcard?");
                 }
             }
         }
@@ -562,7 +636,7 @@ public class Ui {
     public void sendInvalidFlashcardGroupResponse() {
         LOGGER.info("Send invalid flashcard group response to user...");
         System.out.println("Please enter a valid flashcard group name or index."
-            + " Use \"showgroups\" to view all groups.");
+            + " Use \"show-groups\" to view all groups.");
     }
 
     /**

@@ -118,8 +118,7 @@ public class ListFlashcardsInGroupCommandTest {
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Please enter a valid flashcard group name or index."
-            + " Use \"showgroups\" to view all groups." + System.lineSeparator());
-
+                + " Use \"show-groups\" to view all groups." + System.lineSeparator());
         assertEquals(expectedOutput.toString(), capturedOut.toString());
     }
 
@@ -135,8 +134,7 @@ public class ListFlashcardsInGroupCommandTest {
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Please enter a valid flashcard group name or index."
-            + " Use \"showgroups\" to view all groups." + System.lineSeparator());
-
+                + " Use \"show-groups\" to view all groups." + System.lineSeparator());
         assertEquals(expectedOutput.toString(), capturedOut.toString());
     }
 }
