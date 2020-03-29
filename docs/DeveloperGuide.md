@@ -16,7 +16,22 @@
 
 #### Parser Component
 
-{Description for Parser Component}
+The structure of the Parser Component is illustrated in the following diagram:
+
+![ParserComponentDiagram](images/ParserComponent.png)
+
+API : `Parser.java`
+
+1. The `Main` class (not shown in the diagram above) uses the `Parser` class to parse the user command.
+2. The `Parser` class depends on multiple classes including the `FlashcardFactory`, `FlashcardList`, `GroupFactory
+`, `GroupList`, `StudyPlanList` and `Ui` classes to create a `Command` object from user input.
+3. The resulting `Command` object which then can be executed by the `Main` class.
+
+Given below is the Sequence Diagram for interactions between the `Parser` and `Command` components for the
+`parseCommand` API call from `Main` class. We use the interaction between the `Parser` and `DeleteCommand` class as
+ an example: 
+
+![ParserAndCommandSequenceDiagram](images/ParserAndCommandSequenceDiagram.png)
 
 #### Storage Component
 
