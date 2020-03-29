@@ -268,9 +268,14 @@ Format: `show-plan`
 ## Randomized Review
 #### Displaying a random Flashcard: `random`
 
-Shuffles and displays a random flashcard from the list of all flashcards.
+Shuffles and displays all the flashcards in a random order.
 
 Format: `random`
+
+The application will then prompt the user to give responses during the review:
+
+Format: `yes` to mark the flashcard just shown as reviewed
+        `no` to keep the flashcard just shown as unreviewed
 
 ## FAQ
 
