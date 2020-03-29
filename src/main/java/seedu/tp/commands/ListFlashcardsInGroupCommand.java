@@ -39,7 +39,7 @@ public class ListFlashcardsInGroupCommand extends Command {
         } catch (UnrecognizedFlashcardGroupException e) {
             ui.sendInvalidFlashcardGroupResponse();
             LOGGER.warning("UnrecognizedFlashcardGroupException occurred when executing "
-                    + "ListFlashcardsInGroupCommand.");
+                + "ListFlashcardsInGroupCommand.");
         }
         LOGGER.info("Finished executing ListFlashcardsInGroupCommand!");
     }

@@ -76,12 +76,12 @@ public class TimelineCommandTest {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Listing flashcards from 1834-02-01 to 1834-07-03..." + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-                + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-                + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
 
         TimelineCommand timelineCommand = new TimelineCommand(flashcardList, new Ui(),
-                "01-02-1834", "03-07-1834");
+            "01-02-1834", "03-07-1834");
         timelineCommand.execute();
         assertEquals(expectedOutput.toString(), capturedOut.toString());
     }

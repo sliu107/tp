@@ -1,7 +1,5 @@
 package seedu.tp.utils;
 
-import com.sun.source.tree.NewArrayTree;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
