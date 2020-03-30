@@ -76,7 +76,7 @@ public class ShowGroupsCommandTest {
         groupList.addFlashcardGroup(group1);
         groupList.addFlashcardGroup(group2);
         ShowGroupsCommand showGroupsCommand = new ShowGroupsCommand(groupList, new Ui());
-        showGroupsCommand.execute();
+        CommandFeedback showGroupsCommandFeedback = showGroupsCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here are all existing groups:"
@@ -84,6 +84,6 @@ public class ShowGroupsCommandTest {
         expectedOutput.append("1. Group 1" + System.lineSeparator());
         expectedOutput.append("2. Group 2" + System.lineSeparator());
 
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+        assertEquals(expectedOutput.toString(), showGroupsCommandFeedback.toString());
     }
 }

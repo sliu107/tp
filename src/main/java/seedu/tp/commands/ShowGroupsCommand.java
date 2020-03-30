@@ -41,10 +41,12 @@ public class ShowGroupsCommand extends Command {
         }
         List<FlashcardGroup> groups = groupList.getGroups();
         StringBuilder feedback = new StringBuilder("Here are all existing groups:");
+        feedback.append(System.lineSeparator());
         for (int i = 0; i < groups.size(); i++) {
             FlashcardGroup group = groups.get(i);
             String groupName = group.getName();
             feedback.append(i + 1 + ". " + groupName);
+            feedback.append(System.lineSeparator());
         }
         return feedback.toString();
     }

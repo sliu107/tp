@@ -1,5 +1,6 @@
 package seedu.tp.flashcard;
 
+import seedu.tp.commands.CommandFeedback;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.ui.Ui;
@@ -148,12 +149,14 @@ public class FlashcardList {
             } else if (ui.promptUserResponseForReviewing(flashcard).equals("yes")) {
                 ReviewedCommand reviewedCommand = new ReviewedCommand(this,
                     flashcards.indexOf(flashcard));
-                reviewedCommand.execute();
+                CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
+                ui.showCommandFeedback(reviewedCommandFeedback);
                 reviewedNumber++;
             } else {
                 continue;
             }
         }
+        totalReviewedNumber += reviewedNumber;
         int totalUnreviewedNumber = flashcards.size() - totalReviewedNumber;
         ui.confirmRandomFlashcardsReviewCompletion(reviewedNumber, totalUnreviewedNumber);
         return randomFlashcards;

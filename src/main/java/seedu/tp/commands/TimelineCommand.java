@@ -84,7 +84,10 @@ public class TimelineCommand extends Command {
 
         List<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
         Collections.sort(flashcards);
-        StringBuilder feedback = new StringBuilder("Here's an ordered list of the flashcards you have:");
+        String summaryMessage = startDate == null && endDate == null ?
+                "Here's an ordered list of the flashcards you have:" :
+                "Listing flashcards from " + startDate + " to " + endDate + "...";
+        StringBuilder feedback = new StringBuilder(summaryMessage);
         feedback.append(System.lineSeparator());
         for (Flashcard f : flashcards) {
             feedback.append(BULLET_POINT + f.getShortDescription());

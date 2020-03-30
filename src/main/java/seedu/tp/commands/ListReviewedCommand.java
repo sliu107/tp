@@ -40,12 +40,14 @@ public class ListReviewedCommand extends Command {
         }
 
         StringBuilder feedback = new StringBuilder("Here's the list of reviewed flashcards:");
+        feedback.append(System.lineSeparator());
         for (int i = 0; i < flashcardListWithId.size(); i++) {
             Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
             feedback.append((i + 1) + ": " + flashcardEntry.getValue().getName()
                     + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
                     + " | " + flashcardEntry.getValue().getPriorityAsString()
                     + " | ID: " + (flashcardEntry.getKey() + 1));
+            feedback.append(System.lineSeparator());
         }
         return feedback.toString();
     }
