@@ -44,7 +44,7 @@ public class ShowCommand extends Command {
             String feedback = "These are the flashcard details:" + System.lineSeparator() + flashcard;
             return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
-            LOGGER.warning("InvalidFlashcardIndexException occurred when executing the show command");
+            LOGGER.warning("InvalidFlashcardIndexException occurred when executing the show command.");
             throw new InvalidFlashcardIndexException();
         }
     }

@@ -63,7 +63,7 @@ public class PriorityCommand extends ModifyingCommand {
             }
             return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
-            LOGGER.warning("IndexOutOfBoundsException occurred when executing the priority command");
+            LOGGER.warning("IndexOutOfBoundsException occurred when executing the priority command.");
             throw new InvalidFlashcardIndexException();
         }
     }

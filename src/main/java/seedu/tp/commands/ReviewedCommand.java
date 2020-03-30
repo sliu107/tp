@@ -48,7 +48,7 @@ public class ReviewedCommand extends ModifyingCommand {
             }
             return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
-            LOGGER.warning("InvalidFlashcardIndexException occurred when executing the reviewed command");
+            LOGGER.warning("InvalidFlashcardIndexException occurred when executing the reviewed command.");
             throw new InvalidFlashcardIndexException();
         }
     }

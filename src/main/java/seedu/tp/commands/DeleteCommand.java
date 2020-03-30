@@ -5,13 +5,13 @@ import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.storage.Savable;
-import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 
 public class DeleteCommand extends ModifyingCommand {
 
     private FlashcardList flashcardList;
     private int index;
+    private Ui ui;
 
     /**
      * Constructor for delete command.
@@ -19,11 +19,12 @@ public class DeleteCommand extends ModifyingCommand {
      * @param flashcardList flashcard list for the command to execute on
      * @param index         index in the delete command
      */
-    public DeleteCommand(FlashcardList flashcardList, int index) {
+    public DeleteCommand(FlashcardList flashcardList, int index, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.flashcardList = flashcardList;
         this.index = index;
+        this.ui = ui;
     }
 
     /**

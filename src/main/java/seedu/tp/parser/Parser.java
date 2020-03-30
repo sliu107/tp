@@ -4,16 +4,24 @@ import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
+import seedu.tp.commands.DisplayStudyPlanCommand;
 import seedu.tp.commands.EventFlashcardCommand;
+import seedu.tp.commands.FindCommand;
 import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
+import seedu.tp.commands.ListFlashcardsInGroupCommand;
+import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
 import seedu.tp.commands.PriorityCommand;
+import seedu.tp.commands.RandomCommand;
+import seedu.tp.commands.ResetReviewedCommand;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.commands.ShowCommand;
+import seedu.tp.commands.ShowGroupsCommand;
 import seedu.tp.commands.TimelineCommand;
+import seedu.tp.commands.UpdateStudyPlanCommand;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
@@ -24,7 +32,7 @@ import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
-import seedu.tp.storage.Storage;
+import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -43,18 +51,26 @@ import java.util.logging.SimpleFormatter;
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
+import static seedu.tp.utils.Constants.DISPLAY_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.EMPTY_SPACE;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
+import static seedu.tp.utils.Constants.FIND_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
+import static seedu.tp.utils.Constants.LIST_FLASHCARDS_IN_GROUP_COMMAND;
+import static seedu.tp.utils.Constants.LIST_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 import static seedu.tp.utils.Constants.PRIORITY_COMMAND;
+import static seedu.tp.utils.Constants.RANDOM_COMMAND;
+import static seedu.tp.utils.Constants.RESET_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.SHOW_COMMAND;
+import static seedu.tp.utils.Constants.SHOW_GROUPS_COMMAND;
 import static seedu.tp.utils.Constants.TIMELINE_COMMAND;
+import static seedu.tp.utils.Constants.UPDATE_STUDY_PLAN_COMMAND;
 
 /**
  * Parser class to handle parsing of user input.
@@ -68,6 +84,7 @@ public class Parser {
     private FlashcardList flashcardList;
     private GroupFactory groupFactory;
     private GroupList groupList;
+    private StudyPlanList studyPlanList;
     private Ui ui;
 
     /**
@@ -80,11 +97,12 @@ public class Parser {
      * @param ui               UI to be passed in as argument to commands
      */
     public Parser(FlashcardFactory flashcardFactory, FlashcardList flashcardList,
-                  GroupFactory groupFactory, GroupList groupList, Ui ui) {
+                  GroupFactory groupFactory, GroupList groupList, StudyPlanList studyPlanList, Ui ui) {
         this.flashcardFactory = flashcardFactory;
         this.flashcardList = flashcardList;
         this.groupFactory = groupFactory;
         this.groupList = groupList;
+        this.studyPlanList = studyPlanList;
         this.ui = ui;
     }
 
@@ -181,21 +199,50 @@ public class Parser {
             return new OtherFlashcardCommand(flashcardList, flashcardFactory);
         case LIST_COMMAND:
             return new ListCommand(flashcardList);
+        case LIST_REVIEWED_COMMAND:
+            return new ListReviewedCommand(flashcardList, ui);
+        case LIST_FLASHCARDS_IN_GROUP_COMMAND:
+            try {
+                return new ListFlashcardsInGroupCommand(groupList, ui, splitInput[1] + " " + splitInput[2]);
+            } catch (IndexOutOfBoundsException e1) {
+                try {
+                    return new ListFlashcardsInGroupCommand(groupList, ui, splitInput[1]);
+                } catch (IndexOutOfBoundsException e2) {
+                    LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                    throw new InvalidInputFormatException();
+                }
+            }
         case SHOW_COMMAND:
             try {
                 return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
-            } catch (IndexOutOfBoundsException e) {
-                LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
-                throw new InvalidFlashcardIndexException();
-            }
-        case REVIEWED_COMMAND:
-            return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
-        case DELETE_COMMAND:
-            try {
-                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
+            }
+        case REVIEWED_COMMAND:
+            try {
+                return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
+            } catch (NumberFormatException e) {
+                LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
+                throw new InvalidFlashcardIndexException();
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
+            }
+        case RANDOM_COMMAND:
+            return new RandomCommand(flashcardList, ui);
+        case DELETE_COMMAND:
+            try {
+                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+            } catch (NumberFormatException e) {
+                LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
+                throw new InvalidFlashcardIndexException();
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
             }
         case PRIORITY_COMMAND:
             try {
@@ -204,15 +251,35 @@ public class Parser {
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                 throw new InvalidInputFormatException();
             }
         case TIMELINE_COMMAND:
-            return new TimelineCommand(flashcardList);
+            try {
+                return new TimelineCommand(flashcardList, splitInput[1], splitInput[2]);
+            } catch (IndexOutOfBoundsException e) {
+                return new TimelineCommand(flashcardList);
+            }
         case GROUP_COMMAND:
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
+        case SHOW_GROUPS_COMMAND:
+            return new ShowGroupsCommand(groupList, ui);
+        case UPDATE_STUDY_PLAN_COMMAND:
+            return new UpdateStudyPlanCommand(ui, studyPlanList, flashcardList);
+        case DISPLAY_STUDY_PLAN_COMMAND:
+            return new DisplayStudyPlanCommand(ui, studyPlanList, flashcardList);
+        case FIND_FLASHCARD_COMMAND:
+            try {
+                return new FindCommand(flashcardList, ui, splitInput[1]);
+            } catch (IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
+            }
+        case RESET_REVIEWED_COMMAND:
+            return new ResetReviewedCommand(ui, flashcardList);
         case HELP_COMMAND:
             return new HelpCommand();
         case BYE_COMMAND:

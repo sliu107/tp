@@ -21,7 +21,7 @@ public class EventFlashcardCommandTest {
     @Test
     public void eventFlashcardCommand_execute_addsFlashcardSuccessfully() throws UnrecognizedFlashcardTypeException {
         FlashcardList expectedFlashcardList = new FlashcardList();
-        ;
+
         expectedFlashcardList.addFlashcard(new EventFlashcard(FLASHCARD_NAME, START_LOCAL_DATE, END_LOCAL_DATE, SUMMARY,
             DETAILS));
 

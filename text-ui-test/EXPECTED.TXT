@@ -1,22 +1,45 @@
 Welcome to History Flashcard App!
-Followings are the formats of commands used in the main menu:
+Please follow the prompts given by the program in each situation.
+(Note: [] indicates a parameter)
+(Note: When a date is required, you can enter it in any of these formats:
+       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)
+Commands for History Flashcard are as follows:
+FLASHCARD CREATION
 1. Add an event flashcard: event
 2. Add a person flashcard: person
 3. Add an other flashcard: other
-4. List out all the flashcards: list
-5. List the flashcards in time order: timeline
-6. Set the priority of an existing flashcard: priority i/INDEX p/PRIORITY
+
+BASIC OPERATIONS
+4a. List out all the flashcards: list
+4b. List all flashcards in order sorted by start/birth date: timeline
+4c. List all flashcards sorted by start/birth date, within a restricted time period: timeline [STARTDATE] [ENDDATE]
+5. Show all details of an existing flashcard: show [INDEX]
+6. Delete a flashcard from the flashcard list: delete [INDEX]
+7. Find flashcards matching a keyword: find [KEYWORD]
+
+FLASHCARD STATUS OPERATIONS
+8. Set the priority of an existing flashcard: priority [INDEX] [PRIORITY]
   (Note: There are 4 priority levels: LOW, MEDIUM, HIGH, DEFAULT)
-7. Set an existing flashcard as reviewed: reviewed i/INDEX
-8. Show the detailed information of an existing flashcard: show i/INDEX
-9. Delete a flashcard from the flashcard list: delete i/INDEX
-10. Set up a new flashcard group: group
-11. Add a flashcard to an existing group: add
-12. To exit the History Flashcard: bye
-13. To get help message: help
-Then please follow the instruction given by the program in each situation.
-(Note: Whenever requiring a date, you should pick one of the following format:
-       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)
+9a. Set an existing flashcard as reviewed: reviewed [INDEX]
+9b. List all reviewed flashcards: list-reviewed
+9c. Reset status of all flashcards to Unreviewed: reset-reviewed
+
+GROUPS
+10a. Set up a new flashcard group: group
+10b. List all existing groups: show-groups
+10c. Add a flashcard to an existing group: add
+10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]
+
+STUDY PLANS
+11a. Create or update today's study plan: plan
+11b. Show all study plans: show-plan
+
+RANDOMIZED REVIEW
+12. Shuffle and display a random flashcard: random
+
+OTHER
+13. Get the list of commands: help
+14. Exit History Flashcard: bye
 
 Sorry, I don't know how to help with that yet.
 Sorry, I don't know how to help with that yet.
@@ -39,7 +62,7 @@ Details:
 * Functional end of Samurai Class
 
 Here's the list of flashcards you have:
-1: Meiji Restoration | Reviewed: N | Not indicated
+1: Meiji Restoration | Reviewed: X | Not indicated
 Please enter name:
 Please enter birth date:
 That date format couldn't be parsed! Please enter again.
@@ -58,8 +81,8 @@ Details:
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 
 Here's the list of flashcards you have:
-1: Meiji Restoration | Reviewed: N | Not indicated
-2: Albus Dumbledore | Reviewed: N | Not indicated
+1: Meiji Restoration | Reviewed: X | Not indicated
+2: Albus Dumbledore | Reviewed: X | Not indicated
 Please enter name:
 Please enter summary:
 Please enter detail (optional):
@@ -74,6 +97,26 @@ Details:
 * It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
 * According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
 
+Flashcards sorted by date:
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+- Resurrection Stone | X | Not indicated
+Listing flashcards from 2020-01-01 to 2020-01-01...
+No flashcards found in this period.
+Listing flashcards from 1868-01-01 to 2020-01-01...
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+Listing flashcards from 1850-01-01 to 1870-05-20...
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+Flashcards sorted by date:
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+- Resurrection Stone | X | Not indicated
+That date format couldn't be parsed!
+Flashcards sorted by date:
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+- Resurrection Stone | X | Not indicated
 Please enter name:
 Please enter birth date:
 Please enter death date:
@@ -86,41 +129,32 @@ Died: February 24, 1943
 Summary: 8)
 Details:
 
-Here's a sorted list of the flashcards you have:
-Event name: Meiji Restoration
-Event period: January 1, 1868-January 1, 1868
-Summary: Turning point in Japanese history
-Details:
-* End of Shogunate
-* Centralization of power
-* Functional end of Samurai Class
-
-Person name: Quinn
-Born: July 31, 1870
-Died: February 24, 1943
-Summary: 8)
-Details:
-
-Person name: Albus Dumbledore
-Born: August 1, 1881
-Died: June 30, 1997
-Summary: Albus Dumbledore was never proud or vain.
-Details:
-* He could find something to value in anyone, however apparently insignificant or wretched
-* Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
-
-Title: Resurrection Stone
-Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
-Details:
-* In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
-* It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
-* According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
-
+Flashcards sorted by date:
+- Meiji Restoration | 1868-01-01 to 1868-01-01 | X | Not indicated
+- Quinn | 1870-07-31 to 1943-02-24 | X | Not indicated
+- Albus Dumbledore | 1881-08-01 to 1997-06-30 | X | Not indicated
+- Resurrection Stone | X | Not indicated
 Here's the list of flashcards you have:
-1: Meiji Restoration | Reviewed: N | Not indicated
-2: Albus Dumbledore | Reviewed: N | Not indicated
-3: Resurrection Stone | Reviewed: N | Not indicated
-4: Quinn | Reviewed: N | Not indicated
+1: Meiji Restoration | Reviewed: X | Not indicated
+2: Albus Dumbledore | Reviewed: X | Not indicated
+3: Resurrection Stone | Reviewed: X | Not indicated
+4: Quinn | Reviewed: X | Not indicated
+Please enter date:
+Please enter indexes:
+Your study plan has been updated.
+Date: 2020-01-01
+1: Meiji Restoration | Reviewed: X | Not indicated
+3: Resurrection Stone | Reviewed: X | Not indicated
+Please enter date:
+That date format couldn't be parsed! Please enter again.
+Please enter indexes:
+Your study plan has been updated.
+Date: 2020-01-01
+1: Meiji Restoration | Reviewed: X | Not indicated
+3: Resurrection Stone | Reviewed: X | Not indicated
+Date: 2020-03-01
+2: Albus Dumbledore | Reviewed: X | Not indicated
+There are no existing groups. Use "group" to create a new group.
 Please enter name:
 Please enter description:
 Please enter indexes:
@@ -156,33 +190,72 @@ Group name: Harry Potter Flashcards
 Group description: This is a group for HP related stuff.
 There are 3 flashcards in this group.
 
+Here's the list of flashcards you have:
+1: Meiji Restoration | Reviewed: X | Not indicated
+2: Albus Dumbledore | Reviewed: X | Not indicated
+3: Resurrection Stone | Reviewed: X | Not indicated
+4: Quinn | Reviewed: X | Not indicated
+Please use the correct input format. Use "help" to view all commands.
+Here's the list of flashcards you are looking for:
+1: Meiji Restoration | Reviewed: X | Not indicated | ID: 1
+Here's the list of flashcards you are looking for:
+1: Meiji Restoration | Reviewed: X | Not indicated | ID: 1
+2: Albus Dumbledore | Reviewed: X | Not indicated | ID: 2
+3: Resurrection Stone | Reviewed: X | Not indicated | ID: 3
+Here's the list of flashcards you are looking for:
+1: Resurrection Stone | Reviewed: X | Not indicated | ID: 3
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration | Reviewed: N | Not indicated
-2: Albus Dumbledore | Reviewed: N | Not indicated
-3: Resurrection Stone | Reviewed: N | Not indicated
-4: Quinn | Reviewed: N | Not indicated
+1: Meiji Restoration | Reviewed: X | Not indicated
+2: Albus Dumbledore | Reviewed: X | Not indicated
+3: Resurrection Stone | Reviewed: X | Not indicated
+4: Quinn | Reviewed: X | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration | Reviewed: N | Not indicated
-2: Albus Dumbledore | Reviewed: N | Not indicated
-3: Resurrection Stone | Reviewed: N | Not indicated
-4: Quinn | Reviewed: N | Not indicated
+1: Meiji Restoration | Reviewed: X | Not indicated
+2: Albus Dumbledore | Reviewed: X | Not indicated
+3: Resurrection Stone | Reviewed: X | Not indicated
+4: Quinn | Reviewed: X | Not indicated
 The flashcard index you entered is invalid
 Here's the list of flashcards you have:
-1: Meiji Restoration | Reviewed: N | Not indicated
-2: Albus Dumbledore | Reviewed: N | Not indicated
-3: Resurrection Stone | Reviewed: N | Not indicated
-4: Quinn | Reviewed: N | Not indicated
+1: Meiji Restoration | Reviewed: X | Not indicated
+2: Albus Dumbledore | Reviewed: X | Not indicated
+3: Resurrection Stone | Reviewed: X | Not indicated
+4: Quinn | Reviewed: X | Not indicated
+The following flashcard has been deleted.
+Event name: Meiji Restoration
+Event period: January 1, 1868-January 1, 1868
+Summary: Turning point in Japanese history
+Details:
+* End of Shogunate
+* Centralization of power
+* Functional end of Samurai Class
+
 Here's the list of flashcards you have:
-1: Albus Dumbledore | Reviewed: N | Not indicated
-2: Resurrection Stone | Reviewed: N | Not indicated
-3: Quinn | Reviewed: N | Not indicated
+1: Albus Dumbledore | Reviewed: X | Not indicated
+2: Resurrection Stone | Reviewed: X | Not indicated
+3: Quinn | Reviewed: X | Not indicated
+The following flashcard has been deleted.
+Title: Resurrection Stone
+Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
+Details:
+* In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
+* It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
+* According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
+
 Here's the list of flashcards you have:
-1: Albus Dumbledore | Reviewed: N | Not indicated
-2: Quinn | Reviewed: N | Not indicated
+1: Albus Dumbledore | Reviewed: X | Not indicated
+2: Quinn | Reviewed: X | Not indicated
+You have no reviewed flashcards! Use "reviewed [INDEX]" to mark a flashcard as reviewed.
 You have marked the following flashcard as Reviewed:
 Albus Dumbledore
+Here's the list of reviewed flashcards:
+1: Albus Dumbledore | Reviewed: / | Not indicated | ID: 1
+You have marked the following flashcard as Reviewed:
+Quinn
+Here's the list of reviewed flashcards:
+1: Albus Dumbledore | Reviewed: / | Not indicated | ID: 1
+2: Quinn | Reviewed: / | Not indicated | ID: 2
 These are the flashcard details:
 Person name: Albus Dumbledore
 Born: August 1, 1881
@@ -195,6 +268,19 @@ Details:
 Priority has been updated:
 Quinn | New priority: **
 Here's the list of flashcards you have:
-1: Albus Dumbledore | Reviewed: Y | Not indicated
-2: Quinn | Reviewed: N | **
+1: Albus Dumbledore | Reviewed: / | Not indicated
+2: Quinn | Reviewed: / | **
+Here are all existing groups:
+1. Harry Potter Flashcards
+1 contains the following flashcards:
+- Albus Dumbledore | Reviewed: / | Not indicated
+- Resurrection Stone | Reviewed: X | Not indicated
+- Meiji Restoration | Reviewed: X | Not indicated
+Harry Potter Flashcards contains the following flashcards:
+- Albus Dumbledore | Reviewed: / | Not indicated
+- Resurrection Stone | Reviewed: X | Not indicated
+- Meiji Restoration | Reviewed: X | Not indicated
+Please use the correct input format. Use "help" to view all commands.
+Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
+Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
 Thanks for using History Flashcard!

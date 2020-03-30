@@ -58,6 +58,30 @@ public class GroupList {
     }
 
     /**
+     * Returns a FlashcardList of flashcards belonging to the group specified by groupName.
+     *
+     * @param groupIdentifier either the name or the index of the flashcard group
+     * @return FlashcardList of flashcards belonging to the group
+     */
+    public FlashcardList getFlashcardsInGroup(String groupIdentifier) throws UnrecognizedFlashcardGroupException {
+        FlashcardList flashcardsInGroup;
+        for (FlashcardGroup g : groups) {
+            if (g.getName().equals(groupIdentifier)) {
+                flashcardsInGroup = g.getGroupCards();
+                return flashcardsInGroup;
+            }
+        }
+
+        try {
+            int groupIndex = Integer.parseInt(groupIdentifier) - 1;
+            FlashcardGroup g = groups.get(groupIndex);
+            return g.getGroupCards();
+        } catch (NumberFormatException | IndexOutOfBoundsException e) {
+            throw new UnrecognizedFlashcardGroupException("Invalid group!");
+        }
+    }
+
+    /**
      * Gets the flashcard group at a specific index.
      *
      * @param index the index.

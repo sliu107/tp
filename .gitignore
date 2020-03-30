@@ -17,5 +17,9 @@ bin/
 
 *.log
 logs/
+<<<<<<< HEAD
 
 flashcards/
+=======
+src/main/java/META-INF/MANIFEST.MF
+>>>>>>> master

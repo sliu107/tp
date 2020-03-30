@@ -44,6 +44,9 @@ public class GroupCommand extends ModifyingCommand {
         if (!(obj instanceof GroupCommand)) {
             return false;
         }
+        if (this == obj) {
+            return true;
+        }
 
         GroupCommand otherGroupCommand = (GroupCommand) obj;
         return this.getGroupList().equals(otherGroupCommand.getGroupList());

@@ -86,7 +86,17 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
      * @return "Y" for Yes if reviewed, else "N" for No.
      */
     public String getReviewIcon() {
-        return (isReviewed ? "Y" : "N");
+        return (isReviewed ? "/" : "X");
+    }
+
+
+    /**
+     * Returns boolean value indicating whether or not the flashcards has been reviewed.
+     *
+     * @return true if flashcard is reviewed, else false
+     */
+    public boolean isReviewed() {
+        return isReviewed;
     }
 
     /**
@@ -133,6 +143,13 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     public List<String> getDetails() {
         return details;
     }
+
+    /**
+     * To be implemented by child classes.
+     *
+     * @return a shortened description of the flashcard
+     */
+    public abstract String getShortDescription();
 
     /**
      * Check if the current instance is equal to the object passed in.

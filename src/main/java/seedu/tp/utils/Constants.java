@@ -5,13 +5,21 @@ public class Constants {
     public static final String PERSON_FLASHCARD_COMMAND = "person";
     public static final String OTHER_FLASHCARD_COMMAND = "other";
     public static final String LIST_COMMAND = "list";
+    public static final String LIST_REVIEWED_COMMAND = "list-reviewed";
+    public static final String LIST_FLASHCARDS_IN_GROUP_COMMAND = "list-group";
     public static final String SHOW_COMMAND = "show";
     public static final String REVIEWED_COMMAND = "reviewed";
     public static final String DELETE_COMMAND = "delete";
     public static final String PRIORITY_COMMAND = "priority";
     public static final String TIMELINE_COMMAND = "timeline";
     public static final String GROUP_COMMAND = "group";
+    public static final String SHOW_GROUPS_COMMAND = "show-groups";
     public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
+    public static final String UPDATE_STUDY_PLAN_COMMAND = "plan";
+    public static final String DISPLAY_STUDY_PLAN_COMMAND = "show-plan";
+    public static final String FIND_FLASHCARD_COMMAND = "find";
+    public static final String RESET_REVIEWED_COMMAND = "reset-reviewed";
+    public static final String RANDOM_COMMAND = "random";
     public static final String HELP_COMMAND = "help";
     public static final String BYE_COMMAND = "bye";
 
@@ -25,9 +33,16 @@ public class Constants {
     public static final String DESCRIPTION_FIELD = "description";
     public static final String INDEXES_FIELD = "indexes";
     public static final String INDEX_FIELD = "index";
+    public static final String DATE_FIELD = "date";
+
+    public static final int MS_TO_S_CONVERSION_FACTOR = 1000;
 
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";
+    public static final String BULLET_POINT = "- ";
+    public static final String DIVIDER = " | ";
+
+    public static final String REGEX_MATCH_ALL_CHARACTER = ".*";
 
     public static final String LOG_FOLDER = "logs/";
     public static final String SAVE_FOLDER = "flashcards/";
