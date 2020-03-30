@@ -7,7 +7,7 @@ public class ByeCommand extends Command {
 
     @Override
     public CommandFeedback execute() {
-        return null;
+        return new CommandFeedback();
     }
 
     /**

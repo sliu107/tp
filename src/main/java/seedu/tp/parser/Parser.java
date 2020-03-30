@@ -180,16 +180,16 @@ public class Parser {
         case OTHER_FLASHCARD_COMMAND:
             return new OtherFlashcardCommand(flashcardList, flashcardFactory);
         case LIST_COMMAND:
-            return new ListCommand(flashcardList, ui);
+            return new ListCommand(flashcardList);
         case SHOW_COMMAND:
             try {
-                return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+                return new ShowCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
             } catch (IndexOutOfBoundsException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
             }
         case REVIEWED_COMMAND:
-            return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+            return new ReviewedCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
         case DELETE_COMMAND:
             try {
                 return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
@@ -200,7 +200,7 @@ public class Parser {
         case PRIORITY_COMMAND:
             try {
                 Flashcard.PriorityLevel pl = Flashcard.PriorityLevel.valueOf(splitInput[2]);
-                return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui, pl);
+                return new PriorityCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, pl);
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
@@ -208,13 +208,13 @@ public class Parser {
                 throw new InvalidInputFormatException();
             }
         case TIMELINE_COMMAND:
-            return new TimelineCommand(flashcardList, ui);
+            return new TimelineCommand(flashcardList);
         case GROUP_COMMAND:
             return new GroupCommand(groupFactory, groupList);
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
         case HELP_COMMAND:
-            return new HelpCommand(ui);
+            return new HelpCommand();
         case BYE_COMMAND:
             return new ByeCommand();
         default:

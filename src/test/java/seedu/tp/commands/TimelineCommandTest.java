@@ -51,7 +51,7 @@ public class TimelineCommandTest {
         expectedOutput.append(flashcardList.getFlashcardAtIdx(2) + System.lineSeparator());
         expectedOutput.append(flashcardList.getFlashcardAtIdx(1) + System.lineSeparator());
 
-        TimelineCommand timelineCommand = new TimelineCommand(flashcardList, new Ui());
+        TimelineCommand timelineCommand = new TimelineCommand(flashcardList);
         CommandFeedback timelineCommandFeedback = timelineCommand.execute();
         assertEquals(expectedOutput.toString(), timelineCommandFeedback.toString());
     }

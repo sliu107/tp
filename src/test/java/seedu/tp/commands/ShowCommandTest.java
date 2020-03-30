@@ -75,7 +75,7 @@ public class ShowCommandTest {
         expectedEventOutput.append("Details:" + System.lineSeparator());
         expectedEventOutput.append(DETAILS_BULLET_FORM);
 
-        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 0, new Ui());
+        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 0);
         CommandFeedback showCommandFeedback = showCommand.execute();
         assertEquals(expectedEventOutput.toString(), showCommandFeedback.toString());
     }
@@ -91,7 +91,7 @@ public class ShowCommandTest {
         expectedPersonOutput.append("Details:" + System.lineSeparator());
         expectedPersonOutput.append(DETAILS_BULLET_FORM);
 
-        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 1, new Ui());
+        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 1);
         CommandFeedback showCommandFeedback = showCommand.execute();
         assertEquals(expectedPersonOutput.toString(), showCommandFeedback.toString());
     }
@@ -105,7 +105,7 @@ public class ShowCommandTest {
         expectedOtherOutput.append("Details:" + System.lineSeparator());
         expectedOtherOutput.append(DETAILS_BULLET_FORM);
 
-        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 2, new Ui());
+        ShowCommand showCommand = new ShowCommand(fullFlashcardList, 2);
         CommandFeedback showCommandFeedback = showCommand.execute();
         assertEquals(expectedOtherOutput.toString(), showCommandFeedback.toString());
     }
@@ -115,7 +115,7 @@ public class ShowCommandTest {
         FlashcardList flashcardList = new FlashcardList();
         flashcardList.addFlashcard(new OtherFlashcard(FLASHCARD_NAME, SUMMARY, DETAILS));
         Ui ui = new Ui();
-        ShowCommand showCommand = new ShowCommand(flashcardList, 1, ui);
+        ShowCommand showCommand = new ShowCommand(flashcardList, 1);
         assertThrows(
             InvalidFlashcardIndexException.class,
             showCommand::execute,

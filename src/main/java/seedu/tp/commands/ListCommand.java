@@ -10,20 +10,16 @@ import seedu.tp.ui.Ui;
 public class ListCommand extends Command {
 
     private FlashcardList flashcardList;
-    private Ui ui;
 
     /**
      * Constructor for list command.
      *
      * @param flashcardList flashcard list for the command to execute on
-     * @param ui            the UI class to be used by the command
      */
-    public ListCommand(FlashcardList flashcardList, Ui ui) {
+    public ListCommand(FlashcardList flashcardList) {
         assert flashcardList != null : "Invalid null FlashcardList!";
-        assert ui != null : "Invalid null Ui!";
 
         this.flashcardList = flashcardList;
-        this.ui = ui;
     }
 
     /**

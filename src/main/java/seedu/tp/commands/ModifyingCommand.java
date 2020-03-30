@@ -11,8 +11,7 @@ import java.io.IOException;
  */
 public abstract class ModifyingCommand extends Command {
     Storage storage;
-    Ui ui;
-    
+
     protected ModifyingCommand() {
         this.storage = Storage.getInstance();
     }

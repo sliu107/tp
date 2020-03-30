@@ -61,7 +61,7 @@ public class PriorityCommandTest {
         expectedEventOutputDefault.append("Priority has been updated:" + System.lineSeparator());
         expectedEventOutputDefault.append("Event 1 | New priority: Not indicated");
 
-        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 0, new Ui(), PriorityLevel.DEFAULT);
+        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 0, PriorityLevel.DEFAULT);
         CommandFeedback priorityCommandFeedback = priorityCommand.execute();
         assertEquals(expectedEventOutputDefault.toString(), priorityCommandFeedback.toString());
     }
@@ -72,7 +72,7 @@ public class PriorityCommandTest {
         expectedEventOutputHigh.append("Priority has been updated:" + System.lineSeparator());
         expectedEventOutputHigh.append("Event 1 | New priority: ***");
 
-        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 0, new Ui(), PriorityLevel.HIGH);
+        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 0, PriorityLevel.HIGH);
         CommandFeedback priorityCommandFeedback = priorityCommand.execute();
         assertEquals(expectedEventOutputHigh.toString(), priorityCommandFeedback.toString());
     }
@@ -83,7 +83,7 @@ public class PriorityCommandTest {
         expectedPersonOutput.append("Priority has been updated:" + System.lineSeparator());
         expectedPersonOutput.append("Person 1 | New priority: **");
 
-        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 1, new Ui(), PriorityLevel.MEDIUM);
+        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 1, PriorityLevel.MEDIUM);
         CommandFeedback priorityCommandFeedback = priorityCommand.execute();
         assertEquals(expectedPersonOutput.toString(), priorityCommandFeedback.toString());
     }
@@ -94,7 +94,7 @@ public class PriorityCommandTest {
         expectedOtherOutput.append("Priority has been updated:" + System.lineSeparator());
         expectedOtherOutput.append("Title 1 | New priority: *");
 
-        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 2, new Ui(), PriorityLevel.LOW);
+        PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 2, PriorityLevel.LOW);
         CommandFeedback priorityCommandFeedback = priorityCommand.execute();
         assertEquals(expectedOtherOutput.toString(), priorityCommandFeedback.toString());
     }

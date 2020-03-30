@@ -61,7 +61,7 @@ public class ReviewedCommandTest {
         expectedOutput.append("You have marked the following flashcard as Reviewed:" + System.lineSeparator());
         expectedOutput.append("Event 1");
 
-        ReviewedCommand reviewedCommand = new ReviewedCommand(flashcardList, 0, new Ui());
+        ReviewedCommand reviewedCommand = new ReviewedCommand(flashcardList, 0);
         CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
         assertEquals(expectedOutput.toString(), reviewedCommandFeedback.toString());
     }

@@ -12,7 +12,6 @@ import seedu.tp.ui.Ui;
 public class PriorityCommand extends ModifyingCommand {
     private FlashcardList flashcardList;
     private int index;
-    private Ui ui;
     private Flashcard.PriorityLevel pl;
 
     /**
@@ -20,16 +19,13 @@ public class PriorityCommand extends ModifyingCommand {
      *
      * @param flashcardList list containing all flashcards
      * @param index         index of the flashcard to show
-     * @param ui            instance for user interaction
      * @param pl            priority level to set the flashcard to
      */
-    public PriorityCommand(FlashcardList flashcardList, int index, Ui ui, Flashcard.PriorityLevel pl) {
+    public PriorityCommand(FlashcardList flashcardList, int index, Flashcard.PriorityLevel pl) {
         assert flashcardList != null : "Invalid null FlashcardList!";
-        assert ui != null : "Invalid null Ui!";
 
         this.flashcardList = flashcardList;
         this.index = index;
-        this.ui = ui;
         this.pl = pl;
     }
 

@@ -1,13 +1,11 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.HistoryFlashcardException;
-import seedu.tp.ui.Ui;
 
 /**
  * HelpCommand class to print the help message which shows the list of possible user commands.
  */
 public class HelpCommand extends Command {
-    Ui ui;
     private static final String NEWLINE = System.lineSeparator();
     private static String helpMessage = "Followings are the formats of commands used in the main menu:" + NEWLINE
             + "1. Add an event flashcard: event" + NEWLINE
@@ -27,17 +25,6 @@ public class HelpCommand extends Command {
             + "(Note: Whenever requiring a date you should pick one of the following format:"
             + "       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)";
 
-
-    /**
-     * Constructor for HelpCommand.
-     *
-     * @param ui the instance for user interaction
-     */
-    public HelpCommand(Ui ui) {
-        assert ui != null : "Invalid null Ui!";
-
-        this.ui = ui;
-    }
 
     @Override
     public CommandFeedback execute() throws HistoryFlashcardException {
