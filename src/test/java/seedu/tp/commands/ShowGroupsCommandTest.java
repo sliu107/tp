@@ -27,29 +27,27 @@ import static seedu.tp.utils.ExampleInputConstants.START_LOCAL_DATE;
 import static seedu.tp.utils.InputTestUtil.convertStringIndexesToIntArray;
 
 public class ShowGroupsCommandTest {
-    private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
-    private final PrintStream backupStdout = System.out;
-
     private static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
-            "Event 1",
-            START_LOCAL_DATE,
-            END_LOCAL_DATE,
-            "This is an event summary",
-            DETAILS
+        "Event 1",
+        START_LOCAL_DATE,
+        END_LOCAL_DATE,
+        "This is an event summary",
+        DETAILS
     );
     private static final PersonFlashcard PERSON_FLASHCARD = new PersonFlashcard(
-            "Person 1",
-            START_LOCAL_DATE,
-            END_LOCAL_DATE,
-            "This is a person's summary",
-            DETAILS
+        "Person 1",
+        START_LOCAL_DATE,
+        END_LOCAL_DATE,
+        "This is a person's summary",
+        DETAILS
     );
     private static final OtherFlashcard OTHER_FLASHCARD = new OtherFlashcard(
-            "Title 1",
-            "This is a summary",
-            DETAILS
+        "Title 1",
+        "This is a summary",
+        DETAILS
     );
-
+    private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
+    private final PrintStream backupStdout = System.out;
     private FlashcardList fullFlashcardList;
 
     @BeforeEach
@@ -71,9 +69,9 @@ public class ShowGroupsCommandTest {
     @Test
     public void showGroupsCommand_execute_listGroupsSuccessfully() {
         FlashcardGroup group1 = new FlashcardGroup("Group 1", DESCRIPTION, fullFlashcardList,
-                convertStringIndexesToIntArray(INDEXES_3));
+            convertStringIndexesToIntArray(INDEXES_3));
         FlashcardGroup group2 = new FlashcardGroup("Group 2", DESCRIPTION, fullFlashcardList,
-                convertStringIndexesToIntArray(INDEXES_2));
+            convertStringIndexesToIntArray(INDEXES_2));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group1);
         groupList.addFlashcardGroup(group2);
@@ -82,7 +80,7 @@ public class ShowGroupsCommandTest {
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here are all existing groups:"
-                + System.lineSeparator());
+            + System.lineSeparator());
         expectedOutput.append("1. Group 1" + System.lineSeparator());
         expectedOutput.append("2. Group 2" + System.lineSeparator());
 

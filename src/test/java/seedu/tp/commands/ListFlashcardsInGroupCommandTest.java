@@ -27,29 +27,27 @@ import static seedu.tp.utils.ExampleInputConstants.START_LOCAL_DATE;
 import static seedu.tp.utils.InputTestUtil.convertStringIndexesToIntArray;
 
 public class ListFlashcardsInGroupCommandTest {
-    private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
-    private final PrintStream backupStdout = System.out;
-
     private static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
-            "Event 1",
-            START_LOCAL_DATE,
-            END_LOCAL_DATE,
-            "This is an event summary",
-            DETAILS
+        "Event 1",
+        START_LOCAL_DATE,
+        END_LOCAL_DATE,
+        "This is an event summary",
+        DETAILS
     );
     private static final PersonFlashcard PERSON_FLASHCARD = new PersonFlashcard(
-            "Person 1",
-            START_LOCAL_DATE,
-            END_LOCAL_DATE,
-            "This is a person's summary",
-            DETAILS
+        "Person 1",
+        START_LOCAL_DATE,
+        END_LOCAL_DATE,
+        "This is a person's summary",
+        DETAILS
     );
     private static final OtherFlashcard OTHER_FLASHCARD = new OtherFlashcard(
-            "Title 1",
-            "This is a summary",
-            DETAILS
+        "Title 1",
+        "This is a summary",
+        DETAILS
     );
-
+    private final ByteArrayOutputStream capturedOut = new ByteArrayOutputStream();
+    private final PrintStream backupStdout = System.out;
     private FlashcardList fullFlashcardList;
 
     @BeforeEach
@@ -71,16 +69,16 @@ public class ListFlashcardsInGroupCommandTest {
     @Test
     public void showGroupsCommand_execute_listFlashcardsInGroupSuccessfullyUsingName() {
         FlashcardGroup group = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
-                convertStringIndexesToIntArray(INDEXES_3));
+            convertStringIndexesToIntArray(INDEXES_3));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-                new ListFlashcardsInGroupCommand(groupList, new Ui(), GROUP_NAME);
+            new ListFlashcardsInGroupCommand(groupList, new Ui(), GROUP_NAME);
         listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Example flashcard group name contains the following flashcards:"
-                + System.lineSeparator());
+            + System.lineSeparator());
         expectedOutput.append("- Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedOutput.append("- Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
@@ -91,16 +89,16 @@ public class ListFlashcardsInGroupCommandTest {
     @Test
     public void showGroupsCommand_execute_listFlashcardsInGroupSuccessfullyUsingIndex() {
         FlashcardGroup group = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
-                convertStringIndexesToIntArray(INDEXES_3));
+            convertStringIndexesToIntArray(INDEXES_3));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-                new ListFlashcardsInGroupCommand(groupList, new Ui(), "1");
+            new ListFlashcardsInGroupCommand(groupList, new Ui(), "1");
         listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("1 contains the following flashcards:"
-                + System.lineSeparator());
+            + System.lineSeparator());
         expectedOutput.append("- Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedOutput.append("- Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
@@ -111,34 +109,32 @@ public class ListFlashcardsInGroupCommandTest {
     @Test
     public void execute_listGroupWithOutOfBoundIndex_catchesUnrecognizedFlashcardGroupException() {
         FlashcardGroup group = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
-                convertStringIndexesToIntArray(INDEXES_3));
+            convertStringIndexesToIntArray(INDEXES_3));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-                new ListFlashcardsInGroupCommand(groupList, new Ui(), "0");
+            new ListFlashcardsInGroupCommand(groupList, new Ui(), "0");
         listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Please enter a valid flashcard group name or index."
-                + " Use \"show-groups\" to view all groups." + System.lineSeparator());
-
+            + " Use \"show-groups\" to view all groups." + System.lineSeparator());
         assertEquals(expectedOutput.toString(), capturedOut.toString());
     }
 
     @Test
     public void execute_listGroupWithFalseName_catchesUnrecognizedFlashcardGroupException() {
         FlashcardGroup group = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
-                convertStringIndexesToIntArray(INDEXES_3));
+            convertStringIndexesToIntArray(INDEXES_3));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-                new ListFlashcardsInGroupCommand(groupList, new Ui(), "badname");
+            new ListFlashcardsInGroupCommand(groupList, new Ui(), "badname");
         listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Please enter a valid flashcard group name or index."
-                + " Use \"show-groups\" to view all groups." + System.lineSeparator());
-
+            + " Use \"show-groups\" to view all groups." + System.lineSeparator());
         assertEquals(expectedOutput.toString(), capturedOut.toString());
     }
 }

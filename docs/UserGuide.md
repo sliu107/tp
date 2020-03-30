@@ -193,7 +193,7 @@ Example of usage:
 
 Lists all existing Reviewed flashcards.
 
-#### Reseting Review status of Flashcards: `reset-reviewed`
+#### Resetting Review status of Flashcards: `reset-reviewed`
 
 Resets status of all flashcards to Unreviewed.
 
@@ -258,6 +258,17 @@ Format: `list-group GROUP_ID`
 Create a new study plan by specifying date and indexes of existing flashcards.
 
 Format: `plan`
+
+- `DATE`: the date which the user want to set a study plan for
+- `FLASHCARD_INDEXES`: indexes of the flashcards in the study plan
+
+Example of usage:
+
+```
+plan
+01/01/2020
+1 3
+```
 
 #### Displaying all study plans: `show-plan`
 

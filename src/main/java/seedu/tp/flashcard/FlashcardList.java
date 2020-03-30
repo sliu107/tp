@@ -137,7 +137,7 @@ public class FlashcardList {
 
         FlashcardList randomFlashcards = new FlashcardList(flashcards);
         Collections.shuffle(randomFlashcards.getFlashcards(),
-                new Random(System.currentTimeMillis() / MS_TO_S_CONVERSION_FACTOR));
+            new Random(System.currentTimeMillis() / MS_TO_S_CONVERSION_FACTOR));
         LOGGER.info("The flashcards have been randomized.");
 
         int reviewedNumber = 0;
