@@ -76,7 +76,7 @@ public class ShowGroupsCommandTest {
         groupList.addFlashcardGroup(group1);
         groupList.addFlashcardGroup(group2);
         ShowGroupsCommand showGroupsCommand = new ShowGroupsCommand(groupList, new Ui());
-        CommandFeedback showGroupsCommandFeedback = showGroupsCommand.execute();
+        final CommandFeedback showGroupsCommandFeedback = showGroupsCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here are all existing groups:"

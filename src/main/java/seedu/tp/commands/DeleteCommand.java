@@ -48,7 +48,7 @@ public class DeleteCommand extends ModifyingCommand {
     @Override
     public CommandFeedback execute() throws InvalidFlashcardIndexException {
         try {
-            Flashcard deletedFlashcard = flashcardList.getFlashcardAtIdx(index);
+            final Flashcard deletedFlashcard = flashcardList.getFlashcardAtIdx(index);
             LOGGER.info("Deleting flashcard at index: " + index);
             flashcardList.deleteFlashcard(index);
             LOGGER.info("Deleted flashcard at index: " + index);

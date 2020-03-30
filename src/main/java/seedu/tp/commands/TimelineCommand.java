@@ -1,12 +1,13 @@
 package seedu.tp.commands;
 
-import jdk.jfr.Event;
-import seedu.tp.flashcard.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import seedu.tp.exceptions.InvalidDateFormatException;
+import seedu.tp.flashcard.EventFlashcard;
+import seedu.tp.flashcard.Flashcard;
+import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.parser.Parser;
 
 import java.time.LocalDate;
@@ -84,9 +85,9 @@ public class TimelineCommand extends Command {
 
         List<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
         Collections.sort(flashcards);
-        String summaryMessage = startDate == null && endDate == null ?
-                "Here's an ordered list of the flashcards you have:" :
-                "Listing flashcards from " + startDate + " to " + endDate + "...";
+        String summaryMessage = startDate == null && endDate == null
+                ? "Here's an ordered list of the flashcards you have:"
+                : "Listing flashcards from " + startDate + " to " + endDate + "...";
         StringBuilder feedback = new StringBuilder(summaryMessage);
         feedback.append(System.lineSeparator());
         for (Flashcard f : flashcards) {

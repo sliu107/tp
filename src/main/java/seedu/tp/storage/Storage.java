@@ -22,6 +22,11 @@ public class Storage {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
+    /**
+     * Get an instance of the Storage object.
+     *
+     * @return the static Storage instance
+     */
     public static Storage getInstance() {
         if (storage == null) {
             storage = new Storage();
@@ -35,8 +40,8 @@ public class Storage {
 
     /**
      * Save the savable as a formatted JSON string.
-     * @param savable
-     * @throws IOException
+     * @param savable the savable to save
+     * @throws IOException if the save fails
      */
     public void save(Savable savable) throws IOException {
         File saveFolder = new File(SAVE_FOLDER);
@@ -55,7 +60,12 @@ public class Storage {
         fileWriter.write(fileContents);
         fileWriter.close();
     }
-    
+
+    /**
+     * Delete a savable from disk.
+     * @param savable the savable to delete
+     * @throws DeletionFailedException if the deletion fails
+     */
     public void delete(Savable savable) throws DeletionFailedException {
         String pathName = SAVE_FOLDER + savable.getFileName() + FILE_EXTENSION;
         File file = new File(pathName);

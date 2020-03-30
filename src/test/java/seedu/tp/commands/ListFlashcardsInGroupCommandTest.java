@@ -74,7 +74,7 @@ public class ListFlashcardsInGroupCommandTest {
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
             new ListFlashcardsInGroupCommand(groupList, new Ui(), GROUP_NAME);
-        CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
+        final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Example flashcard group name contains the following flashcards:"
@@ -94,7 +94,7 @@ public class ListFlashcardsInGroupCommandTest {
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
             new ListFlashcardsInGroupCommand(groupList, new Ui(), "1");
-        CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
+        final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("1 contains the following flashcards:"
