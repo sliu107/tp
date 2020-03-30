@@ -21,8 +21,7 @@ public class ReviewedCommand extends ModifyingCommand {
      * @param index         index of the flashcard to show
      * @param ui            instance for user interaction
      */
-    public ReviewedCommand(FlashcardList flashcardList, int index, Ui ui, Storage storage) {
-        super(storage, ui);
+    public ReviewedCommand(FlashcardList flashcardList, int index, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert ui != null : "Invalid null Ui!";
 
@@ -41,14 +40,19 @@ public class ReviewedCommand extends ModifyingCommand {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
         try {
             LOGGER.info("Setting flashcard " + index + " as reviewed...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
             flashcard.setReviewStatus(true);
             LOGGER.info("Set flashcard " + index + " as reviewed");
-            ui.confirmFlashcardReview(flashcard);
-            save(flashcard);
+            CommandFeedback saveFeedback = save(flashcard);
+            String feedback = "You have marked the following flashcard as Reviewed:" + System.lineSeparator()
+                    + flashcard.getName();
+            if (!saveFeedback.isEmpty()) {
+                feedback += saveFeedback;
+            }
+            return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("InvalidFlashcardIndexException occurred when executing the reviewed command");
             throw new InvalidFlashcardIndexException();

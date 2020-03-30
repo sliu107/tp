@@ -8,6 +8,7 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
+import seedu.tp.ui.Ui;
 
 import java.time.LocalDate;
 import java.util.Arrays;

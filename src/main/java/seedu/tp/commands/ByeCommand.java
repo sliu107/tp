@@ -6,8 +6,8 @@ package seedu.tp.commands;
 public class ByeCommand extends Command {
 
     @Override
-    public void execute() {
-
+    public CommandFeedback execute() {
+        return null;
     }
 
     /**

@@ -1,6 +1,7 @@
 package seedu.tp;
 
 import seedu.tp.commands.Command;
+import seedu.tp.commands.CommandFeedback;
 import seedu.tp.exceptions.DuplicateFlashcardException;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
@@ -31,7 +32,6 @@ public class Main {
     private GroupFactory groupFactory;
     private GroupList groupList;
     private Parser parser;
-    private Storage storage;
 
     /**
      * Program entry point.
@@ -53,8 +53,7 @@ public class Main {
         flashcardList = new FlashcardList();
         groupFactory = new GroupFactory(ui, flashcardList);
         groupList = new GroupList();
-        storage = new Storage();
-        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui, storage);
+        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, ui);
 
         LoggerUtils.createFolder(LOG_FOLDER);
 
@@ -78,7 +77,8 @@ public class Main {
             try {
                 String fullCommand = ui.getNextLine();
                 Command command = parser.parseCommand(fullCommand);
-                command.execute();
+                CommandFeedback feedback = command.execute();
+                ui.showCommandFeedback(feedback);
                 isBye = command.isBye();
             } catch (UnknownCommandException e) {
                 ui.sendUnknownCommandResponse();

@@ -13,21 +13,19 @@ public abstract class ModifyingCommand extends Command {
     Storage storage;
     Ui ui;
     
-    protected ModifyingCommand(Storage storage, Ui ui) {
-        assert storage != null : "Invalid null Storage!";
-        assert ui != null : "Invalid null Ui!";
-        this.storage = storage;
-        this.ui = ui;
+    protected ModifyingCommand() {
+        this.storage = Storage.getInstance();
     }
     
-    protected void save(Savable savable) {
+    protected CommandFeedback save(Savable savable) {
         try {
             LOGGER.info("Attempting to save " + savable.getFileName() + " to disk...");
             storage.save(savable);
             LOGGER.info("Successfully saved " + savable.getFileName() + " to disk.");
+            return new CommandFeedback();
         } catch (IOException e) {
             LOGGER.warning("Save to disk failed for " + savable.getFileName());
-            ui.sendFailedToSaveResponse();
+            return new CommandFeedback("Uh Oh. Couldn't save this change. Sorry.");
         }
     }
 }

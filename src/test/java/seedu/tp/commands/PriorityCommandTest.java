@@ -59,43 +59,43 @@ public class PriorityCommandTest {
     public void priorityCommand_execute_setDefaultPrioritySuccessfully() throws InvalidFlashcardIndexException {
         StringBuilder expectedEventOutputDefault = new StringBuilder();
         expectedEventOutputDefault.append("Priority has been updated:" + System.lineSeparator());
-        expectedEventOutputDefault.append("Event 1 | New priority: Not indicated" + System.lineSeparator());
+        expectedEventOutputDefault.append("Event 1 | New priority: Not indicated");
 
         PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 0, new Ui(), PriorityLevel.DEFAULT);
-        priorityCommand.execute();
-        assertEquals(expectedEventOutputDefault.toString(), capturedOut.toString());
+        CommandFeedback priorityCommandFeedback = priorityCommand.execute();
+        assertEquals(expectedEventOutputDefault.toString(), priorityCommandFeedback.toString());
     }
 
     @Test
     public void priorityCommand_execute_setHighPrioritySuccessfully() throws InvalidFlashcardIndexException {
         StringBuilder expectedEventOutputHigh = new StringBuilder();
         expectedEventOutputHigh.append("Priority has been updated:" + System.lineSeparator());
-        expectedEventOutputHigh.append("Event 1 | New priority: ***" + System.lineSeparator());
+        expectedEventOutputHigh.append("Event 1 | New priority: ***");
 
         PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 0, new Ui(), PriorityLevel.HIGH);
-        priorityCommand.execute();
-        assertEquals(expectedEventOutputHigh.toString(), capturedOut.toString());
+        CommandFeedback priorityCommandFeedback = priorityCommand.execute();
+        assertEquals(expectedEventOutputHigh.toString(), priorityCommandFeedback.toString());
     }
 
     @Test
     public void priorityCommand_execute_setMediumPrioritySuccessfully() throws InvalidFlashcardIndexException {
         StringBuilder expectedPersonOutput = new StringBuilder();
         expectedPersonOutput.append("Priority has been updated:" + System.lineSeparator());
-        expectedPersonOutput.append("Person 1 | New priority: **" + System.lineSeparator());
+        expectedPersonOutput.append("Person 1 | New priority: **");
 
         PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 1, new Ui(), PriorityLevel.MEDIUM);
-        priorityCommand.execute();
-        assertEquals(expectedPersonOutput.toString(), capturedOut.toString());
+        CommandFeedback priorityCommandFeedback = priorityCommand.execute();
+        assertEquals(expectedPersonOutput.toString(), priorityCommandFeedback.toString());
     }
 
     @Test
     public void priorityCommand_execute_setLowPrioritySuccessfully() throws InvalidFlashcardIndexException {
         StringBuilder expectedOtherOutput = new StringBuilder();
         expectedOtherOutput.append("Priority has been updated:" + System.lineSeparator());
-        expectedOtherOutput.append("Title 1 | New priority: *" + System.lineSeparator());
+        expectedOtherOutput.append("Title 1 | New priority: *");
 
         PriorityCommand priorityCommand = new PriorityCommand(flashcardList, 2, new Ui(), PriorityLevel.LOW);
-        priorityCommand.execute();
-        assertEquals(expectedOtherOutput.toString(), capturedOut.toString());
+        CommandFeedback priorityCommandFeedback = priorityCommand.execute();
+        assertEquals(expectedOtherOutput.toString(), priorityCommandFeedback.toString());
     }
 }

@@ -19,8 +19,7 @@ public class DeleteCommand extends ModifyingCommand {
      * @param flashcardList flashcard list for the command to execute on
      * @param index         index in the delete command
      */
-    public DeleteCommand(FlashcardList flashcardList, int index, Ui ui, Storage storage) {
-        super(storage, ui);
+    public DeleteCommand(FlashcardList flashcardList, int index) {
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.flashcardList = flashcardList;
@@ -46,20 +45,32 @@ public class DeleteCommand extends ModifyingCommand {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
-        Flashcard deletedFlashcard = flashcardList.getFlashcardAtIdx(index);
-        LOGGER.info("Deleting flashcard at index: " + index);
-        flashcardList.deleteFlashcard(index);
-        ui.confirmDeletion(deletedFlashcard);
-        LOGGER.info("Deleted flashcard at index: " + index);
-        delete(deletedFlashcard);
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
+        try {
+            Flashcard deletedFlashcard = flashcardList.getFlashcardAtIdx(index);
+            LOGGER.info("Deleting flashcard at index: " + index);
+            flashcardList.deleteFlashcard(index);
+            LOGGER.info("Deleted flashcard at index: " + index);
+            CommandFeedback deleteFeedback = delete(deletedFlashcard);
+            String feedback = "You have successfully deleted: " + deletedFlashcard.getName();
+            if (!deleteFeedback.isEmpty()) {
+                feedback += deleteFeedback;
+            }
+            return new CommandFeedback(feedback);
+        } catch (IndexOutOfBoundsException e) {
+            LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
+            LOGGER.warning("Throwing InvalidFlashcardIndexException...");
+            throw new InvalidFlashcardIndexException();
+        }
     }
     
-    private void delete(Savable savable) {
+    private CommandFeedback delete(Savable savable) {
         try {
             storage.delete(savable);
+            return new CommandFeedback();
         } catch (DeletionFailedException e) {
-            ui.sendDeletionFailedResponse();
+            LOGGER.warning("Delete to disk failed for " + savable.getFileName());
+            return new CommandFeedback("Deletion could not be saved to disk. Sorry");
         }
     }
 

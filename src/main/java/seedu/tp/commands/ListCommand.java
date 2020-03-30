@@ -1,5 +1,6 @@
 package seedu.tp.commands;
 
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.ui.Ui;
 
@@ -35,10 +36,25 @@ public class ListCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public CommandFeedback execute() {
         LOGGER.info("Listing flashcards...");
-        ui.listAllFlashcards(flashcardList);
-        LOGGER.info("Listed flashcards");
+        String feedback = getFeedback(flashcardList);
+        return new CommandFeedback(feedback);
+    }
+
+    private String getFeedback(FlashcardList flashcardList) {
+        if (flashcardList.isEmpty()) {
+            return "You have no flashcard at this moment!";
+        }
+
+        StringBuilder feedback = new StringBuilder("Here's the list of flashcards you have:" + System.lineSeparator());
+        for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
+            Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
+            String nextLine = (i + 1) + ": " + flashcard.getName() + " | Reviewed: " + flashcard.getReviewIcon()
+                    + " | " + flashcard.getPriorityAsString() + System.lineSeparator();
+            feedback.append(nextLine);
+        }
+        return feedback.toString();
     }
 
     @Override

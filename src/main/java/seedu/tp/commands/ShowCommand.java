@@ -40,12 +40,13 @@ public class ShowCommand extends Command {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
         try {
             LOGGER.info("Showing the information of flashcard " + index + "...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
-            ui.showFlashcard(flashcard);
             LOGGER.info("Showed the information of the flashcard " + index);
+            String feedback = "These are the flashcard details:" + System.lineSeparator() + flashcard;
+            return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("InvalidFlashcardIndexException occurred when executing the show command");
             throw new InvalidFlashcardIndexException();

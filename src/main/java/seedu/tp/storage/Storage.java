@@ -16,9 +16,17 @@ import static seedu.tp.utils.Constants.SAVE_FOLDER;
 public class Storage {
     private Gson gson;
     private static final String FILE_EXTENSION = ".json";
-    
-    public Storage() {
+    private static Storage storage = null;
+
+    private Storage() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
+    }
+
+    public static Storage getInstance() {
+        if (storage == null) {
+            storage = new Storage();
+        }
+        return storage;
     }
     
     private String getJson(Savable savable) {

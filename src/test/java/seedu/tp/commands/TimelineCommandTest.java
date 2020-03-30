@@ -45,14 +45,14 @@ public class TimelineCommandTest {
         flashcardList.addFlashcard(new PersonFlashcard("First", firstDate, firstDate, SUMMARY, DETAILS));
 
         StringBuilder expectedOutput = new StringBuilder();
-        expectedOutput.append("Here's a sorted list of the flashcards you have:" + System.lineSeparator());
+        expectedOutput.append("Here's an ordered list of the flashcards you have:" + System.lineSeparator());
         expectedOutput.append(flashcardList.getFlashcardAtIdx(3) + System.lineSeparator());
         expectedOutput.append(flashcardList.getFlashcardAtIdx(0) + System.lineSeparator());
         expectedOutput.append(flashcardList.getFlashcardAtIdx(2) + System.lineSeparator());
         expectedOutput.append(flashcardList.getFlashcardAtIdx(1) + System.lineSeparator());
 
         TimelineCommand timelineCommand = new TimelineCommand(flashcardList, new Ui());
-        timelineCommand.execute();
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+        CommandFeedback timelineCommandFeedback = timelineCommand.execute();
+        assertEquals(expectedOutput.toString(), timelineCommandFeedback.toString());
     }
 }

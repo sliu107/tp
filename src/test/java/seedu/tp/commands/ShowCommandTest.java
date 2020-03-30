@@ -73,11 +73,11 @@ public class ShowCommandTest {
         expectedEventOutput.append("Event period: July 31, 1843-December 25, 1892" + System.lineSeparator());
         expectedEventOutput.append("Summary: This is an event summary" + System.lineSeparator());
         expectedEventOutput.append("Details:" + System.lineSeparator());
-        expectedEventOutput.append(DETAILS_BULLET_FORM + System.lineSeparator());
+        expectedEventOutput.append(DETAILS_BULLET_FORM);
 
         ShowCommand showCommand = new ShowCommand(fullFlashcardList, 0, new Ui());
-        showCommand.execute();
-        assertEquals(expectedEventOutput.toString(), capturedOut.toString());
+        CommandFeedback showCommandFeedback = showCommand.execute();
+        assertEquals(expectedEventOutput.toString(), showCommandFeedback.toString());
     }
 
     @Test
@@ -89,11 +89,11 @@ public class ShowCommandTest {
         expectedPersonOutput.append("Died: December 25, 1892" + System.lineSeparator());
         expectedPersonOutput.append("Summary: This is a person's summary" + System.lineSeparator());
         expectedPersonOutput.append("Details:" + System.lineSeparator());
-        expectedPersonOutput.append(DETAILS_BULLET_FORM + System.lineSeparator());
+        expectedPersonOutput.append(DETAILS_BULLET_FORM);
 
         ShowCommand showCommand = new ShowCommand(fullFlashcardList, 1, new Ui());
-        showCommand.execute();
-        assertEquals(expectedPersonOutput.toString(), capturedOut.toString());
+        CommandFeedback showCommandFeedback = showCommand.execute();
+        assertEquals(expectedPersonOutput.toString(), showCommandFeedback.toString());
     }
 
     @Test
@@ -103,11 +103,11 @@ public class ShowCommandTest {
         expectedOtherOutput.append("Title: Title 1" + System.lineSeparator());
         expectedOtherOutput.append("Summary: This is a summary" + System.lineSeparator());
         expectedOtherOutput.append("Details:" + System.lineSeparator());
-        expectedOtherOutput.append(DETAILS_BULLET_FORM + System.lineSeparator());
+        expectedOtherOutput.append(DETAILS_BULLET_FORM);
 
         ShowCommand showCommand = new ShowCommand(fullFlashcardList, 2, new Ui());
-        showCommand.execute();
-        assertEquals(expectedOtherOutput.toString(), capturedOut.toString());
+        CommandFeedback showCommandFeedback = showCommand.execute();
+        assertEquals(expectedOtherOutput.toString(), showCommandFeedback.toString());
     }
 
     @Test

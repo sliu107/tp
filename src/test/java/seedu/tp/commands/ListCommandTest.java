@@ -69,15 +69,15 @@ public class ListCommandTest {
         expectedOutput.append("3: Title 1 | Reviewed: N | Not indicated" + System.lineSeparator());
 
         ListCommand listCommand = new ListCommand(fullFlashcardList, new Ui());
-        listCommand.execute();
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+        CommandFeedback listCommandFeedback = listCommand.execute();
+        assertEquals(expectedOutput.toString(), listCommandFeedback.toString());
     }
 
     @Test
     public void listCommand_executeEmptyList_listsFlashcardsSuccessfully() {
-        String expectedOutput = "You have no flashcard at this moment!" + System.lineSeparator();
+        String expectedOutput = "You have no flashcard at this moment!";
         ListCommand listCommand = new ListCommand(emptyFlashcardList, new Ui());
-        listCommand.execute();
-        assertEquals(expectedOutput, capturedOut.toString());
+        CommandFeedback listCommandFeedback = listCommand.execute();
+        assertEquals(expectedOutput, listCommandFeedback.toString());
     }
 }

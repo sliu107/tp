@@ -1,5 +1,6 @@
 package seedu.tp.ui;
 
+import seedu.tp.commands.CommandFeedback;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
@@ -385,6 +386,10 @@ public class Ui {
     
     public void confirmAddToGroup(Flashcard flashcard, FlashcardGroup group) {
         System.out.println("You have successfully added flashcard: " + flashcard.getName() + " to " + group.getName());
+    }
+
+    public void showCommandFeedback(CommandFeedback commandFeedback) {
+        System.out.println(commandFeedback);
     }
 
     /**

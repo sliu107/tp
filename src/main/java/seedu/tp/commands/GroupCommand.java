@@ -21,8 +21,7 @@ public class GroupCommand extends ModifyingCommand {
      * @param groupFactory groupFactory the groupCommand use
      * @param groupList    groupList where the groupCommand execute on
      */
-    public GroupCommand(GroupFactory groupFactory, GroupList groupList, Ui ui, Storage storage) {
-        super(storage, ui);
+    public GroupCommand(GroupFactory groupFactory, GroupList groupList) {
         assert groupFactory != null : "Invalid null GroupFactory!";
         assert groupList != null : "Invalid null GroupList!";
 
@@ -31,12 +30,13 @@ public class GroupCommand extends ModifyingCommand {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
         LOGGER.info("Creating a new group...");
         FlashcardGroup flashcardGroup = groupFactory.form();
         groupList.addFlashcardGroup(flashcardGroup);
         LOGGER.info("Created a new group");
-        save(flashcardGroup);
+        CommandFeedback saveFeedback = save(flashcardGroup);
+        return saveFeedback;
     }
 
     @Override

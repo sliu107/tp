@@ -23,8 +23,7 @@ public class PriorityCommand extends ModifyingCommand {
      * @param ui            instance for user interaction
      * @param pl            priority level to set the flashcard to
      */
-    public PriorityCommand(FlashcardList flashcardList, int index, Ui ui, Flashcard.PriorityLevel pl, Storage storage) {
-        super(storage, ui);
+    public PriorityCommand(FlashcardList flashcardList, int index, Ui ui, Flashcard.PriorityLevel pl) {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert ui != null : "Invalid null Ui!";
 
@@ -54,14 +53,19 @@ public class PriorityCommand extends ModifyingCommand {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
         try {
             LOGGER.info("Setting the priority for the flashcard " + index + "...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
             flashcard.setPriorityLevel(pl);
             LOGGER.info("Set the priority for the flashcard " + index);
-            ui.confirmFlashcardPriority(flashcard);
-            save(flashcard);
+            CommandFeedback saveFeedback = save(flashcard);
+            String feedback = "Priority has been updated:" + System.lineSeparator()
+                    + flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString();
+            if (!saveFeedback.isEmpty()) {
+                feedback += saveFeedback;
+            }
+            return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("IndexOutOfBoundsException occurred when executing the priority command");
             throw new InvalidFlashcardIndexException();

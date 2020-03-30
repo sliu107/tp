@@ -23,9 +23,7 @@ public class EventFlashcardCommand extends ModifyingCommand {
      * @param flashcardList    flashcard list for the command to execute on
      * @param flashcardFactory the flashcard factory to be used in the command
      */
-    public EventFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory,
-                                 Ui ui, Storage storage) {
-        super(storage, ui);
+    public EventFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory) {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert flashcardFactory != null : "Invalid null FlashcardFactory!";
         
@@ -43,12 +41,13 @@ public class EventFlashcardCommand extends ModifyingCommand {
     }
 
     @Override
-    public void execute() throws UnrecognizedFlashcardTypeException {
+    public CommandFeedback execute() throws UnrecognizedFlashcardTypeException {
         LOGGER.info("Creating an event flashcard and adding it to the flashcard list...");
         Flashcard flashcard = flashcardFactory.create(EVENT_FLASHCARD_COMMAND);
         flashcardList.addFlashcard(flashcard);
         LOGGER.info("Created an event flashcard and added it to the flashcard list");
-        save(flashcard);
+        CommandFeedback saveFeedback = save(flashcard);
+        return saveFeedback;
     }
 
     @Override

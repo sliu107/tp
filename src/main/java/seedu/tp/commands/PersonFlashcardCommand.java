@@ -23,9 +23,7 @@ public class PersonFlashcardCommand extends ModifyingCommand {
      * @param flashcardList    flashcard list for the command to execute on
      * @param flashcardFactory the flashcard factory to be used in the command
      */
-    public PersonFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory,
-                                  Ui ui, Storage storage) {
-        super(storage, ui);
+    public PersonFlashcardCommand(FlashcardList flashcardList, FlashcardFactory flashcardFactory) {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert flashcardFactory != null : "Invalid null FlashcardFactory!";
 
@@ -43,12 +41,13 @@ public class PersonFlashcardCommand extends ModifyingCommand {
     }
 
     @Override
-    public void execute() throws UnrecognizedFlashcardTypeException {
+    public CommandFeedback execute() throws UnrecognizedFlashcardTypeException {
         LOGGER.info("Creating a person flashcard and adding it to the flashcard list...");
         Flashcard flashcard = flashcardFactory.create(PERSON_FLASHCARD_COMMAND);
         flashcardList.addFlashcard(flashcard);
         LOGGER.info("Created a person flashcard and added it to the flashcard list");
-        save(flashcard);
+        CommandFeedback saveFeedback = save(flashcard);
+        return saveFeedback;
     }
 
     @Override

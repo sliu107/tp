@@ -25,8 +25,7 @@ public class AddFlashcardToGroupCommand extends ModifyingCommand {
      * @param groupList     the groupList where the flashcard wants to be added in
      * @param flashcardList the flashcardList where the flashcard is in
      */
-    public AddFlashcardToGroupCommand(Ui ui, GroupList groupList, FlashcardList flashcardList, Storage storage) {
-        super(storage, ui);
+    public AddFlashcardToGroupCommand(Ui ui, GroupList groupList, FlashcardList flashcardList) {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert groupList != null : "Invalid null GroupList!";
 
@@ -36,7 +35,7 @@ public class AddFlashcardToGroupCommand extends ModifyingCommand {
     }
 
     @Override
-    public void execute() throws HistoryFlashcardException {
+    public CommandFeedback execute() throws HistoryFlashcardException {
         try {
             int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEX_FIELD)) - 1;
             String groupName = ui.promptUserForRequiredField(NAME_FIELD);
@@ -46,9 +45,14 @@ public class AddFlashcardToGroupCommand extends ModifyingCommand {
 
             LOGGER.info("Adding a flashcard to an existing group...");
             group.addFlashcardToTheGroup(flashcard);
-            ui.confirmAddToGroup(flashcard, group);
             LOGGER.info("Added the flashcard to the group");
-            save(group);
+            CommandFeedback saveFeedback = save(group);
+            String feedback = "You have successfully added flashcard: " + flashcard.getName() + " to "
+                    + group.getName();
+            if (!saveFeedback.isEmpty()) {
+                feedback += saveFeedback;
+            }
+            return new CommandFeedback(feedback);
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }
