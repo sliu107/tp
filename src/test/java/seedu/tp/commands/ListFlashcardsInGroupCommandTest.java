@@ -74,7 +74,7 @@ public class ListFlashcardsInGroupCommandTest {
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
             new ListFlashcardsInGroupCommand(groupList, new Ui(), GROUP_NAME);
-        listFlashcardsInGroupCommand.execute();
+        final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Example flashcard group name contains the following flashcards:"
@@ -83,7 +83,7 @@ public class ListFlashcardsInGroupCommandTest {
         expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedOutput.append("- Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
 
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+        assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }
 
     @Test
@@ -94,7 +94,7 @@ public class ListFlashcardsInGroupCommandTest {
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
             new ListFlashcardsInGroupCommand(groupList, new Ui(), "1");
-        listFlashcardsInGroupCommand.execute();
+        final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("1 contains the following flashcards:"
@@ -103,7 +103,7 @@ public class ListFlashcardsInGroupCommandTest {
         expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedOutput.append("- Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
 
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+        assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }
 
     @Test
@@ -114,12 +114,12 @@ public class ListFlashcardsInGroupCommandTest {
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
             new ListFlashcardsInGroupCommand(groupList, new Ui(), "0");
-        listFlashcardsInGroupCommand.execute();
+        CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Please enter a valid flashcard group name or index."
-            + " Use \"show-groups\" to view all groups." + System.lineSeparator());
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+            + " Use \"show-groups\" to view all groups.");
+        assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }
 
     @Test
@@ -130,11 +130,11 @@ public class ListFlashcardsInGroupCommandTest {
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
             new ListFlashcardsInGroupCommand(groupList, new Ui(), "badname");
-        listFlashcardsInGroupCommand.execute();
+        CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Please enter a valid flashcard group name or index."
-            + " Use \"show-groups\" to view all groups." + System.lineSeparator());
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+            + " Use \"show-groups\" to view all groups.");
+        assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }
 }

@@ -1,7 +1,10 @@
 package seedu.tp.commands;
 
+import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
+
+import java.util.List;
 
 /**
  * Command to list all existing groups.
@@ -25,10 +28,27 @@ public class ShowGroupsCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public CommandFeedback execute() {
         LOGGER.info("Executing ShowGroupsCommand...");
-        ui.listAllGroups(groupList);
         LOGGER.info("ShowGroupsCommand executed!");
+        String feedback = getFeedback(groupList);
+        return new CommandFeedback(feedback);
+    }
+
+    private String getFeedback(GroupList groupList) {
+        if (groupList.getTotalGroupNum() == 0) {
+            return "There are no existing groups. Use \"group\" to create a new group.";
+        }
+        List<FlashcardGroup> groups = groupList.getGroups();
+        StringBuilder feedback = new StringBuilder("Here are all existing groups:");
+        feedback.append(System.lineSeparator());
+        for (int i = 0; i < groups.size(); i++) {
+            FlashcardGroup group = groups.get(i);
+            String groupName = group.getName();
+            feedback.append(i + 1 + ". " + groupName);
+            feedback.append(System.lineSeparator());
+        }
+        return feedback.toString();
     }
 
     @Override

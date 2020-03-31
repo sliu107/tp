@@ -59,10 +59,10 @@ public class ReviewedCommandTest {
     public void reviewedCommand_execute_setReviewStatusSuccessfully() throws InvalidFlashcardIndexException {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("You have marked the following flashcard as Reviewed:" + System.lineSeparator());
-        expectedOutput.append("Event 1" + System.lineSeparator());
+        expectedOutput.append("Event 1");
 
-        ReviewedCommand reviewedCommand = new ReviewedCommand(flashcardList, 0, new Ui());
-        reviewedCommand.execute();
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+        ReviewedCommand reviewedCommand = new ReviewedCommand(flashcardList, 0);
+        CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
+        assertEquals(expectedOutput.toString(), reviewedCommandFeedback.toString());
     }
 }

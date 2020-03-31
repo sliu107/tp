@@ -3,30 +3,25 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.ui.Ui;
 
 /**
  * Command to mark a flashcard as Reviewed.
  */
-public class ReviewedCommand extends Command {
+public class ReviewedCommand extends ModifyingCommand {
     private FlashcardList flashcardList;
     private int index;
-    private Ui ui;
 
     /**
      * Constructor for ReviewedCommand.
      *
      * @param flashcardList list containing all flashcards
      * @param index         index of the flashcard to show
-     * @param ui            instance for user interaction
      */
-    public ReviewedCommand(FlashcardList flashcardList, int index, Ui ui) {
+    public ReviewedCommand(FlashcardList flashcardList, int index) {
         assert flashcardList != null : "Invalid null FlashcardList!";
-        assert ui != null : "Invalid null Ui!";
 
         this.flashcardList = flashcardList;
         this.index = index;
-        this.ui = ui;
     }
 
     /**
@@ -39,14 +34,19 @@ public class ReviewedCommand extends Command {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
         try {
             LOGGER.info("Setting flashcard " + index + " as reviewed...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
             flashcard.setReviewStatus(true);
-            LOGGER.info("Set flashcard " + index + " as reviewed.");
-            flashcardList.setTotalReviewedNumber(flashcardList.getTotalReviewedNumber() + 1);
-            ui.confirmFlashcardReview(flashcard);
+            LOGGER.info("Set flashcard " + index + " as reviewed");
+            CommandFeedback saveFeedback = save(flashcard);
+            String feedback = "You have marked the following flashcard as Reviewed:" + System.lineSeparator()
+                    + flashcard.getName();
+            if (!saveFeedback.isEmpty()) {
+                feedback += saveFeedback;
+            }
+            return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("InvalidFlashcardIndexException occurred when executing the reviewed command.");
             throw new InvalidFlashcardIndexException();

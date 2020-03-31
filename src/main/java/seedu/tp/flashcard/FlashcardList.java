@@ -1,5 +1,6 @@
 package seedu.tp.flashcard;
 
+import seedu.tp.commands.CommandFeedback;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.ui.Ui;
@@ -100,11 +101,10 @@ public class FlashcardList {
      *
      * @param index the index of the flashcard to be deleted
      */
-    public void deleteFlashcard(Ui ui, int index) throws InvalidFlashcardIndexException {
+    public void deleteFlashcard(int index) throws InvalidFlashcardIndexException {
         try {
             Flashcard flashcard = flashcards.remove(index);
             LOGGER.info("Deleted flashcard " + flashcard.getName() + " from list.");
-            ui.confirmFlashcardDeletion(flashcard);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
             LOGGER.warning("Throwing InvalidFlashcardIndexException...");
@@ -148,13 +148,15 @@ public class FlashcardList {
                 System.out.println("");
             } else if (ui.promptUserResponseForReviewing(flashcard).equals("yes")) {
                 ReviewedCommand reviewedCommand = new ReviewedCommand(this,
-                    flashcards.indexOf(flashcard), ui);
-                reviewedCommand.execute();
+                    flashcards.indexOf(flashcard));
+                CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
+                ui.showCommandFeedback(reviewedCommandFeedback);
                 reviewedNumber++;
             } else {
                 continue;
             }
         }
+        totalReviewedNumber += reviewedNumber;
         int totalUnreviewedNumber = flashcards.size() - totalReviewedNumber;
         ui.confirmRandomFlashcardsReviewCompletion(reviewedNumber, totalUnreviewedNumber);
         return randomFlashcards;
@@ -177,7 +179,7 @@ public class FlashcardList {
      * @param idx the index.
      * @return the flashcard at the specified index
      */
-    public Flashcard getFlashcardAtIdx(int idx) {
+    public Flashcard getFlashcardAtIdx(int idx) throws IndexOutOfBoundsException {
         return flashcards.get(idx);
     }
 

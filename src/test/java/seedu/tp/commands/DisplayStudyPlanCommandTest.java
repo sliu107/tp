@@ -88,7 +88,7 @@ public class DisplayStudyPlanCommandTest {
 
         DisplayStudyPlanCommand displayStudyPlanCommand = new DisplayStudyPlanCommand(new Ui(), studyPlanList,
             fullFlashcardList);
-        displayStudyPlanCommand.execute();
-        assertEquals(expectedEventOutput.toString(), capturedOut.toString());
+        CommandFeedback displayStudyPlanCommandFeedback = displayStudyPlanCommand.execute();
+        assertEquals(expectedEventOutput.toString(), displayStudyPlanCommandFeedback.toString());
     }
 }

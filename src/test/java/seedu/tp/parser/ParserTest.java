@@ -112,28 +112,28 @@ public class ParserTest {
     @Test
     public void parse_listCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("list");
-        ListCommand expectedListCommand = new ListCommand(flashcardList, ui);
+        ListCommand expectedListCommand = new ListCommand(flashcardList);
         assertEquals(expectedListCommand, command);
     }
 
     @Test
     public void parse_listCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("LISt");
-        ListCommand expectedListCommand = new ListCommand(flashcardList, ui);
+        ListCommand expectedListCommand = new ListCommand(flashcardList);
         assertEquals(expectedListCommand, command);
     }
 
     @Test
     public void parse_showCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("show 1");
-        ShowCommand expectedShowCommand = new ShowCommand(flashcardList, 0, ui);
+        ShowCommand expectedShowCommand = new ShowCommand(flashcardList, 0);
         assertEquals(expectedShowCommand, command);
     }
 
     @Test
     public void parse_showCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("SHow 1");
-        ShowCommand expectedShowCommand = new ShowCommand(flashcardList, 0, ui);
+        ShowCommand expectedShowCommand = new ShowCommand(flashcardList, 0);
         assertEquals(expectedShowCommand, command);
     }
 
@@ -141,7 +141,7 @@ public class ParserTest {
     public void parse_priorityCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("priority 1 LOW");
         PriorityCommand expectedPriorityCommand = new PriorityCommand(flashcardList, 0,
-            ui, Flashcard.PriorityLevel.LOW);
+                Flashcard.PriorityLevel.LOW);
         assertEquals(expectedPriorityCommand, command);
     }
 
@@ -149,21 +149,21 @@ public class ParserTest {
     public void parse_priorityCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("PriOriTY 1 LOW");
         PriorityCommand expectedPriorityCommand = new PriorityCommand(flashcardList, 0,
-            ui, Flashcard.PriorityLevel.LOW);
+                Flashcard.PriorityLevel.LOW);
         assertEquals(expectedPriorityCommand, command);
     }
 
     @Test
     public void parse_reviewedCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("reviewed 1");
-        ReviewedCommand expectedReviewedCommand = new ReviewedCommand(flashcardList, 0, ui);
+        ReviewedCommand expectedReviewedCommand = new ReviewedCommand(flashcardList, 0);
         assertEquals(expectedReviewedCommand, command);
     }
 
     @Test
     public void parse_reviewedCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("rEvIeWeD 1");
-        ReviewedCommand expectedReviewedCommand = new ReviewedCommand(flashcardList, 0, ui);
+        ReviewedCommand expectedReviewedCommand = new ReviewedCommand(flashcardList, 0);
         assertEquals(expectedReviewedCommand, command);
     }
 

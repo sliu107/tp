@@ -1,8 +1,13 @@
 package seedu.tp.commands;
 
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 public class DisplayStudyPlanCommand extends Command {
 
@@ -28,10 +33,26 @@ public class DisplayStudyPlanCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public CommandFeedback execute() {
         LOGGER.info("Executing DisplayStudyPlanCommand...");
-        ui.displayStudyPlan(studyPlanList, flashcardList);
-        LOGGER.info("DisplayStudyPlanCommand executed!");
+        StringBuilder feedback = new StringBuilder();
+        List<Map.Entry<LocalDate, List<Integer>>> studyPlans = studyPlanList.getStudyPlanList();
+        for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlans) {
+            feedback.append("Date: " + studyPlanForDay.getKey() + System.lineSeparator());
+            for (int index : studyPlanForDay.getValue()) {
+                try {
+                    Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
+                    feedback.append((index + 1) + ": " + flashcard.getName()
+                            + " | Reviewed: " + flashcard.getReviewIcon()
+                            + " | " + flashcard.getPriorityAsString() + System.lineSeparator());
+                } catch (IndexOutOfBoundsException e) {
+                    index++;
+                    feedback.append("Flashcard with index " + index + " not found. "
+                            + "Did you delete this flashcard?" + System.lineSeparator());
+                }
+            }
+        }
+        return new CommandFeedback(feedback.toString());
     }
 
     @Override

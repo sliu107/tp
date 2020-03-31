@@ -17,4 +17,6 @@ bin/
 
 *.log
 logs/
+
+flashcards/
 src/main/java/META-INF/MANIFEST.MF

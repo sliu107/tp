@@ -69,16 +69,16 @@ public class FindCommandTest {
         expectedOutput.append("3: Title 1 | Reviewed: X | Not indicated | ID: 3" + System.lineSeparator());
 
         FindCommand findCommand = new FindCommand(fullFlashcardList, new Ui(), "1");
-        findCommand.execute();
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+        CommandFeedback findCommandFeedback = findCommand.execute();
+        assertEquals(expectedOutput.toString(), findCommandFeedback.toString());
     }
 
     @Test
     public void findCommand_executeEmptyList_listsFlashcardsSuccessfully() {
-        String expectedOutput = "You have no flashcard matching your query!" + System.lineSeparator();
+        String expectedOutput = "You have no flashcard matching your query!";
 
         FindCommand findCommand = new FindCommand(emptyFlashcardList, new Ui(), "1");
-        findCommand.execute();
-        assertEquals(expectedOutput, capturedOut.toString());
+        CommandFeedback findCommandFeedback = findCommand.execute();
+        assertEquals(expectedOutput, findCommandFeedback.toString());
     }
 }

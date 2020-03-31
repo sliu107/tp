@@ -1,5 +1,7 @@
 package seedu.tp.ui;
 
+import seedu.tp.commands.Command;
+import seedu.tp.commands.CommandFeedback;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
@@ -628,6 +630,39 @@ public class Ui {
     public void sendDuplicateFlashcardResponse() {
         LOGGER.info("Send duplicate flashcard response to user...");
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
+    }
+    
+    public void sendFailedToSaveResponse() {
+        LOGGER.info("Send failed to save response to user...");
+        System.out.println("Uh oh. Couldn't save this change. Sorry.");
+    }
+    
+    public void sendDeletionFailedResponse() {
+        LOGGER.info("Send failed deletion response to user...");
+        System.out.println("Deletion could not be saved to disk. Sorry.");
+    }
+    
+    public void confirmDeletion(Flashcard flashcard) {
+        System.out.println("You have successfully deleted: " + flashcard.getName());
+    }
+    
+    public void confirmAddToGroup(Flashcard flashcard, FlashcardGroup group) {
+        System.out.println("You have successfully added flashcard: " + flashcard.getName() + " to " + group.getName());
+    }
+
+    /**
+     * Display the feedback of a command to the user.
+     *
+     * @param commandFeedback the commandFeedback to display.
+     */
+    public void showCommandFeedback(CommandFeedback commandFeedback) {
+        if (!commandFeedback.isEmpty()) {
+            System.out.println(commandFeedback);
+        }
+    }
+
+    public void sendInvalidDateFormatResponse() {
+        System.out.println("That date format couldn't be parsed!");
     }
 
     /**

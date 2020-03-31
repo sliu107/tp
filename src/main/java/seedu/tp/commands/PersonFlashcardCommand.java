@@ -1,15 +1,18 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.storage.Storage;
+import seedu.tp.ui.Ui;
 
 import static seedu.tp.utils.Constants.PERSON_FLASHCARD_COMMAND;
 
 /**
  * Command to create a person flashcard.
  */
-public class PersonFlashcardCommand extends Command {
+public class PersonFlashcardCommand extends ModifyingCommand {
 
     private FlashcardList flashcardList;
     private FlashcardFactory flashcardFactory;
@@ -38,10 +41,13 @@ public class PersonFlashcardCommand extends Command {
     }
 
     @Override
-    public void execute() throws UnrecognizedFlashcardTypeException {
-        LOGGER.info("Creating a Person flashcard and adding it to the flashcard list...");
-        flashcardList.addFlashcard(flashcardFactory.create(PERSON_FLASHCARD_COMMAND));
-        LOGGER.info("Created a Person flashcard and added it to the flashcard list.");
+    public CommandFeedback execute() throws UnrecognizedFlashcardTypeException {
+        LOGGER.info("Creating a person flashcard and adding it to the flashcard list...");
+        Flashcard flashcard = flashcardFactory.create(PERSON_FLASHCARD_COMMAND);
+        flashcardList.addFlashcard(flashcard);
+        LOGGER.info("Created a person flashcard and added it to the flashcard list");
+        CommandFeedback saveFeedback = save(flashcard);
+        return saveFeedback;
     }
 
     @Override

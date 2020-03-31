@@ -31,11 +31,29 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public CommandFeedback execute() {
         LOGGER.info("Executing FindCommand...");
         List<Map.Entry<Integer, Flashcard>> flashcardsWithKeyword = flashcardList.getAllFlashcardsWithKeyword(keyword);
-        ui.listAllFlashcardsWithId(flashcardsWithKeyword);
-        LOGGER.info("Finished executing FindCommand!");
+        String feedback = getFeedback(flashcardsWithKeyword);
+        return new CommandFeedback(feedback);
+    }
+
+    private String getFeedback(List<Map.Entry<Integer, Flashcard>> flashcardListWithId) {
+        if (flashcardListWithId.isEmpty()) {
+            return "You have no flashcard matching your query!";
+        }
+
+        StringBuilder feedback = new StringBuilder("Here's the list of flashcards you are looking for:");
+        feedback.append(System.lineSeparator());
+        for (int i = 0; i < flashcardListWithId.size(); i++) {
+            Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
+            feedback.append((i + 1) + ": " + flashcardEntry.getValue().getName()
+                    + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
+                    + " | " + flashcardEntry.getValue().getPriorityAsString()
+                    + " | ID: " + (flashcardEntry.getKey() + 1));
+            feedback.append(System.lineSeparator());
+        }
+        return feedback.toString();
     }
 
     @Override

@@ -28,10 +28,11 @@ public class UpdateStudyPlanCommand extends Command {
     }
 
     @Override
-    public void execute() throws HistoryFlashcardException {
+    public CommandFeedback execute() throws HistoryFlashcardException {
         LOGGER.info("Executing UpdateStudyPlanCommand...");
         studyPlanList.updateStudyPlan(ui, flashcardList);
         LOGGER.info("UpdateStudyPlanCommand executed!");
+        return new CommandFeedback();
     }
 
     @Override

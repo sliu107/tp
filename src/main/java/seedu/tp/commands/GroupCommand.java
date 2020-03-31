@@ -1,13 +1,17 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.flashcard.Flashcard;
+import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
+import seedu.tp.storage.Storage;
+import seedu.tp.ui.Ui;
 
 /**
  * Commands to create a new group.
  */
-public class GroupCommand extends Command {
+public class GroupCommand extends ModifyingCommand {
     private GroupFactory groupFactory;
     private GroupList groupList;
 
@@ -26,10 +30,13 @@ public class GroupCommand extends Command {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
         LOGGER.info("Creating a new group...");
-        groupList.addFlashcardGroup(groupFactory.form());
-        LOGGER.info("Created a new group.");
+        FlashcardGroup flashcardGroup = groupFactory.form();
+        groupList.addFlashcardGroup(flashcardGroup);
+        LOGGER.info("Created a new group");
+        CommandFeedback saveFeedback = save(flashcardGroup);
+        return saveFeedback;
     }
 
     @Override

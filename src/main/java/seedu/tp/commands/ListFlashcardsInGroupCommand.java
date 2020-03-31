@@ -1,9 +1,12 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.UnrecognizedFlashcardGroupException;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
+
+import static seedu.tp.utils.Constants.BULLET_POINT;
 
 /**
  * Command to list all flashcards in a specified group.
@@ -31,17 +34,35 @@ public class ListFlashcardsInGroupCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public CommandFeedback execute() {
         LOGGER.info("Executing ListFlashcardsInGroupCommand...");
         try {
             FlashcardList flashcardsInGroup = groupList.getFlashcardsInGroup(groupIdentifier);
-            ui.listFlashcardsInGroup(flashcardsInGroup, groupIdentifier);
+            String feedback = getFeedback(flashcardsInGroup, groupIdentifier);
+            return new CommandFeedback(feedback);
         } catch (UnrecognizedFlashcardGroupException e) {
-            ui.sendInvalidFlashcardGroupResponse();
             LOGGER.warning("UnrecognizedFlashcardGroupException occurred when executing "
                 + "ListFlashcardsInGroupCommand.");
+            String errorFeedback = "Please enter a valid flashcard group name or index."
+                    + " Use \"show-groups\" to view all groups.";
+            return new CommandFeedback(errorFeedback);
         }
-        LOGGER.info("Finished executing ListFlashcardsInGroupCommand!");
+    }
+
+    private String getFeedback(FlashcardList flashcardList, String groupIdentifier) {
+        if (flashcardList.isEmpty()) {
+            return "There are no flashcards in the group!";
+        }
+
+        StringBuilder feedback = new StringBuilder(groupIdentifier + " contains the following flashcards:");
+        feedback.append(System.lineSeparator());
+        for (Flashcard flashcard : flashcardList.getFlashcards()) {
+            feedback.append(BULLET_POINT + flashcard.getName()
+                    + " | Reviewed: " + flashcard.getReviewIcon()
+                    + " | " + flashcard.getPriorityAsString());
+            feedback.append(System.lineSeparator());
+        }
+        return feedback.toString();
     }
 
     @Override

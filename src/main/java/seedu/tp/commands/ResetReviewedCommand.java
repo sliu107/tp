@@ -14,9 +14,10 @@ public class ResetReviewedCommand extends Command {
     }
 
     @Override
-    public void execute() throws HistoryFlashcardException {
+    public CommandFeedback execute() throws HistoryFlashcardException {
         LOGGER.info("Resetting all the flashcards as unreviewed...");
         flashcardList.resetAsUnreviewed(ui);
         LOGGER.info("Reset all the flashcards as unreviewed.");
+        return new CommandFeedback();
     }
 }

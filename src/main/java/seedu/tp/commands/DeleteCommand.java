@@ -1,10 +1,13 @@
 package seedu.tp.commands;
 
+import seedu.tp.exceptions.DeletionFailedException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.storage.Savable;
 import seedu.tp.ui.Ui;
 
-public class DeleteCommand extends Command {
+public class DeleteCommand extends ModifyingCommand {
 
     private FlashcardList flashcardList;
     private int index;
@@ -43,10 +46,34 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
-        LOGGER.info("Deleting flashcard at index: " + index);
-        flashcardList.deleteFlashcard(ui, index);
-        LOGGER.info("Deleted flashcard at index: " + index);
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
+        try {
+            final Flashcard deletedFlashcard = flashcardList.getFlashcardAtIdx(index);
+            LOGGER.info("Deleting flashcard at index: " + index);
+            flashcardList.deleteFlashcard(index);
+            LOGGER.info("Deleted flashcard at index: " + index);
+            CommandFeedback deleteFeedback = delete(deletedFlashcard);
+            String feedback = "The following flashcard has been deleted:" + System.lineSeparator()
+                    + deletedFlashcard;
+            if (!deleteFeedback.isEmpty()) {
+                feedback += deleteFeedback;
+            }
+            return new CommandFeedback(feedback);
+        } catch (IndexOutOfBoundsException e) {
+            LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
+            LOGGER.warning("Throwing InvalidFlashcardIndexException...");
+            throw new InvalidFlashcardIndexException();
+        }
+    }
+    
+    private CommandFeedback delete(Savable savable) {
+        try {
+            storage.delete(savable);
+            return new CommandFeedback();
+        } catch (DeletionFailedException e) {
+            LOGGER.warning("Delete to disk failed for " + savable.getFileName());
+            return new CommandFeedback("Deletion could not be saved to disk. Sorry");
+        }
     }
 
     @Override

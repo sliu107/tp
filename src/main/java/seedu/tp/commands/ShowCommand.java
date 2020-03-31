@@ -12,22 +12,18 @@ public class ShowCommand extends Command {
 
     private FlashcardList flashcardList;
     private int index;
-    private Ui ui;
 
     /**
      * Constructor for the ShowCommand.
      *
      * @param flashcardList list containing all flashcards
      * @param index         index of the flashcard to show
-     * @param ui            instance for user interaction
      */
-    public ShowCommand(FlashcardList flashcardList, int index, Ui ui) {
+    public ShowCommand(FlashcardList flashcardList, int index) {
         assert flashcardList != null : "Invalid null FlashcardList!";
-        assert ui != null : "Invalid null Ui!";
 
         this.flashcardList = flashcardList;
         this.index = index;
-        this.ui = ui;
     }
 
     /**
@@ -40,12 +36,13 @@ public class ShowCommand extends Command {
     }
 
     @Override
-    public void execute() throws InvalidFlashcardIndexException {
+    public CommandFeedback execute() throws InvalidFlashcardIndexException {
         try {
             LOGGER.info("Showing the information of flashcard " + index + "...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
-            ui.showFlashcard(flashcard);
             LOGGER.info("Showed the information of the flashcard " + index);
+            String feedback = "These are the flashcard details:" + System.lineSeparator() + flashcard;
+            return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("InvalidFlashcardIndexException occurred when executing the show command.");
             throw new InvalidFlashcardIndexException();

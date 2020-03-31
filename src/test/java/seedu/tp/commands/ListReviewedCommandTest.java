@@ -75,17 +75,17 @@ public class ListReviewedCommandTest {
         expectedOutput.append("2: Title 1 | Reviewed: / | Not indicated | ID: 3" + System.lineSeparator());
 
         ListReviewedCommand listReviewedCommand = new ListReviewedCommand(fullFlashcardList, new Ui());
-        listReviewedCommand.execute();
-        assertEquals(expectedOutput.toString(), capturedOut.toString());
+        CommandFeedback listReviewedCommandFeedback = listReviewedCommand.execute();
+        assertEquals(expectedOutput.toString(), listReviewedCommandFeedback.toString());
     }
 
     @Test
     public void listReviewedCommand_executeEmptyList_listsFlashcardsSuccessfully() {
         String expectedOutput = "You have no reviewed flashcards! "
-            + "Use \"reviewed [INDEX]\" to mark a flashcard as reviewed." + System.lineSeparator();
+            + "Use \"reviewed [INDEX]\" to mark a flashcard as reviewed.";
 
         ListReviewedCommand listReviewedCommand = new ListReviewedCommand(emptyFlashcardList, new Ui());
-        listReviewedCommand.execute();
-        assertEquals(expectedOutput, capturedOut.toString());
+        CommandFeedback listReviewedCommandFeedback = listReviewedCommand.execute();
+        assertEquals(expectedOutput, listReviewedCommandFeedback.toString());
     }
 }

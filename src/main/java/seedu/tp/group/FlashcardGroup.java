@@ -4,6 +4,7 @@ import seedu.tp.exceptions.DuplicateFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.storage.Savable;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -20,7 +21,7 @@ import static seedu.tp.utils.Constants.NAME_FIELD;
 /**
  * A group of flashcards which have some of the same characteristics.
  */
-public class FlashcardGroup {
+public class FlashcardGroup implements Savable {
     protected static final Logger LOGGER = Logger.getLogger(FlashcardGroup.class.getName());
     private static final String FILE_PATH = LOG_FOLDER + "flashcard_group.log";
     private String name;
@@ -119,6 +120,15 @@ public class FlashcardGroup {
 
     public String getName() {
         return name;
+    }
+
+    /**
+     * Get the file name of the flashcard group.
+     * 
+     * @return the file name of the flashcard group.
+     */
+    public String getFileName() {
+        return getName();
     }
 
     public String getDescription() {

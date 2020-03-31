@@ -1,6 +1,7 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.HistoryFlashcardException;
+import seedu.tp.storage.Savable;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -34,9 +35,9 @@ public abstract class Command {
     /**
      * Executes the command.
      */
-    public abstract void execute()
+    public abstract CommandFeedback execute()
         throws HistoryFlashcardException;
-
+    
     /**
      * Checks whether the command is a bye command.
      *
