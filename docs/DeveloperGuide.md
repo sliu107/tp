@@ -12,7 +12,22 @@
 
 #### Ui Component
 
-{Description for Ui Component}
+The structure of the Ui Component is illustrated in the following diagram:
+
+![UiComponentDiagram](images/UiComponent.png)
+
+API : `Ui.java`
+
+1. The `Ui` class is used to communicate with users.
+2. The `Ui` class depends on `Scanner` to get inputs from users.
+3. The `Main` class uses `Ui#getNextLine()` to receive `commands` from users.
+4. And `FlashcardFactory` and `GroupFactory` classes uses methods in `Ui` class to complete 
+the execution of various commands.
+
+Given below is the Sequence Diagram for interactions between the `Ui` and `FlashcardFactory` components to complete the
+execution of `deleteCommand`.
+
+![UiSequenceDiagram](images/UiSequenceDiagram.png)
 
 #### Parser Component
 
