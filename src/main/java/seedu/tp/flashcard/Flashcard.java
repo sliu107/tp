@@ -17,6 +17,7 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
 public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     protected static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
     protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
+    private static final String FLASHCARDS_FOLDER = "flashcards";
 
     protected String name;
     protected String summary;
@@ -69,6 +70,15 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
      */
     public String getFileName() {
         return getName();
+    }
+
+    /**
+     * Get the folder name.
+     *
+     * @return the folder name.
+     */
+    public String getFolderName() {
+        return FLASHCARDS_FOLDER;
     }
 
     /**

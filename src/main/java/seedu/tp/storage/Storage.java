@@ -48,8 +48,14 @@ public class Storage {
         if (!saveFolder.exists()) {
             saveFolder.mkdir();
         }
-        
-        String pathName = SAVE_FOLDER + savable.getFileName() + FILE_EXTENSION;
+
+        String specificFolderName = savable.getFolderName();
+        File specificFolder = new File(SAVE_FOLDER + "/" + specificFolderName);
+        if (!specificFolder.exists()) {
+            specificFolder.mkdir();
+        }
+
+        String pathName = SAVE_FOLDER + "/" + specificFolderName + "/" + savable.getFileName() + FILE_EXTENSION;
         File file = new File(pathName);
         if (!file.exists()) {
             file.createNewFile();
