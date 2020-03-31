@@ -260,6 +260,9 @@ public class Parser {
                 return new TimelineCommand(flashcardList, splitInput[1], splitInput[2]);
             } catch (IndexOutOfBoundsException e) {
                 return new TimelineCommand(flashcardList);
+            } catch (InvalidDateFormatException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidDateFormatException();
             }
         case GROUP_COMMAND:
             return new GroupCommand(groupFactory, groupList);

@@ -4,6 +4,7 @@ import seedu.tp.commands.Command;
 import seedu.tp.commands.CommandFeedback;
 import seedu.tp.exceptions.DuplicateFlashcardException;
 import seedu.tp.exceptions.HistoryFlashcardException;
+import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.InvalidInputFormatException;
 import seedu.tp.exceptions.UnknownCommandException;
@@ -91,6 +92,8 @@ public class Main {
                 ui.sendInvalidInputFormatResponse();
             } catch (DuplicateFlashcardException e) {
                 ui.sendDuplicateFlashcardResponse();
+            } catch (InvalidDateFormatException e) {
+                ui.sendInvalidDateFormatResponse();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
             }

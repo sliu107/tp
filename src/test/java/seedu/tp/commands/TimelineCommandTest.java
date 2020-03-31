@@ -3,6 +3,7 @@ package seedu.tp.commands;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.FlashcardList;
@@ -46,7 +47,7 @@ public class TimelineCommandTest {
         flashcardList.addFlashcard(new PersonFlashcard("First", firstDate, firstDate, SUMMARY, DETAILS));
 
         StringBuilder expectedOutput = new StringBuilder();
-        expectedOutput.append("Here's an ordered list of the flashcards you have:" + System.lineSeparator());
+        expectedOutput.append("Flashcards sorted by date:" + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
             + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
@@ -80,9 +81,13 @@ public class TimelineCommandTest {
         expectedOutput.append(BULLET_POINT
             + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
 
-        TimelineCommand timelineCommand = new TimelineCommand(flashcardList,
-            "01-02-1834", "03-07-1834");
-        CommandFeedback timelineCommandFeedback = timelineCommand.execute();
-        assertEquals(expectedOutput.toString(), timelineCommandFeedback.toString());
+        try {
+            TimelineCommand timelineCommand = new TimelineCommand(flashcardList,
+                    "01-02-1834", "03-07-1834");
+            CommandFeedback timelineCommandFeedback = timelineCommand.execute();
+            assertEquals(expectedOutput.toString(), timelineCommandFeedback.toString());
+        } catch (InvalidDateFormatException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

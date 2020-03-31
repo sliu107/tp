@@ -2,12 +2,10 @@ package seedu.tp.commands;
 
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
-import seedu.tp.exceptions.InvalidInputFormatException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
-import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 
 import static seedu.tp.utils.Constants.INDEX_FIELD;
@@ -46,13 +44,16 @@ public class AddFlashcardToGroupCommand extends ModifyingCommand {
             LOGGER.info("Adding a flashcard to an existing group...");
             group.addFlashcardToTheGroup(flashcard);
             LOGGER.info("Added the flashcard to the group");
-            CommandFeedback saveFeedback = save(group);
-            String feedback = "You have successfully added flashcard: " + flashcard.getName() + " to "
-                    + group.getName();
+            final CommandFeedback saveFeedback = save(group);
+            StringBuilder feedback = new StringBuilder("You've successfully added the flashcard below:");
+            feedback.append(System.lineSeparator());
+            feedback.append(flashcard.toString() + System.lineSeparator());
+            feedback.append("To the group:" + System.lineSeparator());
+            feedback.append(group.toString());
             if (!saveFeedback.isEmpty()) {
-                feedback += saveFeedback;
+                feedback.append(saveFeedback);
             }
-            return new CommandFeedback(feedback);
+            return new CommandFeedback(feedback.toString());
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
             throw new InvalidFlashcardIndexException();
         }

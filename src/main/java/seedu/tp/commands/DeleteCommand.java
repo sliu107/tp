@@ -53,7 +53,8 @@ public class DeleteCommand extends ModifyingCommand {
             flashcardList.deleteFlashcard(index);
             LOGGER.info("Deleted flashcard at index: " + index);
             CommandFeedback deleteFeedback = delete(deletedFlashcard);
-            String feedback = "You have successfully deleted: " + deletedFlashcard.getName();
+            String feedback = "The following flashcard has been deleted:" + System.lineSeparator()
+                    + deletedFlashcard;
             if (!deleteFeedback.isEmpty()) {
                 feedback += deleteFeedback;
             }

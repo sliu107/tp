@@ -43,20 +43,17 @@ public class TimelineCommand extends Command {
      * @param startDate     the date to start listing flashcards from (inclusive)
      * @param endDate       the date after which to stop listing flashcards from
      */
-    public TimelineCommand(FlashcardList flashcardList, String startDate, String endDate) {
+    public TimelineCommand(FlashcardList flashcardList, String startDate, String endDate)
+            throws InvalidDateFormatException {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert startDate != null : "Invalid null startDate!";
         assert endDate != null : "Invalid null endDate!";
 
-        try {
-            this.startDate = Parser.parseDate(startDate);
-            this.endDate = Parser.parseDate(endDate);
-            List<Flashcard> filteredFlashcardList = flashcardList.getFlashcards().stream()
-                    .filter(flashcard -> isValidFlashcard(flashcard)).collect(Collectors.toList());
-            this.flashcardList = new FlashcardList(filteredFlashcardList);
-        } catch (InvalidDateFormatException e) {
-            System.out.println("That date format couldn't be parsed!");
-        }
+        this.startDate = Parser.parseDate(startDate);
+        this.endDate = Parser.parseDate(endDate);
+        List<Flashcard> filteredFlashcardList = flashcardList.getFlashcards().stream()
+                .filter(flashcard -> isValidFlashcard(flashcard)).collect(Collectors.toList());
+        this.flashcardList = new FlashcardList(filteredFlashcardList);
     }
 
     private boolean isValidFlashcard(Flashcard f) {
@@ -79,15 +76,19 @@ public class TimelineCommand extends Command {
     }
 
     private String getFeedback(FlashcardList flashcardList) {
+        boolean isRestricted = startDate != null && endDate != null;
         if (flashcardList.isEmpty()) {
-            return "You have no flashcard at this moment!";
+            if (isRestricted) {
+                return "You have no flashcards from " + startDate + " to " + endDate;
+            } else {
+                return "You have no flashcard at this moment!";
+            }
         }
 
         List<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
         Collections.sort(flashcards);
-        String summaryMessage = startDate == null && endDate == null
-                ? "Here's an ordered list of the flashcards you have:"
-                : "Listing flashcards from " + startDate + " to " + endDate + "...";
+        String summaryMessage = isRestricted ? "Listing flashcards from " + startDate + " to " + endDate + "..."
+                : "Flashcards sorted by date:";
         StringBuilder feedback = new StringBuilder(summaryMessage);
         feedback.append(System.lineSeparator());
         for (Flashcard f : flashcards) {

@@ -1,5 +1,6 @@
 package seedu.tp.ui;
 
+import seedu.tp.commands.Command;
 import seedu.tp.commands.CommandFeedback;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.flashcard.EventFlashcard;
@@ -649,8 +650,19 @@ public class Ui {
         System.out.println("You have successfully added flashcard: " + flashcard.getName() + " to " + group.getName());
     }
 
+    /**
+     * Display the feedback of a command to the user.
+     *
+     * @param commandFeedback the commandFeedback to display.
+     */
     public void showCommandFeedback(CommandFeedback commandFeedback) {
-        System.out.println(commandFeedback);
+        if (!commandFeedback.isEmpty()) {
+            System.out.println(commandFeedback);
+        }
+    }
+
+    public void sendInvalidDateFormatResponse() {
+        System.out.println("That date format couldn't be parsed!");
     }
 
     /**
