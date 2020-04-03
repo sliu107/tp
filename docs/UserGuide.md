@@ -47,7 +47,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for an Event Flashcard.
+There can be 0 or multiple `DETAIL` added for an Event Flashcard. To stop entering details, just enter an empty line
+by hitting `RETURN`.
 
 Example of usage:
 
@@ -77,7 +78,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for a Person Flashcard.
+There can be 0 or multiple `DETAIL` added for a Person Flashcard. To stop entering details, just enter an empty line
+by hitting `RETURN`.
 
 Example of usage:
 
@@ -104,7 +106,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for a Person Flashcard.
+There can be 0 or multiple `DETAIL` added for a Person Flashcard. To stop entering details, just enter an empty line
+by hitting `RETURN`.
 
 Example of usage:
 
