@@ -79,9 +79,9 @@ public class ListFlashcardsInGroupCommandTest {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Example flashcard group name contains the following flashcards:"
             + System.lineSeparator());
-        expectedOutput.append("- Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Title 1 | Reviewed: X | Not indicated");
+        expectedOutput.append("- " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedOutput.append("- " + PERSON_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedOutput.append("- " + OTHER_FLASHCARD.getShortDescription());
 
         assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }
@@ -99,9 +99,9 @@ public class ListFlashcardsInGroupCommandTest {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("1 contains the following flashcards:"
             + System.lineSeparator());
-        expectedOutput.append("- Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Title 1 | Reviewed: X | Not indicated");
+        expectedOutput.append("- " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedOutput.append("- " + PERSON_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedOutput.append("- " + OTHER_FLASHCARD.getShortDescription());
 
         assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }

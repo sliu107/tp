@@ -49,9 +49,7 @@ public class DisplayStudyPlanCommand extends Command {
             for (int index : studyPlanForDay.getValue()) {
                 try {
                     Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
-                    feedback.append((index + 1) + ": " + flashcard.getName()
-                        + " | Reviewed: " + flashcard.getReviewIcon()
-                        + " | " + flashcard.getPriorityAsString() + System.lineSeparator());
+                    feedback.append((index + 1) + ": " + flashcard.getShortDescription() + System.lineSeparator());
                 } catch (IndexOutOfBoundsException e) {
                     index++;
                     feedback.append("Flashcard with index " + index + " not found. "

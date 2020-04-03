@@ -91,8 +91,8 @@ public class TimelineCommand extends Command {
             : "Flashcards sorted by date:";
         StringBuilder feedback = new StringBuilder(summaryMessage);
         feedback.append(System.lineSeparator());
-        for (Flashcard f : flashcards) {
-            feedback.append(BULLET_POINT + f.getShortDescription());
+        for (Flashcard flashcard : flashcards) {
+            feedback.append(BULLET_POINT + flashcard.getShortDescription());
             feedback.append(System.lineSeparator());
         }
         return feedback.toString().trim();

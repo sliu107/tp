@@ -57,9 +57,7 @@ public class ListFlashcardsInGroupCommand extends Command {
         StringBuilder feedback = new StringBuilder(groupIdentifier + " contains the following flashcards:");
         feedback.append(System.lineSeparator());
         for (Flashcard flashcard : flashcardList.getFlashcards()) {
-            feedback.append(BULLET_POINT + flashcard.getName()
-                + " | Reviewed: " + flashcard.getReviewIcon()
-                + " | " + flashcard.getPriorityAsString());
+            feedback.append(BULLET_POINT + flashcard.getShortDescription());
             feedback.append(System.lineSeparator());
         }
         return feedback.toString().trim();

@@ -74,8 +74,8 @@ public class EventFlashcard extends Flashcard {
      */
     @Override
     public String getShortDescription() {
-        String shortDescription = this.name + DIVIDER + this.startDate + " to " + this.endDate
-            + DIVIDER + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
+        String shortDescription = this.name + DIVIDER + "Time Period: " + this.startDate + " to " + this.endDate
+            + DIVIDER + "Reviewed: " + this.getReviewIcon() + DIVIDER + "Priority: " + this.getPriorityAsString();
         return shortDescription;
     }
 
