@@ -293,9 +293,9 @@ Format:
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer? 
+**Q**: Does History Flashcard have GUI version?
 
-**A**: Well, write the User Guide in active voice anyway.
+**A**: Not at this moment. But we are working on it - keep a lookout for our new releases!
 
 ## Command Summary
 
