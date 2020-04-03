@@ -19,8 +19,6 @@ Words in `UPPER_CASE` are the parameters to be supplied by the user.
 
 Items in square brackets are optional e.g `TITLE [DETAILS]` can be used as `Title Some Details` or just `Title`.
 
-Items with `...`​ after them can be used multiple times including zero times e.g. `[DETAILS]...​` can be omitted or used as `Detail_1 Detail_2`.
-
 ## Basic
 #### Getting Help: `help`
 
