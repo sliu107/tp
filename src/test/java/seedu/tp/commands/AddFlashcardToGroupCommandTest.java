@@ -13,7 +13,6 @@ import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
-import seedu.tp.ui.Ui;
 
 import java.util.Arrays;
 import java.util.List;

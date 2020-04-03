@@ -42,7 +42,7 @@ public class ReviewedCommand extends ModifyingCommand {
             LOGGER.info("Set flashcard " + index + " as reviewed");
             CommandFeedback saveFeedback = save(flashcard);
             String feedback = "You have marked the following flashcard as Reviewed:" + System.lineSeparator()
-                    + flashcard.getName();
+                + flashcard.getName();
             if (!saveFeedback.isEmpty()) {
                 feedback += saveFeedback;
             }

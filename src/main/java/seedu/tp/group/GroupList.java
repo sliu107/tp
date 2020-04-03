@@ -1,17 +1,10 @@
 package seedu.tp.group;
 
-import seedu.tp.exceptions.HistoryFlashcardException;
-import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.UnrecognizedFlashcardGroupException;
-import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.ui.Ui;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static seedu.tp.utils.Constants.INDEX_FIELD;
-import static seedu.tp.utils.Constants.NAME_FIELD;
 
 /**
  * Lists of flashcard groups.
@@ -37,7 +30,7 @@ public class GroupList {
 
     /**
      * Get a flashcard group by name.
-     * 
+     *
      * @param groupName the name of the flashcard group
      * @return the flashcard group
      * @throws UnrecognizedFlashcardGroupException if such a group does not exist
@@ -49,7 +42,7 @@ public class GroupList {
                 return g;
             }
         }
-        
+
         throw new UnrecognizedFlashcardGroupException("There is no such group.");
     }
 

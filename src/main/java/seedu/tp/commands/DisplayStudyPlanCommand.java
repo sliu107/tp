@@ -43,12 +43,12 @@ public class DisplayStudyPlanCommand extends Command {
                 try {
                     Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
                     feedback.append((index + 1) + ": " + flashcard.getName()
-                            + " | Reviewed: " + flashcard.getReviewIcon()
-                            + " | " + flashcard.getPriorityAsString() + System.lineSeparator());
+                        + " | Reviewed: " + flashcard.getReviewIcon()
+                        + " | " + flashcard.getPriorityAsString() + System.lineSeparator());
                 } catch (IndexOutOfBoundsException e) {
                     index++;
                     feedback.append("Flashcard with index " + index + " not found. "
-                            + "Did you delete this flashcard?" + System.lineSeparator());
+                        + "Did you delete this flashcard?" + System.lineSeparator());
                 }
             }
         }

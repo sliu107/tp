@@ -3,8 +3,6 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.storage.Storage;
-import seedu.tp.ui.Ui;
 
 /**
  * Command to configure priority level of a flashcard.
@@ -57,7 +55,7 @@ public class PriorityCommand extends ModifyingCommand {
             LOGGER.info("Set the priority for the flashcard " + index);
             CommandFeedback saveFeedback = save(flashcard);
             String feedback = "Priority has been updated:" + System.lineSeparator()
-                    + flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString();
+                + flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString();
             if (!saveFeedback.isEmpty()) {
                 feedback += saveFeedback;
             }

@@ -54,7 +54,7 @@ public class DeleteCommand extends ModifyingCommand {
             LOGGER.info("Deleted flashcard at index: " + index);
             CommandFeedback deleteFeedback = delete(deletedFlashcard);
             String feedback = "The following flashcard has been deleted:" + System.lineSeparator()
-                    + deletedFlashcard;
+                + deletedFlashcard;
             if (!deleteFeedback.isEmpty()) {
                 feedback += deleteFeedback;
             }
@@ -65,7 +65,7 @@ public class DeleteCommand extends ModifyingCommand {
             throw new InvalidFlashcardIndexException();
         }
     }
-    
+
     private CommandFeedback delete(Savable savable) {
         try {
             storage.delete(savable);

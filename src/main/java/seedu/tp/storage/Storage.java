@@ -14,9 +14,9 @@ import static seedu.tp.utils.Constants.SAVE_FOLDER;
  * Class to save/load savables as JSON.
  */
 public class Storage {
-    private Gson gson;
     private static final String FILE_EXTENSION = ".json";
     private static Storage storage = null;
+    private Gson gson;
 
     private Storage() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
@@ -33,13 +33,14 @@ public class Storage {
         }
         return storage;
     }
-    
+
     private String getJson(Savable savable) {
         return gson.toJson(savable);
     }
 
     /**
      * Save the savable as a formatted JSON string.
+     *
      * @param savable the savable to save
      * @throws IOException if the save fails
      */
@@ -48,13 +49,13 @@ public class Storage {
         if (!saveFolder.exists()) {
             saveFolder.mkdir();
         }
-        
+
         String pathName = SAVE_FOLDER + savable.getFileName() + FILE_EXTENSION;
         File file = new File(pathName);
         if (!file.exists()) {
             file.createNewFile();
         }
-        
+
         String fileContents = getJson(savable);
         FileWriter fileWriter = new FileWriter(pathName);
         fileWriter.write(fileContents);
@@ -63,13 +64,14 @@ public class Storage {
 
     /**
      * Delete a savable from disk.
+     *
      * @param savable the savable to delete
      * @throws DeletionFailedException if the deletion fails
      */
     public void delete(Savable savable) throws DeletionFailedException {
         String pathName = SAVE_FOLDER + savable.getFileName() + FILE_EXTENSION;
         File file = new File(pathName);
-        
+
         boolean success = file.delete();
         if (!success) {
             throw new DeletionFailedException();

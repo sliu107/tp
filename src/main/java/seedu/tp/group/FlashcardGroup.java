@@ -124,7 +124,7 @@ public class FlashcardGroup implements Savable {
 
     /**
      * Get the file name of the flashcard group.
-     * 
+     *
      * @return the file name of the flashcard group.
      */
     public String getFileName() {

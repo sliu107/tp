@@ -64,7 +64,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
 
     /**
      * Get the file name of the flashcard.
-     * 
+     *
      * @return the file name of the flashcard.
      */
     public String getFileName() {

@@ -9,7 +9,6 @@ import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
-import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -83,7 +82,7 @@ public class TimelineCommandTest {
 
         try {
             TimelineCommand timelineCommand = new TimelineCommand(flashcardList,
-                    "01-02-1834", "03-07-1834");
+                "01-02-1834", "03-07-1834");
             CommandFeedback timelineCommandFeedback = timelineCommand.execute();
             assertEquals(expectedOutput.toString(), timelineCommandFeedback.toString());
         } catch (InvalidDateFormatException e) {
