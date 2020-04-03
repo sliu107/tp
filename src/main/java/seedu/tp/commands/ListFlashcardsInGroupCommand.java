@@ -62,7 +62,7 @@ public class ListFlashcardsInGroupCommand extends Command {
                 + " | " + flashcard.getPriorityAsString());
             feedback.append(System.lineSeparator());
         }
-        return feedback.toString();
+        return feedback.toString().trim();
     }
 
     @Override

@@ -95,7 +95,7 @@ public class TimelineCommand extends Command {
             feedback.append(BULLET_POINT + f.getShortDescription());
             feedback.append(System.lineSeparator());
         }
-        return feedback.toString();
+        return feedback.toString().trim();
     }
 
     @Override

@@ -48,7 +48,7 @@ public class HelpCommand extends Command {
         + NEWLINE
         + "OTHER" + NEWLINE
         + "13. Get the list of commands: help" + NEWLINE
-        + "14. Exit History Flashcard: bye" + NEWLINE;
+        + "14. Exit History Flashcard: bye";
 
     @Override
     public CommandFeedback execute() throws HistoryFlashcardException {

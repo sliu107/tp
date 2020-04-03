@@ -81,7 +81,7 @@ public class ListFlashcardsInGroupCommandTest {
             + System.lineSeparator());
         expectedOutput.append("- Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedOutput.append("- Title 1 | Reviewed: X | Not indicated");
 
         assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }
@@ -101,7 +101,7 @@ public class ListFlashcardsInGroupCommandTest {
             + System.lineSeparator());
         expectedOutput.append("- Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
         expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedOutput.append("- Title 1 | Reviewed: X | Not indicated");
 
         assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }

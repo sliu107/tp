@@ -54,7 +54,7 @@ public class TimelineCommandTest {
         expectedOutput.append(BULLET_POINT
             + flashcardList.getFlashcardAtIdx(2).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-            + flashcardList.getFlashcardAtIdx(1).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(1).getShortDescription());
 
         TimelineCommand timelineCommand = new TimelineCommand(flashcardList);
         CommandFeedback timelineCommandFeedback = timelineCommand.execute();
@@ -78,7 +78,7 @@ public class TimelineCommandTest {
         expectedOutput.append(BULLET_POINT
             + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-            + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(0).getShortDescription());
 
         try {
             TimelineCommand timelineCommand = new TimelineCommand(flashcardList,

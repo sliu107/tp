@@ -49,7 +49,7 @@ public class ListReviewedCommand extends Command {
                 + " | ID: " + (flashcardEntry.getKey() + 1));
             feedback.append(System.lineSeparator());
         }
-        return feedback.toString();
+        return feedback.toString().trim();
     }
 
     @Override

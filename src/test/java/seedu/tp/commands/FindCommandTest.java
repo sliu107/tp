@@ -66,7 +66,7 @@ public class FindCommandTest {
         expectedOutput.append("Here's the list of flashcards you are looking for:" + System.lineSeparator());
         expectedOutput.append("1: Event 1 | Reviewed: X | Not indicated | ID: 1" + System.lineSeparator());
         expectedOutput.append("2: Person 1 | Reviewed: X | Not indicated | ID: 2" + System.lineSeparator());
-        expectedOutput.append("3: Title 1 | Reviewed: X | Not indicated | ID: 3" + System.lineSeparator());
+        expectedOutput.append("3: Title 1 | Reviewed: X | Not indicated | ID: 3");
 
         FindCommand findCommand = new FindCommand(fullFlashcardList, new Ui(), "1");
         CommandFeedback findCommandFeedback = findCommand.execute();

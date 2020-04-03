@@ -50,7 +50,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
         for (String detail : details) {
             detailsStringBuilder.append("* ").append(detail).append(System.lineSeparator());
         }
-        return detailsStringBuilder.toString();
+        return detailsStringBuilder.toString().trim();
     }
 
     /**

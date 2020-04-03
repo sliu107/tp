@@ -72,7 +72,7 @@ public class ListReviewedCommandTest {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here's the list of reviewed flashcards:" + System.lineSeparator());
         expectedOutput.append("1: Event 1 | Reviewed: / | Not indicated | ID: 1" + System.lineSeparator());
-        expectedOutput.append("2: Title 1 | Reviewed: / | Not indicated | ID: 3" + System.lineSeparator());
+        expectedOutput.append("2: Title 1 | Reviewed: / | Not indicated | ID: 3");
 
         ListReviewedCommand listReviewedCommand = new ListReviewedCommand(fullFlashcardList, new Ui());
         CommandFeedback listReviewedCommandFeedback = listReviewedCommand.execute();

@@ -35,8 +35,15 @@ public class DisplayStudyPlanCommand extends Command {
     @Override
     public CommandFeedback execute() {
         LOGGER.info("Executing DisplayStudyPlanCommand...");
+
         StringBuilder feedback = new StringBuilder();
         List<Map.Entry<LocalDate, List<Integer>>> studyPlans = studyPlanList.getStudyPlanList();
+        if (studyPlans.isEmpty()) {
+            LOGGER.info("Returning no study plan command feedback...");
+            feedback.append("You have no study plan at this moment.");
+            return new CommandFeedback(feedback.toString());
+        }
+
         for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlans) {
             feedback.append("Date: " + studyPlanForDay.getKey() + System.lineSeparator());
             for (int index : studyPlanForDay.getValue()) {
@@ -52,7 +59,9 @@ public class DisplayStudyPlanCommand extends Command {
                 }
             }
         }
-        return new CommandFeedback(feedback.toString());
+
+        LOGGER.info("Returning display study plan command feedback...");
+        return new CommandFeedback(feedback.toString().trim());
     }
 
     @Override

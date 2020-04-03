@@ -49,7 +49,7 @@ public class ListCommand extends Command {
                 + " | " + flashcard.getPriorityAsString() + System.lineSeparator();
             feedback.append(nextLine);
         }
-        return feedback.toString();
+        return feedback.toString().trim();
     }
 
     @Override

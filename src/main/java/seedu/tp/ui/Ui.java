@@ -673,6 +673,11 @@ public class Ui {
             + " Use \"show-groups\" to view all groups.");
     }
 
+    public void sendUiLineBreak() {
+        LOGGER.info("Sending Ui line break to user...");
+        System.out.println("--------------------------------------------");
+    }
+
     /**
      * Gets the next user input line.
      *
