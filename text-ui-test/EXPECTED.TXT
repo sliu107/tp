@@ -195,7 +195,7 @@ There are no existing groups. Use "group" to create a new group.
 Please enter name:
 Please enter description:
 Please enter indexes:
-The flashcard index you entered is invalid
+Your input contains invalid flashcard index(es)
 --------------------------------------------
 Please enter name:
 Please enter description:
@@ -212,7 +212,7 @@ An exception has occurred!
 There is no such group.
 --------------------------------------------
 Please enter index:
-The flashcard index you entered is invalid
+Your input contains invalid flashcard index(es)
 --------------------------------------------
 Sorry, I don't know how to help with that yet.
 --------------------------------------------
@@ -255,7 +255,7 @@ Here's the list of flashcards you are looking for:
 1: Resurrection Stone | Reviewed: X | Not indicated | ID: 3
 --------------------------------------------
 --------------------------------------------
-The flashcard index you entered is invalid
+Your input contains invalid flashcard index(es)
 --------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Reviewed: X | Not indicated
@@ -264,7 +264,7 @@ Here's the list of flashcards you have:
 4: Quinn | Reviewed: X | Not indicated
 --------------------------------------------
 --------------------------------------------
-The flashcard index you entered is invalid
+Your input contains invalid flashcard index(es)
 --------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Reviewed: X | Not indicated
@@ -273,7 +273,7 @@ Here's the list of flashcards you have:
 4: Quinn | Reviewed: X | Not indicated
 --------------------------------------------
 --------------------------------------------
-The flashcard index you entered is invalid
+Your input contains invalid flashcard index(es)
 --------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Reviewed: X | Not indicated

@@ -613,7 +613,7 @@ public class Ui {
      */
     public void sendInvalidFlashcardIndexResponse() {
         LOGGER.info("Sending invalid flashcard index response to user...");
-        System.out.println("The flashcard index you entered is invalid");
+        System.out.println("Your input contains invalid flashcard index(es)");
     }
 
     public void sendLoggingSetupFailedMessage() {
