@@ -6,6 +6,7 @@ import seedu.tp.exceptions.HistoryFlashcardException;
  * HelpCommand class to print the help message which shows the list of possible user commands.
  */
 public class HelpCommand extends Command {
+
     private static final String NEWLINE = System.lineSeparator();
     private static String helpMessage = "Please follow the prompts given by the program in each situation." + NEWLINE
         + "(Note: [] indicates a parameter)" + NEWLINE
