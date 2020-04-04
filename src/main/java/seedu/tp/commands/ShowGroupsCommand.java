@@ -46,6 +46,7 @@ public class ShowGroupsCommand extends Command {
             FlashcardGroup group = groups.get(i);
             String groupName = group.getName();
             feedback.append(i + 1 + ". " + groupName);
+            feedback.append(" | Description: " + group.getDescription());
             feedback.append(System.lineSeparator());
         }
         return feedback.toString().trim();

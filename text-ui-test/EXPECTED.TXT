@@ -352,7 +352,7 @@ Here's the list of flashcards you have:
 --------------------------------------------
 --------------------------------------------
 Here are all existing groups:
-1. Harry Potter Flashcards
+1. Harry Potter Flashcards | Description: This is a group for HP related stuff.
 --------------------------------------------
 --------------------------------------------
 1 contains the following flashcards:
