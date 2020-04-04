@@ -1,6 +1,7 @@
 --------------------------------------------
 Welcome to History Flashcard App!
 --------------------------------------------
+--------------------------------------------
 Please follow the prompts given by the program in each situation.
 (Note: [] indicates a parameter)
 (Note: When a date is required, you can enter it in any of these formats:
@@ -46,7 +47,9 @@ OTHER
 --------------------------------------------
 Sorry, I don't know how to help with that yet.
 --------------------------------------------
+--------------------------------------------
 Sorry, I don't know how to help with that yet.
+--------------------------------------------
 --------------------------------------------
 Please enter name:
 Please enter start date:
@@ -135,6 +138,7 @@ Flashcards sorted by date:
 --------------------------------------------
 That date format couldn't be parsed!
 --------------------------------------------
+--------------------------------------------
 Please enter name:
 Please enter birth date:
 Please enter death date:
@@ -197,6 +201,7 @@ Please enter description:
 Please enter indexes:
 Your input contains invalid flashcard index(es)
 --------------------------------------------
+--------------------------------------------
 Please enter name:
 Please enter description:
 Please enter indexes:
@@ -211,10 +216,13 @@ Please enter name:
 An exception has occurred!
 There is no such group.
 --------------------------------------------
+--------------------------------------------
 Please enter index:
 Your input contains invalid flashcard index(es)
 --------------------------------------------
+--------------------------------------------
 Sorry, I don't know how to help with that yet.
+--------------------------------------------
 --------------------------------------------
 Please enter index:
 Please enter name:
@@ -241,6 +249,7 @@ Here's the list of flashcards you have:
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
 --------------------------------------------
+--------------------------------------------
 Here's the list of flashcards you are looking for:
 1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated | ID: 1
 --------------------------------------------
@@ -257,14 +266,6 @@ Here's the list of flashcards you are looking for:
 --------------------------------------------
 Your input contains invalid flashcard index(es)
 --------------------------------------------
-Here's the list of flashcards you have:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
-4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
---------------------------------------------
---------------------------------------------
-Your input contains invalid flashcard index(es)
 --------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
@@ -274,6 +275,17 @@ Here's the list of flashcards you have:
 --------------------------------------------
 --------------------------------------------
 Your input contains invalid flashcard index(es)
+--------------------------------------------
+--------------------------------------------
+Here's the list of flashcards you have:
+1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+Your input contains invalid flashcard index(es)
+--------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
@@ -368,6 +380,7 @@ Harry Potter Flashcards contains the following flashcards:
 --------------------------------------------
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
+--------------------------------------------
 --------------------------------------------
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
 --------------------------------------------

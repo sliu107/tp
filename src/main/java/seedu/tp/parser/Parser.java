@@ -4,6 +4,7 @@ import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
+import seedu.tp.commands.DeleteStudyPlanCommand;
 import seedu.tp.commands.DisplayStudyPlanCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.FindCommand;
@@ -51,6 +52,7 @@ import java.util.logging.SimpleFormatter;
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
+import static seedu.tp.utils.Constants.DELETE_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.DISPLAY_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.EMPTY_SPACE;
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
@@ -236,7 +238,7 @@ public class Parser {
             return new RandomCommand(flashcardList, ui);
         case DELETE_COMMAND:
             try {
-                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1, ui);
+                return new DeleteCommand(flashcardList, Integer.parseInt(splitInput[1]) - 1);
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
@@ -272,6 +274,8 @@ public class Parser {
             return new ShowGroupsCommand(groupList, ui);
         case UPDATE_STUDY_PLAN_COMMAND:
             return new UpdateStudyPlanCommand(ui, studyPlanList, flashcardList);
+        case DELETE_STUDY_PLAN_COMMAND:
+            return new DeleteStudyPlanCommand(ui, studyPlanList);
         case DISPLAY_STUDY_PLAN_COMMAND:
             return new DisplayStudyPlanCommand(ui, studyPlanList, flashcardList);
         case FIND_FLASHCARD_COMMAND:

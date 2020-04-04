@@ -94,6 +94,16 @@ public class StudyPlanList {
         LOGGER.info("Study plan updated!");
     }
 
+    public void deleteStudyPlan(Ui ui) {
+        assert ui != null : "Invalid null Ui!";
+
+        LOGGER.info("Deleting study plan...");
+        LocalDate date = ui.promptUserForRequiredLocalDate(DATE_FIELD);
+        studyPlanList.remove(date);
+        ui.confirmStudyPlanDeletion(date);
+        LOGGER.info("Study plan for " + date + " deleted!");
+    }
+
     /**
      * Gets the list of study plans.
      *
