@@ -8,7 +8,6 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
-import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -73,8 +72,8 @@ public class ListPriorityCommandTest {
     public void listPriorityCommand_execute_listsFlashcardsSuccessfully() {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here's the list of flashcards with priority HIGH:" + System.lineSeparator());
-        expectedOutput.append("1: Event 1 | Reviewed: X | HIGH | ID: 1" + System.lineSeparator());
-        expectedOutput.append("2: Person 1 | Reviewed: X | HIGH | ID: 2");
+        expectedOutput.append("1: Event 1 | Reviewed: X | *** | ID: 1" + System.lineSeparator());
+        expectedOutput.append("2: Person 1 | Reviewed: X | *** | ID: 2");
 
         ListPriorityCommand listPriorityCommand =
             new ListPriorityCommand(fullFlashcardList, Flashcard.PriorityLevel.HIGH);
