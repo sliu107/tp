@@ -247,6 +247,25 @@ public class FlashcardList {
     }
 
     /**
+     * Gets all flashcards with a specified priority level.
+     *
+     * @param pl desired priority level of flashcards
+     * @return the list of flashcards with the specified priority level
+     */
+    public List<Map.Entry<Integer, Flashcard>> getFlashcardsOfPriority(Flashcard.PriorityLevel pl) {
+        LOGGER.info("Getting all flashcards of specified priority...");
+        List<Map.Entry<Integer, Flashcard>> priorityFlashcards = new ArrayList<>();
+        for (int i = 0; i < flashcards.size(); i++) {
+            Flashcard flashcard = flashcards.get(i);
+            if (flashcard.getPriorityLevel() == pl) {
+                priorityFlashcards.add(new AbstractMap.SimpleEntry<>(i, flashcard));
+            }
+        }
+        LOGGER.info("Got all flashcards with specified priority!");
+        return priorityFlashcards;
+    }
+
+    /**
      * Gets all flashcards which contain a certain keyword with IDs.
      *
      * @param keyword the specified keyword
