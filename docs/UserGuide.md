@@ -48,7 +48,7 @@ The application will then prompt the user to enter the following fields:
 - `DETAIL`: can be in a natural language format
 
 There can be 0 or multiple `DETAIL` added for an Event Flashcard. To stop entering details, just enter an empty line
-by hitting `RETURN`.
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
@@ -79,7 +79,7 @@ The application will then prompt the user to enter the following fields:
 - `DETAIL`: can be in a natural language format
 
 There can be 0 or multiple `DETAIL` added for a Person Flashcard. To stop entering details, just enter an empty line
-by hitting `RETURN`.
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
@@ -107,7 +107,7 @@ The application will then prompt the user to enter the following fields:
 - `DETAIL`: can be in a natural language format
 
 There can be 0 or multiple `DETAIL` added for a Person Flashcard. To stop entering details, just enter an empty line
-by hitting `RETURN`.
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
