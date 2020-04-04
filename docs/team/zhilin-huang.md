@@ -11,9 +11,10 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 
 ## Summary of Contributions
 
-- *Code Contributed*: [Link](https://nus-cs2113-ay1920s2.github.io/tp-dashboard/#=undefined&search=zhilin-huang) to
+- **Code Contributed**: [Link](https://nus-cs2113-ay1920s2.github.io/tp-dashboard/#=undefined&search=zhilin-huang) to
  my code on tP Code Dashboard
-- *Enhancements implemented*:
+ 
+- **Enhancements implemented**:
     1. Feature: List all flashcards
         - What it does: Allows users to input `list` to list all flashcards in the application.
         - Justification: This feature is needed for users to review all flashcards currently in the application.
@@ -61,15 +62,18 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
         feature. A method was added to the `FlashcardList` class to get all flashcards with names containing the
         specified keyword from the flashcard list. The index of each flashcard in the flashcard list is also printed
         out for the users.
-- *Contributions to User Guide*:
+
+- **Contributions to User Guide**:
     1. Updated User Guide for all features implemented in v1.0 in the pull request 
     [here](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/45).
     2. Added description for the `find KEYWORD` and `list-reviewed`.
     3. Added description for the Study Plans related features. 
-- *Contributions to the Developer Guide*:
+
+- **Contributions to the Developer Guide**:
     1. Added description for the Study Plan related features.
     2. Added description for the Parser component.
-- *Review/mentoring contributions*: I actively reviewed pull requests from my teammates. For example,
+
+- **Review/mentoring contributions**: I actively reviewed pull requests from my teammates. For example,
 [#14](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/14), 
 [#25](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/25), 
 [#28](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/28), 
@@ -85,13 +89,18 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 [#109](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/109),
 [#113](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/113),
 [#136](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/136).
-- *Contributions beyond the project team*: I actively initialize or participate in forum discussions. For example,
+- **Contributions beyond the project team**: I actively initialize or participate in forum discussions. For example,
 [#21](https://github.com/nus-cs2113-AY1920S2/forum/issues/21),
 [#26](https://github.com/nus-cs2113-AY1920S2/forum/issues/26),
 [#31](https://github.com/nus-cs2113-AY1920S2/forum/issues/31),
 [#56](https://github.com/nus-cs2113-AY1920S2/forum/issues/56),
 [#69](https://github.com/nus-cs2113-AY1920S2/forum/issues/69),
 [#83](https://github.com/nus-cs2113-AY1920S2/forum/issues/83).
+
+- **Other contributions**:
+    - Managed releases `v1.0`, `v2.0` on GitHub.
+    - Helped maintain the issue tracker.
+    - Reported [bugs and suggestions](https://github.com/Zhilin-Huang/ped/issues) for other project teams.
 
 ## Contributions to the User Guide (Extracts)
 
