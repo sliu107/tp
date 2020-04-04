@@ -171,6 +171,11 @@ You have no study plan at this moment.
 --------------------------------------------
 --------------------------------------------
 Please enter date:
+That date format couldn't be parsed! Please enter again.
+Study plan for 2020-11-13 does not exist!
+--------------------------------------------
+--------------------------------------------
+Please enter date:
 Please enter indexes:
 Your study plan has been updated.
 --------------------------------------------
@@ -191,6 +196,27 @@ Date: 2020-01-01
 3: Resurrection Stone | Reviewed: X | Priority: Not indicated
 Date: 2020-03-01
 2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+Please enter date:
+That date format couldn't be parsed! Please enter again.
+Study plan for 2020-11-03 does not exist!
+--------------------------------------------
+--------------------------------------------
+Please enter date:
+Your study plan for 2020-03-01 has been updated.
+--------------------------------------------
+--------------------------------------------
+Date: 2020-01-01
+1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+Please enter date:
+Your study plan for 2020-01-01 has been updated.
+--------------------------------------------
+--------------------------------------------
+You have no study plan at this moment.
 --------------------------------------------
 --------------------------------------------
 There are no existing groups. Use "group" to create a new group.
