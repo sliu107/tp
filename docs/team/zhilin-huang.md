@@ -98,8 +98,8 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 [#83](https://github.com/nus-cs2113-AY1920S2/forum/issues/83).
 
 - **Other contributions**:
-    - Managed releases `v1.0`, `v2.0` on GitHub.
-    - Helped maintain the issue tracker.
+    - Managed [releases](https://github.com/AY1920S2-CS2113-T14-1/tp/releases) `v1.0`, `v2.0` on GitHub.
+    - Helped maintain the [issue tracker](https://github.com/AY1920S2-CS2113-T14-1/tp/issues).
     - Reported [bugs and suggestions](https://github.com/Zhilin-Huang/ped/issues) for other project teams.
 
 ## Contributions to the User Guide (Extracts)
