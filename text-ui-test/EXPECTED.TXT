@@ -34,8 +34,9 @@ GROUPS
 10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]
 
 STUDY PLANS
-11a. Create or update today's study plan: plan
-11b. Show all study plans: show-plan
+11a. Create or update study plan for a day: plan
+11b. Delete a study plan: delete-plan
+11c. Show all study plans: show-plan
 
 RANDOMIZED REVIEW
 12. Shuffle and display a random flashcard: random
