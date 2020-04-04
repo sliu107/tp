@@ -19,8 +19,6 @@ Words in `UPPER_CASE` are the parameters to be supplied by the user.
 
 Items in square brackets are optional e.g `TITLE [DETAILS]` can be used as `Title Some Details` or just `Title`.
 
-Items with `...`​ after them can be used multiple times including zero times e.g. `[DETAILS]...​` can be omitted or used as `Detail_1 Detail_2`.
-
 ## Basic
 #### Getting Help: `help`
 
@@ -49,7 +47,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for an Event Flashcard.
+There can be 0 or multiple `DETAIL` added for an Event Flashcard. To stop entering details, just enter an empty line
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
@@ -79,7 +78,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for a Person Flashcard.
+There can be 0 or multiple `DETAIL` added for a Person Flashcard. To stop entering details, just enter an empty line
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
@@ -106,7 +106,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for a Person Flashcard.
+There can be 0 or multiple `DETAIL` added for a Person Flashcard. To stop entering details, just enter an empty line
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
@@ -292,9 +293,10 @@ Format:
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer? 
+**Q**: Where can I find the files containing my flashcard information?
 
-**A**: Well, write the User Guide in active voice anyway.
+**A**: In folder `flashcards/`, each `json` file has the same name as one of your flashcards and contains all
+fields in the flashcard.
 
 ## Command Summary
 

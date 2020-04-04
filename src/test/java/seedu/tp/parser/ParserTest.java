@@ -141,7 +141,7 @@ public class ParserTest {
     public void parse_priorityCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("priority 1 LOW");
         PriorityCommand expectedPriorityCommand = new PriorityCommand(flashcardList, 0,
-                Flashcard.PriorityLevel.LOW);
+            Flashcard.PriorityLevel.LOW);
         assertEquals(expectedPriorityCommand, command);
     }
 
@@ -149,7 +149,7 @@ public class ParserTest {
     public void parse_priorityCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("PriOriTY 1 LOW");
         PriorityCommand expectedPriorityCommand = new PriorityCommand(flashcardList, 0,
-                Flashcard.PriorityLevel.LOW);
+            Flashcard.PriorityLevel.LOW);
         assertEquals(expectedPriorityCommand, command);
     }
 

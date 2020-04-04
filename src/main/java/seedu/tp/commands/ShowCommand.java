@@ -3,7 +3,6 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.ui.Ui;
 
 /**
  * Command to show the details of a specified flashcard.

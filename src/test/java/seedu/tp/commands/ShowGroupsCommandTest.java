@@ -82,7 +82,7 @@ public class ShowGroupsCommandTest {
         expectedOutput.append("Here are all existing groups:"
             + System.lineSeparator());
         expectedOutput.append("1. Group 1" + System.lineSeparator());
-        expectedOutput.append("2. Group 2" + System.lineSeparator());
+        expectedOutput.append("2. Group 2");
 
         assertEquals(expectedOutput.toString(), showGroupsCommandFeedback.toString());
     }

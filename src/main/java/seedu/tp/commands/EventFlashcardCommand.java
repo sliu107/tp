@@ -4,8 +4,6 @@ import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.storage.Storage;
-import seedu.tp.ui.Ui;
 
 import static seedu.tp.utils.Constants.EVENT_FLASHCARD_COMMAND;
 

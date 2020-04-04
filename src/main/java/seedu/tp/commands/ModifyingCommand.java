@@ -2,7 +2,6 @@ package seedu.tp.commands;
 
 import seedu.tp.storage.Savable;
 import seedu.tp.storage.Storage;
-import seedu.tp.ui.Ui;
 
 import java.io.IOException;
 
@@ -15,7 +14,7 @@ public abstract class ModifyingCommand extends Command {
     protected ModifyingCommand() {
         this.storage = Storage.getInstance();
     }
-    
+
     protected CommandFeedback save(Savable savable) {
         try {
             LOGGER.info("Attempting to save " + savable.getFileName() + " to disk...");

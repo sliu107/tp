@@ -114,7 +114,6 @@ public class FlashcardGroup implements Savable {
         stringBuilder.append("Group description: ").append(description).append(System.lineSeparator());
         stringBuilder.append("There are ").append(groupCards.getTotalFlashcardNum())
             .append(" flashcards in this group.");
-        stringBuilder.append(System.lineSeparator());
         return stringBuilder.toString();
     }
 
@@ -124,7 +123,7 @@ public class FlashcardGroup implements Savable {
 
     /**
      * Get the file name of the flashcard group.
-     * 
+     *
      * @return the file name of the flashcard group.
      */
     public String getFileName() {

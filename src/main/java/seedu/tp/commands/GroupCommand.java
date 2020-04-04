@@ -1,12 +1,9 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
-import seedu.tp.flashcard.Flashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
-import seedu.tp.storage.Storage;
-import seedu.tp.ui.Ui;
 
 /**
  * Commands to create a new group.

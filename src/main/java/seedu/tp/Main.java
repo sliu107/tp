@@ -75,15 +75,20 @@ public class Main {
     }
 
     private void runLoop() {
+        ui.sendUiLineBreak();
         ui.sendWelcomeMessage();
-        boolean isBye = false;
-        while (!isBye) {
+        while (true) {
             try {
                 String fullCommand = ui.getNextLine();
+                ui.sendUiLineBreak();
                 Command command = parser.parseCommand(fullCommand);
+                if (command.isBye()) {
+                    break;
+                }
+
                 CommandFeedback feedback = command.execute();
                 ui.showCommandFeedback(feedback);
-                isBye = command.isBye();
+                ui.sendUiLineBreak();
             } catch (UnknownCommandException e) {
                 ui.sendUnknownCommandResponse();
             } catch (InvalidFlashcardIndexException e) {
@@ -99,5 +104,6 @@ public class Main {
             }
         }
         ui.sendByeMessage();
+        ui.sendUiLineBreak();
     }
 }

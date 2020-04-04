@@ -44,7 +44,7 @@ public class ListFlashcardsInGroupCommand extends Command {
             LOGGER.warning("UnrecognizedFlashcardGroupException occurred when executing "
                 + "ListFlashcardsInGroupCommand.");
             String errorFeedback = "Please enter a valid flashcard group name or index."
-                    + " Use \"show-groups\" to view all groups.";
+                + " Use \"show-groups\" to view all groups.";
             return new CommandFeedback(errorFeedback);
         }
     }
@@ -57,12 +57,10 @@ public class ListFlashcardsInGroupCommand extends Command {
         StringBuilder feedback = new StringBuilder(groupIdentifier + " contains the following flashcards:");
         feedback.append(System.lineSeparator());
         for (Flashcard flashcard : flashcardList.getFlashcards()) {
-            feedback.append(BULLET_POINT + flashcard.getName()
-                    + " | Reviewed: " + flashcard.getReviewIcon()
-                    + " | " + flashcard.getPriorityAsString());
+            feedback.append(BULLET_POINT + flashcard.getShortDescription());
             feedback.append(System.lineSeparator());
         }
-        return feedback.toString();
+        return feedback.toString().trim();
     }
 
     @Override

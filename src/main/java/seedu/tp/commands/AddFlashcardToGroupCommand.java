@@ -37,7 +37,7 @@ public class AddFlashcardToGroupCommand extends ModifyingCommand {
         try {
             int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEX_FIELD)) - 1;
             String groupName = ui.promptUserForRequiredField(NAME_FIELD);
-            
+
             FlashcardGroup group = groupList.getGroupByName(groupName);
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(flashcardIndex);
 

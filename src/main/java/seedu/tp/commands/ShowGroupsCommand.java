@@ -48,7 +48,7 @@ public class ShowGroupsCommand extends Command {
             feedback.append(i + 1 + ". " + groupName);
             feedback.append(System.lineSeparator());
         }
-        return feedback.toString();
+        return feedback.toString().trim();
     }
 
     @Override
