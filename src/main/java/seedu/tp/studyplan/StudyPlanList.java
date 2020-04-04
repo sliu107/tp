@@ -94,14 +94,23 @@ public class StudyPlanList {
         LOGGER.info("Study plan updated!");
     }
 
+    /**
+     * Deletes a study plan from the study plan list.
+     *
+     * @param ui the Ui class to be used for interaction with user
+     */
     public void deleteStudyPlan(Ui ui) {
         assert ui != null : "Invalid null Ui!";
 
         LOGGER.info("Deleting study plan...");
         LocalDate date = ui.promptUserForRequiredLocalDate(DATE_FIELD);
-        studyPlanList.remove(date);
-        ui.confirmStudyPlanDeletion(date);
-        LOGGER.info("Study plan for " + date + " deleted!");
+        if (studyPlanList.remove(date) != null) {
+            ui.confirmStudyPlanDeletion(date);
+            LOGGER.info("Study plan for " + date + " deleted!");
+        } else {
+            ui.sendStudyPlanDeletionFailedMessage(date);
+            LOGGER.info("Study plan for " + date + " does not exist!");
+        }
     }
 
     /**

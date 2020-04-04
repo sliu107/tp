@@ -274,6 +274,13 @@ public class Ui {
     }
 
     /**
+     * Prints message for failed study plan deletion.
+     */
+    public void sendStudyPlanDeletionFailedMessage(LocalDate date) {
+        System.out.println("Study plan for " + date + " does not exist!");
+    }
+
+    /**
      * Prints out exception to UI.
      *
      * @param exception the exception to be printed out
