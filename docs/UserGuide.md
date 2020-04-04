@@ -293,9 +293,10 @@ Format:
 
 ## FAQ
 
-**Q**: Does History Flashcard have GUI version?
+**Q**: Where can I find the files containing my flashcard information?
 
-**A**: Not at this moment. But we are working on it - keep a lookout for our new releases!
+**A**: In folder `flashcards/`, each `json` file has the same name as one of your flashcards and contains all
+fields in the flashcard.
 
 ## Command Summary
 
