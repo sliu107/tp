@@ -29,4 +29,18 @@ public class DeleteStudyPlanCommand extends Command {
         LOGGER.info("DeleteStudyPlanCommand executed!");
         return new CommandFeedback();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof DeleteStudyPlanCommand)) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+
+        DeleteStudyPlanCommand otherDeleteStudyPlanCommand = (DeleteStudyPlanCommand) obj;
+        return this.ui.equals(otherDeleteStudyPlanCommand.ui)
+            & this.studyPlanList.equals(otherDeleteStudyPlanCommand.studyPlanList);
+    }
 }

@@ -6,6 +6,7 @@ import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
+import seedu.tp.commands.DeleteStudyPlanCommand;
 import seedu.tp.commands.DisplayStudyPlanCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.FindCommand;
@@ -250,6 +251,20 @@ public class ParserTest {
             flashcardList);
         Command actualUpdateStudyPlanCommand = parser.parseCommand("pLAn");
         assertEquals(expectedUpdateStudyPlanCommand, actualUpdateStudyPlanCommand);
+    }
+
+    @Test
+    public void parse_deleteStudyPlanCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        DeleteStudyPlanCommand expectedDeleteStudyPlanCommand = new DeleteStudyPlanCommand(ui, studyPlanList);
+        Command actualDeleteStudyPlanCommand = parser.parseCommand("delete-plan");
+        assertEquals(expectedDeleteStudyPlanCommand, actualDeleteStudyPlanCommand);
+    }
+
+    @Test
+    public void parse_deleteStudyPlanCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        DeleteStudyPlanCommand expectedDeleteStudyPlanCommand = new DeleteStudyPlanCommand(ui, studyPlanList);
+        Command actualDeleteStudyPlanCommand = parser.parseCommand("DelETe-plAn");
+        assertEquals(expectedDeleteStudyPlanCommand, actualDeleteStudyPlanCommand);
     }
 
     @Test
