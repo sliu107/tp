@@ -351,8 +351,17 @@ Here's the list of flashcards you have:
 2: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
 --------------------------------------------
 --------------------------------------------
+Please use the correct input format. Use "help" to view all commands.
+--------------------------------------------
+There are no flashcards with this priority level! Use "priority INDEX PRIORITY_LEVEL" to assign priority to a flashcard.
+--------------------------------------------
+--------------------------------------------
+Here's the list of flashcards with priority DEFAULT:
+1: Albus Dumbledore | Reviewed: / | Not indicated | ID: 1
+--------------------------------------------
+--------------------------------------------
 Here are all existing groups:
-1. Harry Potter Flashcards
+1. Harry Potter Flashcards | Description: This is a group for HP related stuff.
 --------------------------------------------
 --------------------------------------------
 1 contains the following flashcards:

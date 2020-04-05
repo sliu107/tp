@@ -11,6 +11,7 @@ import seedu.tp.commands.GroupCommand;
 import seedu.tp.commands.HelpCommand;
 import seedu.tp.commands.ListCommand;
 import seedu.tp.commands.ListFlashcardsInGroupCommand;
+import seedu.tp.commands.ListPriorityCommand;
 import seedu.tp.commands.ListReviewedCommand;
 import seedu.tp.commands.OtherFlashcardCommand;
 import seedu.tp.commands.PersonFlashcardCommand;
@@ -59,6 +60,7 @@ import static seedu.tp.utils.Constants.GROUP_COMMAND;
 import static seedu.tp.utils.Constants.HELP_COMMAND;
 import static seedu.tp.utils.Constants.LIST_COMMAND;
 import static seedu.tp.utils.Constants.LIST_FLASHCARDS_IN_GROUP_COMMAND;
+import static seedu.tp.utils.Constants.LIST_PRIORITY_COMMAND;
 import static seedu.tp.utils.Constants.LIST_REVIEWED_COMMAND;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.OTHER_FLASHCARD_COMMAND;
@@ -251,6 +253,14 @@ public class Parser {
             } catch (NumberFormatException e) {
                 LOGGER.warning("InvalidFlashcardIndexException occurred when parsing: " + userInput);
                 throw new InvalidFlashcardIndexException();
+            } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
+                LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                throw new InvalidInputFormatException();
+            }
+        case LIST_PRIORITY_COMMAND:
+            try {
+                Flashcard.PriorityLevel pl = Flashcard.PriorityLevel.valueOf(splitInput[1]);
+                return new ListPriorityCommand(flashcardList, pl);
             } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
                 LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                 throw new InvalidInputFormatException();

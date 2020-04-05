@@ -81,8 +81,8 @@ public class ShowGroupsCommandTest {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here are all existing groups:"
             + System.lineSeparator());
-        expectedOutput.append("1. Group 1" + System.lineSeparator());
-        expectedOutput.append("2. Group 2");
+        expectedOutput.append("1. Group 1 | Description: Example description" + System.lineSeparator());
+        expectedOutput.append("2. Group 2 | Description: Example description");
 
         assertEquals(expectedOutput.toString(), showGroupsCommandFeedback.toString());
     }

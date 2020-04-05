@@ -94,6 +94,9 @@ list-reviewed
 show 1
 priority 2 MEDIUM
 list
+list-priority asdfghjkl
+list-priority HIGH
+list-priority DEFAULT
 show-groups
 list-group 1
 list-group Harry Potter Flashcards

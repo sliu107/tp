@@ -109,6 +109,15 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     }
 
     /**
+     * Returns the flashcard's priority level.
+     *
+     * @return priority level
+     */
+    public PriorityLevel getPriorityLevel() {
+        return this.pl;
+    }
+
+    /**
      * Returns the number of "*"s based on flashcard's priority level.
      *
      * @return "*"s to indicate priority level
