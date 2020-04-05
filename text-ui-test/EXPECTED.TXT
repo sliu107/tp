@@ -392,6 +392,7 @@ Here's the list of flashcards you have:
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
 --------------------------------------------
+--------------------------------------------
 There are no flashcards with this priority level! Use "priority INDEX PRIORITY_LEVEL" to assign priority to a flashcard.
 --------------------------------------------
 --------------------------------------------
