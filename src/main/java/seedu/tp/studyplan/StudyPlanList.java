@@ -95,25 +95,6 @@ public class StudyPlanList {
     }
 
     /**
-     * Deletes a study plan from the study plan list.
-     *
-     * @param ui the Ui class to be used for interaction with user
-     */
-    public void deleteStudyPlan(Ui ui) {
-        assert ui != null : "Invalid null Ui!";
-
-        LOGGER.info("Deleting study plan...");
-        LocalDate date = ui.promptUserForRequiredLocalDate(DATE_FIELD);
-        if (studyPlanList.remove(date) != null) {
-            ui.confirmStudyPlanDeletion(date);
-            LOGGER.info("Study plan for " + date + " deleted!");
-        } else {
-            ui.sendStudyPlanDeletionFailedMessage(date);
-            LOGGER.info("Study plan for " + date + " does not exist!");
-        }
-    }
-
-    /**
      * Gets the list of study plans.
      *
      * @return a list containing all the study plans

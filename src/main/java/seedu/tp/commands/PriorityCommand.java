@@ -8,24 +8,23 @@ import seedu.tp.flashcard.FlashcardList;
  * Command to configure priority level of a flashcard.
  */
 public class PriorityCommand extends ModifyingCommand {
-
     private FlashcardList flashcardList;
     private int index;
-    private Flashcard.PriorityLevel priorityLevel;
+    private Flashcard.PriorityLevel pl;
 
     /**
      * Constructor for the PriorityCommand.
      *
      * @param flashcardList list containing all flashcards
      * @param index         index of the flashcard to show
-     * @param priorityLevel priority level to set the flashcard to
+     * @param pl            priority level to set the flashcard to
      */
-    public PriorityCommand(FlashcardList flashcardList, int index, Flashcard.PriorityLevel priorityLevel) {
+    public PriorityCommand(FlashcardList flashcardList, int index, Flashcard.PriorityLevel pl) {
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.flashcardList = flashcardList;
         this.index = index;
-        this.priorityLevel = priorityLevel;
+        this.pl = pl;
     }
 
     /**
@@ -43,8 +42,8 @@ public class PriorityCommand extends ModifyingCommand {
      *
      * @return the priority level
      */
-    public Flashcard.PriorityLevel getPriorityLevel() {
-        return priorityLevel;
+    public Flashcard.PriorityLevel getPl() {
+        return pl;
     }
 
     @Override
@@ -52,7 +51,7 @@ public class PriorityCommand extends ModifyingCommand {
         try {
             LOGGER.info("Setting the priority for the flashcard " + index + "...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
-            flashcard.setPriorityLevel(priorityLevel);
+            flashcard.setPriorityLevel(pl);
             LOGGER.info("Set the priority for the flashcard " + index);
             CommandFeedback saveFeedback = save(flashcard);
             String feedback = "Priority has been updated:" + System.lineSeparator()
@@ -72,12 +71,13 @@ public class PriorityCommand extends ModifyingCommand {
         if (!(obj instanceof PriorityCommand)) {
             return false;
         }
+
         if (obj == this) {
             return true;
         }
 
         PriorityCommand otherPriorityCommand = (PriorityCommand) obj;
         return otherPriorityCommand.getIndex() == this.index
-            && otherPriorityCommand.getPriorityLevel().equals(this.priorityLevel);
+            && otherPriorityCommand.getPl().equals(this.pl);
     }
 }

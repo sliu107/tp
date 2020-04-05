@@ -6,7 +6,6 @@ import seedu.tp.exceptions.HistoryFlashcardException;
  * HelpCommand class to print the help message which shows the list of possible user commands.
  */
 public class HelpCommand extends Command {
-
     private static final String NEWLINE = System.lineSeparator();
     private static String helpMessage = "Please follow the prompts given by the program in each situation." + NEWLINE
         + "(Note: [] indicates a parameter)" + NEWLINE
@@ -41,9 +40,8 @@ public class HelpCommand extends Command {
         + "10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]" + NEWLINE
         + NEWLINE
         + "STUDY PLANS" + NEWLINE
-        + "11a. Create or update study plan for a day: plan" + NEWLINE
-        + "11b. Delete a study plan: delete-plan" + NEWLINE
-        + "11c. Show all study plans: show-plan" + NEWLINE
+        + "11a. Create or update today's study plan: plan" + NEWLINE
+        + "11b. Show all study plans: show-plan" + NEWLINE
         + NEWLINE
         + "RANDOMIZED REVIEW" + NEWLINE
         + "12. Shuffle and display a random flashcard: random" + NEWLINE

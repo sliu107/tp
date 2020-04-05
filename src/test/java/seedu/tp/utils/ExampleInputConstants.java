@@ -82,8 +82,6 @@ public class ExampleInputConstants {
     public static final String SIMULATED_UPDATE_STUDY_PLAN_INPUT_2 =
         DATE_2 + NEWLINE + INDEX_1 + NEWLINE;
 
-    public static final String SIMULATED_DELETE_STUDY_PLAN_INPUT = DATE_1 + NEWLINE;
-
     public static final String SIMULATED_RANDOM_COMMAND_INPUT = RESPONSE_1 + NEWLINE
         + RESPONSE_3 + NEWLINE
         + RESPONSE_2 + NEWLINE

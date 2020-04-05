@@ -77,7 +77,6 @@ public class Main {
     private void runLoop() {
         ui.sendUiLineBreak();
         ui.sendWelcomeMessage();
-        ui.sendUiLineBreak();
         while (true) {
             try {
                 String fullCommand = ui.getNextLine();
@@ -92,22 +91,16 @@ public class Main {
                 ui.sendUiLineBreak();
             } catch (UnknownCommandException e) {
                 ui.sendUnknownCommandResponse();
-                ui.sendUiLineBreak();
             } catch (InvalidFlashcardIndexException e) {
                 ui.sendInvalidFlashcardIndexResponse();
-                ui.sendUiLineBreak();
             } catch (InvalidInputFormatException e) {
                 ui.sendInvalidInputFormatResponse();
-                ui.sendUiLineBreak();
             } catch (DuplicateFlashcardException e) {
                 ui.sendDuplicateFlashcardResponse();
-                ui.sendUiLineBreak();
             } catch (InvalidDateFormatException e) {
                 ui.sendInvalidDateFormatResponse();
-                ui.sendUiLineBreak();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
-                ui.sendUiLineBreak();
             }
         }
         ui.sendByeMessage();
