@@ -6,6 +6,7 @@ import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
+import seedu.tp.commands.DeleteStudyPlanCommand;
 import seedu.tp.commands.DisplayStudyPlanCommand;
 import seedu.tp.commands.EventFlashcardCommand;
 import seedu.tp.commands.FindCommand;
@@ -170,14 +171,14 @@ public class ParserTest {
     @Test
     public void parse_deleteCommand_lowerCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("delete 1");
-        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0, ui);
+        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0);
         assertEquals(expectedDeleteCommand, command);
     }
 
     @Test
     public void parse_deleteCommand_mixedCaseCorrect() throws HistoryFlashcardException {
         Command command = parser.parseCommand("dELEte 1");
-        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0, ui);
+        DeleteCommand expectedDeleteCommand = new DeleteCommand(flashcardList, 0);
         assertEquals(expectedDeleteCommand, command);
     }
 
@@ -253,8 +254,22 @@ public class ParserTest {
     }
 
     @Test
+    public void parse_deleteStudyPlanCommand_lowerCaseCorrect() throws HistoryFlashcardException {
+        DeleteStudyPlanCommand expectedDeleteStudyPlanCommand = new DeleteStudyPlanCommand(ui, studyPlanList);
+        Command actualDeleteStudyPlanCommand = parser.parseCommand("delete-plan");
+        assertEquals(expectedDeleteStudyPlanCommand, actualDeleteStudyPlanCommand);
+    }
+
+    @Test
+    public void parse_deleteStudyPlanCommand_mixedCaseCorrect() throws HistoryFlashcardException {
+        DeleteStudyPlanCommand expectedDeleteStudyPlanCommand = new DeleteStudyPlanCommand(ui, studyPlanList);
+        Command actualDeleteStudyPlanCommand = parser.parseCommand("DelETe-plAn");
+        assertEquals(expectedDeleteStudyPlanCommand, actualDeleteStudyPlanCommand);
+    }
+
+    @Test
     public void parse_displayStudyPlanCommand_lowerCaseCorrect() throws HistoryFlashcardException {
-        DisplayStudyPlanCommand expectedDisplayStudyPlanCommand = new DisplayStudyPlanCommand(ui, studyPlanList,
+        DisplayStudyPlanCommand expectedDisplayStudyPlanCommand = new DisplayStudyPlanCommand(studyPlanList,
             flashcardList);
         Command actualDisplayStudyPlanCommand = parser.parseCommand("show-plan");
         assertEquals(expectedDisplayStudyPlanCommand, actualDisplayStudyPlanCommand);
@@ -262,7 +277,7 @@ public class ParserTest {
 
     @Test
     public void parse_displayStudyPlanCommand_mixedCaseCorrect() throws HistoryFlashcardException {
-        DisplayStudyPlanCommand expectedDisplayStudyPlanCommand = new DisplayStudyPlanCommand(ui, studyPlanList,
+        DisplayStudyPlanCommand expectedDisplayStudyPlanCommand = new DisplayStudyPlanCommand(studyPlanList,
             flashcardList);
         Command actualDisplayStudyPlanCommand = parser.parseCommand("shOw-plAn");
         assertEquals(expectedDisplayStudyPlanCommand, actualDisplayStudyPlanCommand);
@@ -270,28 +285,28 @@ public class ParserTest {
 
     @Test
     public void parse_listReviewedCommand_lowerCaseCorrect() throws HistoryFlashcardException {
-        ListReviewedCommand expectedListReviewedCommand = new ListReviewedCommand(flashcardList, ui);
+        ListReviewedCommand expectedListReviewedCommand = new ListReviewedCommand(flashcardList);
         Command actualListReviewedCommand = parser.parseCommand("list-reviewed");
         assertEquals(expectedListReviewedCommand, actualListReviewedCommand);
     }
 
     @Test
     public void parse_listReviewedCommand_mixedCaseCorrect() throws HistoryFlashcardException {
-        ListReviewedCommand expectedListReviewedCommand = new ListReviewedCommand(flashcardList, ui);
+        ListReviewedCommand expectedListReviewedCommand = new ListReviewedCommand(flashcardList);
         Command actualListReviewedCommand = parser.parseCommand("liST-revIewEd");
         assertEquals(expectedListReviewedCommand, actualListReviewedCommand);
     }
 
     @Test
     public void parse_findCommand_lowerCaseCorrect() throws HistoryFlashcardException {
-        FindCommand expectedFindCommand = new FindCommand(flashcardList, ui, "word");
+        FindCommand expectedFindCommand = new FindCommand(flashcardList, "word");
         Command actualFindCommand = parser.parseCommand("find word");
         assertEquals(expectedFindCommand, actualFindCommand);
     }
 
     @Test
     public void parse_findCommand_mixedCaseCorrect() throws HistoryFlashcardException {
-        FindCommand expectedFindCommand = new FindCommand(flashcardList, ui, "word");
+        FindCommand expectedFindCommand = new FindCommand(flashcardList, "word");
         Command actualFindCommand = parser.parseCommand("FInD word");
         assertEquals(expectedFindCommand, actualFindCommand);
     }

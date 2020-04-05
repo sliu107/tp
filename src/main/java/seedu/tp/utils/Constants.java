@@ -17,6 +17,7 @@ public class Constants {
     public static final String SHOW_GROUPS_COMMAND = "show-groups";
     public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
     public static final String UPDATE_STUDY_PLAN_COMMAND = "plan";
+    public static final String DELETE_STUDY_PLAN_COMMAND = "delete-plan";
     public static final String DISPLAY_STUDY_PLAN_COMMAND = "show-plan";
     public static final String FIND_FLASHCARD_COMMAND = "find";
     public static final String RESET_REVIEWED_COMMAND = "reset-reviewed";
