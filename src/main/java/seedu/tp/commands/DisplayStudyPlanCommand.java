@@ -3,7 +3,6 @@ package seedu.tp.commands;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.studyplan.StudyPlanList;
-import seedu.tp.ui.Ui;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -11,23 +10,19 @@ import java.util.Map;
 
 public class DisplayStudyPlanCommand extends Command {
 
-    Ui ui;
     StudyPlanList studyPlanList;
     FlashcardList flashcardList;
 
     /**
      * Constructor for DisplayStudyPlanCommand.
      *
-     * @param ui            the UI class to be used by the command
      * @param studyPlanList the study plan to be displayed
      * @param flashcardList the flashcard list to be used by the command
      */
-    public DisplayStudyPlanCommand(Ui ui, StudyPlanList studyPlanList, FlashcardList flashcardList) {
-        assert ui != null : "Invalid null Ui!";
+    public DisplayStudyPlanCommand(StudyPlanList studyPlanList, FlashcardList flashcardList) {
         assert studyPlanList != null : "Invalid null StudyPlan!";
         assert flashcardList != null : "Invalid null FlashcardList!";
 
-        this.ui = ui;
         this.studyPlanList = studyPlanList;
         this.flashcardList = flashcardList;
     }
@@ -72,8 +67,7 @@ public class DisplayStudyPlanCommand extends Command {
         }
 
         DisplayStudyPlanCommand otherDisplayStudyPlanCommand = (DisplayStudyPlanCommand) obj;
-        return this.ui.equals(otherDisplayStudyPlanCommand.ui)
-            & this.studyPlanList.equals(otherDisplayStudyPlanCommand.studyPlanList)
+        return this.studyPlanList.equals(otherDisplayStudyPlanCommand.studyPlanList)
             & this.flashcardList.equals(otherDisplayStudyPlanCommand.flashcardList);
     }
 }
