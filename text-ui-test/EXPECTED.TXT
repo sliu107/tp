@@ -1,7 +1,6 @@
 --------------------------------------------
 Welcome to History Flashcard App!
 --------------------------------------------
---------------------------------------------
 Please follow the prompts given by the program in each situation.
 (Note: [] indicates a parameter)
 (Note: When a date is required, you can enter it in any of these formats:
@@ -34,9 +33,8 @@ GROUPS
 10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]
 
 STUDY PLANS
-11a. Create or update study plan for a day: plan
-11b. Delete a study plan: delete-plan
-11c. Show all study plans: show-plan
+11a. Create or update today's study plan: plan
+11b. Show all study plans: show-plan
 
 RANDOMIZED REVIEW
 12. Shuffle and display a random flashcard: random
@@ -48,9 +46,7 @@ OTHER
 --------------------------------------------
 Sorry, I don't know how to help with that yet.
 --------------------------------------------
---------------------------------------------
 Sorry, I don't know how to help with that yet.
---------------------------------------------
 --------------------------------------------
 Please enter name:
 Please enter start date:
@@ -139,7 +135,6 @@ Flashcards sorted by date:
 --------------------------------------------
 That date format couldn't be parsed!
 --------------------------------------------
---------------------------------------------
 Please enter name:
 Please enter birth date:
 Please enter death date:
@@ -172,11 +167,6 @@ You have no study plan at this moment.
 --------------------------------------------
 --------------------------------------------
 Please enter date:
-That date format couldn't be parsed! Please enter again.
-Study plan for 2020-11-13 does not exist!
---------------------------------------------
---------------------------------------------
-Please enter date:
 Please enter indexes:
 Your study plan has been updated.
 --------------------------------------------
@@ -199,27 +189,6 @@ Date: 2020-03-01
 2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
-Please enter date:
-That date format couldn't be parsed! Please enter again.
-Study plan for 2020-11-03 does not exist!
---------------------------------------------
---------------------------------------------
-Please enter date:
-Your study plan for 2020-03-01 has been updated.
---------------------------------------------
---------------------------------------------
-Date: 2020-01-01
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
---------------------------------------------
---------------------------------------------
-Please enter date:
-Your study plan for 2020-01-01 has been updated.
---------------------------------------------
---------------------------------------------
-You have no study plan at this moment.
---------------------------------------------
---------------------------------------------
 There are no existing groups. Use "group" to create a new group.
 --------------------------------------------
 --------------------------------------------
@@ -227,7 +196,6 @@ Please enter name:
 Please enter description:
 Please enter indexes:
 Your input contains invalid flashcard index(es)
---------------------------------------------
 --------------------------------------------
 Please enter name:
 Please enter description:
@@ -243,13 +211,10 @@ Please enter name:
 An exception has occurred!
 There is no such group.
 --------------------------------------------
---------------------------------------------
 Please enter index:
 Your input contains invalid flashcard index(es)
 --------------------------------------------
---------------------------------------------
 Sorry, I don't know how to help with that yet.
---------------------------------------------
 --------------------------------------------
 Please enter index:
 Please enter name:
@@ -276,7 +241,6 @@ Here's the list of flashcards you have:
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
 --------------------------------------------
---------------------------------------------
 Here's the list of flashcards you are looking for:
 1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated | ID: 1
 --------------------------------------------
@@ -293,7 +257,6 @@ Here's the list of flashcards you are looking for:
 --------------------------------------------
 Your input contains invalid flashcard index(es)
 --------------------------------------------
---------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
 2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
@@ -303,7 +266,6 @@ Here's the list of flashcards you have:
 --------------------------------------------
 Your input contains invalid flashcard index(es)
 --------------------------------------------
---------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
 2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
@@ -312,7 +274,6 @@ Here's the list of flashcards you have:
 --------------------------------------------
 --------------------------------------------
 Your input contains invalid flashcard index(es)
---------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
@@ -416,7 +377,6 @@ Harry Potter Flashcards contains the following flashcards:
 --------------------------------------------
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
---------------------------------------------
 --------------------------------------------
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
 --------------------------------------------

@@ -2,22 +2,27 @@ package seedu.tp.commands;
 
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.ui.Ui;
 
 import java.util.List;
 import java.util.Map;
 
 public class ListReviewedCommand extends Command {
 
+    private Ui ui;
     private FlashcardList flashcardList;
 
     /**
      * Constructor for ListReviewedCommand.
      *
      * @param flashcardList the flashcard list for the command to execute on
+     * @param ui            the UI class for handling interaction with the user
      */
-    public ListReviewedCommand(FlashcardList flashcardList) {
+    public ListReviewedCommand(FlashcardList flashcardList, Ui ui) {
         assert flashcardList != null : "Invalid null FlashcardList!";
+        assert ui != null : "Invalid null Ui!";
 
+        this.ui = ui;
         this.flashcardList = flashcardList;
     }
 
@@ -57,6 +62,7 @@ public class ListReviewedCommand extends Command {
         }
 
         ListReviewedCommand otherListReviewedCommand = (ListReviewedCommand) obj;
-        return this.flashcardList.equals(otherListReviewedCommand.flashcardList);
+        return this.ui.equals(otherListReviewedCommand.ui)
+            & this.flashcardList.equals(otherListReviewedCommand.flashcardList);
     }
 }

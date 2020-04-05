@@ -44,9 +44,6 @@ Quinn
 timeline
 list
 show-plan
-delete-plan
-random date
-13/11/2020
 plan
 01/01/2020
 1 3
@@ -55,15 +52,6 @@ plan
 random date
 01/03/2020
 2
-show-plan
-delete-plan
-random date
-03/11/2020
-delete-plan
-01/03/2020
-show-plan
-delete-plan
-01/01/2020
 show-plan
 show-groups
 group

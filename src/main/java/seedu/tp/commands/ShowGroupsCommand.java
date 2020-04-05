@@ -2,6 +2,7 @@ package seedu.tp.commands;
 
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
+import seedu.tp.ui.Ui;
 
 import java.util.List;
 
@@ -9,18 +10,21 @@ import java.util.List;
  * Command to list all existing groups.
  */
 public class ShowGroupsCommand extends Command {
-
+    private Ui ui;
     private GroupList groupList;
 
     /**
      * Constructor for ShowGroupsCommand.
      *
      * @param groupList list of flashcard groups
+     * @param ui        instance for user interaction
      */
-    public ShowGroupsCommand(GroupList groupList) {
+    public ShowGroupsCommand(GroupList groupList, Ui ui) {
         assert groupList != null : "Invalid null GroupList!";
+        assert ui != null : "Invalid null Ui!";
 
         this.groupList = groupList;
+        this.ui = ui;
     }
 
     @Override
@@ -58,6 +62,7 @@ public class ShowGroupsCommand extends Command {
         }
 
         ShowGroupsCommand otherShowGroupsCommand = (ShowGroupsCommand) obj;
-        return this.groupList.equals(otherShowGroupsCommand.groupList);
+        return this.groupList.equals(otherShowGroupsCommand.groupList)
+            && this.ui.equals(otherShowGroupsCommand.ui);
     }
 }

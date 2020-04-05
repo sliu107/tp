@@ -10,6 +10,7 @@ import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
+import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -74,7 +75,7 @@ public class ShowGroupsCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group1);
         groupList.addFlashcardGroup(group2);
-        ShowGroupsCommand showGroupsCommand = new ShowGroupsCommand(groupList);
+        ShowGroupsCommand showGroupsCommand = new ShowGroupsCommand(groupList, new Ui());
         final CommandFeedback showGroupsCommandFeedback = showGroupsCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();

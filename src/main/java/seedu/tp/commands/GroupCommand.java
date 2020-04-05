@@ -9,7 +9,6 @@ import seedu.tp.group.GroupList;
  * Commands to create a new group.
  */
 public class GroupCommand extends ModifyingCommand {
-
     private GroupFactory groupFactory;
     private GroupList groupList;
 

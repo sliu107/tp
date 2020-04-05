@@ -10,6 +10,7 @@ import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
+import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -72,7 +73,7 @@ public class ListFlashcardsInGroupCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, GROUP_NAME);
+            new ListFlashcardsInGroupCommand(groupList, new Ui(), GROUP_NAME);
         final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
@@ -92,7 +93,7 @@ public class ListFlashcardsInGroupCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, "1");
+            new ListFlashcardsInGroupCommand(groupList, new Ui(), "1");
         final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
@@ -112,7 +113,7 @@ public class ListFlashcardsInGroupCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, "0");
+            new ListFlashcardsInGroupCommand(groupList, new Ui(), "0");
         CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
@@ -128,7 +129,7 @@ public class ListFlashcardsInGroupCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, "badname");
+            new ListFlashcardsInGroupCommand(groupList, new Ui(), "badname");
         CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
