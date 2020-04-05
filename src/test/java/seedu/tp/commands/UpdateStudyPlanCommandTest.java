@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.AbstractMap;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -83,8 +84,7 @@ public class UpdateStudyPlanCommandTest {
             fullFlashcardList);
         updateStudyPlanCommand.execute();
 
-        List<Map.Entry<LocalDate, List<Integer>>> expectedStudyPlanList =
-            Arrays.asList(STUDY_PLAN_ENTRY_1);
+        List<Map.Entry<LocalDate, List<Integer>>> expectedStudyPlanList = Collections.singletonList(STUDY_PLAN_ENTRY_1);
         StudyPlanList expectedStudyPlan = new StudyPlanList(expectedStudyPlanList);
 
         assertEquals(expectedStudyPlan, studyPlanList);
@@ -95,7 +95,7 @@ public class UpdateStudyPlanCommandTest {
         ByteArrayInputStream simulatedSystemIn =
             new ByteArrayInputStream(SIMULATED_UPDATE_STUDY_PLAN_INPUT_2.getBytes());
         System.setIn(simulatedSystemIn);
-        studyPlanList = new StudyPlanList(Arrays.asList(STUDY_PLAN_ENTRY_1));
+        studyPlanList = new StudyPlanList(Collections.singletonList(STUDY_PLAN_ENTRY_1));
         UpdateStudyPlanCommand updateStudyPlanCommand = new UpdateStudyPlanCommand(new Ui(), studyPlanList,
             fullFlashcardList);
         updateStudyPlanCommand.execute();

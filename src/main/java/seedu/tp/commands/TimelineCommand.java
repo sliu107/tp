@@ -19,6 +19,7 @@ import static seedu.tp.utils.Constants.BULLET_POINT;
  * Command to show a timeline for the existing flashcards.
  */
 public class TimelineCommand extends Command {
+
     private FlashcardList flashcardList;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -68,11 +69,7 @@ public class TimelineCommand extends Command {
             return false;
         }
 
-        if (cardStartDate.compareTo(this.startDate) >= 0 && cardStartDate.compareTo(this.endDate) <= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return cardStartDate.compareTo(this.startDate) >= 0 && cardStartDate.compareTo(this.endDate) <= 0;
     }
 
     private String getFeedback(FlashcardList flashcardList) {

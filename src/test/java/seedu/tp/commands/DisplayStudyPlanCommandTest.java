@@ -10,7 +10,6 @@ import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.studyplan.StudyPlanList;
-import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -86,8 +85,7 @@ public class DisplayStudyPlanCommandTest {
         expectedEventOutput.append("1: " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
         expectedEventOutput.append("2: " + PERSON_FLASHCARD.getShortDescription());
 
-        DisplayStudyPlanCommand displayStudyPlanCommand = new DisplayStudyPlanCommand(new Ui(), studyPlanList,
-            fullFlashcardList);
+        DisplayStudyPlanCommand displayStudyPlanCommand = new DisplayStudyPlanCommand(studyPlanList, fullFlashcardList);
         CommandFeedback displayStudyPlanCommandFeedback = displayStudyPlanCommand.execute();
         assertEquals(expectedEventOutput.toString(), displayStudyPlanCommandFeedback.toString());
     }

@@ -267,6 +267,20 @@ public class Ui {
     }
 
     /**
+     * Prints confirmation that study plan has been updated.
+     */
+    public void confirmStudyPlanDeletion(LocalDate date) {
+        System.out.println("Your study plan for " + date + " has been updated.");
+    }
+
+    /**
+     * Prints message for failed study plan deletion.
+     */
+    public void sendStudyPlanDeletionFailedMessage(LocalDate date) {
+        System.out.println("Study plan for " + date + " does not exist!");
+    }
+
+    /**
      * Prints out exception to UI.
      *
      * @param exception the exception to be printed out
