@@ -158,7 +158,7 @@ Example of usage:
 
 `show 3`
 
-#### Finding an existing Flashcard: `find`
+#### Finding Flashcards with Names Containing a specific keyword: `find`
 
 Displays all flashcards with names containing the KEYWORD.
 
@@ -192,11 +192,13 @@ Example of usage:
 
 #### Listing Reviewed Flashcards: `list-reviewed`
 
-Lists all existing Reviewed flashcards.
+Lists all reviewed flashcards.
+
+Format: `list-reviewed`
 
 #### Resetting Review status of Flashcards: `reset-reviewed`
 
-Resets status of all flashcards to Unreviewed.
+Resets status of all flashcards to un-reviewed.
 
 ## Flashcard Grouping
 #### Grouping Flashcards: `group`
@@ -256,9 +258,11 @@ Format: `list-group GROUP_ID`
 ## Study Plans
 #### Creating a new study plan: `plan`
 
-Create a new study plan by specifying date and indexes of existing flashcards.
+Creates a new study plan by specifying date and indexes of existing flashcards.
 
 Format: `plan`
+
+The application will then prompt the user to enter the following fields:
 
 - `DATE`: the date which the user want to set a study plan for
 - `FLASHCARD_INDEXES`: indexes of the flashcards in the study plan
