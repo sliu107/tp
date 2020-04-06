@@ -38,6 +38,8 @@ public class Constants {
     public static final String DATE_FIELD = "date";
 
     public static final int MS_TO_S_CONVERSION_FACTOR = 1000;
+    public static final int ERROR_CODE = -1;
+    public static final int NORMAL_CODE = 0;
 
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";
