@@ -32,6 +32,7 @@ GROUPS
 10b. List all existing groups: show-groups
 10c. Add a flashcard to an existing group: add
 10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]
+10e. Delete an existing flashcard group from group list: delete-group [GROUPNAME/INDEX]
 
 STUDY PLANS
 11a. Create or update study plan for a day: plan
