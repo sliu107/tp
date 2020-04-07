@@ -9,7 +9,7 @@ import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
 
 import static seedu.tp.utils.Constants.INDEX_FIELD;
-import static seedu.tp.utils.Constants.NAME_FIELD;
+import static seedu.tp.utils.Constants.GROUP_ID_FIELD;
 
 public class AddFlashcardToGroupCommand extends ModifyingCommand {
     private Ui ui;
@@ -36,9 +36,9 @@ public class AddFlashcardToGroupCommand extends ModifyingCommand {
     public CommandFeedback execute() throws HistoryFlashcardException {
         try {
             int flashcardIndex = Integer.parseInt(ui.promptUserForRequiredField(INDEX_FIELD)) - 1;
-            String groupName = ui.promptUserForRequiredField(NAME_FIELD);
+            String groupID = ui.promptUserForRequiredField(GROUP_ID_FIELD);
 
-            FlashcardGroup group = groupList.getGroupByName(groupName);
+            FlashcardGroup group = groupList.getGroupByID(groupID);
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(flashcardIndex);
 
             LOGGER.info("Adding a flashcard to an existing group...");

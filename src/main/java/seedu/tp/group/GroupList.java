@@ -31,19 +31,23 @@ public class GroupList {
     /**
      * Get a flashcard group by name.
      *
-     * @param groupName the name of the flashcard group
+     * @param groupID the index or name of the flashcard group
      * @return the flashcard group
      * @throws UnrecognizedFlashcardGroupException if such a group does not exist
      */
-    public FlashcardGroup getGroupByName(String groupName) throws UnrecognizedFlashcardGroupException {
-        FlashcardGroup group = null;
+    public FlashcardGroup getGroupByID(String groupID) throws UnrecognizedFlashcardGroupException {
         for (FlashcardGroup g : groups) {
-            if (g.getName().equals(groupName)) {
+            if (g.getName().equals(groupID)) {
                 return g;
             }
         }
 
-        throw new UnrecognizedFlashcardGroupException("There is no such group.");
+        try {
+            int groupIndex = Integer.parseInt(groupID) - 1;
+            return groups.get(groupIndex);
+        } catch (NumberFormatException | IndexOutOfBoundsException e) {
+            throw new UnrecognizedFlashcardGroupException("There is no such group.");
+        }
     }
 
     public List<FlashcardGroup> getGroups() {
