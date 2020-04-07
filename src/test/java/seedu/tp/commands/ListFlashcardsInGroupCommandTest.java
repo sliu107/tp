@@ -76,7 +76,7 @@ public class ListFlashcardsInGroupCommandTest {
         final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
-        expectedOutput.append("Example flashcard group name contains the following flashcards:"
+        expectedOutput.append("Example flashcard group name 1 contains the following flashcards:"
             + System.lineSeparator());
         expectedOutput.append("- " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
         expectedOutput.append("- " + PERSON_FLASHCARD.getShortDescription() + System.lineSeparator());
