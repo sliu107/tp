@@ -47,7 +47,7 @@ public class GroupList {
      * @return the group deleted
      */
     public FlashcardGroup deleteFlashcardGroup(String groupIdentifier) {
-        for (FlashcardGroup g : groups){
+        for (FlashcardGroup g : groups) {
             if (g.getName().equals(groupIdentifier)) {
                 groups.remove(g);
                 return g;

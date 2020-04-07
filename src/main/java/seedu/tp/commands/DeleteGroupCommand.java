@@ -6,18 +6,20 @@ import seedu.tp.exceptions.UnrecognizedFlashcardGroupException;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
 import seedu.tp.storage.Savable;
-import seedu.tp.ui.Ui;
 
 public class DeleteGroupCommand extends ModifyingCommand {
-    private Ui ui;
     private GroupList groupList;
     private String groupIdentifier;
 
-    public DeleteGroupCommand(Ui ui, GroupList groupList, String groupIdentifier) {
-        assert ui != null : "Invalid ui";
+    /**
+     * Constructor of DeleteGroupCommand.
+     *
+     * @param groupList groupList where the DeleteGroupCommand works on
+     * @param groupIdentifier the index or name of the group to be deleted
+     */
+    public DeleteGroupCommand(GroupList groupList, String groupIdentifier) {
         assert groupList != null : "Invalid group list";
 
-        this.ui = ui;
         this.groupList = groupList;
         this.groupIdentifier = groupIdentifier;
     }
@@ -45,7 +47,7 @@ public class DeleteGroupCommand extends ModifyingCommand {
                 feedback += deleteFeedback;
             }
             return new CommandFeedback(feedback);
-        } catch(NumberFormatException | IndexOutOfBoundsException e) {
+        } catch (NumberFormatException | IndexOutOfBoundsException e) {
             LOGGER.warning("Throwing UnrecognizedFlashcardGroupException ... ");
             throw new UnrecognizedFlashcardGroupException("Invalid group");
         }
@@ -61,8 +63,7 @@ public class DeleteGroupCommand extends ModifyingCommand {
         }
 
         DeleteGroupCommand otherDeleteGroupCommand = (DeleteGroupCommand) obj;
-        return this.ui.equals(otherDeleteGroupCommand.ui)
-                && this.groupList.equals(otherDeleteGroupCommand.groupList)
+        return  this.groupList.equals(otherDeleteGroupCommand.groupList)
                 && this.groupIdentifier.equals(otherDeleteGroupCommand.groupIdentifier);
     }
 }

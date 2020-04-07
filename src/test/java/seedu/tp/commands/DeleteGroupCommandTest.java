@@ -14,7 +14,6 @@ import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
-import seedu.tp.ui.Ui;
 import seedu.tp.utils.InputTestUtil;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -59,7 +58,6 @@ public class DeleteGroupCommandTest {
     private static final FlashcardGroup GROUP_2 = new FlashcardGroup(GROUP_NAME_2, DESCRIPTION, FLASHCARD_LIST,
             InputTestUtil.convertStringIndexesToIntArray(INDEXES_2));
 
-    private Ui ui = new Ui();
     private GroupList emptyGroupList;
     private GroupList groupList;
 
@@ -76,7 +74,7 @@ public class DeleteGroupCommandTest {
 
     @Test
     public void execute_deleteGroupFromEmptyList_throwsUnrecognizedFlashcardGroupException()  {
-        DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(ui, emptyGroupList, INDEX_2);
+        DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(emptyGroupList, INDEX_2);
 
         assertThrows(
                 UnrecognizedFlashcardGroupException.class,
@@ -89,7 +87,7 @@ public class DeleteGroupCommandTest {
     public void execute_deleteGroupByName_success() throws HistoryFlashcardException {
         GroupList expectedGroupList = new GroupList(Arrays.asList(GROUP_2));
 
-        DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(ui, groupList, GROUP_NAME_1);
+        DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(groupList, GROUP_NAME_1);
         deleteGroupCommand.execute();
 
         assertEquals(expectedGroupList, groupList);
@@ -99,7 +97,7 @@ public class DeleteGroupCommandTest {
     public void execute_deleteGroupByIndex_success() throws HistoryFlashcardException {
         GroupList expectedGroupList = new GroupList(Arrays.asList(GROUP_1));
 
-        DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(ui, groupList, INDEX_1);
+        DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(groupList, INDEX_1);
         deleteGroupCommand.execute();
 
         assertEquals(expectedGroupList, groupList);
@@ -107,7 +105,7 @@ public class DeleteGroupCommandTest {
 
     @Test
     public void execute_deleteGroupByIndex_throwsUnrecognizedFlashcardGroupException()  {
-        DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(ui, emptyGroupList, INDEX_3);
+        DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(emptyGroupList, INDEX_3);
 
         assertThrows(
                 UnrecognizedFlashcardGroupException.class,
