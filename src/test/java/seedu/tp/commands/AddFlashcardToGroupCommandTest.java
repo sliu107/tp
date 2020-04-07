@@ -124,24 +124,24 @@ public class AddFlashcardToGroupCommandTest {
         groupCommand.execute();
 
         //Test case1: Given an unionized group name
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand_1 = getAddFlashcardToGroupCommandWithInput(
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand1 = getAddFlashcardToGroupCommandWithInput(
             SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4, fullFlashcardList, originalGroupList);
         assertThrows(
-            UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand_1::execute
+            UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand1::execute
         );
 
         //Test case2: Given an negative group index
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand_2 = getAddFlashcardToGroupCommandWithInput(
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand2 = getAddFlashcardToGroupCommandWithInput(
                 SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_5, fullFlashcardList, originalGroupList);
         assertThrows(
-                UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand_2::execute
+                UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand2::execute
         );
 
         //Test case3: Given an group index out of bound
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand_3 = getAddFlashcardToGroupCommandWithInput(
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand3 = getAddFlashcardToGroupCommandWithInput(
                 SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_6, fullFlashcardList, originalGroupList);
         assertThrows(
-                UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand_3::execute
+                UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand3::execute
         );
     }
 }
