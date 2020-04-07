@@ -51,8 +51,8 @@ public class DeleteGroupCommandTest {
             "This is a summary",
             DETAILS
     );
-    private static final FlashcardList FLASHCARD_LIST = new FlashcardList(Arrays.asList(EVENT_FLASHCARD, PERSON_FLASHCARD,
-            OTHER_FLASHCARD));
+    private static final FlashcardList FLASHCARD_LIST = new FlashcardList(Arrays.asList(EVENT_FLASHCARD,
+            PERSON_FLASHCARD, OTHER_FLASHCARD));
     private static final FlashcardGroup GROUP_1 = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, FLASHCARD_LIST,
             InputTestUtil.convertStringIndexesToIntArray(INDEXES_1));
     private static final FlashcardGroup GROUP_2 = new FlashcardGroup(GROUP_NAME_2, DESCRIPTION, FLASHCARD_LIST,
@@ -78,7 +78,7 @@ public class DeleteGroupCommandTest {
 
         assertThrows(
                 UnrecognizedFlashcardGroupException.class,
-                deleteGroupCommand :: execute,
+                deleteGroupCommand::execute,
                 "Expected UnrecognizedFlashcardGroupException"
         );
     }
@@ -109,7 +109,7 @@ public class DeleteGroupCommandTest {
 
         assertThrows(
                 UnrecognizedFlashcardGroupException.class,
-                deleteGroupCommand :: execute,
+                deleteGroupCommand::execute,
                 "Expected UnrecognizedFlashcardGroupException"
         );
     }
