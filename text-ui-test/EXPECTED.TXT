@@ -239,7 +239,7 @@ There are 2 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
-Please enter name:
+Please enter group id:
 An exception has occurred!
 There is no such group.
 --------------------------------------------
@@ -252,7 +252,7 @@ Sorry, I don't know how to help with that yet.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
-Please enter name:
+Please enter group id:
 You've successfully added the flashcard below:
 Event name: Meiji Restoration
 Event period: January 1, 1868-January 1, 1868
