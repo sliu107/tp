@@ -15,6 +15,7 @@ public class Constants {
     public static final String TIMELINE_COMMAND = "timeline";
     public static final String GROUP_COMMAND = "group";
     public static final String SHOW_GROUPS_COMMAND = "show-groups";
+    public static final String DELETE_GROUP_COMMAND = "delete-group";
     public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
     public static final String UPDATE_STUDY_PLAN_COMMAND = "plan";
     public static final String DELETE_STUDY_PLAN_COMMAND = "delete-plan";

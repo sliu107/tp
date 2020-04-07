@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.tp.utils.ExampleInputConstants.DESCRIPTION;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
 import static seedu.tp.utils.ExampleInputConstants.END_LOCAL_DATE;
-import static seedu.tp.utils.ExampleInputConstants.GROUP_NAME;
+import static seedu.tp.utils.ExampleInputConstants.GROUP_NAME_1;
 import static seedu.tp.utils.ExampleInputConstants.INDEXES_1;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_GROUP_COMMAND_INPUT_1;
 import static seedu.tp.utils.ExampleInputConstants.START_LOCAL_DATE;
@@ -58,7 +58,7 @@ public class GroupCommandTest {
 
     @Test
     public void groupCommand_execute_Successfully() throws InvalidFlashcardIndexException {
-        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
+        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, fullFlashcardList,
             convertStringIndexesToIntArray(INDEXES_1));
         GroupList expectedGroupList = new GroupList();
         expectedGroupList.addFlashcardGroup(expectedGroup);

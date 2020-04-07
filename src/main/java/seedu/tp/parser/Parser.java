@@ -4,6 +4,7 @@ import seedu.tp.commands.AddFlashcardToGroupCommand;
 import seedu.tp.commands.ByeCommand;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.DeleteCommand;
+import seedu.tp.commands.DeleteGroupCommand;
 import seedu.tp.commands.DeleteStudyPlanCommand;
 import seedu.tp.commands.DisplayStudyPlanCommand;
 import seedu.tp.commands.EventFlashcardCommand;
@@ -53,6 +54,7 @@ import java.util.logging.SimpleFormatter;
 import static seedu.tp.utils.Constants.ADD_FLASHCARD_TO_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.BYE_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_COMMAND;
+import static seedu.tp.utils.Constants.DELETE_GROUP_COMMAND;
 import static seedu.tp.utils.Constants.DELETE_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.DISPLAY_STUDY_PLAN_COMMAND;
 import static seedu.tp.utils.Constants.EMPTY_SPACE;
@@ -278,6 +280,17 @@ public class Parser {
             }
         case GROUP_COMMAND:
             return new GroupCommand(groupFactory, groupList);
+        case DELETE_GROUP_COMMAND:
+            try {
+                return new DeleteGroupCommand(ui, groupList,splitInput[1] + " " + splitInput[2]);
+            } catch (IndexOutOfBoundsException e1) {
+                try {
+                    return new DeleteGroupCommand(ui,groupList, splitInput[1]);
+                } catch (IndexOutOfBoundsException e2) {
+                    LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
+                    throw new InvalidInputFormatException();
+                }
+            }
         case ADD_FLASHCARD_TO_GROUP_COMMAND:
             return new AddFlashcardToGroupCommand(ui, groupList, flashcardList);
         case SHOW_GROUPS_COMMAND:
