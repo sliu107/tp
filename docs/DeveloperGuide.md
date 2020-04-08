@@ -59,7 +59,7 @@ Given below is the Sequence Diagram for interactions between the `Parser` and `C
 The Set Priority feature allows users to mark a flashcard with a specified priority level. The priority level is
 then reflected when the user requests a list of existing flashcards.
 
-##### Proposed Implementation
+#### Proposed Implementation
 
 `PriorityLevel` is stored as an enum with four fields: LOW, MEDIUM, HIGH and DEFAULT.
 
@@ -87,7 +87,7 @@ The following sequence diagram shows the relevant interactions behind `setPriori
 
 #### Study Plan Feature
 
-##### Proposed Implementation
+#### Proposed Implementation
 
 The Study Plan feature is facilitated by `StudyPlanList`.
 
@@ -119,7 +119,7 @@ The following sequence diagram shows how the `getStudyPlanList` operation works:
 
 #### Random Review Feature
 
-##### Proposed Implementation
+#### Proposed Implementation
 
 The random review mechanism is facilitated by `FlashcardList`.It stores an `List<Flashcard>` internally which contains
 all the flashcards created by the user.
