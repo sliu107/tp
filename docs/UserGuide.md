@@ -190,11 +190,19 @@ Assign Priority Level `LOW`, `MEDIUM`, `HIGH` to the flashcard at the specified 
 Format: `priority INDEX PRIORITY_LEVEL`
 
 - `INDEX`: must be in a valid number format
-- `PRIORITY_LEVEL`: must be one of `LOW`, `MEDIUM`, `HIGH`
+- `PRIORITY_LEVEL`: must be one of `LOW`, `MEDIUM`, `HIGH`, `DEFAULT`
 
 Example of usage:
 
 `priority 2 MEDIUM`
+
+#### Listing Flashcards of a Specified Priority: `list-priority`
+
+Lists all flashcards which match the specified priority level.
+
+Format: `list-priority PRIORITY_LEVEL`
+
+- `PRIORITY_LEVEL`: must be one of `LOW`, `MEDIUM`, `HIGH`, `DEFAULT`
 
 #### Marking Flashcard as Reviewed: `reviewed`
 
@@ -299,6 +307,13 @@ Lists all study plans.
 
 Format: `show-plan`
 
+#### Deleting a study plan: `delete-plan`
+
+Deletes a specified study plan. 
+The user will be prompted to enter the date of the study plan they wish to delete.
+
+Format: `delete-plan`
+
 ### Randomized Review
 #### Displaying a random Flashcard: `random`
 
@@ -337,10 +352,12 @@ fields in the flashcard.
 - List all groups: `show-groups`
 - List flashcards from a group: `list-group GROUP_ID`
 - Assigns priority to a flashcard: `priority INDEX PRIORITY_LEVEL`
+- List flashcards of a specified priority: `list-priority PRIORITY_LEVEL`
 - Mark a flashcard as reviewed: `reviewed INDEX`
 - List all reviewed flashcards: `list-reviewed`
 - Reset all flashcards to unreviewed: `reset-reviewed`
 - Create a study plan: `plan`
 - List all study plans: `show-plan`
+- Delete a study plan: `delete-plan`
 - Start randomized review: `random`
 
