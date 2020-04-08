@@ -25,7 +25,7 @@ about history figures.
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
-2. Down the latest version of `HistoryFlashcard` from [here](https://github.com/AY1920S2-CS2113-T14-1/tp/releases).
+2. Download the latest version of `HistoryFlashcard` from [here](https://github.com/AY1920S2-CS2113-T14-1/tp/releases).
 3. Move the JAR file to the folder you want to use as the home folder for `HistoryFlashcard `.
 4. Double-click the file to start the application or run the command `java -jar [path-to-history-flashcard-jar-file]` from terminal
 5. Type in commands and start using `HistoryFlashcard`!
@@ -33,14 +33,14 @@ about history figures.
 ## Features 
 
 ### Command Format
-Words in `UPPER_CASE` are the parameters to be supplied by the user.
+Words in `UPPER_CASE` are parameters to be supplied by the user.
 
-Items in square brackets are optional e.g `TITLE [DETAILS]` can be used as `Title Some Details` or just `Title`.
+Items in square brackets are optional e.g `TITLE [DETAILS]` can be used as `Title Some Detail` or just `Title`.
 
 ### Basic
 #### Getting Help: `help`
 
-Gets a list of command available for us.
+Displays a list of commands available.
 
 Format: `help`
 
@@ -65,7 +65,7 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for an Event Flashcard. To stop entering details, just enter an empty line
+There can be 0 or multiple `DETAIL`s added for an Event Flashcard. To stop entering details, just enter an empty line
 by hitting `ENTER/RETURN`.
 
 Example of usage:
@@ -96,7 +96,7 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for a Person Flashcard. To stop entering details, just enter an empty line
+There can be 0 or multiple `DETAIL`s added for a Person Flashcard. To stop entering details, just enter an empty line
 by hitting `ENTER/RETURN`.
 
 Example of usage:
@@ -124,7 +124,7 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for a Person Flashcard. To stop entering details, just enter an empty line
+There can be 0 or multiple `DETAIL`s added for an Other Flashcard. To stop entering details, just enter an empty line
 by hitting `ENTER/RETURN`.
 
 Example of usage:
