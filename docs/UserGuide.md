@@ -1,8 +1,26 @@
-# User Guide
+# History Flashcard - User Guide
+
+1. [Introduction](#introduction)
+2. [Quick Start](#quick-start)
+3. [Features](#features)
+    - [Command Format](#command-format)
+    - [Basic](#basic)
+    - [Flashcard Creation](#flashcard-creation)
+    - [Flashcard Basic Operations](#flashcard-basic-operations)
+    - [Flashcard Status Operations](#flashcard-status-operations)
+    - [Flashcard Grouping](#flashcard-grouping)
+    - [Study Plans](#study-plans)
+    - [Randomized Review](#randomized-review)
+4. [FAQ](#faq)
+5. [Command Summary](#command-summary)
 
 ## Introduction
 
-History Flashcard (HF) is for those who are studying history subjects to create flashcards which summarize the most important information for historical events, figures and artifacts. HF is optimized for those who prefer to use a simple Command Line Interface (CLI). It includes features that help with memory retention and make information convenient to review, e.g. the ability to organize historical events into timelines and store summarized biographies of history figures.
+History Flashcard (HF) is for those who are studying history subjects to create flashcards which summarize the most 
+important information for historical events, figures and artifacts. HF is optimized for those who prefer to use a 
+simple Command Line Interface (CLI). It includes features that help with memory retention and make information 
+convenient to review, e.g. the ability to organize historical events into timelines and store bite-size details   
+about history figures.
 
 ## Quick Start
 
@@ -19,7 +37,7 @@ Words in `UPPER_CASE` are the parameters to be supplied by the user.
 
 Items in square brackets are optional e.g `TITLE [DETAILS]` can be used as `Title Some Details` or just `Title`.
 
-## Basic
+### Basic
 #### Getting Help: `help`
 
 Gets a list of command available for us.
@@ -32,7 +50,7 @@ Exits History Flashcard.
 
 Format: `bye`
 
-## Flashcard Creation
+### Flashcard Creation
 #### Adding an Event Flashcard: `event`
 
 Adds an Event Flashcard.
@@ -120,7 +138,7 @@ According to legend, whoever reunited it with the other two Hallows (the Elder W
 
 ```
 
-## Flashcard Basic Operations
+### Flashcard Basic Operations
 #### Listing All Flashcards: `list`
 
 Lists all flashcards in the application.
@@ -164,7 +182,7 @@ Displays all flashcards with names containing the KEYWORD.
 
 Format: `find KEYWORD`
 
-## Flashcard Status Operations
+### Flashcard Status Operations
 #### Assigning Priority to a Flashcard: `priority`
 
 Assign Priority Level `LOW`, `MEDIUM`, `HIGH` to the flashcard at the specified index.
@@ -200,7 +218,7 @@ Format: `list-reviewed`
 
 Resets status of all flashcards to un-reviewed.
 
-## Flashcard Grouping
+### Flashcard Grouping
 #### Grouping Flashcards: `group`
 
 Creates a new group of flashcards.
@@ -255,7 +273,7 @@ the name of the group.
 
 Format: `list-group GROUP_ID`
 
-## Study Plans
+### Study Plans
 #### Creating a new study plan: `plan`
 
 Creates a new study plan by specifying date and indexes of existing flashcards.
@@ -281,7 +299,7 @@ Lists all study plans.
 
 Format: `show-plan`
 
-## Randomized Review
+### Randomized Review
 #### Displaying a random Flashcard: `random`
 
 Shuffles and displays all the flashcards in a random order.
