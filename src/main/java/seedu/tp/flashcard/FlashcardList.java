@@ -183,7 +183,7 @@ public class FlashcardList {
                 }
                 return reviewedNumber;
             } catch (InvalidInputFormatException e) {
-                System.out.println("The answer given is not acceptable. Please enter again.");
+                System.out.println("Please enter either yes or no.");
                 statusCode = ERROR_CODE;
             }
         } while (statusCode == ERROR_CODE);
