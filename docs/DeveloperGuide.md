@@ -43,10 +43,9 @@ API : `Parser.java`
 3. The resulting `Command` object which then can be executed by the `Main` class.
 
 Given below is the Sequence Diagram for interactions between the `Parser` and `Command` components for the
-`parseCommand` API call from `Main` class. We use the interaction between the `Parser` and `DeleteCommand` class as
- an example: 
+`parseCommand` API call from `Main` class. We use the interaction between the `Parser` and `DeleteCommand` class as an example: 
 
-![ParserAndCommandSequenceDiagram](images/ParserAndCommandSequenceDiagram.png)
+<img src="images/ParserAndCommandSequenceDiagram.png" alt="ParserAndCommandSequenceDiagram" width="500"/>
 
 #### Storage Component
 
