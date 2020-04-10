@@ -31,6 +31,7 @@ import static seedu.tp.utils.Constants.SAVE_FOLDER;
  * Class to save/load savables as JSON.
  */
 public class Storage {
+
     private static final Logger LOGGER = Logger.getLogger(Storage.class.getName());
     private static final String FILE_PATH = LOG_FOLDER + "storage.log";
     private static final String FILE_EXTENSION = ".json";
@@ -168,7 +169,7 @@ public class Storage {
 
         if (studyPlanListFolder.exists()) {
             for (File file : Objects.requireNonNull(studyPlanListFolder.listFiles(
-                (dir, name) -> name.equals(StudyPlanList.STUDY_PLAN_LIST_FILE_NAME + ".json")
+                (dir, name) -> name.equals(StudyPlanList.STUDY_PLAN_LIST_FILE_NAME + FILE_EXTENSION)
             ))) {
                 try {
                     TreeMap studyPlanListTreeMapRaw = gson.fromJson(new FileReader(file), TreeMap.class);

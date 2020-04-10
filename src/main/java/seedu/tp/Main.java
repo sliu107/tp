@@ -29,6 +29,7 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
  * Main class.
  */
 public class Main {
+
     private Ui ui;
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
