@@ -45,7 +45,6 @@ public class StudyPlanList implements Savable {
      */
     public StudyPlanList(List<Map.Entry<LocalDate, List<Integer>>> listOfStudyPlans) {
         this();
-
         assert listOfStudyPlans != null : "Invalid null study plan list!";
 
         for (Map.Entry<LocalDate, List<Integer>> entry : listOfStudyPlans) {
@@ -56,9 +55,11 @@ public class StudyPlanList implements Savable {
     /**
      * Constructor for StudyPlanList.
      *
-     * @param studyPlanListTreeMap the TreeMap to construct the StudyPlanList from.
+     * @param studyPlanListTreeMap the TreeMap to construct the StudyPlanList from
      */
     public StudyPlanList(TreeMap<LocalDate, List<Integer>> studyPlanListTreeMap) {
+        this();
+        assert studyPlanListTreeMap != null : "Invalid null study plan list tree map!";
         this.studyPlanList = studyPlanListTreeMap;
     }
 
