@@ -22,6 +22,7 @@ import seedu.tp.ui.Ui;
 import seedu.tp.utils.LoggerUtils;
 
 import java.io.IOException;
+import java.util.List;
 
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 
@@ -54,10 +55,6 @@ public class Main {
 
     private void setup() {
         ui = new Ui();
-        flashcardFactory = new FlashcardFactory(ui);
-        flashcardList = new FlashcardList();
-        groupFactory = new GroupFactory(ui, flashcardList);
-        groupList = new GroupList();
 
         LoggerUtils.createFolder(LOG_FOLDER);
         try {
@@ -74,9 +71,13 @@ public class Main {
             ui.sendLoggingSetupFailedMessage();
         }
 
+        flashcardFactory = new FlashcardFactory(ui);
+        groupList = new GroupList();
+        List<Flashcard> flashcards = Storage.getInstance().loadAll(groupList);
+        flashcardList = Storage.getInstance().loadFlashcardList(flashcards);
         studyPlanList = Storage.getInstance().loadStudyPlanList();
+        groupFactory = new GroupFactory(ui, flashcardList);
         parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlanList, ui);
-        Storage.getInstance().loadAll(flashcardList, groupList);
     }
 
     private void runLoop() {

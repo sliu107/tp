@@ -4,6 +4,7 @@ import seedu.tp.commands.CommandFeedback;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.InvalidInputFormatException;
+import seedu.tp.storage.Savable;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -27,8 +28,10 @@ import static seedu.tp.utils.Constants.REGEX_MATCH_ALL_CHARACTER;
 /**
  * List of flashcards.
  */
-public class FlashcardList {
+public class FlashcardList implements Savable {
 
+    public static final String FLASHCARD_LIST_FOLDER = "flashcardlist";
+    public static final String FLASHCARD_LIST_FILE_NAME = "flashcardlist";
     private static final String FILE_PATH = LOG_FOLDER + "flashcard_list.log";
     private static final Logger LOGGER = Logger.getLogger(FlashcardList.class.getName());
 
@@ -342,5 +345,28 @@ public class FlashcardList {
             }
         }
         return true;
+    }
+
+    /**
+     * Get the file name of the study plan lit.
+     *
+     * @return the file name of the study plan list.
+     */
+    @Override
+    public String getFileName() {
+        return FLASHCARD_LIST_FOLDER + "/" + FLASHCARD_LIST_FILE_NAME;
+    }
+
+    /**
+     * Gets all flashcard names.
+     *
+     * @return the list of flashcard names
+     */
+    public List<String> getAllFlashcardNames() {
+        List<String> flashcardNames = new ArrayList<>();
+        for (Flashcard flashcard : flashcards) {
+            flashcardNames.add(flashcard.getName());
+        }
+        return flashcardNames;
     }
 }

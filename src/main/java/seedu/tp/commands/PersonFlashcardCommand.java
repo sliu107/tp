@@ -45,6 +45,7 @@ public class PersonFlashcardCommand extends ModifyingCommand {
         flashcardList.addFlashcard(flashcard);
         LOGGER.info("Created a person flashcard and added it to the flashcard list");
         CommandFeedback saveFeedback = save(flashcard);
+        save(flashcardList);
         return saveFeedback;
     }
 

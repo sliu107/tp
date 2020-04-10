@@ -45,6 +45,7 @@ public class OtherFlashcardCommand extends ModifyingCommand {
         flashcardList.addFlashcard(flashcard);
         LOGGER.info("Created an other flashcard and added it to the flashcard list");
         CommandFeedback saveFeedback = save(flashcard);
+        save(flashcardList);
         return saveFeedback;
     }
 

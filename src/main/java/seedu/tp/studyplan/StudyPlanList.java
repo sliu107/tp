@@ -163,9 +163,9 @@ public class StudyPlanList implements Savable {
     }
 
     /**
-     * Get the file name of the flashcard.
+     * Get the file name of the study plan lit.
      *
-     * @return the file name of the flashcard.
+     * @return the file name of the study plan list.
      */
     @Override
     public String getFileName() {

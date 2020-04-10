@@ -151,5 +151,7 @@ list-group 1
 delete-group 1
 list-group abc
 list-group abc def
+list
+show-groups
 show-plan
 bye

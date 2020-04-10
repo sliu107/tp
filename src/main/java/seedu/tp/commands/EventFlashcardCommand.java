@@ -45,6 +45,7 @@ public class EventFlashcardCommand extends ModifyingCommand {
         flashcardList.addFlashcard(flashcard);
         LOGGER.info("Created an event flashcard and added it to the flashcard list");
         CommandFeedback saveFeedback = save(flashcard);
+        save(flashcardList);
         return saveFeedback;
     }
 

@@ -545,7 +545,7 @@ Please use the correct input format. Use "help" to view all commands.
 The following flashcard group has been deleted:
 Group name: Harry Potter Flashcards
 Group description: This is a group for HP related stuff.
-There are 3 flashcards in this group.Deletion could not be saved to disk. Sorry
+There are 3 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 1 contains the following flashcards:
@@ -557,13 +557,23 @@ There are 3 flashcards in this group.Deletion could not be saved to disk. Sorry
 The following flashcard group has been deleted:
 Group name: Harry Potter Flashcards Copy
 Group description: This is a group for HP related stuff.
-There are 3 flashcards in this group.Deletion could not be saved to disk. Sorry
+There are 3 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
 --------------------------------------------
 --------------------------------------------
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
+--------------------------------------------
+--------------------------------------------
+Here's the list of flashcards you have:
+1: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: / | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+There are no existing groups. Use "group" to create a new group.
 --------------------------------------------
 --------------------------------------------
 Date: 2020-01-01

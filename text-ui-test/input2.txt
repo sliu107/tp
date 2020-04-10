@@ -1,4 +1,4 @@
-show-plan
 list
+show-plan
 show-groups
 bye

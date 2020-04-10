@@ -2,26 +2,23 @@
 Welcome to History Flashcard App!
 --------------------------------------------
 --------------------------------------------
-Date: 2020-01-01
-1: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
-2: Resurrection Stone | Reviewed: X | Priority: Not indicated
-3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: / | Priority: Not indicated
-Date: 2020-02-02
-2: Resurrection Stone | Reviewed: X | Priority: Not indicated
-3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: / | Priority: Not indicated
---------------------------------------------
---------------------------------------------
 Here's the list of flashcards you have:
-1: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
-2: Resurrection Stone | Reviewed: X | Priority: Not indicated
-3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: / | Priority: Not indicated
-4: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-5: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+1: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: / | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
-Here are all existing groups:
-1. Harry Potter Flashcards Copy | Description: This is a group for HP related stuff.
-2. Harry Potter Flashcards | Description: This is a group for HP related stuff.
+Date: 2020-01-01
+1: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: / | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+Date: 2020-02-02
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+There are no existing groups. Use "group" to create a new group.
 --------------------------------------------
 --------------------------------------------
 Thanks for using History Flashcard!

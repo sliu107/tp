@@ -18,6 +18,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.TreeMap;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -93,6 +94,8 @@ public class Storage {
             fileContents = gson.toJson(savable, Flashcard.class);
         } else if (savable instanceof StudyPlanList) {
             fileContents = gson.toJson(((StudyPlanList) savable).getTreeMap(), TreeMap.class);
+        } else if (savable instanceof FlashcardList) {
+            fileContents = gson.toJson(((FlashcardList) savable).getAllFlashcardNames(), List.class);
         } else {
             fileContents = gson.toJson(savable);
         }
@@ -109,7 +112,7 @@ public class Storage {
      * @throws DeletionFailedException if the deletion fails
      */
     public void delete(Savable savable) throws DeletionFailedException {
-        String pathName = SAVE_FOLDER + savable.getFileName() + FILE_EXTENSION;
+        String pathName = SAVE_FOLDER + "/" + savable.getFileName() + FILE_EXTENSION;
         File file = new File(pathName);
 
         boolean success = file.delete();
@@ -121,21 +124,21 @@ public class Storage {
     /**
      * Call once at the start of the program to load flashcards and groups from file.
      *
-     * @param flashcardList the FlashcardList to load into
-     * @param groupList     the GroupList to load into
+     * @param groupList the GroupList to load into
      */
-    public void loadAll(FlashcardList flashcardList, GroupList groupList) {
+    public List<Flashcard> loadAll(GroupList groupList) {
         final String flashcardsFolderString = SAVE_FOLDER + "/" + Flashcard.FLASHCARDS_FOLDER;
         final String groupsFolderString = SAVE_FOLDER + "/" + FlashcardGroup.GROUPS_FOLDER;
 
         File flashcardsFolder = new File(flashcardsFolderString);
         File groupsFolder = new File(groupsFolderString);
 
+        List<Flashcard> flashcards = new ArrayList<>();
         if (flashcardsFolder.exists()) {
             for (File f : Objects.requireNonNull(flashcardsFolder.listFiles())) {
                 try {
                     Flashcard flashcard = gson.fromJson(new FileReader(f), Flashcard.class);
-                    flashcardList.addFlashcard(flashcard);
+                    flashcards.add(flashcard);
                     LOGGER.info("File: " + f.toString() + " was loaded from disk.");
                 } catch (FileNotFoundException e) {
                     LOGGER.warning("File: " + f.toString() + " was not found when loading from disk.");
@@ -154,6 +157,36 @@ public class Storage {
                 }
             }
         }
+
+        return flashcards;
+    }
+
+    public FlashcardList loadFlashcardList(List<Flashcard> flashcards) {
+        final String flashcardListFolderString = SAVE_FOLDER + "/" + FlashcardList.FLASHCARD_LIST_FOLDER;
+        File flashcardListFolder = new File(flashcardListFolderString);
+
+        if (flashcardListFolder.exists()) {
+            for (File file : Objects.requireNonNull(flashcardListFolder.listFiles(
+                (dir, name) -> name.equals(FlashcardList.FLASHCARD_LIST_FILE_NAME + FILE_EXTENSION)
+            ))) {
+                try {
+                    List flashcardNameList = gson.fromJson(new FileReader(file), List.class);
+                    FlashcardList flashcardList = new FlashcardList();
+                    for (Object object : flashcardNameList) {
+                        String flashcardName = (String) object;
+                        Optional<Flashcard> flashcard =
+                            flashcards.stream().filter(o -> o.getName().equals(flashcardName)).findFirst();
+                        flashcard.ifPresent(flashcardList::addFlashcard);
+                    }
+                    LOGGER.info("File: " + file.toString() + " was loaded from disk.");
+                    return flashcardList;
+                } catch (FileNotFoundException e) {
+                    LOGGER.warning("File: " + file.toString() + " was not found when loading from disk.");
+                }
+            }
+        }
+
+        return new FlashcardList();
     }
 
     /**
