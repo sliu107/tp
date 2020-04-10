@@ -338,6 +338,10 @@ public class Ui {
         System.out.println("That date format couldn't be parsed!");
     }
 
+    public void sendReversedDateOrderResponse() {
+        System.out.println("The start/birth date cannot be after the end/death date! Please try again.");
+    }
+
     public void sendUiLineBreak() {
         LOGGER.info("Sending Ui line break to user...");
         System.out.println("--------------------------------------------");
