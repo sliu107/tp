@@ -39,7 +39,8 @@ public class HelpCommand extends Command {
         + "10a. Set up a new flashcard group: group" + NEWLINE
         + "10b. List all existing groups: show-groups" + NEWLINE
         + "10c. Add a flashcard to an existing group: add" + NEWLINE
-        + "10d. List all flashcards in a group: list-group GROUPNAME/INDEX" + NEWLINE
+        + "10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]" + NEWLINE
+        + "10e. Delete an existing flashcard group from group list: delete-group [GROUPNAME/INDEX]" + NEWLINE
         + NEWLINE
         + "STUDY PLANS" + NEWLINE
         + "11a. Create or update study plan for a day: plan" + NEWLINE

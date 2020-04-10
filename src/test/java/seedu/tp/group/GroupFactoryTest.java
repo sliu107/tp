@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static seedu.tp.utils.ExampleInputConstants.DESCRIPTION;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
 import static seedu.tp.utils.ExampleInputConstants.END_LOCAL_DATE;
-import static seedu.tp.utils.ExampleInputConstants.GROUP_NAME;
+import static seedu.tp.utils.ExampleInputConstants.GROUP_NAME_1;
 import static seedu.tp.utils.ExampleInputConstants.INDEXES_1;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_GROUP_COMMAND_INPUT_1;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_GROUP_COMMAND_INPUT_2;
@@ -57,7 +57,7 @@ public class GroupFactoryTest {
 
     @Test
     public void group_correctly_formed() throws InvalidFlashcardIndexException {
-        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
+        FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, fullFlashcardList,
             convertStringIndexesToIntArray(INDEXES_1));
         GroupFactory groupFactory = getGroupFactoryWithInput(SIMULATED_GROUP_COMMAND_INPUT_1, fullFlashcardList);
         FlashcardGroup actualGroup = groupFactory.form();

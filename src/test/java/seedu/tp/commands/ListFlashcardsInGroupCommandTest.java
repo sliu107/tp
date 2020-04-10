@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.tp.utils.ExampleInputConstants.DESCRIPTION;
 import static seedu.tp.utils.ExampleInputConstants.DETAILS;
 import static seedu.tp.utils.ExampleInputConstants.END_LOCAL_DATE;
-import static seedu.tp.utils.ExampleInputConstants.GROUP_NAME;
+import static seedu.tp.utils.ExampleInputConstants.GROUP_NAME_1;
 import static seedu.tp.utils.ExampleInputConstants.INDEXES_3;
 import static seedu.tp.utils.ExampleInputConstants.START_LOCAL_DATE;
 import static seedu.tp.utils.InputTestUtil.convertStringIndexesToIntArray;
@@ -67,16 +67,16 @@ public class ListFlashcardsInGroupCommandTest {
 
     @Test
     public void showGroupsCommand_execute_listFlashcardsInGroupSuccessfullyUsingName() {
-        FlashcardGroup group = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
+        FlashcardGroup group = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, fullFlashcardList,
             convertStringIndexesToIntArray(INDEXES_3));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, GROUP_NAME);
+            new ListFlashcardsInGroupCommand(groupList, GROUP_NAME_1);
         final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
-        expectedOutput.append("Example flashcard group name contains the following flashcards:"
+        expectedOutput.append("Example flashcard group name 1 contains the following flashcards:"
             + System.lineSeparator());
         expectedOutput.append("- " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
         expectedOutput.append("- " + PERSON_FLASHCARD.getShortDescription() + System.lineSeparator());
@@ -87,7 +87,7 @@ public class ListFlashcardsInGroupCommandTest {
 
     @Test
     public void showGroupsCommand_execute_listFlashcardsInGroupSuccessfullyUsingIndex() {
-        FlashcardGroup group = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
+        FlashcardGroup group = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, fullFlashcardList,
             convertStringIndexesToIntArray(INDEXES_3));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
@@ -107,7 +107,7 @@ public class ListFlashcardsInGroupCommandTest {
 
     @Test
     public void execute_listGroupWithOutOfBoundIndex_catchesUnrecognizedFlashcardGroupException() {
-        FlashcardGroup group = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
+        FlashcardGroup group = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, fullFlashcardList,
             convertStringIndexesToIntArray(INDEXES_3));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
@@ -123,7 +123,7 @@ public class ListFlashcardsInGroupCommandTest {
 
     @Test
     public void execute_listGroupWithFalseName_catchesUnrecognizedFlashcardGroupException() {
-        FlashcardGroup group = new FlashcardGroup(GROUP_NAME, DESCRIPTION, fullFlashcardList,
+        FlashcardGroup group = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, fullFlashcardList,
             convertStringIndexesToIntArray(INDEXES_3));
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
