@@ -3,7 +3,6 @@ package seedu.tp.storage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
-import com.google.gson.JsonSyntaxException;
 import seedu.tp.exceptions.DeletionFailedException;
 import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.flashcard.Flashcard;
