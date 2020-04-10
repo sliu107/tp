@@ -16,6 +16,7 @@ import static seedu.tp.utils.Constants.SUMMARY_FIELD;
  * Person flashcard.
  */
 public class PersonFlashcard extends Flashcard {
+    public static final String PERSON_FOLDER = "person";
     private LocalDate birthDate;
     private LocalDate deathDate;
 
@@ -67,7 +68,7 @@ public class PersonFlashcard extends Flashcard {
     public LocalDate getDeathDate() {
         return deathDate;
     }
-
+    
     /**
      * Gets the string representation of this flashcard.
      *

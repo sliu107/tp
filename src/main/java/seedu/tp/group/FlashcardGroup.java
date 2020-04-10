@@ -130,16 +130,7 @@ public class FlashcardGroup implements Savable {
      * @return the file name of the flashcard group.
      */
     public String getFileName() {
-        return getName();
-    }
-
-    /**
-     * Get the folder name.
-     *
-     * @return the folder name.
-     */
-    public String getFolderName() {
-        return GROUPS_FOLDER;
+        return GROUPS_FOLDER + "/" + name;
     }
 
     public String getDescription() {

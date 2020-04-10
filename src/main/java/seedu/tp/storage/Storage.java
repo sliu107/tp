@@ -3,7 +3,9 @@ package seedu.tp.storage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import seedu.tp.exceptions.DeletionFailedException;
+import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.Flashcard;
+import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
@@ -13,12 +15,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import static seedu.tp.flashcard.EventFlashcard.EVENT_FOLDER;
+import static seedu.tp.flashcard.OtherFlashcard.OTHER_FOLDER;
+import static seedu.tp.flashcard.PersonFlashcard.PERSON_FOLDER;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.SAVE_FOLDER;
 
@@ -33,7 +37,11 @@ public class Storage {
     private static Storage storage = null;
 
     private Storage() {
-        this.gson = new GsonBuilder().setPrettyPrinting().create();
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(Flashcard.class, new AClassAdapter<Flashcard>());
+        builder.setPrettyPrinting();
+        this.gson = builder.create();
+        //this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
     /**
@@ -46,6 +54,10 @@ public class Storage {
             storage = new Storage();
         }
         return storage;
+    }
+    
+    public Gson getGson() {
+        return this.gson;
     }
     
     private String getJson(Savable savable) {
@@ -71,24 +83,20 @@ public class Storage {
      * @throws IOException if the save fails
      */
     public void save(Savable savable) throws IOException {
-        File saveFolder = new File(SAVE_FOLDER);
-        if (!saveFolder.exists()) {
-            saveFolder.mkdir();
-        }
-
-        String specificFolderName = savable.getFolderName();
-        File specificFolder = new File(SAVE_FOLDER + "/" + specificFolderName);
-        if (!specificFolder.exists()) {
-            specificFolder.mkdir();
-        }
-
-        String pathName = SAVE_FOLDER + "/" + specificFolderName + "/" + savable.getFileName() + FILE_EXTENSION;
+        String pathName = SAVE_FOLDER + "/" + savable.getFileName() + FILE_EXTENSION;
         File file = new File(pathName);
         if (!file.exists()) {
+            file.getParentFile().mkdirs();
             file.createNewFile();
         }
         
-        String fileContents = getJson(savable);
+        String fileContents;
+        if (savable instanceof Flashcard) {
+            fileContents = gson.toJson(savable, Flashcard.class);
+        } else {
+            fileContents = gson.toJson(savable);
+        }
+        
         FileWriter fileWriter = new FileWriter(pathName);
         fileWriter.write(fileContents);
         fileWriter.close();
@@ -119,22 +127,28 @@ public class Storage {
         final String groupsFolderString = SAVE_FOLDER + "/" + FlashcardGroup.GROUPS_FOLDER;
         File flashcardsFolder = new File(flashcardsFolderString);
         File groupsFolder = new File(groupsFolderString);
-
-        for (File f : flashcardsFolder.listFiles()) {
-            try {
-                Flashcard flashcard = gson.fromJson(new FileReader(f), Flashcard.class);
-                flashcardList.addFlashcard(flashcard);
-            } catch (FileNotFoundException e) {
-                LOGGER.warning("File: " + f.toString() + " was not found when loading from disk.");
+        
+        if (flashcardsFolder.exists()) {
+            for (File f : flashcardsFolder.listFiles()) {
+                try {
+                    Flashcard flashcard = gson.fromJson(new FileReader(f), Flashcard.class);
+                    flashcardList.addFlashcard(flashcard);
+                    LOGGER.info("File: " + f.toString() + " was loaded from disk.");
+                } catch (FileNotFoundException e) {
+                    LOGGER.warning("File: " + f.toString() + " was not found when loading from disk.");
+                }
             }
         }
-
-        for (File f : groupsFolder.listFiles()) {
-            try {
-                FlashcardGroup group = gson.fromJson(new FileReader(f), FlashcardGroup.class);
-                groupList.addFlashcardGroup(group);
-            } catch (FileNotFoundException e) {
-                LOGGER.warning("File: " + f.toString() + " was not found when loading from disk.");
+        
+        if (groupsFolder.exists()) {
+            for (File f : groupsFolder.listFiles()) {
+                try {
+                    FlashcardGroup group = gson.fromJson(new FileReader(f), FlashcardGroup.class);
+                    groupList.addFlashcardGroup(group);
+                    LOGGER.info("File: " + f.toString() + " was loaded from disk.");
+                } catch (FileNotFoundException e) {
+                    LOGGER.warning("File: " + f.toString() + " was not found when loading from disk.");
+                }
             }
         }
     }

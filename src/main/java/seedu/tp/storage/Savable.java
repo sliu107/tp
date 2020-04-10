@@ -10,5 +10,4 @@ public interface Savable {
      * @return the file name
      */
     String getFileName();
-    String getFolderName();
 }

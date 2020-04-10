@@ -69,17 +69,8 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
      * @return the file name of the flashcard.
      */
     public String getFileName() {
-        return getName();
-    }
-
-    /**
-     * Get the folder name.
-     *
-     * @return the folder name.
-     */
-    public String getFolderName() {
-        return FLASHCARDS_FOLDER;
-    }
+        return FLASHCARDS_FOLDER + "/" + name;
+    };
 
     /**
      * Sets the review status of the flashcard.
