@@ -245,6 +245,32 @@ There is no such group.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
+Please enter group id:
+Duplicate flashcard detected. The flashcard has not been added.
+--------------------------------------------
+--------------------------------------------
+Please enter index:
+Please enter group id:
+An exception has occurred!
+There is no such group.
+--------------------------------------------
+--------------------------------------------
+Please enter index:
+Please enter group id:
+You've successfully added the flashcard below:
+Person name: Quinn
+Born: July 31, 1870
+Died: February 24, 1943
+Summary: 8)
+Details:
+
+To the group:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.
+--------------------------------------------
+--------------------------------------------
+Please enter index:
 Your input contains invalid flashcard index(es)
 --------------------------------------------
 --------------------------------------------
@@ -264,7 +290,7 @@ Details:
 To the group:
 Group name: Harry Potter Flashcards
 Group description: This is a group for HP related stuff.
-There are 3 flashcards in this group.
+There are 4 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you have:
@@ -407,12 +433,14 @@ Here are all existing groups:
 1 contains the following flashcards:
 - Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
 - Resurrection Stone | Reviewed: X | Priority: Not indicated
+- Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
 - Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Harry Potter Flashcards contains the following flashcards:
 - Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
 - Resurrection Stone | Reviewed: X | Priority: Not indicated
+- Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
 - Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
