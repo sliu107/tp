@@ -302,8 +302,8 @@ The application will then prompt the user to give responses during the review:
 
 
 Format:  
-`yes`to mark the flashcard just shown as reviewed  
-`no` to keep the flashcard just shown as unreviewed
+`yes` or `y` to mark the flashcard just shown as reviewed  
+`no` or `n` to keep the flashcard just shown as unreviewed
 
 ## FAQ
 

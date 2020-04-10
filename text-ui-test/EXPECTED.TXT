@@ -224,6 +224,10 @@ You have no study plan at this moment.
 There are no existing groups. Use "group" to create a new group.
 --------------------------------------------
 --------------------------------------------
+An exception has occurred!
+Invalid group
+--------------------------------------------
+--------------------------------------------
 Please enter name:
 Please enter description:
 Please enter indexes:
@@ -418,6 +422,12 @@ Harry Potter Flashcards contains the following flashcards:
 --------------------------------------------
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
+--------------------------------------------
+--------------------------------------------
+The following flashcard group has been deleted:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.

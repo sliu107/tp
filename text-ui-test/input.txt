@@ -66,6 +66,7 @@ delete-plan
 01/01/2020
 show-plan
 show-groups
+delete-group 1
 group
 New Flashcard Group
 Blah Blah Blah
@@ -113,6 +114,7 @@ show-groups
 list-group 1
 list-group Harry Potter Flashcards
 list-group
+delete-group Harry Potter Flashcards
 list-group abc
 list-group abc def
 bye
