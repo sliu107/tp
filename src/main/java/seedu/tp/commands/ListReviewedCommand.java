@@ -27,6 +27,7 @@ public class ListReviewedCommand extends Command {
         LOGGER.info("Executing ListReviewedCommand...");
         List<Map.Entry<Integer, Flashcard>> reviewedFlashcards = flashcardList.getAllReviewedFlashcards();
         String feedback = getFeedback(reviewedFlashcards);
+        LOGGER.info("ListReviewedCommand executed!");
         return new CommandFeedback(feedback);
     }
 
