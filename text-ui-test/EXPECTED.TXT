@@ -3,9 +3,9 @@ Welcome to History Flashcard App!
 --------------------------------------------
 --------------------------------------------
 Please follow the prompts given by the program in each situation.
-(Note: [] indicates a parameter)
+(Note: In the command format, parameters are CAPITALISED)
 (Note: When a date is required, you can enter it in any of these formats:
-       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)
+       yyyy, d/m/yyyy, m/yyyy, d-m-yyyy, m-yyyy)
 Commands for History Flashcard are as follows:
 FLASHCARD CREATION
 1. Add an event flashcard: event
@@ -16,14 +16,15 @@ BASIC OPERATIONS
 4a. List out all the flashcards: list
 4b. List all flashcards in order sorted by start/birth date: timeline
 4c. List all flashcards sorted by start/birth date, within a restricted time period: timeline [STARTDATE] [ENDDATE]
-5. Show all details of an existing flashcard: show [INDEX]
-6. Delete a flashcard from the flashcard list: delete [INDEX]
-7. Find flashcards matching a keyword: find [KEYWORD]
+5. Show all details of an existing flashcard: show INDEX
+6. Delete a flashcard from the flashcard list: delete INDEX
+7. Find flashcards matching a keyword: find KEYWORD
 
 FLASHCARD STATUS OPERATIONS
-8. Set the priority of an existing flashcard: priority [INDEX] [PRIORITY]
+8a. Set the priority of an existing flashcard: priority INDEX PRIORITY
   (Note: There are 4 priority levels: LOW, MEDIUM, HIGH, DEFAULT)
-9a. Set an existing flashcard as reviewed: reviewed [INDEX]
+8b. List flashcards of a specified priority: list-priority PRIORITY
+9a. Set an existing flashcard as reviewed: reviewed INDEX
 9b. List all reviewed flashcards: list-reviewed
 9c. Reset status of all flashcards to Unreviewed: reset-reviewed
 
@@ -31,7 +32,7 @@ GROUPS
 10a. Set up a new flashcard group: group
 10b. List all existing groups: show-groups
 10c. Add a flashcard to an existing group: add
-10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]
+10d. List all flashcards in a group: list-group GROUPNAME/INDEX
 
 STUDY PLANS
 11a. Create or update study plan for a day: plan
