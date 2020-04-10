@@ -8,6 +8,8 @@ cd ..
 
 cd text-ui-test
 
+rm -rf historyflashcards/
+
 java -jar -ea $(find ../build/libs/ -mindepth 1 -print -quit) < input.txt > ACTUAL.TXT
 
 diff EXPECTED.TXT ACTUAL.TXT
