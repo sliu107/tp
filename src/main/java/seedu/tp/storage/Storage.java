@@ -2,6 +2,8 @@ package seedu.tp.storage;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSyntaxException;
 import seedu.tp.exceptions.DeletionFailedException;
 import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.flashcard.Flashcard;
@@ -143,6 +145,8 @@ public class Storage {
                     LOGGER.info("File: " + f.toString() + " was loaded from disk.");
                 } catch (FileNotFoundException e) {
                     LOGGER.warning("File: " + f.toString() + " was not found when loading from disk.");
+                } catch (JsonParseException e) {
+                    LOGGER.warning("File: " + f.toString() + " could not be loaded (bad formatting).");
                 }
             }
         }
@@ -155,6 +159,8 @@ public class Storage {
                     LOGGER.info("File: " + f.toString() + " was loaded from disk.");
                 } catch (FileNotFoundException e) {
                     LOGGER.warning("File: " + f.toString() + " was not found when loading from disk.");
+                } catch (JsonParseException e) {
+                    LOGGER.warning("File: " + f.toString() + " could not be loaded (bad formatting).");
                 }
             }
         }
@@ -195,6 +201,8 @@ public class Storage {
                     return flashcardList;
                 } catch (FileNotFoundException e) {
                     LOGGER.warning("File: " + file.toString() + " was not found when loading from disk.");
+                } catch (JsonParseException e) {
+                    LOGGER.warning("File: " + file.toString() + " could not be loaded (bad formatting).");
                 }
             }
         }
@@ -232,6 +240,8 @@ public class Storage {
                     return studyPlanList;
                 } catch (FileNotFoundException e) {
                     LOGGER.warning("File: " + file.toString() + " was not found when loading from disk.");
+                } catch (JsonParseException e) {
+                    LOGGER.warning("File: " + file.toString() + " could not be loaded (bad formatting).");
                 }
             }
         }
