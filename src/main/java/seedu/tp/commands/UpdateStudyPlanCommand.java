@@ -16,6 +16,7 @@ public class UpdateStudyPlanCommand extends ModifyingCommand {
      *
      * @param ui            the UI class to be used in the command
      * @param studyPlanList the StudyPlanList to be updated
+     * @param flashcardList the FlashcardList to be used in the command
      */
     public UpdateStudyPlanCommand(Ui ui, StudyPlanList studyPlanList, FlashcardList flashcardList) {
         assert ui != null : "Invalid null Ui!";
