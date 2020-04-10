@@ -2,9 +2,7 @@ package seedu.tp.ui;
 
 import seedu.tp.commands.CommandFeedback;
 import seedu.tp.exceptions.InvalidDateFormatException;
-import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
-import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.parser.Parser;
 
@@ -19,7 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import static seedu.tp.utils.Constants.BULLET_POINT;
 import static seedu.tp.utils.Constants.DETAIL_FIELD;
 import static seedu.tp.utils.Constants.EMPTY_STRING;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
@@ -183,30 +180,6 @@ public class Ui {
     }
 
     /**
-     * Prints confirmation that flashcard has been marked as reviewed.
-     *
-     * @param flashcard the flashcard that was reviewed
-     */
-    public void confirmFlashcardReview(Flashcard flashcard) {
-        assert flashcard != null : "Invalid null flashcard!";
-
-        System.out.println("You have marked the following flashcard as Reviewed:");
-        System.out.println(flashcard.getName());
-    }
-
-    /**
-     * Displays flashcard details according to index specified.
-     *
-     * @param flashcard the flashcard to be displayed
-     */
-    public void showFlashcard(Flashcard flashcard) {
-        assert flashcard != null : "Invalid null flashcard!";
-
-        System.out.println("These are the flashcard details:");
-        System.out.println(flashcard);
-    }
-
-    /**
      * Sends flashcard group creation confirmation to user.
      *
      * @param flashcardGroup the flashcard group created
@@ -223,40 +196,6 @@ public class Ui {
      */
     public void confirmResetCompletion() {
         System.out.println("All the flashcards have been reset as unreviewed successfully.");
-    }
-
-    /**
-     * Lists flashcards from a specified time period only, in sorted order.
-     *
-     * @param sortedFlashcards the sorted list of all flashcards
-     * @param startDate        the date to start listing flashcards from (inclusive)
-     * @param endDate          the date after which to stop listing flashcards from
-     */
-    private void listFlashcardsInPeriod(List<Flashcard> sortedFlashcards, LocalDate startDate, LocalDate endDate) {
-        System.out.println("Listing flashcards from " + startDate + " to " + endDate + "...");
-        boolean noFlashcards = true;
-        for (Flashcard f : sortedFlashcards) {
-            if (f instanceof EventFlashcard) {
-                EventFlashcard eventFlashcard = (EventFlashcard) f;
-                LocalDate eventStartDate = eventFlashcard.getStartDate();
-                if (eventStartDate.compareTo(startDate) >= 0
-                    && eventStartDate.compareTo(endDate) <= 0) {
-                    System.out.println(BULLET_POINT + f.getShortDescription());
-                    noFlashcards = false;
-                }
-            } else if (f instanceof PersonFlashcard) {
-                PersonFlashcard personFlashcard = (PersonFlashcard) f;
-                LocalDate personBirthDate = personFlashcard.getBirthDate();
-                if (personBirthDate.compareTo(startDate) >= 0
-                    && personBirthDate.compareTo(endDate) <= 0) {
-                    System.out.println(BULLET_POINT + f.getShortDescription());
-                    noFlashcards = false;
-                }
-            }
-        }
-        if (noFlashcards) {
-            System.out.println("No flashcards found in this period.");
-        }
     }
 
     /**
@@ -328,7 +267,7 @@ public class Ui {
      * Sends duplicate flashcard response to user.
      */
     public void sendDuplicateFlashcardResponse() {
-        LOGGER.info("Send duplicate flashcard response to user...");
+        LOGGER.info("Sending duplicate flashcard response to user...");
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
     }
 
@@ -338,6 +277,7 @@ public class Ui {
      * @param commandFeedback the commandFeedback to display.
      */
     public void showCommandFeedback(CommandFeedback commandFeedback) {
+        LOGGER.info("Sending command feedback to user...");
         if (!commandFeedback.isEmpty()) {
             System.out.println(commandFeedback);
         }
@@ -347,6 +287,7 @@ public class Ui {
      * Sends invalid date format response to user.
      */
     public void sendInvalidDateFormatResponse() {
+        LOGGER.info("Sending invalid date format response to user...");
         System.out.println("That date format couldn't be parsed!");
     }
 
@@ -354,6 +295,7 @@ public class Ui {
      * Sends reversed date order response to user.
      */
     public void sendReversedDateOrderResponse() {
+        LOGGER.info("Sending reversed date order response to user...");
         System.out.println("The start/birth date cannot be after the end/death date! Please try again.");
     }
 
@@ -361,6 +303,7 @@ public class Ui {
      * Sends duplicate flashcard name response to user.
      */
     public void sendDuplicateFlashcardNameResponse() {
+        LOGGER.info("Sending duplicate flashcard name response to user...");
         System.out.println("Flashcards with duplicate names are not allowed!");
         System.out.println("Your newly created flashcard is not added. Please try again.");
     }
@@ -379,6 +322,7 @@ public class Ui {
      * @return next line
      */
     public String getNextLine() {
+        LOGGER.info("Getting next user input line...");
         return scanner.nextLine();
     }
 }
