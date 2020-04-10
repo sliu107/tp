@@ -343,17 +343,8 @@ Duplicate flashcard detected. The flashcard has not been added.
 --------------------------------------------
 Please enter index:
 Please enter group id:
-You've successfully added the flashcard below:
-Person name: Quinn
-Born: July 31, 1870
-Died: February 24, 1943
-Summary: 8)
-Details:
-
-To the group:
-Group name: Harry Potter Flashcards
-Group description: This is a group for HP related stuff.
-There are 3 flashcards in this group.
+An exception has occurred!
+There is no such group.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
@@ -649,13 +640,12 @@ There are 4 flashcards in this group.Deletion could not be saved to disk. Sorry
 1 contains the following flashcards:
 - Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
 - Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
-- Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
 --------------------------------------------
 --------------------------------------------
 The following flashcard group has been deleted:
 Group name: Harry Potter Flashcards
 Group description: This is a group for HP related stuff.
-There are 3 flashcards in this group.Deletion could not be saved to disk. Sorry
+There are 2 flashcards in this group.Deletion could not be saved to disk. Sorry
 --------------------------------------------
 --------------------------------------------
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
