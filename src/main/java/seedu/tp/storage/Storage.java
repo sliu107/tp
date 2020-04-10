@@ -161,6 +161,12 @@ public class Storage {
         return flashcards;
     }
 
+    /**
+     * Call once at the start of the program to load flashcard list from file.
+     *
+     * @param flashcards the flashcards to be added into flashcard list
+     * @return the flashcard list created
+     */
     public FlashcardList loadFlashcardList(List<Flashcard> flashcards) {
         final String flashcardListFolderString = SAVE_FOLDER + "/" + FlashcardList.FLASHCARD_LIST_FOLDER;
         File flashcardListFolder = new File(flashcardListFolderString);
