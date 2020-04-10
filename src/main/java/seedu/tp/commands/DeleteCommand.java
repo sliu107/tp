@@ -49,12 +49,9 @@ public class DeleteCommand extends ModifyingCommand {
             LOGGER.info("Deleting flashcard at index: " + index);
             flashcardList.deleteFlashcard(index);
             LOGGER.info("Deleted flashcard at index: " + index);
-            CommandFeedback deleteFeedback = delete(deletedFlashcard);
+            delete(deletedFlashcard);
             String feedback = "The following flashcard has been deleted:" + System.lineSeparator()
                 + deletedFlashcard;
-            if (!deleteFeedback.isEmpty()) {
-                feedback += deleteFeedback;
-            }
             return new CommandFeedback(feedback);
         } catch (IndexOutOfBoundsException e) {
             LOGGER.warning("IndexOutOfBoundsException occurred when deleting flashcard at index " + index);
@@ -63,13 +60,11 @@ public class DeleteCommand extends ModifyingCommand {
         }
     }
 
-    private CommandFeedback delete(Savable savable) {
+    private void delete(Savable savable) {
         try {
             storage.delete(savable);
-            return new CommandFeedback();
         } catch (DeletionFailedException e) {
             LOGGER.warning("Delete to disk failed for " + savable.getFileName());
-            return new CommandFeedback("Deletion could not be saved to disk. Sorry");
         }
     }
 
