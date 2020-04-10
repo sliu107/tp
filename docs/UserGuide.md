@@ -350,8 +350,8 @@ There is not a specific command to save these information to storage.
 
 **Q**: Can I edit the storage files under the `historyflashcards/` folder?
 
-**A**: Please avoid editing the files as changing the file format might cause reload from storage to fail when you
-restart the application.
+**A**: Please avoid editing the files as changing the file format might cause the application to fail on reloads and
+certain commands when you restart.
 
 ## 5. Command Summary
 
