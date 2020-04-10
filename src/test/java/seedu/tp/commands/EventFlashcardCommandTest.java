@@ -1,6 +1,7 @@
 package seedu.tp.commands;
 
 import org.junit.jupiter.api.Test;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.FlashcardFactory;
@@ -18,7 +19,8 @@ import static seedu.tp.utils.InputTestUtil.getFlashcardFactoryWithInput;
 
 public class EventFlashcardCommandTest {
     @Test
-    public void eventFlashcardCommand_execute_addsFlashcardSuccessfully() throws UnrecognizedFlashcardTypeException {
+    public void eventFlashcardCommand_execute_addsFlashcardSuccessfully() throws UnrecognizedFlashcardTypeException,
+        DuplicateFlashcardNameException {
         FlashcardList expectedFlashcardList = new FlashcardList();
 
         expectedFlashcardList.addFlashcard(new EventFlashcard(FLASHCARD_NAME, START_LOCAL_DATE, END_LOCAL_DATE, SUMMARY,

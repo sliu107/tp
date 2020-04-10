@@ -2,10 +2,6 @@ package seedu.tp.commands;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.List;
-
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.UnrecognizedFlashcardGroupException;
 import seedu.tp.flashcard.EventFlashcard;
@@ -15,6 +11,9 @@ import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
 import seedu.tp.utils.InputTestUtil;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -33,30 +32,30 @@ import static seedu.tp.utils.ExampleInputConstants.START_LOCAL_DATE;
 public class DeleteGroupCommandTest {
 
     private static final EventFlashcard EVENT_FLASHCARD = new EventFlashcard(
-            "Event 1",
-            START_LOCAL_DATE,
-            END_LOCAL_DATE,
-            "This is an event summary",
-            DETAILS
+        "Event 1",
+        START_LOCAL_DATE,
+        END_LOCAL_DATE,
+        "This is an event summary",
+        DETAILS
     );
     private static final PersonFlashcard PERSON_FLASHCARD = new PersonFlashcard(
-            "Person 1",
-            START_LOCAL_DATE,
-            END_LOCAL_DATE,
-            "This is a person's summary",
-            DETAILS
+        "Person 1",
+        START_LOCAL_DATE,
+        END_LOCAL_DATE,
+        "This is a person's summary",
+        DETAILS
     );
     private static final OtherFlashcard OTHER_FLASHCARD = new OtherFlashcard(
-            "Title 1",
-            "This is a summary",
-            DETAILS
+        "Title 1",
+        "This is a summary",
+        DETAILS
     );
     private static final FlashcardList FLASHCARD_LIST = new FlashcardList(Arrays.asList(EVENT_FLASHCARD,
-            PERSON_FLASHCARD, OTHER_FLASHCARD));
+        PERSON_FLASHCARD, OTHER_FLASHCARD));
     private static final FlashcardGroup GROUP_1 = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, FLASHCARD_LIST,
-            InputTestUtil.convertStringIndexesToIntArray(INDEXES_1));
+        InputTestUtil.convertStringIndexesToIntArray(INDEXES_1));
     private static final FlashcardGroup GROUP_2 = new FlashcardGroup(GROUP_NAME_2, DESCRIPTION, FLASHCARD_LIST,
-            InputTestUtil.convertStringIndexesToIntArray(INDEXES_2));
+        InputTestUtil.convertStringIndexesToIntArray(INDEXES_2));
 
     private GroupList emptyGroupList;
     private GroupList groupList;
@@ -73,13 +72,13 @@ public class DeleteGroupCommandTest {
     }
 
     @Test
-    public void execute_deleteGroupFromEmptyList_throwsUnrecognizedFlashcardGroupException()  {
+    public void execute_deleteGroupFromEmptyList_throwsUnrecognizedFlashcardGroupException() {
         DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(emptyGroupList, INDEX_2);
 
         assertThrows(
-                UnrecognizedFlashcardGroupException.class,
-                deleteGroupCommand::execute,
-                "Expected UnrecognizedFlashcardGroupException"
+            UnrecognizedFlashcardGroupException.class,
+            deleteGroupCommand::execute,
+            "Expected UnrecognizedFlashcardGroupException"
         );
     }
 
@@ -104,13 +103,13 @@ public class DeleteGroupCommandTest {
     }
 
     @Test
-    public void execute_deleteGroupByIndex_throwsUnrecognizedFlashcardGroupException()  {
+    public void execute_deleteGroupByIndex_throwsUnrecognizedFlashcardGroupException() {
         DeleteGroupCommand deleteGroupCommand = new DeleteGroupCommand(emptyGroupList, INDEX_3);
 
         assertThrows(
-                UnrecognizedFlashcardGroupException.class,
-                deleteGroupCommand::execute,
-                "Expected UnrecognizedFlashcardGroupException"
+            UnrecognizedFlashcardGroupException.class,
+            deleteGroupCommand::execute,
+            "Expected UnrecognizedFlashcardGroupException"
         );
     }
 }

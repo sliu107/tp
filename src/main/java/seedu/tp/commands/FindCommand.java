@@ -8,8 +8,9 @@ import java.util.Map;
 
 public class FindCommand extends Command {
 
-    FlashcardList flashcardList;
-    String keyword;
+    private static final String LINE_SEPARATOR = System.lineSeparator();
+    private FlashcardList flashcardList;
+    private String keyword;
 
     /**
      * Constructor for FindCommand.
@@ -30,6 +31,7 @@ public class FindCommand extends Command {
         LOGGER.info("Executing FindCommand...");
         List<Map.Entry<Integer, Flashcard>> flashcardsWithKeyword = flashcardList.getAllFlashcardsWithKeyword(keyword);
         String feedback = getFeedback(flashcardsWithKeyword);
+        LOGGER.info("FindCommand executed!");
         return new CommandFeedback(feedback);
     }
 
@@ -39,13 +41,13 @@ public class FindCommand extends Command {
         }
 
         StringBuilder feedback = new StringBuilder("Here's the list of flashcards you are looking for:");
-        feedback.append(System.lineSeparator());
+        feedback.append(LINE_SEPARATOR);
         for (int index = 0; index < flashcardListWithId.size(); index++) {
             Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(index);
-            feedback.append((index + 1) + ": "
-                + flashcardEntry.getValue().getShortDescription() + " | ID: "
-                + (flashcardEntry.getKey() + 1));
-            feedback.append(System.lineSeparator());
+            feedback.append(index + 1).append(": ")
+                .append(flashcardEntry.getValue().getShortDescription()).append(" | ID: ")
+                .append(flashcardEntry.getKey() + 1)
+                .append(LINE_SEPARATOR);
         }
         return feedback.toString().trim();
     }

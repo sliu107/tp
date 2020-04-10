@@ -1,6 +1,7 @@
 package seedu.tp.group;
 
 import seedu.tp.exceptions.DuplicateFlashcardException;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
@@ -22,10 +23,9 @@ import static seedu.tp.utils.Constants.NAME_FIELD;
  * A group of flashcards which have some of the same characteristics.
  */
 public class FlashcardGroup implements Savable {
+    public static final String GROUPS_FOLDER = "groups";
     protected static final Logger LOGGER = Logger.getLogger(FlashcardGroup.class.getName());
     private static final String FILE_PATH = LOG_FOLDER + "flashcard_group.log";
-    public static final String GROUPS_FOLDER = "groups";
-
     private String name;
     private String description;
     private FlashcardList groupCards = new FlashcardList();
@@ -46,7 +46,11 @@ public class FlashcardGroup implements Savable {
         this.name = name;
         this.description = description;
         for (int i : indexes) {
-            groupCards.addFlashcard(originalList.getFlashcardAtIdx(i));
+            try {
+                groupCards.addFlashcard(originalList.getFlashcardAtIdx(i));
+            } catch (DuplicateFlashcardNameException e) {
+                // Exception ignored because there shouldn't be any flashcard with duplicate names in the original list
+            }
         }
         LOGGER.info("Constructed new Flashcard Group: " + this);
     }
@@ -96,7 +100,8 @@ public class FlashcardGroup implements Savable {
      * @param flashcard the flashcard to be added
      * @throws DuplicateFlashcardException if the flashcard is already in the group
      */
-    public void addFlashcardToTheGroup(Flashcard flashcard) throws DuplicateFlashcardException {
+    public void addFlashcardToTheGroup(Flashcard flashcard) throws DuplicateFlashcardException,
+        DuplicateFlashcardNameException {
         if (groupCards.contains(flashcard)) {
             throw new DuplicateFlashcardException();
         }

@@ -286,7 +286,7 @@ public class Parser {
             return new GroupCommand(groupFactory, groupList);
         case DELETE_GROUP_COMMAND:
             try {
-                return new DeleteGroupCommand(groupList,splitInput[1] + " " + splitInput[2]);
+                return new DeleteGroupCommand(groupList, splitInput[1] + " " + splitInput[2]);
             } catch (IndexOutOfBoundsException e1) {
                 try {
                     return new DeleteGroupCommand(groupList, splitInput[1]);

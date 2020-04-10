@@ -14,7 +14,7 @@ public class DeleteGroupCommand extends ModifyingCommand {
     /**
      * Constructor of DeleteGroupCommand.
      *
-     * @param groupList groupList where the DeleteGroupCommand works on
+     * @param groupList       groupList where the DeleteGroupCommand works on
      * @param groupIdentifier the index or name of the group to be deleted
      */
     public DeleteGroupCommand(GroupList groupList, String groupIdentifier) {
@@ -42,7 +42,7 @@ public class DeleteGroupCommand extends ModifyingCommand {
             LOGGER.info("Deleted a group form group list.");
             CommandFeedback deleteFeedback = delete(group);
             String feedback = "The following flashcard group has been deleted:" + System.lineSeparator()
-                    + group;
+                + group;
             if (!deleteFeedback.isEmpty()) {
                 feedback += deleteFeedback;
             }
@@ -63,7 +63,7 @@ public class DeleteGroupCommand extends ModifyingCommand {
         }
 
         DeleteGroupCommand otherDeleteGroupCommand = (DeleteGroupCommand) obj;
-        return  this.groupList.equals(otherDeleteGroupCommand.groupList)
-                && this.groupIdentifier.equals(otherDeleteGroupCommand.groupIdentifier);
+        return this.groupList.equals(otherDeleteGroupCommand.groupList)
+            && this.groupIdentifier.equals(otherDeleteGroupCommand.groupIdentifier);
     }
 }
