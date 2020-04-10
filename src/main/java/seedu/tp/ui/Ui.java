@@ -308,16 +308,25 @@ public class Ui {
         System.out.println("Your input contains invalid flashcard index(es)");
     }
 
+    /**
+     * Sends logging setup failed message to user.
+     */
     public void sendLoggingSetupFailedMessage() {
         LOGGER.info("Sending logging set up failed response to user...");
         System.out.println("Logging setup failed! Logs will be printed to console instead of saved to file.");
     }
 
+    /**
+     * Sends invalid input format response to user.
+     */
     public void sendInvalidInputFormatResponse() {
         LOGGER.info("Sending invalid input format response to user...");
         System.out.println("Please use the correct input format. Use \"help\" to view all commands.");
     }
 
+    /**
+     * Sends duplicate flashcard response to user.
+     */
     public void sendDuplicateFlashcardResponse() {
         LOGGER.info("Send duplicate flashcard response to user...");
         System.out.println("Duplicate flashcard detected. The flashcard has not been added.");
@@ -334,19 +343,31 @@ public class Ui {
         }
     }
 
+    /**
+     * Sends invalid date format response to user.
+     */
     public void sendInvalidDateFormatResponse() {
         System.out.println("That date format couldn't be parsed!");
     }
 
+    /**
+     * Sends reversed date order response to user.
+     */
     public void sendReversedDateOrderResponse() {
         System.out.println("The start/birth date cannot be after the end/death date! Please try again.");
     }
 
+    /**
+     * Sends duplicate flashcard name response to user.
+     */
     public void sendDuplicateFlashcardNameResponse() {
         System.out.println("Flashcards with duplicate names are not allowed!");
         System.out.println("Your newly created flashcard is not added. Please try again.");
     }
 
+    /**
+     * Sends Ui line break.
+     */
     public void sendUiLineBreak() {
         LOGGER.info("Sending Ui line break to user...");
         System.out.println("--------------------------------------------");
