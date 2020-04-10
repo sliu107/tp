@@ -214,37 +214,61 @@ testers to work on; testers are expected to do more exploratory testing.
 ### E.2 Adding an Other Flashcard
 
 1. Adding an Other Flashcard which name does not duplicate the names of existing flashcards.
-    a. Prerequisites: List all flashcards using the `list` command and choose a new name for the new flashcard.
-    b. Test case: `other`
+    - Prerequisites: List all flashcards using the `list` command and choose a new name for the new flashcard.
+    
+    - Test case: `other`
+    
        Expected: Being prompted `Please enter name:` by the application
+       
        Enter the name.
+       
        Expected: Being prompted `Please enter summary:` by the application
+       
        Enter the summary.
+       
        Expected: Being prompted `Please enter detail (optional):` by the application
+       
        Enter the detail(s). User may stop entering details by pressing `RETURN/ENTER`.
+       
        Expected: Receive a confirmation message from the application for successful flashcard creation.
-    c. Test case: `other blabla`
+       
+    - Test case: `other blabla`
+    
        Expected: Same as above because `blabla` should be ignored.
 2. Adding an Other Flashcard which name duplicates one of the names of existing flashcards.
-    a. Prerequisites: List all flashcards using the `list` command and choose a duplicate name for the new flashcard.
-    b. Test case: `other`
+    - Prerequisites: List all flashcards using the `list` command and choose a duplicate name for the new flashcard.
+    
+    - Test case: `other`
+    
        Expected: Being prompted `Please enter name:` by the application
+       
        Enter the name.
+       
        Expected: Being prompted `Please enter summary:` by the application
+       
        Enter the summary.
+       
        Expected: Being prompted `Please enter detail (optional):` by the application
+       
        Enter the detail(s). User may stop entering details by pressing `RETURN/ENTER`.
+       
        Expected: Receive a confirmation message from the application for successful flashcard creation and a message
        saying that the created flashcard is not added due to the duplicate name. 
 
 ### E.3 Deleting a Flashcard
 
 1. Deleting a flashcard
-    a. Prerequisites: List all flashcards using the `list` command and choose the index of a flashcard to delete
-    b. Test case: `delete 1`
+    - Prerequisites: List all flashcards using the `list` command and choose the index of a flashcard to delete
+    
+    - Test case: `delete 1`
+    
        Expected: Receive a confirmation message from the application for successful flashcard deletion.
-    c. Test case: `delete`
+       
+    - Test case: `delete`
+    
        Expected: Receive a message from the application stating that the user should use correct input format.
-    d. Test case: `delete -1`
+       
+    - Test case: `delete -1`
+    
        Expected: Receive a message from the application stating that the user input contains invalid flashcard 
        index(es).
