@@ -20,7 +20,8 @@ Here's the list of flashcards you have:
 --------------------------------------------
 --------------------------------------------
 Here are all existing groups:
-1. Harry Potter Flashcards | Description: This is a group for HP related stuff.
+1. Harry Potter Flashcards Copy | Description: This is a group for HP related stuff.
+2. Harry Potter Flashcards | Description: This is a group for HP related stuff.
 --------------------------------------------
 --------------------------------------------
 Thanks for using History Flashcard!
