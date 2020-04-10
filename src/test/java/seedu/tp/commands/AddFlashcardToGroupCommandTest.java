@@ -123,7 +123,7 @@ public class AddFlashcardToGroupCommandTest {
         GroupCommand groupCommand = new GroupCommand(groupFactory, originalGroupList);
         groupCommand.execute();
 
-        //Test case1: Given an unionized group name
+        //Test case1: Given an invalid group name
         AddFlashcardToGroupCommand addFlashcardToGroupCommand1 = getAddFlashcardToGroupCommandWithInput(
             SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4, fullFlashcardList, originalGroupList);
         assertThrows(
