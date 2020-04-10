@@ -82,6 +82,14 @@ show-plan
 delete-plan
 01/01/2020
 show-plan
+plan
+01-01-2020
+1 2 3
+show-plan
+plan
+02-02-2020
+2 3
+show-plan
 show-groups
 group
 New Flashcard Group
@@ -132,4 +140,5 @@ list-group Harry Potter Flashcards
 list-group
 list-group abc
 list-group abc def
+show-plan
 bye

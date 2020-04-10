@@ -269,6 +269,31 @@ Your study plan for 2020-01-01 has been deleted.
 You have no study plan at this moment.
 --------------------------------------------
 --------------------------------------------
+Please enter date:
+Please enter indexes:
+Your study plan has been updated.
+--------------------------------------------
+--------------------------------------------
+Date: 2020-01-01
+1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+2: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+3: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+Please enter date:
+Please enter indexes:
+Your study plan has been updated.
+--------------------------------------------
+--------------------------------------------
+Date: 2020-01-01
+1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+2: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+3: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+Date: 2020-02-02
+2: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+3: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
 There are no existing groups. Use "group" to create a new group.
 --------------------------------------------
 --------------------------------------------
@@ -490,6 +515,15 @@ Please enter a valid flashcard group name or index. Use "show-groups" to view al
 --------------------------------------------
 --------------------------------------------
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
+--------------------------------------------
+--------------------------------------------
+Date: 2020-01-01
+1: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: / | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+Date: 2020-02-02
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Thanks for using History Flashcard!
