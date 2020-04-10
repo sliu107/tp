@@ -140,6 +140,17 @@ The user will be prompted to enter the date of the study plan they wish to delet
 
 Format: `delete-plan`
 
+The application will then prompt the user to enter the following fields:
+
+- `DATE`: the date which the user want to delete study plan
+
+Example of usage:
+
+```
+delete-plan
+01-01-2020
+```
+
 ## Contributions to the Developer Guide (Extracts)
 
 An example of my contribution to the Developer Guide is extracted as follows:
