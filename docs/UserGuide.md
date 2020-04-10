@@ -186,6 +186,10 @@ Displays all flashcards with names containing the KEYWORD.
 
 Format: `find KEYWORD`
 
+Example of usage:
+
+`find war`
+
 ### 3.5. Flashcard Status Operations
 #### 3.5.1. Assigning Priority to a Flashcard: `priority`
 
@@ -229,6 +233,8 @@ Format: `list-reviewed`
 #### 3.5.5. Resetting Review status of Flashcards: `reset-reviewed`
 
 Resets status of all flashcards to un-reviewed.
+
+Format: `reset-reviewed`
 
 ### 3.6. Flashcard Grouping
 #### 3.6.1. Grouping Flashcards: `group`
@@ -327,6 +333,17 @@ Deletes a specified study plan.
 The user will be prompted to enter the date of the study plan they wish to delete.
 
 Format: `delete-plan`
+
+The application will then prompt the user to enter the following fields:
+
+- `DATE`: the date which the user want to delete study plan
+
+Example of usage:
+
+```
+delete-plan
+01-01-2020
+```
 
 ### 3.8. Randomized Review
 #### 3.8.1. Displaying a random Flashcard: `random`
