@@ -1,14 +1,6 @@
 # Developer Guide
 
-## Design & Implementation
-
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-
-### Design
-
-#### Architecture
-
-{Description of overall architecture}
+## Design
 
 #### Ui Component
 
@@ -25,7 +17,7 @@ API : `Ui.java`
 the execution of various commands.
 
 Given below is the Sequence Diagram for interactions between the `Ui` and `FlashcardFactory` components to complete the
-execution of `deleteCommand`.
+execution of an example command (`deleteCommand`).
 
 ![UiSequenceDiagram](images/UiSequenceDiagram.png)
 
@@ -51,7 +43,7 @@ Given below is the Sequence Diagram for interactions between the `Parser` and `C
 
 {Description for Storage Component}
 
-### Implementation
+## Implementation
 
 #### Set Priority Feature - Proposed Implementation
 
@@ -145,7 +137,7 @@ The following sequence diagram shows how the   `reviewRandomFlashcards()` operat
 
 ![randomReviewSequenceDiagram](images/randomReviewSequenceDiagram.png)
 
-## Product Scope
+## Appendix A: Product Scope
 ### Target user profile
 
 History Flashcard (HF) is for those who are studying history subjects to create flashcards which summarize 
@@ -162,9 +154,9 @@ In HF, information can be entered in the form of flashcards with different field
 historical event/person, the relevant dates, and a summary. Flashcards can be categorised into user-defined groups
  to enable students to organise their knowledge better. Users can also create daily study plans.
  
- In addition, the user can shuffle and display random flashcards for revision.
+In addition, the user can shuffle and display random flashcards for revision.
 
-## User Stories
+## Appendix B: User Stories
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
@@ -192,16 +184,19 @@ historical event/person, the relevant dates, and a summary. Flashcards can be ca
 |v2.0|student|read in flashcard groups from a storage file|groups can be loaded when I enter the app|
 |v2.0|student|restrict the timeline to a fixed period|keep track of flashcards belonging to a certain time period|
 |v2.0|student|shuffle and display random flashcards|test my knowledge using random flashcards|
-|v2.0|student|reset all the flashcards as unreviewed|review flashcards for multiple times
+|v2.0|student|reset all the flashcards as unreviewed|review flashcards multiple times
+|v2.1|student|delete a study plan|remove outdated study plans
+|v2.1|student|list flashcards with a specified priority|focus on the flashcards of that importance level
 
-## Non-Functional Requirements
+## Appendix C: Non-Functional Requirements
 
-{Give non-functional requirements}
+1. Should work on any [mainstream OS](glossary) as long as it has Java 11 or above installed.
+2. Should be tailored to history students' needs e.g. the need to keep track of dates or historical periods.
 
-## Glossary
+## Appendix D: Glossary
 
-* *glossary item* - Definition
+* *Mainstream OS* - Windows, Linux, Unix, OS-X
 
-## Instructions for Manual Testing
+## Appendix E: Instructions for Manual Testing
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
