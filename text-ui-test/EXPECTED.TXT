@@ -3,9 +3,9 @@ Welcome to History Flashcard App!
 --------------------------------------------
 --------------------------------------------
 Please follow the prompts given by the program in each situation.
-(Note: [] indicates a parameter)
+(Note: In the command format, parameters are CAPITALISED)
 (Note: When a date is required, you can enter it in any of these formats:
-       d M yyyy, M yyyy, yyyy, d/M/yyyy, M/yyyy, d-M-yyyy, M-yyyy)
+       yyyy, d/m/yyyy, m/yyyy, d-m-yyyy, m-yyyy)
 Commands for History Flashcard are as follows:
 FLASHCARD CREATION
 1. Add an event flashcard: event
@@ -16,14 +16,15 @@ BASIC OPERATIONS
 4a. List out all the flashcards: list
 4b. List all flashcards in order sorted by start/birth date: timeline
 4c. List all flashcards sorted by start/birth date, within a restricted time period: timeline [STARTDATE] [ENDDATE]
-5. Show all details of an existing flashcard: show [INDEX]
-6. Delete a flashcard from the flashcard list: delete [INDEX]
-7. Find flashcards matching a keyword: find [KEYWORD]
+5. Show all details of an existing flashcard: show INDEX
+6. Delete a flashcard from the flashcard list: delete INDEX
+7. Find flashcards matching a keyword: find KEYWORD
 
 FLASHCARD STATUS OPERATIONS
-8. Set the priority of an existing flashcard: priority [INDEX] [PRIORITY]
+8a. Set the priority of an existing flashcard: priority INDEX PRIORITY
   (Note: There are 4 priority levels: LOW, MEDIUM, HIGH, DEFAULT)
-9a. Set an existing flashcard as reviewed: reviewed [INDEX]
+8b. List flashcards of a specified priority: list-priority PRIORITY
+9a. Set an existing flashcard as reviewed: reviewed INDEX
 9b. List all reviewed flashcards: list-reviewed
 9c. Reset status of all flashcards to Unreviewed: reset-reviewed
 
@@ -32,6 +33,7 @@ GROUPS
 10b. List all existing groups: show-groups
 10c. Add a flashcard to an existing group: add
 10d. List all flashcards in a group: list-group [GROUPNAME/INDEX]
+10e. Delete an existing flashcard group from group list: delete-group [GROUPNAME/INDEX]
 
 STUDY PLANS
 11a. Create or update study plan for a day: plan
@@ -71,8 +73,30 @@ Details:
 * Functional end of Samurai Class
 --------------------------------------------
 --------------------------------------------
+Please enter name:
+Please enter start date:
+Please enter end date:
+The start/birth date cannot be after the end/death date! Please try again.
+Please enter start date:
+Please enter end date:
+Please enter summary:
+Please enter detail (optional):
+You've successfully created the flashcard below:
+Event name: Meiji Restoration
+Event period: January 1, 1900-January 1, 2000
+Summary: testing summary
+Details:
+
+--------------------------------------------
+--------------------------------------------
 Here's the list of flashcards you have:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+5: Resurrection Stone | Reviewed: X | Priority: Not indicated
+6: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+7: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Please enter name:
@@ -93,9 +117,33 @@ Details:
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 --------------------------------------------
 --------------------------------------------
+Please enter name:
+Please enter birth date:
+Please enter death date:
+The start/birth date cannot be after the end/death date! Please try again.
+Please enter birth date:
+Please enter death date:
+Please enter summary:
+Please enter detail (optional):
+You've successfully created the flashcard below:
+Person name: Albus Dummydore
+Born: January 1, 2010
+Died: January 1, 2011
+Summary: Albus Dummydore was never proud or vain.
+Details:
+
+--------------------------------------------
+--------------------------------------------
 Here's the list of flashcards you have:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+5: Resurrection Stone | Reviewed: X | Priority: Not indicated
+6: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+7: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+8: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+9: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Please enter name:
@@ -115,7 +163,14 @@ Details:
 --------------------------------------------
 Flashcards sorted by date:
 - Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+- Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
 - Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+- Resurrection Stone | Reviewed: X | Priority: Not indicated
 - Resurrection Stone | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
@@ -124,7 +179,13 @@ You have no flashcards from 2020-01-01 to 2020-01-01
 --------------------------------------------
 Listing flashcards from 1868-01-01 to 2020-01-01...
 - Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+- Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
 - Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Listing flashcards from 1850-01-01 to 1870-05-20...
@@ -133,12 +194,21 @@ Listing flashcards from 1850-01-01 to 1870-05-20...
 --------------------------------------------
 Flashcards sorted by date:
 - Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+- Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
 - Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+- Resurrection Stone | Reviewed: X | Priority: Not indicated
 - Resurrection Stone | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 That date format couldn't be parsed!
 --------------------------------------------
+--------------------------------------------
+The start/birth date cannot be after the end/death date! Please try again.
 --------------------------------------------
 Please enter name:
 Please enter birth date:
@@ -156,16 +226,30 @@ Details:
 --------------------------------------------
 Flashcards sorted by date:
 - Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+- Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
 - Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 - Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+- Resurrection Stone | Reviewed: X | Priority: Not indicated
 - Resurrection Stone | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you have:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
-4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+5: Resurrection Stone | Reviewed: X | Priority: Not indicated
+6: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+7: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+8: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+9: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+10: Resurrection Stone | Reviewed: X | Priority: Not indicated
+11: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 You have no study plan at this moment.
@@ -182,8 +266,8 @@ Your study plan has been updated.
 --------------------------------------------
 --------------------------------------------
 Date: 2020-01-01
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Please enter date:
@@ -193,10 +277,10 @@ Your study plan has been updated.
 --------------------------------------------
 --------------------------------------------
 Date: 2020-01-01
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
 Date: 2020-03-01
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
 --------------------------------------------
 --------------------------------------------
 Please enter date:
@@ -205,22 +289,30 @@ Study plan for 2020-11-03 does not exist!
 --------------------------------------------
 --------------------------------------------
 Please enter date:
-Your study plan for 2020-03-01 has been updated.
+Your study plan for 2020-03-01 has been deleted.
 --------------------------------------------
 --------------------------------------------
 Date: 2020-01-01
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Please enter date:
-Your study plan for 2020-01-01 has been updated.
+Your study plan for 2020-01-01 has been deleted.
 --------------------------------------------
 --------------------------------------------
 You have no study plan at this moment.
 --------------------------------------------
 --------------------------------------------
-There are no existing groups. Use "group" to create a new group.
+Here are all existing groups:
+1. Harry Potter Flashcards Copy | Description: This is a group for HP related stuff.
+2. Harry Potter Flashcards | Description: This is a group for HP related stuff.
+--------------------------------------------
+--------------------------------------------
+The following flashcard group has been deleted:
+Group name: Harry Potter Flashcards Copy
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.Deletion could not be saved to disk. Sorry
 --------------------------------------------
 --------------------------------------------
 Please enter name:
@@ -251,8 +343,17 @@ Duplicate flashcard detected. The flashcard has not been added.
 --------------------------------------------
 Please enter index:
 Please enter group id:
-An exception has occurred!
-There is no such group.
+You've successfully added the flashcard below:
+Person name: Quinn
+Born: July 31, 1870
+Died: February 24, 1943
+Summary: 8)
+Details:
+
+To the group:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
@@ -280,124 +381,136 @@ Sorry, I don't know how to help with that yet.
 Please enter index:
 Please enter group id:
 You've successfully added the flashcard below:
-Event name: Meiji Restoration
-Event period: January 1, 1868-January 1, 1868
-Summary: Turning point in Japanese history
+Person name: Albus Dumbledore
+Born: August 1, 1881
+Died: June 30, 1997
+Summary: Albus Dumbledore was never proud or vain.
 Details:
-* End of Shogunate
-* Centralization of power
-* Functional end of Samurai Class
+* He could find something to value in anyone, however apparently insignificant or wretched
+* Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 To the group:
 Group name: Harry Potter Flashcards
 Group description: This is a group for HP related stuff.
 There are 4 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
+Please enter name:
+Please enter description:
+Please enter indexes:
+You've successfully created the group below:
+Group name: Harry Potter Flashcards Copy
+Group description: This is a group for HP related stuff.
+There are 2 flashcards in this group.
+--------------------------------------------
+--------------------------------------------
+Please enter index:
+Please enter group id:
+You've successfully added the flashcard below:
+Person name: Albus Dumbledore
+Born: August 1, 1881
+Died: June 30, 1997
+Summary: Albus Dumbledore was never proud or vain.
+Details:
+* He could find something to value in anyone, however apparently insignificant or wretched
+* Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
+To the group:
+Group name: Harry Potter Flashcards Copy
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.
+--------------------------------------------
+--------------------------------------------
 Here's the list of flashcards you have:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
-4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+5: Resurrection Stone | Reviewed: X | Priority: Not indicated
+6: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+7: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+8: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+9: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+10: Resurrection Stone | Reviewed: X | Priority: Not indicated
+11: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you are looking for:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated | ID: 1
+1: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated | ID: 3
+2: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated | ID: 6
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated | ID: 7
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you are looking for:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated | ID: 1
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated | ID: 2
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated | ID: 3
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated | ID: 1
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: ** | ID: 2
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated | ID: 3
+4: Resurrection Stone | Reviewed: X | Priority: Not indicated | ID: 5
+5: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated | ID: 6
+6: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated | ID: 7
+7: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated | ID: 8
+8: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated | ID: 9
+9: Resurrection Stone | Reviewed: X | Priority: Not indicated | ID: 10
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you are looking for:
-1: Resurrection Stone | Reviewed: X | Priority: Not indicated | ID: 3
+1: Resurrection Stone | Reviewed: X | Priority: Not indicated | ID: 5
+2: Resurrection Stone | Reviewed: X | Priority: Not indicated | ID: 10
 --------------------------------------------
 --------------------------------------------
 Your input contains invalid flashcard index(es)
---------------------------------------------
---------------------------------------------
-Here's the list of flashcards you have:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
-4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
---------------------------------------------
---------------------------------------------
-Your input contains invalid flashcard index(es)
---------------------------------------------
---------------------------------------------
-Here's the list of flashcards you have:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
-4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
---------------------------------------------
---------------------------------------------
-Your input contains invalid flashcard index(es)
---------------------------------------------
---------------------------------------------
-Here's the list of flashcards you have:
-1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
-2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-3: Resurrection Stone | Reviewed: X | Priority: Not indicated
-4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
---------------------------------------------
---------------------------------------------
-The following flashcard has been deleted:
-Event name: Meiji Restoration
-Event period: January 1, 1868-January 1, 1868
-Summary: Turning point in Japanese history
-Details:
-* End of Shogunate
-* Centralization of power
-* Functional end of Samurai Class
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-2: Resurrection Stone | Reviewed: X | Priority: Not indicated
-3: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+5: Resurrection Stone | Reviewed: X | Priority: Not indicated
+6: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+7: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+8: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+9: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+10: Resurrection Stone | Reviewed: X | Priority: Not indicated
+11: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
-The following flashcard has been deleted:
-Title: Resurrection Stone
-Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
-Details:
-* In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
-* It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
-* According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
+Your input contains invalid flashcard index(es)
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
-2: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+5: Resurrection Stone | Reviewed: X | Priority: Not indicated
+6: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+7: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+8: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+9: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+10: Resurrection Stone | Reviewed: X | Priority: Not indicated
+11: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
-You have no reviewed flashcards! Use "reviewed [INDEX]" to mark a flashcard as reviewed.
+Your input contains invalid flashcard index(es)
 --------------------------------------------
 --------------------------------------------
-You have marked the following flashcard as Reviewed:
-Albus Dumbledore
+Here's the list of flashcards you have:
+1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+2: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+3: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+4: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+5: Resurrection Stone | Reviewed: X | Priority: Not indicated
+6: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+7: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+8: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+9: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+10: Resurrection Stone | Reviewed: X | Priority: Not indicated
+11: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
-Here's the list of reviewed flashcards:
-1: Albus Dumbledore | Reviewed: / | Not indicated | ID: 1
---------------------------------------------
---------------------------------------------
-You have marked the following flashcard as Reviewed:
-Quinn
---------------------------------------------
---------------------------------------------
-Here's the list of reviewed flashcards:
-1: Albus Dumbledore | Reviewed: / | Not indicated | ID: 1
-2: Quinn | Reviewed: / | Not indicated | ID: 2
---------------------------------------------
---------------------------------------------
-These are the flashcard details:
+The following flashcard has been deleted:
 Person name: Albus Dumbledore
 Born: August 1, 1881
 Died: June 30, 1997
@@ -407,13 +520,85 @@ Details:
 * Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
 --------------------------------------------
 --------------------------------------------
+Here's the list of flashcards you have:
+1: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+2: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+3: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+4: Resurrection Stone | Reviewed: X | Priority: Not indicated
+5: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+6: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+7: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+8: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+9: Resurrection Stone | Reviewed: X | Priority: Not indicated
+10: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+The following flashcard has been deleted:
+Event name: Meiji Restoration
+Event period: January 1, 1900-January 1, 2000
+Summary: testing summary
+Details:
+
+--------------------------------------------
+--------------------------------------------
+Here's the list of flashcards you have:
+1: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+2: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+4: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+5: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+6: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+7: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+8: Resurrection Stone | Reviewed: X | Priority: Not indicated
+9: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+Here's the list of reviewed flashcards:
+1: Albus Dummydore | Reviewed: / | ** | ID: 1
+2: Quinn | Reviewed: / | ** | ID: 2
+--------------------------------------------
+--------------------------------------------
+You have marked the following flashcard as Reviewed:
+Albus Dummydore
+--------------------------------------------
+--------------------------------------------
+Here's the list of reviewed flashcards:
+1: Albus Dummydore | Reviewed: / | ** | ID: 1
+2: Quinn | Reviewed: / | ** | ID: 2
+--------------------------------------------
+--------------------------------------------
+You have marked the following flashcard as Reviewed:
+Quinn
+--------------------------------------------
+--------------------------------------------
+Here's the list of reviewed flashcards:
+1: Albus Dummydore | Reviewed: / | ** | ID: 1
+2: Quinn | Reviewed: / | ** | ID: 2
+--------------------------------------------
+--------------------------------------------
+These are the flashcard details:
+Person name: Albus Dummydore
+Born: January 1, 2010
+Died: January 1, 2011
+Summary: Albus Dummydore was never proud or vain.
+Details:
+
+--------------------------------------------
+--------------------------------------------
 Priority has been updated:
 Quinn | New priority: **
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards you have:
-1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
+1: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
 2: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+3: Resurrection Stone | Reviewed: X | Priority: Not indicated
+4: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+5: Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+6: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
+7: Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: X | Priority: Not indicated
+8: Resurrection Stone | Reviewed: X | Priority: Not indicated
+9: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
@@ -423,28 +608,54 @@ There are no flashcards with this priority level! Use "priority INDEX PRIORITY_L
 --------------------------------------------
 --------------------------------------------
 Here's the list of flashcards with priority DEFAULT:
-1: Albus Dumbledore | Reviewed: / | Not indicated | ID: 1
+1: Resurrection Stone | Reviewed: X | Not indicated | ID: 3
+2: Meiji Restoration | Reviewed: X | Not indicated | ID: 4
+3: Meiji Restoration | Reviewed: X | Not indicated | ID: 5
+4: Albus Dumbledore | Reviewed: X | Not indicated | ID: 6
+5: Albus Dummydore | Reviewed: X | Not indicated | ID: 7
+6: Resurrection Stone | Reviewed: X | Not indicated | ID: 8
+7: Quinn | Reviewed: X | Not indicated | ID: 9
 --------------------------------------------
 --------------------------------------------
 Here are all existing groups:
 1. Harry Potter Flashcards | Description: This is a group for HP related stuff.
+2. Harry Potter Flashcards | Description: This is a group for HP related stuff.
+3. Harry Potter Flashcards Copy | Description: This is a group for HP related stuff.
 --------------------------------------------
 --------------------------------------------
 1 contains the following flashcards:
-- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
-- Resurrection Stone | Reviewed: X | Priority: Not indicated
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
 - Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
-- Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Harry Potter Flashcards contains the following flashcards:
-- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
-- Resurrection Stone | Reviewed: X | Priority: Not indicated
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
 - Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
-- Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
+--------------------------------------------
+--------------------------------------------
+The following flashcard group has been deleted:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 4 flashcards in this group.Deletion could not be saved to disk. Sorry
+--------------------------------------------
+--------------------------------------------
+1 contains the following flashcards:
+- Albus Dummydore | Time Period: 2010-01-01 to 2011-01-01 | Reviewed: / | Priority: **
+- Meiji Restoration | Time Period: 1900-01-01 to 2000-01-01 | Reviewed: X | Priority: Not indicated
+- Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: / | Priority: **
+--------------------------------------------
+--------------------------------------------
+The following flashcard group has been deleted:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.Deletion could not be saved to disk. Sorry
 --------------------------------------------
 --------------------------------------------
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.

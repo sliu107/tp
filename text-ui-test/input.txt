@@ -11,6 +11,14 @@ End of Shogunate
 Centralization of power
 Functional end of Samurai Class
 
+event
+Meiji Restoration
+1900
+1855
+1900
+2000
+testing summary
+
 list
 person
 Albus Dumbledore
@@ -20,6 +28,14 @@ Late August, 1881
 Albus Dumbledore was never proud or vain.
 He could find something to value in anyone, however apparently insignificant or wretched
 Dumbledore became most famous for his defeat of Gellert Grindelwald, the discovery of the twelve uses of dragon's blood, and his work on alchemy with Nicolas Flamel
+
+person
+Albus Dummydore
+2000
+1000
+2010
+2011
+Albus Dummydore was never proud or vain.
 
 list
 other
@@ -35,6 +51,7 @@ timeline 01-01-1868 01-01-2020
 timeline 01-01-1850 20-05-1870
 timeline asdfghjkl
 timeline 9999-99-99 9999-99-99
+timeline 1999 1998
 person
 Quinn
 31/07/1870
@@ -66,6 +83,7 @@ delete-plan
 01/01/2020
 show-plan
 show-groups
+delete-group 1
 group
 New Flashcard Group
 Blah Blah Blah
@@ -92,6 +110,13 @@ Harry Potter Flashcards
 add
 1
 Harry Potter Flashcards
+group
+Harry Potter Flashcards Copy
+This is a group for HP related stuff.
+2 3
+add
+1
+Harry Potter Flashcards Copy
 list
 find
 find Meiji
@@ -122,6 +147,9 @@ show-groups
 list-group 1
 list-group Harry Potter Flashcards
 list-group
+delete-group Harry Potter Flashcards
+list-group 1
+delete-group 1
 list-group abc
 list-group abc def
 bye

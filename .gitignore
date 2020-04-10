@@ -18,5 +18,6 @@ bin/
 *.log
 logs/
 
+historyflashcards/
 flashcards/
 src/main/java/META-INF/MANIFEST.MF

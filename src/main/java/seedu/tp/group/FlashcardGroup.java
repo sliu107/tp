@@ -24,6 +24,8 @@ import static seedu.tp.utils.Constants.NAME_FIELD;
 public class FlashcardGroup implements Savable {
     protected static final Logger LOGGER = Logger.getLogger(FlashcardGroup.class.getName());
     private static final String FILE_PATH = LOG_FOLDER + "flashcard_group.log";
+    public static final String GROUPS_FOLDER = "groups";
+
     private String name;
     private String description;
     private FlashcardList groupCards = new FlashcardList();
@@ -127,7 +129,7 @@ public class FlashcardGroup implements Savable {
      * @return the file name of the flashcard group.
      */
     public String getFileName() {
-        return getName();
+        return GROUPS_FOLDER + "/" + name;
     }
 
     public String getDescription() {

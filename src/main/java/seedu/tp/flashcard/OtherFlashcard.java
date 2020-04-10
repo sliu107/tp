@@ -12,6 +12,7 @@ import static seedu.tp.utils.Constants.SUMMARY_FIELD;
  * Other flashcard.
  */
 public class OtherFlashcard extends Flashcard {
+    
     /**
      * Constructs an <code>OtherFlashcard</code>.
      */

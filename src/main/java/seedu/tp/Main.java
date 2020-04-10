@@ -7,6 +7,7 @@ import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.InvalidInputFormatException;
+import seedu.tp.exceptions.ReversedDateOrderException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
@@ -15,6 +16,7 @@ import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
 import seedu.tp.parser.Parser;
+import seedu.tp.storage.Storage;
 import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 import seedu.tp.utils.LoggerUtils;
@@ -57,6 +59,7 @@ public class Main {
         groupList = new GroupList();
         studyPlanList = new StudyPlanList();
         parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlanList, ui);
+        Storage.getInstance().loadAll(flashcardList, groupList);
 
         LoggerUtils.createFolder(LOG_FOLDER);
 
@@ -69,6 +72,7 @@ public class Main {
             Command.setupLogger();
             Ui.setupLogger();
             Parser.setupLogger();
+            Storage.setupLogger();
         } catch (IOException e) {
             ui.sendLoggingSetupFailedMessage();
         }
@@ -105,6 +109,8 @@ public class Main {
             } catch (InvalidDateFormatException e) {
                 ui.sendInvalidDateFormatResponse();
                 ui.sendUiLineBreak();
+            } catch (ReversedDateOrderException e) {
+                ui.sendReversedDateOrderResponse();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
                 ui.sendUiLineBreak();
