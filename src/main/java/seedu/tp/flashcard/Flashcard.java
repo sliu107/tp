@@ -70,8 +70,8 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
      */
     public String getFileName() {
         return FLASHCARDS_FOLDER + "/" + name;
-    };
-
+    }
+    
     /**
      * Sets the review status of the flashcard.
      *
