@@ -2,6 +2,7 @@ package seedu.tp.commands;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
@@ -53,7 +54,7 @@ public class DeleteCommandTest {
     }
 
     @Test
-    public void execute_delete_successful() throws InvalidFlashcardIndexException {
+    public void execute_delete_successful() throws InvalidFlashcardIndexException, DuplicateFlashcardNameException {
         FlashcardList expectedFlashcardList = new FlashcardList();
         expectedFlashcardList.addFlashcard(EVENT_FLASHCARD);
         expectedFlashcardList.addFlashcard(OTHER_FLASHCARD);

@@ -3,6 +3,7 @@ package seedu.tp.storage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import seedu.tp.exceptions.DeletionFailedException;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
@@ -182,7 +183,13 @@ public class Storage {
                         String flashcardName = (String) object;
                         Optional<Flashcard> flashcard =
                             flashcards.stream().filter(o -> o.getName().equals(flashcardName)).findFirst();
-                        flashcard.ifPresent(flashcardList::addFlashcard);
+                        flashcard.ifPresent(flashcard1 -> {
+                            try {
+                                flashcardList.addFlashcard(flashcard1);
+                            } catch (DuplicateFlashcardNameException e) {
+                                // Ignore exception
+                            }
+                        });
                     }
                     LOGGER.info("File: " + file.toString() + " was loaded from disk.");
                     return flashcardList;

@@ -3,6 +3,7 @@ package seedu.tp;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.CommandFeedback;
 import seedu.tp.exceptions.DuplicateFlashcardException;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
@@ -113,6 +114,10 @@ public class Main {
                 ui.sendUiLineBreak();
             } catch (ReversedDateOrderException e) {
                 ui.sendReversedDateOrderResponse();
+                ui.sendUiLineBreak();
+            } catch (DuplicateFlashcardNameException e) {
+                ui.sendDuplicateFlashcardNameResponse();
+                ui.sendUiLineBreak();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
                 ui.sendUiLineBreak();

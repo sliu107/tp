@@ -3,9 +3,9 @@ package seedu.tp.commands;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.ReversedDateOrderException;
-import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
@@ -35,7 +35,7 @@ public class TimelineCommandTest {
     }
 
     @Test
-    public void timelineCommand_execute_listsAllFlashcardsSuccessfully() throws UnrecognizedFlashcardTypeException {
+    public void timelineCommand_execute_listsAllFlashcardsSuccessfully() throws DuplicateFlashcardNameException {
         FlashcardList flashcardList = new FlashcardList();
         LocalDate firstDate = LocalDate.of(1834, 2, 1);
         LocalDate middleDate = LocalDate.of(1834, 7, 3);
@@ -63,7 +63,7 @@ public class TimelineCommandTest {
     }
 
     @Test
-    public void timelineCommand_execute_listsRestrictedFlashcardsSuccessfully() {
+    public void timelineCommand_execute_listsRestrictedFlashcardsSuccessfully() throws DuplicateFlashcardNameException {
         FlashcardList flashcardList = new FlashcardList();
         LocalDate firstDate = LocalDate.of(1834, 2, 1);
         LocalDate middleDate = LocalDate.of(1834, 7, 3);

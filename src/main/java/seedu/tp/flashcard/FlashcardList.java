@@ -2,6 +2,7 @@ package seedu.tp.flashcard;
 
 import seedu.tp.commands.CommandFeedback;
 import seedu.tp.commands.ReviewedCommand;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.InvalidInputFormatException;
 import seedu.tp.storage.Savable;
@@ -94,9 +95,12 @@ public class FlashcardList implements Savable {
      * @param flashcard the task to be added to the list
      * @return the updated flashcardList with new flashcard just be added in
      */
-    public FlashcardList addFlashcard(Flashcard flashcard) {
+    public FlashcardList addFlashcard(Flashcard flashcard) throws DuplicateFlashcardNameException {
         assert flashcard != null : "Invalid null flashcard!";
 
+        if (flashcards.stream().anyMatch(o -> o.getName().equals(flashcard.getName()))) {
+            throw new DuplicateFlashcardNameException();
+        }
         flashcards.add(flashcard);
         LOGGER.info("Added flashcard " + flashcard.getName() + " to list.");
         return this;

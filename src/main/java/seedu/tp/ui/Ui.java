@@ -342,6 +342,11 @@ public class Ui {
         System.out.println("The start/birth date cannot be after the end/death date! Please try again.");
     }
 
+    public void sendDuplicateFlashcardNameResponse() {
+        System.out.println("Flashcards with duplicate names are not allowed!");
+        System.out.println("Your newly created flashcard is not added. Please try again.");
+    }
+
     public void sendUiLineBreak() {
         LOGGER.info("Sending Ui line break to user...");
         System.out.println("--------------------------------------------");
