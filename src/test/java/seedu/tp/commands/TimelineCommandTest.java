@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.tp.exceptions.InvalidDateFormatException;
+import seedu.tp.exceptions.ReversedDateOrderException;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.FlashcardList;
@@ -85,7 +86,7 @@ public class TimelineCommandTest {
                 "01-02-1834", "03-07-1834");
             CommandFeedback timelineCommandFeedback = timelineCommand.execute();
             assertEquals(expectedOutput.toString(), timelineCommandFeedback.toString());
-        } catch (InvalidDateFormatException e) {
+        } catch (InvalidDateFormatException | ReversedDateOrderException e) {
             System.out.println(e.getMessage());
         }
     }

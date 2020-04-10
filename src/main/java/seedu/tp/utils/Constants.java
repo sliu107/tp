@@ -39,6 +39,8 @@ public class Constants {
     public static final String DATE_FIELD = "date";
 
     public static final int MS_TO_S_CONVERSION_FACTOR = 1000;
+    public static final int ERROR_CODE = -1;
+    public static final int NORMAL_CODE = 0;
 
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";
@@ -48,5 +50,5 @@ public class Constants {
     public static final String REGEX_MATCH_ALL_CHARACTER = ".*";
 
     public static final String LOG_FOLDER = "logs/";
-    public static final String SAVE_FOLDER = "flashcards/";
+    public static final String SAVE_FOLDER = "historyflashcards";
 }

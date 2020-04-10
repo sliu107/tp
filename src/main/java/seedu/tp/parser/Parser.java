@@ -29,6 +29,7 @@ import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.InvalidInputFormatException;
+import seedu.tp.exceptions.ReversedDateOrderException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
@@ -277,6 +278,9 @@ public class Parser {
             } catch (InvalidDateFormatException e) {
                 LOGGER.warning("InvalidInputFormatException occurred when parsing: " + userInput);
                 throw new InvalidDateFormatException();
+            } catch (ReversedDateOrderException e) {
+                LOGGER.warning("ReversedDateOrderException occurred when parsing: " + userInput);
+                throw new ReversedDateOrderException();
             }
         case GROUP_COMMAND:
             return new GroupCommand(groupFactory, groupList);

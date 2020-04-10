@@ -267,10 +267,10 @@ public class Ui {
     }
 
     /**
-     * Prints confirmation that study plan has been updated.
+     * Prints confirmation that study plan has been deleted.
      */
     public void confirmStudyPlanDeletion(LocalDate date) {
-        System.out.println("Your study plan for " + date + " has been updated.");
+        System.out.println("Your study plan for " + date + " has been deleted.");
     }
 
     /**
@@ -336,6 +336,10 @@ public class Ui {
 
     public void sendInvalidDateFormatResponse() {
         System.out.println("That date format couldn't be parsed!");
+    }
+
+    public void sendReversedDateOrderResponse() {
+        System.out.println("The start/birth date cannot be after the end/death date! Please try again.");
     }
 
     public void sendUiLineBreak() {
