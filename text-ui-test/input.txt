@@ -91,6 +91,7 @@ plan
 2 3
 show-plan
 show-groups
+delete-group 1
 group
 New Flashcard Group
 Blah Blah Blah
@@ -108,6 +109,13 @@ Harry Potter Flashcards
 add
 1
 Harry Potter Flashcards
+group
+Harry Potter Flashcards Copy
+This is a group for HP related stuff.
+2 3
+add
+1
+Harry Potter Flashcards Copy
 list
 find
 find Meiji
@@ -138,6 +146,9 @@ show-groups
 list-group 1
 list-group Harry Potter Flashcards
 list-group
+delete-group Harry Potter Flashcards
+list-group 1
+delete-group 1
 list-group abc
 list-group abc def
 show-plan

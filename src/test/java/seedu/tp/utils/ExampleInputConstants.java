@@ -10,7 +10,8 @@ public class ExampleInputConstants {
     public static final String BULLET_POINT = "- ";
 
     public static final String FLASHCARD_NAME = "Example flashcard name";
-    public static final String GROUP_NAME = "Example flashcard group name";
+    public static final String GROUP_NAME_1 = "Example flashcard group name 1";
+    public static final String GROUP_NAME_2 = "Example flashcard group name 2";
     public static final String UNIONIZED_GROUP_NAME = "blah blah blah";
     public static final String DESCRIPTION = "Example description";
 
@@ -55,23 +56,23 @@ public class ExampleInputConstants {
         + DETAIL_2 + NEWLINE
         + NEWLINE;
 
-    public static final String SIMULATED_GROUP_COMMAND_INPUT_1 = GROUP_NAME + NEWLINE
+    public static final String SIMULATED_GROUP_COMMAND_INPUT_1 = GROUP_NAME_1 + NEWLINE
         + DESCRIPTION + NEWLINE
         + INDEXES_1 + NEWLINE
         + NEWLINE;
-    public static final String SIMULATED_GROUP_COMMAND_INPUT_2 = GROUP_NAME + NEWLINE
+    public static final String SIMULATED_GROUP_COMMAND_INPUT_2 = GROUP_NAME_1 + NEWLINE
         + DESCRIPTION + NEWLINE
         + INVALID_INDEXES + NEWLINE
         + NEWLINE;
 
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_1 = INDEX_1 + NEWLINE
-        + GROUP_NAME + NEWLINE
+        + GROUP_NAME_1 + NEWLINE
         + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_2 = INDEX_2 + NEWLINE
-        + GROUP_NAME + NEWLINE
+        + GROUP_NAME_1 + NEWLINE
         + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3 = INDEX_3 + NEWLINE
-        + GROUP_NAME + NEWLINE
+        + GROUP_NAME_1 + NEWLINE
         + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4 = INDEX_1 + NEWLINE
         + UNIONIZED_GROUP_NAME + NEWLINE
