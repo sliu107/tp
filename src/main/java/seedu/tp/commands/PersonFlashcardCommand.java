@@ -55,6 +55,10 @@ public class PersonFlashcardCommand extends ModifyingCommand {
         if (!(obj instanceof PersonFlashcardCommand)) {
             return false;
         }
+        if (this == obj) {
+            return true;
+        }
+
         PersonFlashcardCommand otherPersonFlashcardCommand = (PersonFlashcardCommand) obj;
         return otherPersonFlashcardCommand.getFlashcardList().equals(this.flashcardList);
     }
