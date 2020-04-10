@@ -1,13 +1,8 @@
 package seedu.tp.flashcard;
 
-import com.google.gson.Gson;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
-import seedu.tp.storage.Storage;
 import seedu.tp.ui.Ui;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
