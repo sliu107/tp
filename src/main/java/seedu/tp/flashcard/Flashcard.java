@@ -45,6 +45,12 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
         LOGGER.addHandler(fileHandler);
     }
 
+    /**
+     * Gets the details string from the list of details in the flashcard.
+     *
+     * @param details the list of details
+     * @return the string representing the details
+     */
     protected static String getDetailsString(List<String> details) {
         StringBuilder detailsStringBuilder = new StringBuilder();
         for (String detail : details) {
