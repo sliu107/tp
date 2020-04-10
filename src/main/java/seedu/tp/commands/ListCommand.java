@@ -2,7 +2,6 @@ package seedu.tp.commands;
 
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.ui.Ui;
 
 /**
  * Command to list all existing flashcards.
@@ -46,11 +45,10 @@ public class ListCommand extends Command {
         StringBuilder feedback = new StringBuilder("Here's the list of flashcards you have:" + System.lineSeparator());
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
-            String nextLine = (i + 1) + ": " + flashcard.getName() + " | Reviewed: " + flashcard.getReviewIcon()
-                    + " | " + flashcard.getPriorityAsString() + System.lineSeparator();
+            String nextLine = (i + 1) + ": " + flashcard.getShortDescription() + System.lineSeparator();
             feedback.append(nextLine);
         }
-        return feedback.toString();
+        return feedback.toString().trim();
     }
 
     @Override

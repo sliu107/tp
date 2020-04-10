@@ -3,30 +3,29 @@ package seedu.tp.commands;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
-import seedu.tp.storage.Storage;
-import seedu.tp.ui.Ui;
 
 /**
  * Command to configure priority level of a flashcard.
  */
 public class PriorityCommand extends ModifyingCommand {
+
     private FlashcardList flashcardList;
     private int index;
-    private Flashcard.PriorityLevel pl;
+    private Flashcard.PriorityLevel priorityLevel;
 
     /**
      * Constructor for the PriorityCommand.
      *
      * @param flashcardList list containing all flashcards
      * @param index         index of the flashcard to show
-     * @param pl            priority level to set the flashcard to
+     * @param priorityLevel priority level to set the flashcard to
      */
-    public PriorityCommand(FlashcardList flashcardList, int index, Flashcard.PriorityLevel pl) {
+    public PriorityCommand(FlashcardList flashcardList, int index, Flashcard.PriorityLevel priorityLevel) {
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.flashcardList = flashcardList;
         this.index = index;
-        this.pl = pl;
+        this.priorityLevel = priorityLevel;
     }
 
     /**
@@ -44,8 +43,8 @@ public class PriorityCommand extends ModifyingCommand {
      *
      * @return the priority level
      */
-    public Flashcard.PriorityLevel getPl() {
-        return pl;
+    public Flashcard.PriorityLevel getPriorityLevel() {
+        return priorityLevel;
     }
 
     @Override
@@ -53,11 +52,11 @@ public class PriorityCommand extends ModifyingCommand {
         try {
             LOGGER.info("Setting the priority for the flashcard " + index + "...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
-            flashcard.setPriorityLevel(pl);
+            flashcard.setPriorityLevel(priorityLevel);
             LOGGER.info("Set the priority for the flashcard " + index);
             CommandFeedback saveFeedback = save(flashcard);
             String feedback = "Priority has been updated:" + System.lineSeparator()
-                    + flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString();
+                + flashcard.getName() + " | New priority: " + flashcard.getPriorityAsString();
             if (!saveFeedback.isEmpty()) {
                 feedback += saveFeedback;
             }
@@ -73,13 +72,12 @@ public class PriorityCommand extends ModifyingCommand {
         if (!(obj instanceof PriorityCommand)) {
             return false;
         }
-
         if (obj == this) {
             return true;
         }
 
         PriorityCommand otherPriorityCommand = (PriorityCommand) obj;
         return otherPriorityCommand.getIndex() == this.index
-            && otherPriorityCommand.getPl().equals(this.pl);
+            && otherPriorityCommand.getPriorityLevel().equals(this.priorityLevel);
     }
 }

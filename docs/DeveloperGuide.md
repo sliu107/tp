@@ -43,10 +43,9 @@ API : `Parser.java`
 3. The resulting `Command` object which then can be executed by the `Main` class.
 
 Given below is the Sequence Diagram for interactions between the `Parser` and `Command` components for the
-`parseCommand` API call from `Main` class. We use the interaction between the `Parser` and `DeleteCommand` class as
- an example: 
+`parseCommand` API call from `Main` class. We use the interaction between the `Parser` and `DeleteCommand` class as an example: 
 
-![ParserAndCommandSequenceDiagram](images/ParserAndCommandSequenceDiagram.png)
+<img src="images/ParserAndCommandSequenceDiagram.png" alt="ParserAndCommandSequenceDiagram" width="500"/>
 
 #### Storage Component
 
@@ -54,12 +53,10 @@ Given below is the Sequence Diagram for interactions between the `Parser` and `C
 
 ### Implementation
 
-#### Set Priority Feature
+#### Set Priority Feature - Proposed Implementation
 
 The Set Priority feature allows users to mark a flashcard with a specified priority level. The priority level is
 then reflected when the user requests a list of existing flashcards.
-
-##### Proposed Implementation
 
 `PriorityLevel` is stored as an enum with four fields: LOW, MEDIUM, HIGH and DEFAULT.
 
@@ -85,9 +82,7 @@ The following sequence diagram shows the relevant interactions behind `setPriori
 
 ![setPriorityLevelSequenceDiagram](images/setPriorityLevelSequenceDiagram.png)
 
-#### Study Plan Feature
-
-##### Proposed Implementation
+#### Study Plan Feature - Proposed Implementation
 
 The Study Plan feature is facilitated by `StudyPlanList`.
 
@@ -97,6 +92,7 @@ Key-value pairs in the `TreeMap` are sorted by dates.
 It implements the following operations:
 
 - `StudyPlanList#updateStudyPlan()` - Updates the study plan list.
+- `StudyPlanList#deleteStudyPlan()` - Deletes a study plan from the study plan list.
 - `StudyPlanList#getStudyPlanList()` - Gets the list of study plans.
 
 Given below is an example usage scenario and how the study plan mechanism behaves at each step.
@@ -110,16 +106,21 @@ The following sequence diagram shows how the `updateStudyPlan` operation works:
 
 ![updateStudyPlanSequenceDiagram](images/updateStudyPlanSequenceDiagram.png)
 
-Step 3. The user executes `show-plan` command and the `getStudyPlanList` operation is invoked. The application
+Step 3. The user executes `delete-plan` command and the `deleteStudyPlan` operation is invoked. The application
+prompts the user for the date for which the study plan is to be deleted.
+
+The following sequence diagram shows how the `deleteStudyPlan` operation works:
+
+![deleteStudyPlanSequenceDiagram](images/deleteStudyPlanSequenceDiagram.png)
+
+Step 4. The user executes `show-plan` command and the `getStudyPlanList` operation is invoked. The application
 displays the user's study plan list.
 
 The following sequence diagram shows how the `getStudyPlanList` operation works:
 
 ![getStudyPlanListSequenceDiagram](images/getStudyPlanListSequenceDiagram.png)
 
-#### Random Review Feature
-
-##### Proposed Implementation
+#### Random Review Feature - Proposed Implementation
 
 The random review mechanism is facilitated by `FlashcardList`.It stores an `List<Flashcard>` internally which contains
 all the flashcards created by the user.

@@ -23,7 +23,7 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
 public class StudyPlanList {
 
     protected static final Logger LOGGER = Logger.getLogger(StudyPlanList.class.getName());
-    private static final String FILE_PATH = LOG_FOLDER + "study_plan.log";
+    private static final String FILE_PATH = LOG_FOLDER + "study_plan_list.log";
 
     private Map<LocalDate, List<Integer>> studyPlanList;
 
@@ -73,6 +73,7 @@ public class StudyPlanList {
         assert ui != null : "Invalid null Ui!";
         assert flashcardList != null : "Invalid null FlashcardList!";
 
+        LOGGER.info("Updating study plan...");
         LocalDate date = ui.promptUserForRequiredLocalDate(DATE_FIELD);
         String[] indexesStr = ui.promptUserForRequiredField(INDEXES_FIELD).split(EMPTY_SPACE);
         List<Integer> indexes = new ArrayList<>();
@@ -85,10 +86,31 @@ public class StudyPlanList {
                 indexes.add(index);
             }
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
+            LOGGER.info("Throwing InvalidFlashcardIndexException in updateStudyPlan()...");
             throw new InvalidFlashcardIndexException();
         }
         studyPlanList.put(date, indexes);
         ui.confirmStudyPlanUpdate();
+        LOGGER.info("Study plan updated!");
+    }
+
+    /**
+     * Deletes a study plan from the study plan list.
+     *
+     * @param ui the Ui class to be used for interaction with user
+     */
+    public void deleteStudyPlan(Ui ui) {
+        assert ui != null : "Invalid null Ui!";
+
+        LOGGER.info("Deleting study plan...");
+        LocalDate date = ui.promptUserForRequiredLocalDate(DATE_FIELD);
+        if (studyPlanList.remove(date) != null) {
+            ui.confirmStudyPlanDeletion(date);
+            LOGGER.info("Study plan for " + date + " deleted!");
+        } else {
+            ui.sendStudyPlanDeletionFailedMessage(date);
+            LOGGER.info("Study plan for " + date + " does not exist!");
+        }
     }
 
     /**
@@ -97,6 +119,7 @@ public class StudyPlanList {
      * @return a list containing all the study plans
      */
     public List<Map.Entry<LocalDate, List<Integer>>> getStudyPlanList() {
+        LOGGER.info("Getting study plan list...");
         return new ArrayList<>(studyPlanList.entrySet());
     }
 

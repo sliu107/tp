@@ -46,6 +46,11 @@ public class PersonFlashcard extends Flashcard {
         String name = ui.promptUserForRequiredField(NAME_FIELD);
         LocalDate birthDate = ui.promptUserForRequiredLocalDate(BIRTH_DATE_FIELD);
         LocalDate deathDate = ui.promptUserForRequiredLocalDate(DEATH_DATE_FIELD);
+        while (birthDate.compareTo(deathDate) > 0) {
+            ui.sendReversedDateOrderResponse();
+            birthDate = ui.promptUserForRequiredLocalDate(BIRTH_DATE_FIELD);
+            deathDate = ui.promptUserForRequiredLocalDate(DEATH_DATE_FIELD);
+        }
         String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
         List<String> details = ui.promptUserForDetails();
         return new PersonFlashcard(name, birthDate, deathDate, summary, details);
@@ -93,8 +98,8 @@ public class PersonFlashcard extends Flashcard {
      */
     @Override
     public String getShortDescription() {
-        String shortDescription = this.name + DIVIDER + this.birthDate + " to " + this.deathDate
-            + DIVIDER + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
+        String shortDescription = this.name + DIVIDER + "Time Period: " + this.birthDate + " to " + this.deathDate
+            + DIVIDER + "Reviewed: " + this.getReviewIcon() + DIVIDER + "Priority: " + this.getPriorityAsString();
         return shortDescription;
     }
 

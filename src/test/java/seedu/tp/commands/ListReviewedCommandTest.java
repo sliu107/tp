@@ -8,7 +8,6 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
-import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -72,9 +71,9 @@ public class ListReviewedCommandTest {
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Here's the list of reviewed flashcards:" + System.lineSeparator());
         expectedOutput.append("1: Event 1 | Reviewed: / | Not indicated | ID: 1" + System.lineSeparator());
-        expectedOutput.append("2: Title 1 | Reviewed: / | Not indicated | ID: 3" + System.lineSeparator());
+        expectedOutput.append("2: Title 1 | Reviewed: / | Not indicated | ID: 3");
 
-        ListReviewedCommand listReviewedCommand = new ListReviewedCommand(fullFlashcardList, new Ui());
+        ListReviewedCommand listReviewedCommand = new ListReviewedCommand(fullFlashcardList);
         CommandFeedback listReviewedCommandFeedback = listReviewedCommand.execute();
         assertEquals(expectedOutput.toString(), listReviewedCommandFeedback.toString());
     }
@@ -84,7 +83,7 @@ public class ListReviewedCommandTest {
         String expectedOutput = "You have no reviewed flashcards! "
             + "Use \"reviewed [INDEX]\" to mark a flashcard as reviewed.";
 
-        ListReviewedCommand listReviewedCommand = new ListReviewedCommand(emptyFlashcardList, new Ui());
+        ListReviewedCommand listReviewedCommand = new ListReviewedCommand(emptyFlashcardList);
         CommandFeedback listReviewedCommandFeedback = listReviewedCommand.execute();
         assertEquals(expectedOutput, listReviewedCommandFeedback.toString());
     }

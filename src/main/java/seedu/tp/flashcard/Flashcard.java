@@ -51,7 +51,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
         for (String detail : details) {
             detailsStringBuilder.append("* ").append(detail).append(System.lineSeparator());
         }
-        return detailsStringBuilder.toString();
+        return detailsStringBuilder.toString().trim();
     }
 
     /**
@@ -65,7 +65,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
 
     /**
      * Get the file name of the flashcard.
-     * 
+     *
      * @return the file name of the flashcard.
      */
     public String getFileName() {
@@ -107,6 +107,15 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
      */
     public void setPriorityLevel(PriorityLevel pl) {
         this.pl = pl;
+    }
+
+    /**
+     * Returns the flashcard's priority level.
+     *
+     * @return priority level
+     */
+    public PriorityLevel getPriorityLevel() {
+        return this.pl;
     }
 
     /**

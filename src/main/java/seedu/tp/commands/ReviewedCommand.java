@@ -39,10 +39,11 @@ public class ReviewedCommand extends ModifyingCommand {
             LOGGER.info("Setting flashcard " + index + " as reviewed...");
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
             flashcard.setReviewStatus(true);
+            flashcardList.setTotalReviewedNumber(flashcardList.getTotalReviewedNumber() + 1);
             LOGGER.info("Set flashcard " + index + " as reviewed");
             CommandFeedback saveFeedback = save(flashcard);
             String feedback = "You have marked the following flashcard as Reviewed:" + System.lineSeparator()
-                    + flashcard.getName();
+                + flashcard.getName();
             if (!saveFeedback.isEmpty()) {
                 feedback += saveFeedback;
             }

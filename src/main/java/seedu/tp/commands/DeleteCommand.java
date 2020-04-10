@@ -5,13 +5,11 @@ import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.storage.Savable;
-import seedu.tp.ui.Ui;
 
 public class DeleteCommand extends ModifyingCommand {
 
     private FlashcardList flashcardList;
     private int index;
-    private Ui ui;
 
     /**
      * Constructor for delete command.
@@ -19,12 +17,11 @@ public class DeleteCommand extends ModifyingCommand {
      * @param flashcardList flashcard list for the command to execute on
      * @param index         index in the delete command
      */
-    public DeleteCommand(FlashcardList flashcardList, int index, Ui ui) {
+    public DeleteCommand(FlashcardList flashcardList, int index) {
         assert flashcardList != null : "Invalid null FlashcardList!";
 
         this.flashcardList = flashcardList;
         this.index = index;
-        this.ui = ui;
     }
 
     /**
@@ -54,7 +51,7 @@ public class DeleteCommand extends ModifyingCommand {
             LOGGER.info("Deleted flashcard at index: " + index);
             CommandFeedback deleteFeedback = delete(deletedFlashcard);
             String feedback = "The following flashcard has been deleted:" + System.lineSeparator()
-                    + deletedFlashcard;
+                + deletedFlashcard;
             if (!deleteFeedback.isEmpty()) {
                 feedback += deleteFeedback;
             }
@@ -65,7 +62,7 @@ public class DeleteCommand extends ModifyingCommand {
             throw new InvalidFlashcardIndexException();
         }
     }
-    
+
     private CommandFeedback delete(Savable savable) {
         try {
             storage.delete(savable);

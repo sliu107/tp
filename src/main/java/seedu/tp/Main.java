@@ -7,6 +7,7 @@ import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.InvalidInputFormatException;
+import seedu.tp.exceptions.ReversedDateOrderException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
@@ -78,29 +79,44 @@ public class Main {
     }
 
     private void runLoop() {
+        ui.sendUiLineBreak();
         ui.sendWelcomeMessage();
-        boolean isBye = false;
-        while (!isBye) {
+        ui.sendUiLineBreak();
+        while (true) {
             try {
                 String fullCommand = ui.getNextLine();
+                ui.sendUiLineBreak();
                 Command command = parser.parseCommand(fullCommand);
+                if (command.isBye()) {
+                    break;
+                }
+
                 CommandFeedback feedback = command.execute();
                 ui.showCommandFeedback(feedback);
-                isBye = command.isBye();
+                ui.sendUiLineBreak();
             } catch (UnknownCommandException e) {
                 ui.sendUnknownCommandResponse();
+                ui.sendUiLineBreak();
             } catch (InvalidFlashcardIndexException e) {
                 ui.sendInvalidFlashcardIndexResponse();
+                ui.sendUiLineBreak();
             } catch (InvalidInputFormatException e) {
                 ui.sendInvalidInputFormatResponse();
+                ui.sendUiLineBreak();
             } catch (DuplicateFlashcardException e) {
                 ui.sendDuplicateFlashcardResponse();
+                ui.sendUiLineBreak();
             } catch (InvalidDateFormatException e) {
                 ui.sendInvalidDateFormatResponse();
+                ui.sendUiLineBreak();
+            } catch (ReversedDateOrderException e) {
+                ui.sendReversedDateOrderResponse();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
+                ui.sendUiLineBreak();
             }
         }
         ui.sendByeMessage();
+        ui.sendUiLineBreak();
     }
 }

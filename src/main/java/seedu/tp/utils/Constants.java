@@ -11,11 +11,13 @@ public class Constants {
     public static final String REVIEWED_COMMAND = "reviewed";
     public static final String DELETE_COMMAND = "delete";
     public static final String PRIORITY_COMMAND = "priority";
+    public static final String LIST_PRIORITY_COMMAND = "list-priority";
     public static final String TIMELINE_COMMAND = "timeline";
     public static final String GROUP_COMMAND = "group";
     public static final String SHOW_GROUPS_COMMAND = "show-groups";
     public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
     public static final String UPDATE_STUDY_PLAN_COMMAND = "plan";
+    public static final String DELETE_STUDY_PLAN_COMMAND = "delete-plan";
     public static final String DISPLAY_STUDY_PLAN_COMMAND = "show-plan";
     public static final String FIND_FLASHCARD_COMMAND = "find";
     public static final String RESET_REVIEWED_COMMAND = "reset-reviewed";
@@ -36,6 +38,8 @@ public class Constants {
     public static final String DATE_FIELD = "date";
 
     public static final int MS_TO_S_CONVERSION_FACTOR = 1000;
+    public static final int ERROR_CODE = -1;
+    public static final int NORMAL_CODE = 0;
 
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";

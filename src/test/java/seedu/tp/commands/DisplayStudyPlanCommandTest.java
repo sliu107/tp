@@ -10,7 +10,6 @@ import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.studyplan.StudyPlanList;
-import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -80,14 +79,13 @@ public class DisplayStudyPlanCommandTest {
     public void displayStudyPlanCommand_execute_success() {
         StringBuilder expectedEventOutput = new StringBuilder();
         expectedEventOutput.append("Date: 2020-01-18" + System.lineSeparator());
-        expectedEventOutput.append("1: Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedEventOutput.append("3: Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedEventOutput.append("1: " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedEventOutput.append("3: " + OTHER_FLASHCARD.getShortDescription() + System.lineSeparator());
         expectedEventOutput.append("Date: 2020-02-27" + System.lineSeparator());
-        expectedEventOutput.append("1: Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedEventOutput.append("2: Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedEventOutput.append("1: " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedEventOutput.append("2: " + PERSON_FLASHCARD.getShortDescription());
 
-        DisplayStudyPlanCommand displayStudyPlanCommand = new DisplayStudyPlanCommand(new Ui(), studyPlanList,
-            fullFlashcardList);
+        DisplayStudyPlanCommand displayStudyPlanCommand = new DisplayStudyPlanCommand(studyPlanList, fullFlashcardList);
         CommandFeedback displayStudyPlanCommandFeedback = displayStudyPlanCommand.execute();
         assertEquals(expectedEventOutput.toString(), displayStudyPlanCommandFeedback.toString());
     }

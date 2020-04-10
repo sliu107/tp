@@ -1,13 +1,30 @@
-# User Guide
+# History Flashcard - User Guide
+
+1. [Introduction](#introduction)
+2. [Quick Start](#quick-start)
+3. [Features](#features)
+    - [Command Format](#command-format)
+    - [Basic](#basic)
+    - [Flashcard Creation](#flashcard-creation)
+    - [Flashcard Basic Operations](#flashcard-basic-operations)
+    - [Flashcard Status Operations](#flashcard-status-operations)
+    - [Flashcard Grouping](#flashcard-grouping)
+    - [Study Plans](#study-plans)
+    - [Randomized Review](#randomized-review)
+4. [FAQ](#faq)
+5. [Command Summary](#command-summary)
 
 ## Introduction
 
-History Flashcard (HF) is for those who are studying history subjects to create flashcards which summarize the most important information for historical events, figures and artifacts. HF is optimized for those who prefer to use a simple Command Line Interface (CLI). It includes features that help with memory retention and make information convenient to review, e.g. the ability to organize historical events into timelines and store summarized biographies of history figures.
+History Flashcard (HF) is for those who are studying history subjects to create flashcards which summarize the most 
+important information for historical events, figures and artifacts. HF is optimized for those who prefer to use a 
+simple Command Line Interface (CLI). It includes features that help with memory retention and make information 
+convenient to review, e.g. the ability to organize historical events into timelines and store bite-size details about history figures.
 
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
-2. Down the latest version of `HistoryFlashcard` from [here](https://github.com/AY1920S2-CS2113-T14-1/tp/releases).
+2. Download the latest version of `HistoryFlashcard` from [here](https://github.com/AY1920S2-CS2113-T14-1/tp/releases).
 3. Move the JAR file to the folder you want to use as the home folder for `HistoryFlashcard `.
 4. Double-click the file to start the application or run the command `java -jar [path-to-history-flashcard-jar-file]` from terminal
 5. Type in commands and start using `HistoryFlashcard`!
@@ -15,16 +32,14 @@ History Flashcard (HF) is for those who are studying history subjects to create 
 ## Features 
 
 ### Command Format
-Words in `UPPER_CASE` are the parameters to be supplied by the user.
+Words in `UPPER_CASE` are parameters to be supplied by the user.
 
-Items in square brackets are optional e.g `TITLE [DETAILS]` can be used as `Title Some Details` or just `Title`.
+Items in square brackets are optional e.g `TITLE [DETAILS]` can be used as `Title Some Detail` or just `Title`.
 
-Items with `...`​ after them can be used multiple times including zero times e.g. `[DETAILS]...​` can be omitted or used as `Detail_1 Detail_2`.
-
-## Basic
+### Basic
 #### Getting Help: `help`
 
-Gets a list of command available for us.
+Displays a list of commands available.
 
 Format: `help`
 
@@ -34,7 +49,7 @@ Exits History Flashcard.
 
 Format: `bye`
 
-## Flashcard Creation
+### Flashcard Creation
 #### Adding an Event Flashcard: `event`
 
 Adds an Event Flashcard.
@@ -49,7 +64,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for an Event Flashcard.
+There can be 0 or multiple `DETAIL`s added for an Event Flashcard. To stop entering details, just enter an empty line
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
@@ -79,7 +95,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for a Person Flashcard.
+There can be 0 or multiple `DETAIL`s added for a Person Flashcard. To stop entering details, just enter an empty line
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
@@ -106,7 +123,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
-There can be 0 or multiple `DETAIL` added for a Person Flashcard.
+There can be 0 or multiple `DETAIL`s added for an Other Flashcard. To stop entering details, just enter an empty line
+by hitting `ENTER/RETURN`.
 
 Example of usage:
 
@@ -119,7 +137,7 @@ According to legend, whoever reunited it with the other two Hallows (the Elder W
 
 ```
 
-## Flashcard Basic Operations
+### Flashcard Basic Operations
 #### Listing All Flashcards: `list`
 
 Lists all flashcards in the application.
@@ -157,13 +175,13 @@ Example of usage:
 
 `show 3`
 
-#### Finding an existing Flashcard: `find`
+#### Finding Flashcards with Names Containing a specific keyword: `find`
 
 Displays all flashcards with names containing the KEYWORD.
 
 Format: `find KEYWORD`
 
-## Flashcard Status Operations
+### Flashcard Status Operations
 #### Assigning Priority to a Flashcard: `priority`
 
 Assign Priority Level `LOW`, `MEDIUM`, `HIGH` to the flashcard at the specified index.
@@ -171,11 +189,19 @@ Assign Priority Level `LOW`, `MEDIUM`, `HIGH` to the flashcard at the specified 
 Format: `priority INDEX PRIORITY_LEVEL`
 
 - `INDEX`: must be in a valid number format
-- `PRIORITY_LEVEL`: must be one of `LOW`, `MEDIUM`, `HIGH`
+- `PRIORITY_LEVEL`: must be one of `LOW`, `MEDIUM`, `HIGH`, `DEFAULT`
 
 Example of usage:
 
 `priority 2 MEDIUM`
+
+#### Listing Flashcards of a Specified Priority: `list-priority`
+
+Lists all flashcards which match the specified priority level.
+
+Format: `list-priority PRIORITY_LEVEL`
+
+- `PRIORITY_LEVEL`: must be one of `LOW`, `MEDIUM`, `HIGH`, `DEFAULT`
 
 #### Marking Flashcard as Reviewed: `reviewed`
 
@@ -191,13 +217,15 @@ Example of usage:
 
 #### Listing Reviewed Flashcards: `list-reviewed`
 
-Lists all existing Reviewed flashcards.
+Lists all reviewed flashcards.
+
+Format: `list-reviewed`
 
 #### Resetting Review status of Flashcards: `reset-reviewed`
 
-Resets status of all flashcards to Unreviewed.
+Resets status of all flashcards to un-reviewed.
 
-## Flashcard Grouping
+### Flashcard Grouping
 #### Grouping Flashcards: `group`
 
 Creates a new group of flashcards.
@@ -252,12 +280,14 @@ the name of the group.
 
 Format: `list-group GROUP_ID`
 
-## Study Plans
+### Study Plans
 #### Creating a new study plan: `plan`
 
-Create a new study plan by specifying date and indexes of existing flashcards.
+Creates a new study plan by specifying date and indexes of existing flashcards.
 
 Format: `plan`
+
+The application will then prompt the user to enter the following fields:
 
 - `DATE`: the date which the user want to set a study plan for
 - `FLASHCARD_INDEXES`: indexes of the flashcards in the study plan
@@ -276,7 +306,14 @@ Lists all study plans.
 
 Format: `show-plan`
 
-## Randomized Review
+#### Deleting a study plan: `delete-plan`
+
+Deletes a specified study plan. 
+The user will be prompted to enter the date of the study plan they wish to delete.
+
+Format: `delete-plan`
+
+### Randomized Review
 #### Displaying a random Flashcard: `random`
 
 Shuffles and displays all the flashcards in a random order.
@@ -292,9 +329,10 @@ Format:
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer? 
+**Q**: Where can I find the files containing my flashcard information?
 
-**A**: Well, write the User Guide in active voice anyway.
+**A**: In folder `flashcards/`, each `json` file has the same name as one of your flashcards and contains all
+fields in the flashcard.
 
 ## Command Summary
 
@@ -313,10 +351,12 @@ Format:
 - List all groups: `show-groups`
 - List flashcards from a group: `list-group GROUP_ID`
 - Assigns priority to a flashcard: `priority INDEX PRIORITY_LEVEL`
+- List flashcards of a specified priority: `list-priority PRIORITY_LEVEL`
 - Mark a flashcard as reviewed: `reviewed INDEX`
 - List all reviewed flashcards: `list-reviewed`
 - Reset all flashcards to unreviewed: `reset-reviewed`
 - Create a study plan: `plan`
 - List all study plans: `show-plan`
+- Delete a study plan: `delete-plan`
 - Start randomized review: `random`
 

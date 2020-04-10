@@ -23,7 +23,7 @@ public class ExampleInputConstants {
     public static final String DETAIL_2 = "Detail 2";
     public static final List<String> DETAILS = Arrays.asList(DETAIL_1, DETAIL_2);
     public static final String DETAILS_BULLET_FORM = "* " + DETAIL_1 + System.lineSeparator()
-        + "* " + DETAIL_2 + System.lineSeparator();
+        + "* " + DETAIL_2;
 
     public static final String INDEX_1 = "2";
     public static final String INDEX_2 = "-1";
@@ -81,6 +81,8 @@ public class ExampleInputConstants {
         DATE_1 + NEWLINE + INDEXES_1 + NEWLINE;
     public static final String SIMULATED_UPDATE_STUDY_PLAN_INPUT_2 =
         DATE_2 + NEWLINE + INDEX_1 + NEWLINE;
+
+    public static final String SIMULATED_DELETE_STUDY_PLAN_INPUT = DATE_1 + NEWLINE;
 
     public static final String SIMULATED_RANDOM_COMMAND_INPUT = RESPONSE_1 + NEWLINE
         + RESPONSE_3 + NEWLINE

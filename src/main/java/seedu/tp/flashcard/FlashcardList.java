@@ -3,6 +3,7 @@ package seedu.tp.flashcard;
 import seedu.tp.commands.CommandFeedback;
 import seedu.tp.commands.ReviewedCommand;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.exceptions.InvalidInputFormatException;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -17,8 +18,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import static seedu.tp.utils.Constants.ERROR_CODE;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.MS_TO_S_CONVERSION_FACTOR;
+import static seedu.tp.utils.Constants.NORMAL_CODE;
 import static seedu.tp.utils.Constants.REGEX_MATCH_ALL_CHARACTER;
 
 /**
@@ -124,6 +127,7 @@ public class FlashcardList {
         for (Flashcard flashcard : flashcards) {
             flashcard.setReviewStatus(false);
         }
+        this.totalReviewedNumber = 0;
         ui.confirmResetCompletion();
     }
 
@@ -132,7 +136,8 @@ public class FlashcardList {
      *
      * @return the random flashcard list
      */
-    public FlashcardList reviewRandomFlashcards(Ui ui) throws InvalidFlashcardIndexException {
+    public FlashcardList reviewRandomFlashcards(Ui ui) throws InvalidFlashcardIndexException,
+            InvalidInputFormatException {
         assert flashcards != null : "Invalid null flashcard!";
 
         FlashcardList randomFlashcards = new FlashcardList(flashcards);
@@ -146,20 +151,43 @@ public class FlashcardList {
             if (flashcard.isReviewed()) {
                 System.out.println("You have already reviewed this flashcard.");
                 System.out.println("");
-            } else if (ui.promptUserResponseForReviewing(flashcard).equals("yes")) {
-                ReviewedCommand reviewedCommand = new ReviewedCommand(this,
-                    flashcards.indexOf(flashcard));
-                CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
-                ui.showCommandFeedback(reviewedCommandFeedback);
-                reviewedNumber++;
             } else {
-                continue;
+                reviewedNumber = handleResponse(ui, flashcard, reviewedNumber);
             }
         }
-        totalReviewedNumber += reviewedNumber;
         int totalUnreviewedNumber = flashcards.size() - totalReviewedNumber;
         ui.confirmRandomFlashcardsReviewCompletion(reviewedNumber, totalUnreviewedNumber);
         return randomFlashcards;
+    }
+
+    private int handleResponse(Ui ui, Flashcard flashcard, int reviewedNumber)
+            throws InvalidFlashcardIndexException, InvalidInputFormatException {
+        int statusCode = NORMAL_CODE;
+        do {
+            try {
+                String response = ui.promptUserResponseForReviewing(flashcard).toLowerCase();
+                switch (response) {
+                case "y":
+                case "yes":
+                    ReviewedCommand reviewedCommand = new ReviewedCommand(this,
+                            flashcards.indexOf(flashcard));
+                    CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
+                    ui.showCommandFeedback(reviewedCommandFeedback);
+                    reviewedNumber++;
+                    break;
+                case "n":
+                case "no":
+                    break;
+                default:
+                    throw new InvalidInputFormatException();
+                }
+                return reviewedNumber;
+            } catch (InvalidInputFormatException e) {
+                System.out.println("Please enter either yes or no.");
+                statusCode = ERROR_CODE;
+            }
+        } while (statusCode == ERROR_CODE);
+        return ERROR_CODE;
     }
 
     /**
@@ -244,6 +272,25 @@ public class FlashcardList {
         }
         LOGGER.info("Got all reviewed flashcards!");
         return reviewedFlashcards;
+    }
+
+    /**
+     * Gets all flashcards with a specified priority level.
+     *
+     * @param pl desired priority level of flashcards
+     * @return the list of flashcards with the specified priority level
+     */
+    public List<Map.Entry<Integer, Flashcard>> getFlashcardsOfPriority(Flashcard.PriorityLevel pl) {
+        LOGGER.info("Getting all flashcards of specified priority...");
+        List<Map.Entry<Integer, Flashcard>> priorityFlashcards = new ArrayList<>();
+        for (int i = 0; i < flashcards.size(); i++) {
+            Flashcard flashcard = flashcards.get(i);
+            if (flashcard.getPriorityLevel() == pl) {
+                priorityFlashcards.add(new AbstractMap.SimpleEntry<>(i, flashcard));
+            }
+        }
+        LOGGER.info("Got all flashcards with specified priority!");
+        return priorityFlashcards;
     }
 
     /**

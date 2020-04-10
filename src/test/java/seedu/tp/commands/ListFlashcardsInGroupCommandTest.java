@@ -10,7 +10,6 @@ import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
-import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -73,15 +72,15 @@ public class ListFlashcardsInGroupCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, new Ui(), GROUP_NAME);
+            new ListFlashcardsInGroupCommand(groupList, GROUP_NAME);
         final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Example flashcard group name contains the following flashcards:"
             + System.lineSeparator());
-        expectedOutput.append("- Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedOutput.append("- " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedOutput.append("- " + PERSON_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedOutput.append("- " + OTHER_FLASHCARD.getShortDescription());
 
         assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }
@@ -93,15 +92,15 @@ public class ListFlashcardsInGroupCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, new Ui(), "1");
+            new ListFlashcardsInGroupCommand(groupList, "1");
         final CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("1 contains the following flashcards:"
             + System.lineSeparator());
-        expectedOutput.append("- Event 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Person 1 | Reviewed: X | Not indicated" + System.lineSeparator());
-        expectedOutput.append("- Title 1 | Reviewed: X | Not indicated" + System.lineSeparator());
+        expectedOutput.append("- " + EVENT_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedOutput.append("- " + PERSON_FLASHCARD.getShortDescription() + System.lineSeparator());
+        expectedOutput.append("- " + OTHER_FLASHCARD.getShortDescription());
 
         assertEquals(expectedOutput.toString(), listFlashcardsInGroupCommandFeedback.toString());
     }
@@ -113,7 +112,7 @@ public class ListFlashcardsInGroupCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, new Ui(), "0");
+            new ListFlashcardsInGroupCommand(groupList, "0");
         CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();
@@ -129,7 +128,7 @@ public class ListFlashcardsInGroupCommandTest {
         GroupList groupList = new GroupList();
         groupList.addFlashcardGroup(group);
         ListFlashcardsInGroupCommand listFlashcardsInGroupCommand =
-            new ListFlashcardsInGroupCommand(groupList, new Ui(), "badname");
+            new ListFlashcardsInGroupCommand(groupList, "badname");
         CommandFeedback listFlashcardsInGroupCommandFeedback = listFlashcardsInGroupCommand.execute();
 
         StringBuilder expectedOutput = new StringBuilder();

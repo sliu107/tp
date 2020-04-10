@@ -1,9 +1,7 @@
 package seedu.tp.commands;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import seedu.tp.exceptions.InvalidDateFormatException;
+import seedu.tp.exceptions.ReversedDateOrderException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
@@ -11,6 +9,9 @@ import seedu.tp.flashcard.PersonFlashcard;
 import seedu.tp.parser.Parser;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static seedu.tp.utils.Constants.BULLET_POINT;
@@ -19,6 +20,7 @@ import static seedu.tp.utils.Constants.BULLET_POINT;
  * Command to show a timeline for the existing flashcards.
  */
 public class TimelineCommand extends Command {
+
     private FlashcardList flashcardList;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -26,7 +28,7 @@ public class TimelineCommand extends Command {
     /**
      * Constructor for TimelineCommand.
      *
-     * @param flashcardList     list containing all flashcards
+     * @param flashcardList list containing all flashcards
      */
     public TimelineCommand(FlashcardList flashcardList) {
         assert flashcardList != null : "Invalid null FlashcardList!";
@@ -44,15 +46,18 @@ public class TimelineCommand extends Command {
      * @param endDate       the date after which to stop listing flashcards from
      */
     public TimelineCommand(FlashcardList flashcardList, String startDate, String endDate)
-            throws InvalidDateFormatException {
+        throws InvalidDateFormatException, ReversedDateOrderException {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert startDate != null : "Invalid null startDate!";
         assert endDate != null : "Invalid null endDate!";
 
         this.startDate = Parser.parseDate(startDate);
         this.endDate = Parser.parseDate(endDate);
+        if (startDate.compareTo(endDate) > 0) {
+            throw new ReversedDateOrderException();
+        }
         List<Flashcard> filteredFlashcardList = flashcardList.getFlashcards().stream()
-                .filter(flashcard -> isValidFlashcard(flashcard)).collect(Collectors.toList());
+            .filter(flashcard -> isValidFlashcard(flashcard)).collect(Collectors.toList());
         this.flashcardList = new FlashcardList(filteredFlashcardList);
     }
 
@@ -68,11 +73,7 @@ public class TimelineCommand extends Command {
             return false;
         }
 
-        if (cardStartDate.compareTo(this.startDate) >= 0 && cardStartDate.compareTo(this.endDate) <= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return cardStartDate.compareTo(this.startDate) >= 0 && cardStartDate.compareTo(this.endDate) <= 0;
     }
 
     private String getFeedback(FlashcardList flashcardList) {
@@ -88,14 +89,14 @@ public class TimelineCommand extends Command {
         List<Flashcard> flashcards = new ArrayList<>(flashcardList.getFlashcards());
         Collections.sort(flashcards);
         String summaryMessage = isRestricted ? "Listing flashcards from " + startDate + " to " + endDate + "..."
-                : "Flashcards sorted by date:";
+            : "Flashcards sorted by date:";
         StringBuilder feedback = new StringBuilder(summaryMessage);
         feedback.append(System.lineSeparator());
-        for (Flashcard f : flashcards) {
-            feedback.append(BULLET_POINT + f.getShortDescription());
+        for (Flashcard flashcard : flashcards) {
+            feedback.append(BULLET_POINT + flashcard.getShortDescription());
             feedback.append(System.lineSeparator());
         }
-        return feedback.toString();
+        return feedback.toString().trim();
     }
 
     @Override

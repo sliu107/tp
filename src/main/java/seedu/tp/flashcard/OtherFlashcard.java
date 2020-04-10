@@ -45,8 +45,9 @@ public class OtherFlashcard extends Flashcard {
      */
     @Override
     public String getShortDescription() {
-        String shortDescription = this.name + DIVIDER
-            + this.getReviewIcon() + DIVIDER + this.getPriorityAsString();
+        String shortDescription =
+            this.name + DIVIDER + "Reviewed: " + this.getReviewIcon()
+                + DIVIDER + "Priority: " + this.getPriorityAsString();
         return shortDescription;
     }
 

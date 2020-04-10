@@ -4,12 +4,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.tp.exceptions.InvalidDateFormatException;
+import seedu.tp.exceptions.ReversedDateOrderException;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.flashcard.OtherFlashcard;
 import seedu.tp.flashcard.PersonFlashcard;
-import seedu.tp.ui.Ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -55,7 +55,7 @@ public class TimelineCommandTest {
         expectedOutput.append(BULLET_POINT
             + flashcardList.getFlashcardAtIdx(2).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-            + flashcardList.getFlashcardAtIdx(1).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(1).getShortDescription());
 
         TimelineCommand timelineCommand = new TimelineCommand(flashcardList);
         CommandFeedback timelineCommandFeedback = timelineCommand.execute();
@@ -79,14 +79,14 @@ public class TimelineCommandTest {
         expectedOutput.append(BULLET_POINT
             + flashcardList.getFlashcardAtIdx(3).getShortDescription() + System.lineSeparator());
         expectedOutput.append(BULLET_POINT
-            + flashcardList.getFlashcardAtIdx(0).getShortDescription() + System.lineSeparator());
+            + flashcardList.getFlashcardAtIdx(0).getShortDescription());
 
         try {
             TimelineCommand timelineCommand = new TimelineCommand(flashcardList,
-                    "01-02-1834", "03-07-1834");
+                "01-02-1834", "03-07-1834");
             CommandFeedback timelineCommandFeedback = timelineCommand.execute();
             assertEquals(expectedOutput.toString(), timelineCommandFeedback.toString());
-        } catch (InvalidDateFormatException e) {
+        } catch (InvalidDateFormatException | ReversedDateOrderException e) {
             System.out.println(e.getMessage());
         }
     }

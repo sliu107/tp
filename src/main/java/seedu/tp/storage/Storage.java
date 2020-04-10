@@ -32,16 +32,15 @@ import static seedu.tp.utils.Constants.SAVE_FOLDER;
 public class Storage {
     private static final Logger LOGGER = Logger.getLogger(Storage.class.getName());
     private static final String FILE_PATH = LOG_FOLDER + "storage.log";
-    private Gson gson;
     private static final String FILE_EXTENSION = ".json";
     private static Storage storage = null;
+    private Gson gson;
 
     private Storage() {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Flashcard.class, new AClassAdapter<Flashcard>());
         builder.setPrettyPrinting();
         this.gson = builder.create();
-        //this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
     /**
@@ -54,10 +53,6 @@ public class Storage {
             storage = new Storage();
         }
         return storage;
-    }
-    
-    public Gson getGson() {
-        return this.gson;
     }
     
     private String getJson(Savable savable) {
@@ -79,6 +74,7 @@ public class Storage {
 
     /**
      * Save the savable as a formatted JSON string.
+     *
      * @param savable the savable to save
      * @throws IOException if the save fails
      */
@@ -104,13 +100,14 @@ public class Storage {
 
     /**
      * Delete a savable from disk.
+     *
      * @param savable the savable to delete
      * @throws DeletionFailedException if the deletion fails
      */
     public void delete(Savable savable) throws DeletionFailedException {
         String pathName = SAVE_FOLDER + savable.getFileName() + FILE_EXTENSION;
         File file = new File(pathName);
-        
+
         boolean success = file.delete();
         if (!success) {
             throw new DeletionFailedException();
