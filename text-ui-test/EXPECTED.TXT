@@ -272,6 +272,31 @@ Group description: This is a group for HP related stuff.
 There are 3 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
+Please enter name:
+Please enter description:
+Please enter indexes:
+You've successfully created the group below:
+Group name: Harry Potter Flashcards Copy
+Group description: This is a group for HP related stuff.
+There are 2 flashcards in this group.
+--------------------------------------------
+--------------------------------------------
+Please enter index:
+Please enter name:
+You've successfully added the flashcard below:
+Event name: Meiji Restoration
+Event period: January 1, 1868-January 1, 1868
+Summary: Turning point in Japanese history
+Details:
+* End of Shogunate
+* Centralization of power
+* Functional end of Samurai Class
+To the group:
+Group name: Harry Potter Flashcards Copy
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.
+--------------------------------------------
+--------------------------------------------
 Here's the list of flashcards you have:
 1: Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
 2: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: X | Priority: Not indicated
@@ -407,6 +432,7 @@ Here's the list of flashcards with priority DEFAULT:
 --------------------------------------------
 Here are all existing groups:
 1. Harry Potter Flashcards | Description: This is a group for HP related stuff.
+2. Harry Potter Flashcards Copy | Description: This is a group for HP related stuff.
 --------------------------------------------
 --------------------------------------------
 1 contains the following flashcards:
@@ -426,6 +452,18 @@ Please use the correct input format. Use "help" to view all commands.
 --------------------------------------------
 The following flashcard group has been deleted:
 Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.
+--------------------------------------------
+--------------------------------------------
+1 contains the following flashcards:
+- Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
+- Resurrection Stone | Reviewed: X | Priority: Not indicated
+- Meiji Restoration | Time Period: 1868-01-01 to 1868-01-01 | Reviewed: X | Priority: Not indicated
+--------------------------------------------
+--------------------------------------------
+The following flashcard group has been deleted:
+Group name: Harry Potter Flashcards Copy
 Group description: This is a group for HP related stuff.
 There are 3 flashcards in this group.
 --------------------------------------------
