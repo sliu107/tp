@@ -16,7 +16,6 @@ import static seedu.tp.utils.Constants.SUMMARY_FIELD;
  * Person flashcard.
  */
 public class PersonFlashcard extends Flashcard {
-    public static final String PERSON_FOLDER = "person";
     private LocalDate birthDate;
     private LocalDate deathDate;
 

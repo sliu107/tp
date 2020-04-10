@@ -18,7 +18,6 @@ import static seedu.tp.utils.Constants.SUMMARY_FIELD;
 public class EventFlashcard extends Flashcard {
     private LocalDate startDate;
     private LocalDate endDate;
-    public static final String EVENT_FOLDER = "event";
 
     /**
      * Constructs an <code>EventFlashcard</code>.

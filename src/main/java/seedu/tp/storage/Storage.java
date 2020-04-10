@@ -20,9 +20,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import static seedu.tp.flashcard.EventFlashcard.EVENT_FOLDER;
-import static seedu.tp.flashcard.OtherFlashcard.OTHER_FOLDER;
-import static seedu.tp.flashcard.PersonFlashcard.PERSON_FOLDER;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.SAVE_FOLDER;
 
