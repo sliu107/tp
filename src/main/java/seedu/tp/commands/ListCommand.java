@@ -8,6 +8,7 @@ import seedu.tp.flashcard.FlashcardList;
  */
 public class ListCommand extends Command {
 
+    public static final String LINE_SEPARATOR = System.lineSeparator();
     private FlashcardList flashcardList;
 
     /**
@@ -42,10 +43,10 @@ public class ListCommand extends Command {
             return "You have no flashcard at this moment!";
         }
 
-        StringBuilder feedback = new StringBuilder("Here's the list of flashcards you have:" + System.lineSeparator());
+        StringBuilder feedback = new StringBuilder("Here's the list of flashcards you have:" + LINE_SEPARATOR);
         for (int i = 0; i < flashcardList.getTotalFlashcardNum(); i++) {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(i);
-            String nextLine = (i + 1) + ": " + flashcard.getShortDescription() + System.lineSeparator();
+            String nextLine = (i + 1) + ": " + flashcard.getShortDescription() + LINE_SEPARATOR;
             feedback.append(nextLine);
         }
         return feedback.toString().trim();
