@@ -49,5 +49,5 @@ public class Constants {
     public static final String REGEX_MATCH_ALL_CHARACTER = ".*";
 
     public static final String LOG_FOLDER = "logs/";
-    public static final String SAVE_FOLDER = "flashcards/";
+    public static final String SAVE_FOLDER = "historyflashcards";
 }

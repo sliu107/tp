@@ -72,7 +72,7 @@ public class PersonFlashcard extends Flashcard {
     public LocalDate getDeathDate() {
         return deathDate;
     }
-
+    
     /**
      * Gets the string representation of this flashcard.
      *

@@ -83,7 +83,7 @@ public class EventFlashcard extends Flashcard {
             + DIVIDER + "Reviewed: " + this.getReviewIcon() + DIVIDER + "Priority: " + this.getPriorityAsString();
         return shortDescription;
     }
-
+    
     /**
      * Gets the string representation of event flashcard.
      *
