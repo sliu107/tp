@@ -64,6 +64,8 @@ The application will then prompt the user to enter the following fields:
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
 
+`START_TIME` may not be later than `END_TIME`.
+
 There can be 0 or multiple `DETAIL`s added for an Event Flashcard. To stop entering details, just enter an empty line
 by hitting `ENTER/RETURN`.
 
@@ -94,6 +96,8 @@ The application will then prompt the user to enter the following fields:
 - `DEATH_DAY`: has to be in valid date format
 - `SUMMARY`: can be in a natural language format
 - `DETAIL`: can be in a natural language format
+
+`BIRTH_DAY` may not be later than `DEATH_DAY`.
 
 There can be 0 or multiple `DETAIL`s added for a Person Flashcard. To stop entering details, just enter an empty line
 by hitting `ENTER/RETURN`.
@@ -147,7 +151,8 @@ Format: `list`
 #### 3.4.2. Showing Timeline: `timeline`
 
 List all flashcards in order sorted by start/birth date.
-Specifying STARTDATE and ENDDATE will restrict the timeline to this period, inclusive of both dates.
+Specifying `STARTDATE` and `ENDDATE` will restrict the timeline to this period, inclusive of both dates.
+`STARTDATE` may not be later than `ENDDATE`.
 
 Format: `timeline [STARTDATE] [ENDDATE]`
 
