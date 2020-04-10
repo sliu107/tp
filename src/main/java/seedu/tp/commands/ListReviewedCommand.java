@@ -41,10 +41,8 @@ public class ListReviewedCommand extends Command {
             Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
             feedback.append(i + 1).append(": ")
                 .append(flashcardEntry.getValue().getName())
-                .append(" | Reviewed: ")
-                .append(flashcardEntry.getValue().getReviewIcon())
-                .append(" | ")
-                .append(flashcardEntry.getValue().getPriorityAsString())
+                .append(" | Reviewed: ").append(flashcardEntry.getValue().getReviewIcon())
+                .append(" | ").append(flashcardEntry.getValue().getPriorityAsString())
                 .append(" | ID: ").append(flashcardEntry.getKey() + 1);
             feedback.append(LINE_SEPARATOR);
         }
