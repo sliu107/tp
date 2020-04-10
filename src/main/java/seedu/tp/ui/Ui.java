@@ -260,14 +260,14 @@ public class Ui {
     }
 
     /**
-     * Prints confirmation that study plan has been deleted.
+     * Prints confirmation that study plan has been updated.
      */
     public void confirmStudyPlanUpdate() {
         System.out.println("Your study plan has been updated.");
     }
 
     /**
-     * Prints confirmation that study plan has been updated.
+     * Prints confirmation that study plan has been deleted.
      */
     public void confirmStudyPlanDeletion(LocalDate date) {
         System.out.println("Your study plan for " + date + " has been deleted.");
