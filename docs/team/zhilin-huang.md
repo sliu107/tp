@@ -13,7 +13,7 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 
 - **Code Contributed**: [Link](https://nus-cs2113-ay1920s2.github.io/tp-dashboard/#=undefined&search=zhilin-huang) to
  my code on tP Code Dashboard
- 
+
 - **Enhancements implemented**:
     1. Feature: List all flashcards
         - What it does: Allows users to input `list` to list all flashcards in the application.
@@ -67,11 +67,12 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
     1. Updated User Guide for all features implemented in v1.0 in the pull request 
     [here](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/45).
     2. Added description for the `find KEYWORD` and `list-reviewed`.
-    3. Added description for the Study Plans related features. 
+    3. Added description for the Study Plans related features.
 
 - **Contributions to the Developer Guide**:
     1. Added description for the Study Plan related features.
     2. Added description for the Parser component.
+    3. Added Instructions for Manual Testing.
 
 - **Review/mentoring contributions**: I actively reviewed pull requests from my teammates. For example,
 [#14](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/14), 
