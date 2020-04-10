@@ -2,6 +2,7 @@ package seedu.tp.studyplan;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.FlashcardList;
+import seedu.tp.storage.Savable;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -20,12 +21,13 @@ import static seedu.tp.utils.Constants.EMPTY_SPACE;
 import static seedu.tp.utils.Constants.INDEXES_FIELD;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 
-public class StudyPlanList {
+public class StudyPlanList implements Savable {
 
+    public static final String STUDY_PLAN_LIST_FOLDER = "studyplans";
+    public static final String STUDY_PLAN_LIST_FILE_NAME = "studyplanlist";
     protected static final Logger LOGGER = Logger.getLogger(StudyPlanList.class.getName());
     private static final String FILE_PATH = LOG_FOLDER + "study_plan_list.log";
-
-    private Map<LocalDate, List<Integer>> studyPlanList;
+    private TreeMap<LocalDate, List<Integer>> studyPlanList;
 
     /**
      * Constructor for StudyPlanList.
@@ -47,6 +49,10 @@ public class StudyPlanList {
         for (Map.Entry<LocalDate, List<Integer>> entry : listOfStudyPlans) {
             this.studyPlanList.put(entry.getKey(), entry.getValue());
         }
+    }
+
+    public StudyPlanList(TreeMap<LocalDate, List<Integer>> studyPlanListTreeMap) {
+        this.studyPlanList = studyPlanListTreeMap;
     }
 
     /**
@@ -123,6 +129,10 @@ public class StudyPlanList {
         return new ArrayList<>(studyPlanList.entrySet());
     }
 
+    public TreeMap<LocalDate, List<Integer>> getTreeMap() {
+        return this.studyPlanList;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof StudyPlanList)) {
@@ -150,5 +160,15 @@ public class StudyPlanList {
             }
         }
         return true;
+    }
+
+    /**
+     * Get the file name of the flashcard.
+     *
+     * @return the file name of the flashcard.
+     */
+    @Override
+    public String getFileName() {
+        return STUDY_PLAN_LIST_FOLDER + "/" + STUDY_PLAN_LIST_FILE_NAME;
     }
 }

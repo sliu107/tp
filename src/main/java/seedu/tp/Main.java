@@ -57,12 +57,8 @@ public class Main {
         flashcardList = new FlashcardList();
         groupFactory = new GroupFactory(ui, flashcardList);
         groupList = new GroupList();
-        studyPlanList = new StudyPlanList();
-        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlanList, ui);
-        Storage.getInstance().loadAll(flashcardList, groupList);
 
         LoggerUtils.createFolder(LOG_FOLDER);
-
         try {
             Flashcard.setupLogger();
             FlashcardFactory.setupLogger();
@@ -76,6 +72,10 @@ public class Main {
         } catch (IOException e) {
             ui.sendLoggingSetupFailedMessage();
         }
+
+        studyPlanList = Storage.getInstance().loadStudyPlanList();
+        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlanList, ui);
+        Storage.getInstance().loadAll(flashcardList, groupList);
     }
 
     private void runLoop() {

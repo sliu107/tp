@@ -22,10 +22,9 @@ public class AClassAdapter<A> implements JsonSerializer<A>, JsonDeserializer<A> 
         return result;
     }
 
-
     @Override
     public A deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-            throws JsonParseException {
+        throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
         String type = jsonObject.get("type").getAsString();
         JsonElement element = jsonObject.get("properties");

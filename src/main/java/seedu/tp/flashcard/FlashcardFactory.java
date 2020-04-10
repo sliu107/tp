@@ -26,7 +26,7 @@ public class FlashcardFactory {
 
         this.ui = ui;
     }
-    
+
     /**
      * Set up the FlashcardFactory logger. Call once at the start of the program.
      *

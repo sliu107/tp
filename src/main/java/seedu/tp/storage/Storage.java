@@ -3,18 +3,22 @@ package seedu.tp.storage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import seedu.tp.exceptions.DeletionFailedException;
-import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.Flashcard;
-import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
+import seedu.tp.studyplan.StudyPlanList;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.TreeMap;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,10 +55,6 @@ public class Storage {
         }
         return storage;
     }
-    
-    private String getJson(Savable savable) {
-        return gson.toJson(savable);
-    }
 
     /**
      * Set up the Storage logger. Call once at the start of the program.
@@ -67,6 +67,10 @@ public class Storage {
         FileHandler fileHandler = new FileHandler(FILE_PATH, true);
         fileHandler.setFormatter(new SimpleFormatter());
         LOGGER.addHandler(fileHandler);
+    }
+
+    private String getJson(Savable savable) {
+        return gson.toJson(savable);
     }
 
     /**
@@ -82,14 +86,16 @@ public class Storage {
             file.getParentFile().mkdirs();
             file.createNewFile();
         }
-        
+
         String fileContents;
         if (savable instanceof Flashcard) {
             fileContents = gson.toJson(savable, Flashcard.class);
+        } else if (savable instanceof StudyPlanList) {
+            fileContents = gson.toJson(((StudyPlanList) savable).getTreeMap(), TreeMap.class);
         } else {
             fileContents = gson.toJson(savable);
         }
-        
+
         FileWriter fileWriter = new FileWriter(pathName);
         fileWriter.write(fileContents);
         fileWriter.close();
@@ -113,17 +119,19 @@ public class Storage {
 
     /**
      * Call once at the start of the program to load flashcards and groups from file.
+     *
      * @param flashcardList the FlashcardList to load into
-     * @param groupList the GroupList to load into
+     * @param groupList     the GroupList to load into
      */
     public void loadAll(FlashcardList flashcardList, GroupList groupList) {
         final String flashcardsFolderString = SAVE_FOLDER + "/" + Flashcard.FLASHCARDS_FOLDER;
         final String groupsFolderString = SAVE_FOLDER + "/" + FlashcardGroup.GROUPS_FOLDER;
+
         File flashcardsFolder = new File(flashcardsFolderString);
         File groupsFolder = new File(groupsFolderString);
-        
+
         if (flashcardsFolder.exists()) {
-            for (File f : flashcardsFolder.listFiles()) {
+            for (File f : Objects.requireNonNull(flashcardsFolder.listFiles())) {
                 try {
                     Flashcard flashcard = gson.fromJson(new FileReader(f), Flashcard.class);
                     flashcardList.addFlashcard(flashcard);
@@ -133,9 +141,9 @@ public class Storage {
                 }
             }
         }
-        
+
         if (groupsFolder.exists()) {
-            for (File f : groupsFolder.listFiles()) {
+            for (File f : Objects.requireNonNull(groupsFolder.listFiles())) {
                 try {
                     FlashcardGroup group = gson.fromJson(new FileReader(f), FlashcardGroup.class);
                     groupList.addFlashcardGroup(group);
@@ -145,5 +153,42 @@ public class Storage {
                 }
             }
         }
+    }
+
+    /**
+     * Call once at the start of the program to load study plan list from file.
+     *
+     * @return the loaded StudyPlanList
+     */
+    @SuppressWarnings("unchecked")
+    public StudyPlanList loadStudyPlanList() {
+        final String studyPlanListFolderString = SAVE_FOLDER + "/" + StudyPlanList.STUDY_PLAN_LIST_FOLDER;
+
+        File studyPlanListFolder = new File(studyPlanListFolderString);
+
+        if (studyPlanListFolder.exists()) {
+            for (File file : Objects.requireNonNull(studyPlanListFolder.listFiles(
+                (dir, name) -> name.equals(StudyPlanList.STUDY_PLAN_LIST_FILE_NAME + ".json")
+            ))) {
+                try {
+                    TreeMap studyPlanListTreeMapRaw = gson.fromJson(new FileReader(file), TreeMap.class);
+                    TreeMap<LocalDate, List<Integer>> studyPlanListTreeMap = new TreeMap<>();
+                    ((TreeMap<String, List<Double>>) studyPlanListTreeMapRaw).forEach((key, value) -> {
+                        List<Integer> integerList = new ArrayList<>();
+                        for (Double index : value) {
+                            integerList.add(index.intValue());
+                        }
+                        studyPlanListTreeMap.put(LocalDate.parse(key), integerList);
+                    });
+                    StudyPlanList studyPlanList = new StudyPlanList(studyPlanListTreeMap);
+                    LOGGER.info("File: " + file.toString() + " was loaded from disk.");
+                    return studyPlanList;
+                } catch (FileNotFoundException e) {
+                    LOGGER.warning("File: " + file.toString() + " was not found when loading from disk.");
+                }
+            }
+        }
+
+        return new StudyPlanList();
     }
 }

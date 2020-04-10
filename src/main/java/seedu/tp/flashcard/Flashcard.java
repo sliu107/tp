@@ -15,10 +15,9 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
  * Abstract flashcard class to represent basic properties of flashcard.
  */
 public abstract class Flashcard implements Comparable<Flashcard>, Savable {
+    public static final String FLASHCARDS_FOLDER = "flashcards";
     protected static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
     protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
-    public static final String FLASHCARDS_FOLDER = "flashcards";
-
     protected String name;
     protected String summary;
     protected List<String> details;
@@ -71,7 +70,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     public String getFileName() {
         return FLASHCARDS_FOLDER + "/" + name;
     }
-    
+
     /**
      * Sets the review status of the flashcard.
      *
@@ -101,21 +100,21 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     }
 
     /**
-     * Sets the flashcard's priority level.
-     *
-     * @param pl priority level to be set
-     */
-    public void setPriorityLevel(PriorityLevel pl) {
-        this.pl = pl;
-    }
-
-    /**
      * Returns the flashcard's priority level.
      *
      * @return priority level
      */
     public PriorityLevel getPriorityLevel() {
         return this.pl;
+    }
+
+    /**
+     * Sets the flashcard's priority level.
+     *
+     * @param pl priority level to be set
+     */
+    public void setPriorityLevel(PriorityLevel pl) {
+        this.pl = pl;
     }
 
     /**

@@ -5,7 +5,7 @@ import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 
-public class UpdateStudyPlanCommand extends Command {
+public class UpdateStudyPlanCommand extends ModifyingCommand {
 
     private Ui ui;
     private StudyPlanList studyPlanList;
@@ -32,7 +32,7 @@ public class UpdateStudyPlanCommand extends Command {
         LOGGER.info("Executing UpdateStudyPlanCommand...");
         studyPlanList.updateStudyPlan(ui, flashcardList);
         LOGGER.info("UpdateStudyPlanCommand executed!");
-        return new CommandFeedback();
+        return save(studyPlanList);
     }
 
     @Override

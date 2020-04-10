@@ -137,7 +137,7 @@ public class FlashcardList {
      * @return the random flashcard list
      */
     public FlashcardList reviewRandomFlashcards(Ui ui) throws InvalidFlashcardIndexException,
-            InvalidInputFormatException {
+        InvalidInputFormatException {
         assert flashcards != null : "Invalid null flashcard!";
 
         FlashcardList randomFlashcards = new FlashcardList(flashcards);
@@ -161,7 +161,7 @@ public class FlashcardList {
     }
 
     private int handleResponse(Ui ui, Flashcard flashcard, int reviewedNumber)
-            throws InvalidFlashcardIndexException, InvalidInputFormatException {
+        throws InvalidFlashcardIndexException, InvalidInputFormatException {
         int statusCode = NORMAL_CODE;
         do {
             try {
@@ -170,7 +170,7 @@ public class FlashcardList {
                 case "y":
                 case "yes":
                     ReviewedCommand reviewedCommand = new ReviewedCommand(this,
-                            flashcards.indexOf(flashcard));
+                        flashcards.indexOf(flashcard));
                     CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
                     ui.showCommandFeedback(reviewedCommandFeedback);
                     reviewedNumber++;

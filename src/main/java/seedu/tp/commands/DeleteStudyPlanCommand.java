@@ -3,7 +3,7 @@ package seedu.tp.commands;
 import seedu.tp.studyplan.StudyPlanList;
 import seedu.tp.ui.Ui;
 
-public class DeleteStudyPlanCommand extends Command {
+public class DeleteStudyPlanCommand extends ModifyingCommand {
 
     private Ui ui;
     private StudyPlanList studyPlanList;
@@ -27,7 +27,7 @@ public class DeleteStudyPlanCommand extends Command {
         LOGGER.info("Executing DeleteStudyPlanCommand...");
         studyPlanList.deleteStudyPlan(ui);
         LOGGER.info("DeleteStudyPlanCommand executed!");
-        return new CommandFeedback();
+        return save(studyPlanList);
     }
 
     @Override
