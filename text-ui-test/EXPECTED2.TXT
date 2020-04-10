@@ -17,7 +17,8 @@ Date: 2020-02-02
 3: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
-There are no existing groups. Use "group" to create a new group.
+Here are all existing groups:
+1. Harry Potter Flashcards | Description: This is a group for HP related stuff.
 --------------------------------------------
 --------------------------------------------
 Thanks for using History Flashcard!

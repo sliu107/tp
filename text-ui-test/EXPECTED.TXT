@@ -553,13 +553,23 @@ Please enter a valid flashcard group name or index. Use "show-groups" to view al
 Please enter a valid flashcard group name or index. Use "show-groups" to view all groups.
 --------------------------------------------
 --------------------------------------------
+Please enter name:
+Please enter description:
+Please enter indexes:
+You've successfully created the group below:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 2 flashcards in this group.
+--------------------------------------------
+--------------------------------------------
 Here's the list of flashcards you have:
 1: Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
 2: Resurrection Stone | Reviewed: / | Priority: **
 3: Quinn | Time Period: 1870-07-31 to 1943-02-24 | Reviewed: X | Priority: Not indicated
 --------------------------------------------
 --------------------------------------------
-There are no existing groups. Use "group" to create a new group.
+Here are all existing groups:
+1. Harry Potter Flashcards | Description: This is a group for HP related stuff.
 --------------------------------------------
 --------------------------------------------
 Date: 2020-01-01
