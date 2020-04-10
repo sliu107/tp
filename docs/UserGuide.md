@@ -339,10 +339,19 @@ Format:
 
 ## 4. FAQ
 
-**Q**: Where can I find the files containing my flashcard information?
+**Q**: How are the flashcards, flashcard groups, and study plans saved?
 
-**A**: In folder `flashcards/`, each `json` file has the same name as one of your flashcards and contains all
-fields in the flashcard.
+**A**: The application automatically saves these information in `JSON` format for you as you make changes to them. 
+There is not a specific command to save these information to storage.
+
+**Q**: Where are the flashcards, flashcard groups, and study plans saved?
+
+**A**: They are saved under the `historyflashcards/` folder.
+
+**Q**: Can I edit the storage files under the `historyflashcards/` folder?
+
+**A**: Please avoid editing the files as changing the file format might cause reload from storage to fail when you
+restart the application.
 
 ## 5. Command Summary
 
