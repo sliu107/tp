@@ -7,6 +7,7 @@ import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.exceptions.InvalidInputFormatException;
+import seedu.tp.exceptions.ReversedDateOrderException;
 import seedu.tp.exceptions.UnknownCommandException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
@@ -105,6 +106,8 @@ public class Main {
             } catch (InvalidDateFormatException e) {
                 ui.sendInvalidDateFormatResponse();
                 ui.sendUiLineBreak();
+            } catch (ReversedDateOrderException e) {
+                ui.sendReversedDateOrderResponse();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
                 ui.sendUiLineBreak();
