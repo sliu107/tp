@@ -181,13 +181,13 @@ public class Storage {
                     FlashcardList flashcardList = new FlashcardList();
                     for (Object object : flashcardNameList) {
                         String flashcardName = (String) object;
-                        Optional<Flashcard> flashcard =
+                        Optional<Flashcard> flashcardOptional =
                             flashcards.stream().filter(o -> o.getName().equals(flashcardName)).findFirst();
-                        flashcard.ifPresent(flashcard1 -> {
+                        flashcardOptional.ifPresent(flashcard -> {
                             try {
-                                flashcardList.addFlashcard(flashcard1);
+                                flashcardList.addFlashcard(flashcard);
                             } catch (DuplicateFlashcardNameException e) {
-                                // Ignore exception
+                                // Ignore DuplicateFlashcardNameException
                             }
                         });
                     }
