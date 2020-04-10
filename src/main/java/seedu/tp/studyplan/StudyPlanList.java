@@ -25,7 +25,9 @@ public class StudyPlanList implements Savable {
 
     public static final String STUDY_PLAN_LIST_FOLDER = "studyplans";
     public static final String STUDY_PLAN_LIST_FILE_NAME = "studyplanlist";
+
     protected static final Logger LOGGER = Logger.getLogger(StudyPlanList.class.getName());
+
     private static final String FILE_PATH = LOG_FOLDER + "study_plan_list.log";
     private TreeMap<LocalDate, List<Integer>> studyPlanList;
 
@@ -51,6 +53,11 @@ public class StudyPlanList implements Savable {
         }
     }
 
+    /**
+     * Constructor for StudyPlanList.
+     *
+     * @param studyPlanListTreeMap the TreeMap to construct the StudyPlanList from.
+     */
     public StudyPlanList(TreeMap<LocalDate, List<Integer>> studyPlanListTreeMap) {
         this.studyPlanList = studyPlanListTreeMap;
     }
@@ -129,6 +136,11 @@ public class StudyPlanList implements Savable {
         return new ArrayList<>(studyPlanList.entrySet());
     }
 
+    /**
+     * Gets the TreeMap from StudyPlanList.
+     *
+     * @return a TreeMap containing all the study plans
+     */
     public TreeMap<LocalDate, List<Integer>> getTreeMap() {
         return this.studyPlanList;
     }
