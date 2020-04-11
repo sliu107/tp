@@ -99,8 +99,10 @@ public class Storage {
             fileContents = gson.toJson(((StudyPlanList) savable).getTreeMap(), TreeMap.class);
         } else if (savable instanceof FlashcardList) {
             fileContents = gson.toJson(((FlashcardList) savable).getAllFlashcardNames(), List.class);
-        } else {
+        } else if (savable instanceof FlashcardGroup) {
             fileContents = gson.toJson(savable);
+        } else {
+            return;
         }
 
         FileWriter fileWriter = new FileWriter(pathName);
@@ -141,6 +143,7 @@ public class Storage {
             for (File f : Objects.requireNonNull(flashcardsFolder.listFiles())) {
                 try {
                     Flashcard flashcard = gson.fromJson(new FileReader(f), Flashcard.class);
+                    flashcard.initializeObservers();
                     flashcards.add(flashcard);
                     LOGGER.info("File: " + f.toString() + " was loaded from disk.");
                 } catch (FileNotFoundException e) {
@@ -155,6 +158,14 @@ public class Storage {
             for (File f : Objects.requireNonNull(groupsFolder.listFiles())) {
                 try {
                     FlashcardGroup group = gson.fromJson(new FileReader(f), FlashcardGroup.class);
+                    for (Flashcard flashcard : group.getGroupCards().getFlashcards()) {
+                        for (Flashcard fcard : flashcards) {
+                            if (flashcard.equals(fcard)) {
+                                fcard.attach((group));
+                                break;
+                            }
+                        }
+                    }
                     groupList.addFlashcardGroup(group);
                     LOGGER.info("File: " + f.toString() + " was loaded from disk.");
                 } catch (FileNotFoundException e) {

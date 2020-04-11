@@ -1,8 +1,10 @@
 package seedu.tp.flashcard;
 
 import seedu.tp.storage.Savable;
+import seedu.tp.utils.FlashcardObserver;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -23,6 +25,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     protected List<String> details;
     protected boolean isReviewed;
     protected PriorityLevel pl;
+    transient protected List<FlashcardObserver> observers;
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
@@ -30,6 +33,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
         this.details = details;
         this.isReviewed = false;
         this.pl = PriorityLevel.DEFAULT;
+        this.observers = new ArrayList<>();
     }
 
     /**
@@ -165,6 +169,29 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
      * @return a shortened description of the flashcard
      */
     public abstract String getShortDescription();
+
+    /**
+     * Attach an observer i.e. a group, study-plan to this flashcard.
+     * 
+     * @param observer the observer to be attached
+     */
+    public void attach(FlashcardObserver observer) {
+        observers.add(observer);
+    }
+
+    /**
+     * Notify observers that this flashcard has been deleted.
+     */
+    public List<FlashcardObserver> getObservers() {
+        return observers;
+    }
+
+    /**
+     * Initialize observers to empty list. Needed because it is transient.
+     */
+    public void initializeObservers() {
+        observers = new ArrayList<>();
+    }
 
     /**
      * Check if the current instance is equal to the object passed in.
