@@ -66,3 +66,4 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
         - Comments: To solve this I implemented equals methods in flashcards. This way I could check
         if the flashcard was equal to a flashcard in the group before adding it. This exposed me to
         the best practices of writing an equals method.
+    
