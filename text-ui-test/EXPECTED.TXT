@@ -314,9 +314,35 @@ There are 2 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
-Please enter name:
+Please enter group id:
 An exception has occurred!
 There is no such group.
+--------------------------------------------
+--------------------------------------------
+Please enter index:
+Please enter group id:
+Duplicate flashcard detected. The flashcard has not been added.
+--------------------------------------------
+--------------------------------------------
+Please enter index:
+Please enter group id:
+An exception has occurred!
+There is no such group.
+--------------------------------------------
+--------------------------------------------
+Please enter index:
+Please enter group id:
+You've successfully added the flashcard below:
+Title: Resurrection Stone
+Summary: The Resurrection Stone is one of the fabled Deathly Hallows.
+Details:
+* In "The Tale of the Three Brothers", it was the second Hallow created, supposedly by Death himself
+* It was bestowed upon Cadmus Peverell after he requested, as his bounty, something with the power to recall loved ones from Death
+* According to legend, whoever reunited it with the other two Hallows (the Elder Wand and the Cloak of Invisibility) would become the Master of Death
+To the group:
+Group name: Harry Potter Flashcards
+Group description: This is a group for HP related stuff.
+There are 3 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
@@ -327,7 +353,7 @@ Sorry, I don't know how to help with that yet.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
-Please enter name:
+Please enter group id:
 You've successfully added the flashcard below:
 Event name: Meiji Restoration
 Event period: January 1, 1868-January 1, 1868
@@ -339,7 +365,7 @@ Details:
 To the group:
 Group name: Harry Potter Flashcards
 Group description: This is a group for HP related stuff.
-There are 3 flashcards in this group.
+There are 4 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Please enter name:
@@ -352,7 +378,7 @@ There are 2 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 Please enter index:
-Please enter name:
+Please enter group id:
 You've successfully added the flashcard below:
 Event name: Meiji Restoration
 Event period: January 1, 1868-January 1, 1868
@@ -516,10 +542,12 @@ Here are all existing groups:
 --------------------------------------------
 1 contains the following flashcards:
 - Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
+- Resurrection Stone | Reviewed: / | Priority: **
 --------------------------------------------
 --------------------------------------------
 Harry Potter Flashcards contains the following flashcards:
 - Albus Dumbledore | Time Period: 1881-08-01 to 1997-06-30 | Reviewed: / | Priority: Not indicated
+- Resurrection Stone | Reviewed: / | Priority: **
 --------------------------------------------
 --------------------------------------------
 Please use the correct input format. Use "help" to view all commands.
@@ -528,7 +556,7 @@ Please use the correct input format. Use "help" to view all commands.
 The following flashcard group has been deleted:
 Group name: Harry Potter Flashcards
 Group description: This is a group for HP related stuff.
-There are 1 flashcards in this group.
+There are 2 flashcards in this group.
 --------------------------------------------
 --------------------------------------------
 1 contains the following flashcards:
