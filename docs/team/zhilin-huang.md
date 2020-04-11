@@ -115,6 +115,10 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 An example of my contribution (study plans section) to the User Guide is extracted as follows:
 
 ### 3.7. Study Plans
+
+Note that flashcards are identified by their index in study plans, so changing the index of flashcards could change
+the flashcards associated with the study plans.
+
 #### 3.7.1. Creating a New Study Plan: `plan`
 
 Creates a new study plan by specifying date and indexes of existing flashcards.
