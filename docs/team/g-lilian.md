@@ -1,6 +1,5 @@
 # Guo Lilian - Project Portfolio
 ## PROJECT: History Flashcard
-
 ## Overview
 History Flashcard (HF) is an app for history students to create flashcards which summarize the 
 most important information for historical events, figures and artifacts. 
@@ -8,60 +7,57 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 features that help with memory retention and make information convenient to review.
 
 ## Summary of Contributions
-Find the code contributed 
-[here](https://nus-cs2113-ay1920s2.github.io/tp-dashboard/#=undefined&search=g-lilian).
+- **Code contributed**: 
+[Link](https://nus-cs2113-ay1920s2.github.io/tp-dashboard/#=undefined&search=g-lilian) 
+to my code on tp code dashboard.
 
-#### Features implemented
-1. Mark flashcards as reviewed
-   - Function: Allows the user to input `reviewed INDEX` to change a flashcard's review
-   status to reviewed.
-   - Justification: It is important for users to be able to keep track of which flashcards
-   they have already reviewed, so that they can better plan their revision.
-   - Highlights: 
-      - This feature involved adding another variable to the abstract `Flashcard` 
-       class to keep track of each flashcard's review status and modifying `Ui` 
-       to display the review status alongside the flashcard name/descriptions.
-2. Assign priority to flashcards and list flashcards of a certain priority
-   - Function: Allows the user to input `priority INDEX PRIORITY_LEVEL` to assign a 
-   flashcard's priority level, and `list-priority PRIORITY_LEVEL` to list only flashcards with 
-   the specified priority.
-   - Justification: Knowing the relative importance of a flashcard helps users decide 
-   on which flashcards to review first.
-   - Highlights:
-      - An enum was created for priority level to restrict the input argument to 
-       `LOW`, `MEDIUM`, `HIGH`, or `DEFAULT`. The implementation was complicated by the need 
-       to handle exceptions for incorrect input format.
-3. Show the details of a flashcard
-   - Function: Allows the user to input `show INDEX` to display all fields of a flashcard.
-   - Justification: The `show` command is for users to review the specific details of a flashcard.
-4. List all existing groups
-   - Function: Allows the user to input `show-groups` to display all existing groups.
-   - Justification: After creating groups, users should be able to view them.
-5. List flashcards from a specific group
-   - Function: Allows the user to input `list-group INDEX/GROUPNAME` to display all flashcards 
-   belonging to a group.
-   - Justification: After creating groups, users should be able to list the flashcards present in a group.
-   - Highlights:
-      - This implementation was complicated by the option to list based on either group name or 
-      the group's index in the group list.
-6. List restricted timeline
-   - Function: Allows the user to input `timeline [STARTDATE] [ENDDATE]` to display a sorted 
-   list of existing flashcards belonging to a restricted period of time.
-   - Justification: Allows users to easily identify flashcards from a certain period for review.
-   - Highlights: 
-      - Additional considerations were required for `STARTDATE` and `ENDDATE` to be included as 
-      optional parameters without affecting the function of `timeline` when inputted as a 
-      standalone command.
+- **Enhancements implemented**:
+    1. Mark flashcards as reviewed
+       - Description: Allows the user to input `reviewed INDEX` to change a flashcard's review
+       status to reviewed. This is so that users can keep track of which flashcards
+       are already reviewed, in order to better plan their revision.
+       - Highlights: This feature involved adding another variable to the abstract `Flashcard` 
+           class to keep track of each flashcard's review status and modifying `Ui` 
+           to display the review status alongside the flashcard name/descriptions.
+    2. Assign priority to flashcards and list flashcards of a certain priority
+       - Description: Allows the user to input `priority INDEX PRIORITY_LEVEL` to assign a 
+       flashcard's priority level, and `list-priority PRIORITY_LEVEL` to list only flashcards with 
+       the specified priority. Knowing the relative importance of a flashcard helps users decide 
+       on which flashcards to review first.
+       - Highlights: An enum was created for priority level to restrict the input argument to 
+           `LOW`, `MEDIUM`, `HIGH`, or `DEFAULT`. The implementation was complicated by the need 
+           to handle exceptions for incorrect input format.
+    3. Show the details of a flashcard
+       - Description: Allows the user to input `show INDEX` to display all fields of a flashcard, 
+       so that they can review its specific details.
+    4. List all existing groups
+       - Description: Allows the user to input `show-groups` to display all existing groups. 
+       After creating groups, users should be able to view them.
+    5. List flashcards from a specific group
+       - Description: Allows the user to input `list-group INDEX/GROUPNAME` to display all flashcards 
+       belonging to a group. After creating groups, users should be able to list the flashcards present in a group.
+       - Highlights: This implementation was complicated by the option to list based on either group name or 
+          the group's index in the group list.
+    6. List restricted timeline
+       - Description: Allows the user to input `timeline [STARTDATE] [ENDDATE]` to display a sorted 
+       list of existing flashcards belonging to a restricted period of time. This is so that 
+       users can easily identify flashcards from a certain period for review.
+       - Highlights: Additional considerations were required for `STARTDATE` and `ENDDATE` to be included as 
+          optional parameters without affecting the function of `timeline` when inputted as a 
+          standalone command.
+    7. [Bug fix] Prevented users from entering start dates which are later than end dates when creating 
+       flashcards or using the timeline command. 
+       [Link to PR #188](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/188)
 
-#### Other contributions
-- Project management
+- **Contributions to team-based tasks**:
    - Helped maintain the issue tracker
-- General code enhancement
-   - Edited Ui messages for various commands (e.g. `help`, `show-plan`, `plan`) to be more precise
-- Documentation
-   - Added user stories for v2.0 and product scope to the DG
-   - Revised command formats in the UG
-- Community
+   - Modified Ui messages for various commands (`help`, study plan commands) to be more precise e.g. in 
+   [PR #129](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/129)
+- **Non-feature-specific contributions to the user and developer guides**:
+   - Added user stories for v2.0/2.1, product scope, and non-functional requirements to the DG
+   - Added skeleton of commands and revised command formats in the UG
+   - Updated UG headers and added navigator links at the top
+- **Community contributions**:
    - PRs reviewed (with non-trivial review comments): 
    [#183](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/183) 
    [#181](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/181) 
