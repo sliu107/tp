@@ -201,7 +201,7 @@ In addition, the user can shuffle and display random flashcards for revision.
 
 ## Appendix C: Non-Functional Requirements
 
-1. Should work on any [mainstream OS](glossary) as long as it has Java 11 or above installed.
+1. Should work on any [mainstream OS](#appendix-d-glossary) as long as it has Java 11 or above installed.
 2. Should be tailored to history students' needs e.g. the need to keep track of dates or historical periods.
 
 ## Appendix D: Glossary
@@ -219,6 +219,7 @@ testers to work on; testers are expected to do more exploratory testing.
     - Download the jar file and copy into an empty folder.
     - Double-click the file to start the application or run the command `java -jar [path-to-history-flashcard-jar-file]` 
     from terminal.
+
 2. Shutdown
     - Type in the `bye` to the application.
 
@@ -440,7 +441,7 @@ testers to work on; testers are expected to do more exploratory testing.
       
       Expected: Reviewed finished.
 
-### E.9 Saving and Loading
+### E.9. Saving and Loading
 
 1. Saving
     - Test case: Add flashcards into the application and exit.
