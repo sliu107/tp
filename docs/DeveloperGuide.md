@@ -227,7 +227,7 @@ testers to work on; testers are expected to do more exploratory testing.
 1. Getting help.
     - Test case: `help`
     
-      Expected: Displays a list of commands available.
+      Expected: Application displays a list of commands available.
 
 ### E.3. Flashcard Creation
 
@@ -290,11 +290,11 @@ testers to work on; testers are expected to do more exploratory testing.
 2. Showing timeline.
     - Test case: `timeline`
       
-      Expected: List all flashcards in order sorted by start/birth date.
+      Expected: Application lists all flashcards in order sorted by start/birth date.
 
     - Test case: `timeline 1900 2000`
     
-      Expected: List all flashcards from the 1900 to 2000 period in order sorted by start/birth date.
+      Expected: Application lists all flashcards from the 1900 to 2000 period in order sorted by start/birth date.
 
 3. Deleting a flashcard.
     - Prerequisites: List all flashcards using the `list` command and choose the index of a flashcard to delete
@@ -338,7 +338,7 @@ testers to work on; testers are expected to do more exploratory testing.
       Expected: Application lists all flashcards which match the MEDIUM priority level.
 
 3. Marking flashcard as reviewed.
-    - Prerequisite: There are at least 1 flashcard in the application.
+    - Prerequisite: There is at least 1 flashcard in the application.
 
     - Test case: `reviewed 1`
     
@@ -358,7 +358,7 @@ testers to work on; testers are expected to do more exploratory testing.
 ### E.6. Flashcard Grouping
 
 1. Making a flashcard group. 
-    - Prerequisite: There are at least 1 flashcard in the application.
+    - Prerequisite: There is at least 1 flashcard in the application.
 
     - Test case: `group`
     
@@ -369,7 +369,7 @@ testers to work on; testers are expected to do more exploratory testing.
       Expected: Receive a confirmation message from the application for successful flashcard group creation.
 
 2. Adding a flashcard to a flashcard group.
-    - Prerequisite: There are at least 1 flashcard in the application.
+    - Prerequisite: There is at least 1 flashcard in the application.
 
     - Test case: `add`
       
@@ -383,17 +383,17 @@ testers to work on; testers are expected to do more exploratory testing.
 3. Displaying flashcard groups.
     - Test case: `show-groups`
     
-      Expected: Lists all existing flashcard groups.
+      Expected: Application lists all existing flashcard groups.
 
 4. Listing flashcards in a group.
-    - Prerequisite: There are at least 1 flashcard group in the application.
+    - Prerequisite: There is at least 1 flashcard group in the application.
 
     - Test case: `list-group 1`
       
-      Expected: Lists all flashcards in the flashcard group at index 1.
+      Expected: Application lists all flashcards in the flashcard group at index 1.
 
 5. Deleting flashcard group from the group list.
-    - Prerequisite: There are at least 1 flashcard group in the application.
+    - Prerequisite: There is at least 1 flashcard group in the application.
 
     - Test case: `delete-group 1`
     
@@ -403,7 +403,7 @@ testers to work on; testers are expected to do more exploratory testing.
 ### E.7. Study Plans
 
 1. Creating a new study plan.
-    - Prerequisite: There are at least 1 flashcard in the application.
+    - Prerequisite: There is at least 1 flashcard in the application.
 
     - Test case: `plan`
 
@@ -438,7 +438,7 @@ testers to work on; testers are expected to do more exploratory testing.
       
       Enter responses.
       
-      Expected: Finish reviewing all flashcards in random order.
+      Expected: Reviewed finished.
 
 ### E.9 Saving and Loading
 
