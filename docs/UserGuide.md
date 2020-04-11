@@ -356,8 +356,8 @@ Format: `random`
 The application will then prompt the user to give responses during the review:
 
 Format:
-`yes` or `y` to mark the flashcard just shown as reviewed  
-`no` or `n` to keep the flashcard just shown as unreviewed
+- `yes` or `y` to mark the flashcard just shown as reviewed
+- `no` or `n` to keep the flashcard just shown as unreviewed
 
 ### 3.9. Saving and Loading
 
