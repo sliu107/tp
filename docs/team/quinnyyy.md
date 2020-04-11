@@ -66,4 +66,31 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
         - Comments: To solve this I implemented equals methods in flashcards. This way I could check
         if the flashcard was equal to a flashcard in the group before adding it. This exposed me to
         the best practices of writing an equals method.
-    
+        
+- **Contributions to user guide and developer guide**:
+    - I contributed the Storage section in the user and developer guides.
+- **Contributions to team-based tasks**:
+    - I established and improved a lot of the coding patterns we used. Some examples:
+        * [Wrote first tests in the project](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/27).
+        I was the first person in the team to tackle the challenge of writing tests. In the linked pull request
+        Shiyue left a comment saying that it was a helpful reference to base her tests off of. This code was
+        especially difficult to test because it involved input from the user and I was able to tackle that challenge.
+        * [Improved our logging setup pattern](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/62).
+        I improved the logging setup pattern that we were using. In the linked pull request Zhilin
+        left a comment saying that this pattern was an improvement in terms of code quality.
+        * [I refactored Commands to improve code quality](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/101).
+        I refactored our Commands so that they were cleaner and more testable. This is a change that has no
+        functional changes but improves the developer life by making code more readable and more testable.
+        The changes can be seen in the latter half of the linked pull request.
+    - I tried to solve tasks that others weren't eager to take on. For example the first bug fix I 
+    highlighted above was left unclaimed on our issue tracker for 14 days before I took it on.
+    - I actively maintained the issue tracker
+- **Reviewing/mentoring contributions**:
+    - I was thorough in PR reviews and tried to really examine code quality and suggest places for possible improvement.
+    - Examples of PR reviews:
+        * [#21](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/21)
+        * [#25](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/25)
+        * [#36](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/36)
+        * [#45](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/45)
+        * [#59](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/59)
+        * [#74](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/74)
