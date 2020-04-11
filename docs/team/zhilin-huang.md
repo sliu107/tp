@@ -5,15 +5,14 @@
 ## Overview
 
 History Flashcard (HF) is an app for history students to create flashcards which summarize the most important
- information for historical events, figures and artifacts. 
+information for historical events, figures and artifacts. 
 HF is optimized for those who prefer to use a simple Command Line Interface (CLI), and includes features that help
- with memory retention and make information convenient to review.
+with memory retention and make information convenient to review.
 
 ## Summary of Contributions
 
 - **Code Contributed**: [Link](https://nus-cs2113-ay1920s2.github.io/tp-dashboard/#=undefined&search=zhilin-huang) to
  my code on tP Code Dashboard
-
 - **Enhancements implemented**:
     1. Feature: List all flashcards
         - What it does: Allows users to input `list` to list all flashcards in the application.
@@ -69,18 +68,15 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
         feature. A method was added to the `FlashcardList` class to get all flashcards with names containing the
         specified keyword from the flashcard list. The index of each flashcard in the flashcard list is also printed
         out for the users.
-
 - **Contributions to User Guide**:
     1. Updated User Guide for all features implemented in v1.0 in the pull request 
     [here](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/45).
     2. Added description for the `find KEYWORD` and `list-reviewed`.
     3. Added description for the Study Plans related features.
-
 - **Contributions to the Developer Guide**:
     1. Added description for the Study Plan related features.
     2. Added description for the Parser component.
     3. Added Instructions for Manual Testing.
-
 - **Review/mentoring contributions**: I actively reviewed pull requests from my teammates. For example,
 [#14](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/14), 
 [#25](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/25), 
@@ -104,7 +100,6 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 [#56](https://github.com/nus-cs2113-AY1920S2/forum/issues/56),
 [#69](https://github.com/nus-cs2113-AY1920S2/forum/issues/69),
 [#83](https://github.com/nus-cs2113-AY1920S2/forum/issues/83).
-
 - **Other contributions**:
     - Managed [releases](https://github.com/AY1920S2-CS2113-T14-1/tp/releases) `v1.0`, `v2.0` on GitHub.
     - Helped maintain the [issue tracker](https://github.com/AY1920S2-CS2113-T14-1/tp/issues).
@@ -115,6 +110,10 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 An example of my contribution (study plans section) to the User Guide is extracted as follows:
 
 ### 3.7. Study Plans
+
+Note that flashcards are identified by their indexes in study plans, so changing the indexes of flashcards could change
+the flashcards associated with the study plans.
+
 #### 3.7.1. Creating a New Study Plan: `plan`
 
 Creates a new study plan by specifying date and indexes of existing flashcards.
