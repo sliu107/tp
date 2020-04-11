@@ -305,7 +305,7 @@ Format: `delete-group GROUP_ID`
 
 ### 3.7. Study Plans
 
-Note that flashcards are identified by their index in study plans, so changing the index of flashcards could change
+Note that flashcards are identified by their indexes in study plans, so changing the indexes of flashcards could change
 the flashcards associated with the study plans.
 
 #### 3.7.1. Creating a New Study Plan: `plan`
