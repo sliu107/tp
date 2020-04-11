@@ -364,10 +364,11 @@ Format:
 The application will automatically load and save flashcards, groups, and study plans.*   
 The files will be saved in the `historyflashcards` directory with subdirectories for `flashcards`,
 `groups`, and `studyplans`.  
-  
+
 Files are saved as formatted `.json` files so they will be readable even without using the application.
 
 \*`flashcardlist` is also saved but only lists the names of flashcards.
+
 ## 4. FAQ
 
 **Q**: How are the flashcards, flashcard groups, and study plans saved?

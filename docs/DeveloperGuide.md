@@ -439,3 +439,17 @@ testers to work on; testers are expected to do more exploratory testing.
       Enter responses.
       
       Expected: Finish reviewing all flashcards in random order.
+
+### E.9 Saving and Loading
+
+1. Saving
+    - Test case: Add flashcards into the application and exit.
+    
+      Expected: Storage files generated under the `historyflashcards` directory.
+
+2. Loading
+
+    - Test case: Starts the application again.
+    
+      Expected: Saved contents under the `historyflashcards` directory are loaded into the application.
+ 
