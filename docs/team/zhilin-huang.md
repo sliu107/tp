@@ -1,15 +1,15 @@
 # Zhilin Huang - Project Portfolio Page
 
-PROJECT: History Flashcard
+## PROJECT: History Flashcard
 
-#### Overview
+## Overview
 
 History Flashcard (HF) is an app for history students to create flashcards which summarize the most important
 information for historical events, figures and artifacts. 
 HF is optimized for those who prefer to use a simple Command Line Interface (CLI), and includes features that help
 with memory retention and make information convenient to review.
 
-#### Summary of Contributions
+## Summary of Contributions
 
 - **Code Contributed**: [Link](https://nus-cs2113-ay1920s2.github.io/tp-dashboard/#=undefined&search=zhilin-huang) to
  my code on tP Code Dashboard
