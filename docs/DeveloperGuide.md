@@ -188,12 +188,12 @@ In addition, the user can shuffle and display random flashcards for revision.
 |v2.0|student|list flashcards from a particular group|quickly identify the flashcards belonging to a group|
 |v2.0|student|search for flashcards using a keyword|quickly find the flashcard I am looking for|
 |v2.0|student|save flashcards to a storage file|flashcards are not lost when I exit the app|
-|v2.0|student|read in flashcards from a storage file|flashcards can be loaded when I enter the app|
 |v2.0|student|save flashcard groups to a storage file|groups are not lost when I exit the app|
-|v2.0|student|read in flashcard groups from a storage file|groups can be loaded when I enter the app|
 |v2.0|student|restrict the timeline to a fixed period|keep track of flashcards belonging to a certain time period|
 |v2.0|student|shuffle and display random flashcards|test my knowledge using random flashcards|
 |v2.0|student|reset all the flashcards as unreviewed|review flashcards multiple times
+|v2.1|student|read in flashcards from a storage file|flashcards can be loaded when I enter the app|
+|v2.1|student|read in flashcard groups from a storage file|flashcard groups can be loaded when I enter the app|
 |v2.1|student|delete a study plan|remove outdated study plans
 |v2.1|student|save my daily study plan to a storage file|study plans are not lost when I exit the app|
 |v2.1|student|read in study plans from a storage file|study plans can be loaded when I enter the app|
