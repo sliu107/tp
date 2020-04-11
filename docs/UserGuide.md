@@ -11,6 +11,7 @@
     - [Flashcard Grouping](#36-flashcard-grouping)
     - [Study Plans](#37-study-plans)
     - [Randomized Review](#38-randomized-review)
+    - [Saving and Loading](#39-saving-and-loading)
 4. [FAQ](#4-faq)
 5. [Command Summary](#5-command-summary)
 
@@ -359,6 +360,15 @@ Format:
 `yes` or `y` to mark the flashcard just shown as reviewed  
 `no` or `n` to keep the flashcard just shown as unreviewed
 
+### 3.9. Saving and Loading
+
+The application will automatically load and save flashcards, groups, and study plans.*   
+The files will be saved in the `historyflashcards` directory with subdirectories for `flashcards`,
+`groups`, and `studyplans`.  
+  
+Files are saved as formatted `.json` files so they will be readable even without using the application.
+
+\*`flashcardlist` is also saved but only lists the names of flashcards.
 ## 4. FAQ
 
 **Q**: How are the flashcards, flashcard groups, and study plans saved?
