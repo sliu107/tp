@@ -19,9 +19,8 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
         - What it does: Allows users to group multiple existing flashcards with some common characteristics.
         - Justification: This feature is needed for users to categorize all the flashcards currently in the application.
         - Highlights:   
-             - The feature is implemented in [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/28).
-             - The feature builds up the structure of groups, which is the basic of other commands which 
-               depend on groups. 
+             - The feature is implemented in [#28 pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/28).
+             - The feature builds up the structure of groups, which is the basic of other group relevant commands.
              - `GroupFactory` is used to create new group and `GroupList` includes multiple operations executed on the 
                groups in the application. The overall flow of group management is quite similar with those of flashcards 
                and flashcardList, which keeps the consistency of implementation.
@@ -33,7 +32,7 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
         - Justification: This feature is needed for users to edit the content of the groups after creation, which makes 
           the group management more easier.
         - Highlights:  
-             - The feature is also implemented in [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/28).
+             - The feature is implemented in [#28 pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/28).
              - The feature enhances the practicality of the flashcard group.
              - The feature support user to specify a group by group index of name, which makes the operation more 
                convenient for those who prefer to use a simple Command Line Interface.
@@ -42,7 +41,7 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
         - What it does: Allows users to delete a group from the group list.
         - Justification: This feature is needed for users to remove a group then no longer need.
         - Highlights:
-             - The feature is implemented in [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/182).
+             - The feature is implemented in [#182 pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/182).
              - The feature is a basic operation to management groups in the list.
              - Similarly, users able to specify a group with its index or name.
              
@@ -53,7 +52,7 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
        - Justification: This feature is needed for users to shuffle and randomized all the existing flashcards to help 
                         themselves to self check whether they have mastered the points or not.
        - Highlights:
-            - The feature is implemented in [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/106).
+            - The feature is implemented in [#106 pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/106).
             - The feature provides a helpful way to test users' familiarity of the flashcards contents which in some
               content helps users to schedule their future study plans.
             - And during the review process, users can give response to each flashcard to update the status of it. And 
@@ -65,14 +64,14 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
        - Justification: This feature enables users to do multiple rounds of review by reset the status when all the
                         flashcards are marked as reviewed but users want to review them again.
        - Highlights:
-            - The feature is implemented in [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/109).
+            - The feature is implemented in [#109 pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/109).
             - The feature is a complementary operation used to cooperate with random review and study plans.
             - The feature makes the whole process of learning and reviewing more complete.
     6. Help : Send help message
        - What it does: The feature send out help message to give information about how to use all the commands.
        - Justification: This feature helps new users to quickly get familiar with the application.
        - Highlights:
-            - The feature is also implemented in [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/28).
+            - The feature is implemented in [#28 pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/28).
         
 - **Contributions to User Guide**:
     1. Added description for the random review feature.
@@ -101,10 +100,6 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
     - Help maintain the issue tracker
     - Find and fix bugs for `parse` and some other commands(e.g. `help`, `delete`, `random`)
     - Reported [bugs and suggestions](https://github.com/sliu107/ped/issues) for other project teams.
-       
-## Contributions to the User Guide (Extracts)
-
-## Contributions to the Developer Guide (Extracts)
 
 
               
