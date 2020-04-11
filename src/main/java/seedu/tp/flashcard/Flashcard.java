@@ -172,7 +172,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
 
     /**
      * Attach an observer i.e. a group, study-plan to this flashcard.
-     * 
+     *
      * @param observer the observer to be attached
      */
     public void attach(FlashcardObserver observer) {

@@ -51,7 +51,7 @@ public class DeleteCommand extends ModifyingCommand {
                 observer.delete(deletedFlashcard);
                 save((Savable) observer);
             }
-            
+
             LOGGER.info("Deleting flashcard at index: " + index);
             flashcardList.deleteFlashcard(index);
             LOGGER.info("Deleted flashcard at index: " + index);

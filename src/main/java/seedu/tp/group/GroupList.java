@@ -126,7 +126,7 @@ public class GroupList {
     public int getTotalGroupNum() {
         return groups.size();
     }
-    
+
     /**
      * Check if the current instance is equal to the object passed in.
      *
