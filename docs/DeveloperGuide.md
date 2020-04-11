@@ -182,21 +182,22 @@ In addition, the user can shuffle and display random flashcards for revision.
 |v1.0|student|make groups for flashcards|group related flashcards together for more organized revision|
 |v1.0|student|see all the commands available|find out what commands are available, and their format|
 |v2.0|student|set a daily study plan|keep myself motivated to review flashcards every day|
+|v2.0|student|view my daily study plan|keep track of my learning plans|
 |v2.0|student|list the flashcards which have been reviewed|keep track of my learning progress|
 |v2.0|student|list all existing flashcard groups|view all the groups I have created|
 |v2.0|student|list flashcards from a particular group|quickly identify the flashcards belonging to a group|
 |v2.0|student|search for flashcards using a keyword|quickly find the flashcard I am looking for|
 |v2.0|student|save flashcards to a storage file|flashcards are not lost when I exit the app|
-|v2.0|student|read in flashcards from a storage file|flashcards can be loaded when I enter the app|
-|v2.0|student|save my daily study plan to a storage file|study plans are not lost when I exit the app|
-|v2.0|student|read in study plans from a storage file|study plans can be loaded when I enter the app|
 |v2.0|student|save flashcard groups to a storage file|groups are not lost when I exit the app|
-|v2.0|student|read in flashcard groups from a storage file|groups can be loaded when I enter the app|
 |v2.0|student|restrict the timeline to a fixed period|keep track of flashcards belonging to a certain time period|
 |v2.0|student|shuffle and display random flashcards|test my knowledge using random flashcards|
-|v2.0|student|reset all the flashcards as unreviewed|review flashcards multiple times
-|v2.1|student|delete a study plan|remove outdated study plans
-|v2.1|student|list flashcards with a specified priority|focus on the flashcards of that importance level
+|v2.0|student|reset all the flashcards as unreviewed|review flashcards multiple times|
+|v2.1|student|read in flashcards from a storage file|flashcards can be loaded when I enter the app|
+|v2.1|student|read in flashcard groups from a storage file|flashcard groups can be loaded when I enter the app|
+|v2.1|student|delete a study plan|remove outdated study plans|
+|v2.1|student|save my daily study plan to a storage file|study plans are not lost when I exit the app|
+|v2.1|student|read in study plans from a storage file|study plans can be loaded when I enter the app|
+|v2.1|student|list flashcards with a specified priority|focus on the flashcards of that importance level|
 
 ## Appendix C: Non-Functional Requirements
 
@@ -219,55 +220,83 @@ testers to work on; testers are expected to do more exploratory testing.
     - Double-click the file to start the application or run the command `java -jar [path-to-history-flashcard-jar-file]` 
     from terminal.
 2. Shutdown
-    - Type in the `bye` to the application.  
+    - Type in the `bye` to the application.
 
-### E.2 Adding an Other Flashcard
+### E.2. Getting help
 
-1. Adding an Other Flashcard which name does not duplicate the names of existing flashcards.
+1. Getting help.
+    - Test case: `help`
+    
+      Expected: Application displays a list of commands available.
+
+### E.3. Flashcard Creation
+
+1. Adding an Event Flashcard.
+    - Test case: `event`
+
+      Expected: Being prompted to enter multiple fields of the flashcard.
+       
+      Enter some values for the fields.
+       
+      Expected: Receive a confirmation message from the application for successful flashcard creation.
+
+2. Adding a Person Flashcard.
+    - Test case: `person`
+
+      Expected: Being prompted to enter multiple fields of the flashcard.
+       
+      Enter some values for the fields.
+       
+      Expected: Receive a confirmation message from the application for successful flashcard creation.
+
+3. Adding an Other Flashcard which name does not duplicate the names of existing flashcards.
     - Prerequisites: List all flashcards using the `list` command and choose a new name for the new flashcard.
     
     - Test case: `other`
     
-       Expected: Being prompted `Please enter name:` by the application
+      Expected: Being prompted to enter multiple fields of the flashcard.
        
-       Enter the name.
+      Enter some values for the fields.
        
-       Expected: Being prompted `Please enter summary:` by the application
-       
-       Enter the summary.
-       
-       Expected: Being prompted `Please enter detail (optional):` by the application
-       
-       Enter the detail(s). User may stop entering details by pressing `RETURN/ENTER`.
-       
-       Expected: Receive a confirmation message from the application for successful flashcard creation.
+      Expected: Receive a confirmation message from the application for successful flashcard creation.
        
     - Test case: `other blabla`
     
-       Expected: Same as above because `blabla` should be ignored.
-2. Adding an Other Flashcard which name duplicates one of the names of existing flashcards.
+      Expected: Same as above because `blabla` should be ignored.
+
+4. Adding an Other Flashcard which name duplicates one of the names of existing flashcards.
     - Prerequisites: List all flashcards using the `list` command and choose a duplicate name for the new flashcard.
     
     - Test case: `other`
     
-       Expected: Being prompted `Please enter name:` by the application
+      Expected: Being prompted to enter multiple fields of the flashcard.
+            
+      Enter some values for the fields.
        
-       Enter the name.
-       
-       Expected: Being prompted `Please enter summary:` by the application
-       
-       Enter the summary.
-       
-       Expected: Being prompted `Please enter detail (optional):` by the application
-       
-       Enter the detail(s). User may stop entering details by pressing `RETURN/ENTER`.
-       
-       Expected: Receive a confirmation message from the application for successful flashcard creation and a message
-       saying that the created flashcard is not added due to the duplicate name. 
+      Expected: Receive a confirmation message from the application for successful flashcard creation and a message
+      saying that the created flashcard is not added due to the duplicate name. 
 
-### E.3 Deleting a Flashcard
+### E.4. Flashcard Basic Operations
 
-1. Deleting a flashcard
+1. Listing all flashcards.
+    - Test case: `list` when there are flashcards in the application.
+    
+      Expected: Application lists all flashcards in the application.
+    
+    - Test case: `list` when there are no flashcard in the application.
+    
+      Expected: Receive a message indicating that the user has no flashcard at the moment.
+
+2. Showing timeline.
+    - Test case: `timeline`
+      
+      Expected: Application lists all flashcards in order sorted by start/birth date.
+
+    - Test case: `timeline 1900 2000`
+    
+      Expected: Application lists all flashcards from the 1900 to 2000 period in order sorted by start/birth date.
+
+3. Deleting a flashcard.
     - Prerequisites: List all flashcards using the `list` command and choose the index of a flashcard to delete
     
     - Test case: `delete 1`
@@ -282,3 +311,145 @@ testers to work on; testers are expected to do more exploratory testing.
     
        Expected: Receive a message from the application stating that the user input contains invalid flashcard 
        index(es).
+
+4. Showing a flashcard.
+    - Test case: `show 1`
+      
+      Expected: Application shows all fields from the flashcard at index 1.
+
+5. Finding flashcards with names containing a specific keyword.
+    - Test case: `find war`
+    
+      Expected: Application displays all flashcards with names containing `war`.
+
+### E.5. Flashcard Status Operations
+
+1. Assigning priority to a flashcard.
+    - Prerequisite: There are at least 2 flashcards in the application.
+    
+    - Test case: `priority 2 MEDIUM`
+    
+      Expected: Receive a message from the application stating that priority for flashcard at index 2 is updated to
+      MEDIUM.
+
+2. Listing flashcards of a specified priority.
+    - Test case: `list-priority MEDIUM`
+    
+      Expected: Application lists all flashcards which match the MEDIUM priority level.
+
+3. Marking flashcard as reviewed.
+    - Prerequisite: There is at least 1 flashcard in the application.
+
+    - Test case: `reviewed 1`
+    
+      Expected: Receive a message from the application stating that review status for flashcard at index 1 is
+      updated to reviewed.
+
+4. Listing reviewed flashcards.
+    - Test case: `list-reviewed`
+    
+      Expected: Application lists all reviewed flashcards.
+
+5. Resetting review status of all flashcards.
+    - Test case: `reset-reviewed`
+    
+      Expected: Application resets status of all flashcards to un-reviewed.
+
+### E.6. Flashcard Grouping
+
+1. Making a flashcard group. 
+    - Prerequisite: There is at least 1 flashcard in the application.
+
+    - Test case: `group`
+    
+      Expected: Being prompted to enter multiple fields of the flashcard group.
+       
+      Enter some values for the fields.
+       
+      Expected: Receive a confirmation message from the application for successful flashcard group creation.
+
+2. Adding a flashcard to a flashcard group.
+    - Prerequisite: There is at least 1 flashcard in the application.
+
+    - Test case: `add`
+      
+      Expected: Being prompted to enter multiple fields for adding a flashcard to a flashcard group.
+             
+      Enter some valid values for the fields.
+      
+      Expected: Receive a confirmation message from the application for successful addition of flashcard to
+      the flashcard group.
+      
+3. Displaying flashcard groups.
+    - Test case: `show-groups`
+    
+      Expected: Application lists all existing flashcard groups.
+
+4. Listing flashcards in a group.
+    - Prerequisite: There is at least 1 flashcard group in the application.
+
+    - Test case: `list-group 1`
+      
+      Expected: Application lists all flashcards in the flashcard group at index 1.
+
+5. Deleting flashcard group from the group list.
+    - Prerequisite: There is at least 1 flashcard group in the application.
+
+    - Test case: `delete-group 1`
+    
+      Expected: Receive a confirmation message from the application for successful deletion of the flashcard group at
+      index 1.
+
+### E.7. Study Plans
+
+1. Creating a new study plan.
+    - Prerequisite: There is at least 1 flashcard in the application.
+
+    - Test case: `plan`
+
+      Expected: Being prompted to enter multiple fields for adding a flashcard to a flashcard group.
+             
+      Enter some valid values for the fields.
+   
+      Expected: Receive a confirmation message from the application for successful update of study plan.
+
+2. Displaying all study plans.
+    - Test case: `show-plan`
+    
+      Expected: Application lists all study plans.
+
+3. Deleting an existing study plan.
+    - Test case: `delete-plan`
+        
+      Expected: Being prompted to enter the date for which the study plan is to be deleted.
+      
+      Enter a valid date.
+      
+      Expected: Receive a confirmation message from the application for successful deletion of study plan.
+
+### E.8. Randomized Review
+
+1. Displaying all flashcards in random order.
+
+    - Test case: `random`
+    
+      Expected: Application shuffles and displays all the flashcards in a random order and prompts the user to give
+      responses during the review.
+      
+      Enter responses.
+      
+      Expected: Reviewed finished.
+
+### E.9 Saving and Loading
+
+1. Saving
+    - Test case: Add flashcards into the application and exit.
+    
+      Expected: Storage files generated under the `historyflashcards` directory.
+
+2. Loading
+
+    - Test case: Starts the application again.
+    
+      Expected: Saved contents under the `historyflashcards` directory are loaded into the application.
+ 

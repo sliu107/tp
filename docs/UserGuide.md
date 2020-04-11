@@ -278,13 +278,13 @@ add
 Harry Potter Flashcards
 ```
 
-#### 3.6.3. Displaying groups: `show-groups`
+#### 3.6.3. Displaying Groups: `show-groups`
 
 Lists all existing groups.
 
 Format: `show-groups`
 
-#### 3.6.4. Listing flashcards in a group: `list-group`
+#### 3.6.4. Listing Flashcards in a Group: `list-group`
 
 Lists all flashcards in a group specified by `GROUP_ID`.
 
@@ -303,7 +303,7 @@ the name of the group.
 Format: `delete-group GROUP_ID`
 
 ### 3.7. Study Plans
-#### 3.7.1. Creating a new study plan: `plan`
+#### 3.7.1. Creating a New Study Plan: `plan`
 
 Creates a new study plan by specifying date and indexes of existing flashcards.
 
@@ -322,13 +322,13 @@ plan
 1 3
 ```
 
-#### 3.7.2. Displaying all study plans: `show-plan`
+#### 3.7.2. Displaying All Study Plans: `show-plan`
 
 Lists all study plans.
 
 Format: `show-plan`
 
-#### 3.7.3. Deleting a study plan: `delete-plan`
+#### 3.7.3. Deleting a Study Plan: `delete-plan`
 
 Deletes a specified study plan. 
 The user will be prompted to enter the date of the study plan they wish to delete.
@@ -347,7 +347,7 @@ delete-plan
 ```
 
 ### 3.8. Randomized Review
-#### 3.8.1. Displaying a random Flashcard: `random`
+#### 3.8.1. Displaying All Flashcards in Random Order: `random`
 
 Shuffles and displays all the flashcards in a random order.
 
@@ -355,8 +355,7 @@ Format: `random`
 
 The application will then prompt the user to give responses during the review:
 
-
-Format:  
+Format:
 `yes` or `y` to mark the flashcard just shown as reviewed  
 `no` or `n` to keep the flashcard just shown as unreviewed
 
@@ -365,10 +364,11 @@ Format:
 The application will automatically load and save flashcards, groups, and study plans.*   
 The files will be saved in the `historyflashcards` directory with subdirectories for `flashcards`,
 `groups`, and `studyplans`.  
-  
+
 Files are saved as formatted `.json` files so they will be readable even without using the application.
 
 \*`flashcardlist` is also saved but only lists the names of flashcards.
+
 ## 4. FAQ
 
 **Q**: How are the flashcards, flashcard groups, and study plans saved?
@@ -411,4 +411,3 @@ certain commands when you restart.
 - List all study plans: `show-plan`
 - Delete a study plan: `delete-plan`
 - Start randomized review: `random`
-
