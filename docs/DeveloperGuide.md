@@ -1,14 +1,6 @@
 # Developer Guide
 
-## Design & Implementation
-
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-
-### Design
-
-#### Architecture
-
-{Description of overall architecture}
+## Design
 
 #### Ui Component
 
@@ -25,7 +17,7 @@ API : `Ui.java`
 the execution of various commands.
 
 Given below is the Sequence Diagram for interactions between the `Ui` and `FlashcardFactory` components to complete the
-execution of `deleteCommand`.
+execution of an example command (`deleteCommand`).
 
 ![UiSequenceDiagram](images/UiSequenceDiagram.png)
 
@@ -43,23 +35,30 @@ API : `Parser.java`
 3. The resulting `Command` object which then can be executed by the `Main` class.
 
 Given below is the Sequence Diagram for interactions between the `Parser` and `Command` components for the
-`parseCommand` API call from `Main` class. We use the interaction between the `Parser` and `DeleteCommand` class as
- an example: 
+`parseCommand` API call from `Main` class. We use the interaction between the `Parser` and `DeleteCommand` class as an example: 
 
-![ParserAndCommandSequenceDiagram](images/ParserAndCommandSequenceDiagram.png)
+<img src="images/ParserAndCommandSequenceDiagram.png" alt="ParserAndCommandSequenceDiagram" width="500"/>
 
 #### Storage Component
 
-{Description for Storage Component}
+The structure of the Storage component is illustrated in the folowing diagram.
 
-### Implementation
+![StorageComponentDiagram](images/Storage_UML.png)
 
-#### Set Priority Feature
+The `Storage` class can be used to save, delete and load classes that implement the `Savable` interface.  
+`Storage` is implemented using the Singleton pattern because there only should be one instance in the program at any given time.  
+`Storage` used the Gson library to serialize/deserialize objects to/from JSON strings.  
+  
+The `ModifyinCommand` class uses the `Storage` class to save/delete objects when a change is made.  
+The `Main` class uses the `Storage` object to load objects at the start of exectuion.
+
+
+## Implementation
+
+#### Set Priority Feature - Proposed Implementation
 
 The Set Priority feature allows users to mark a flashcard with a specified priority level. The priority level is
 then reflected when the user requests a list of existing flashcards.
-
-##### Proposed Implementation
 
 `PriorityLevel` is stored as an enum with four fields: LOW, MEDIUM, HIGH and DEFAULT.
 
@@ -85,9 +84,7 @@ The following sequence diagram shows the relevant interactions behind `setPriori
 
 ![setPriorityLevelSequenceDiagram](images/setPriorityLevelSequenceDiagram.png)
 
-#### Study Plan Feature
-
-##### Proposed Implementation
+#### Study Plan Feature - Proposed Implementation
 
 The Study Plan feature is facilitated by `StudyPlanList`.
 
@@ -97,6 +94,7 @@ Key-value pairs in the `TreeMap` are sorted by dates.
 It implements the following operations:
 
 - `StudyPlanList#updateStudyPlan()` - Updates the study plan list.
+- `StudyPlanList#deleteStudyPlan()` - Deletes a study plan from the study plan list.
 - `StudyPlanList#getStudyPlanList()` - Gets the list of study plans.
 
 Given below is an example usage scenario and how the study plan mechanism behaves at each step.
@@ -110,16 +108,21 @@ The following sequence diagram shows how the `updateStudyPlan` operation works:
 
 ![updateStudyPlanSequenceDiagram](images/updateStudyPlanSequenceDiagram.png)
 
-Step 3. The user executes `show-plan` command and the `getStudyPlanList` operation is invoked. The application
+Step 3. The user executes `delete-plan` command and the `deleteStudyPlan` operation is invoked. The application
+prompts the user for the date for which the study plan is to be deleted.
+
+The following sequence diagram shows how the `deleteStudyPlan` operation works:
+
+![deleteStudyPlanSequenceDiagram](images/deleteStudyPlanSequenceDiagram.png)
+
+Step 4. The user executes `show-plan` command and the `getStudyPlanList` operation is invoked. The application
 displays the user's study plan list.
 
 The following sequence diagram shows how the `getStudyPlanList` operation works:
 
 ![getStudyPlanListSequenceDiagram](images/getStudyPlanListSequenceDiagram.png)
 
-#### Random Review Feature
-
-##### Proposed Implementation
+#### Random Review Feature - Proposed Implementation
 
 The random review mechanism is facilitated by `FlashcardList`.It stores an `List<Flashcard>` internally which contains
 all the flashcards created by the user.
@@ -144,7 +147,7 @@ The following sequence diagram shows how the   `reviewRandomFlashcards()` operat
 
 ![randomReviewSequenceDiagram](images/randomReviewSequenceDiagram.png)
 
-## Product Scope
+## Appendix A: Product Scope
 ### Target user profile
 
 History Flashcard (HF) is for those who are studying history subjects to create flashcards which summarize 
@@ -161,9 +164,9 @@ In HF, information can be entered in the form of flashcards with different field
 historical event/person, the relevant dates, and a summary. Flashcards can be categorised into user-defined groups
  to enable students to organise their knowledge better. Users can also create daily study plans.
  
- In addition, the user can shuffle and display random flashcards for revision.
+In addition, the user can shuffle and display random flashcards for revision.
 
-## User Stories
+## Appendix B: User Stories
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
@@ -191,16 +194,91 @@ historical event/person, the relevant dates, and a summary. Flashcards can be ca
 |v2.0|student|read in flashcard groups from a storage file|groups can be loaded when I enter the app|
 |v2.0|student|restrict the timeline to a fixed period|keep track of flashcards belonging to a certain time period|
 |v2.0|student|shuffle and display random flashcards|test my knowledge using random flashcards|
-|v2.0|student|reset all the flashcards as unreviewed|review flashcards for multiple times
+|v2.0|student|reset all the flashcards as unreviewed|review flashcards multiple times
+|v2.1|student|delete a study plan|remove outdated study plans
+|v2.1|student|list flashcards with a specified priority|focus on the flashcards of that importance level
 
-## Non-Functional Requirements
+## Appendix C: Non-Functional Requirements
 
-{Give non-functional requirements}
+1. Should work on any [mainstream OS](glossary) as long as it has Java 11 or above installed.
+2. Should be tailored to history students' needs e.g. the need to keep track of dates or historical periods.
 
-## Glossary
+## Appendix D: Glossary
 
-* *glossary item* - Definition
+* *Mainstream OS* - Windows, Linux, Unix, OS-X
 
-## Instructions for Manual Testing
+## Appendix E: Instructions for Manual Testing
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+Given below are instructions to test the app manually. Note that these instructions only provide a starting point for
+testers to work on; testers are expected to do more exploratory testing.
+
+### E.1. Launch and Shutdown
+
+1. Launch
+    - Download the jar file and copy into an empty folder.
+    - Double-click the file to start the application or run the command `java -jar [path-to-history-flashcard-jar-file]` 
+    from terminal.
+2. Shutdown
+    - Type in the `bye` to the application.  
+
+### E.2 Adding an Other Flashcard
+
+1. Adding an Other Flashcard which name does not duplicate the names of existing flashcards.
+    - Prerequisites: List all flashcards using the `list` command and choose a new name for the new flashcard.
+    
+    - Test case: `other`
+    
+       Expected: Being prompted `Please enter name:` by the application
+       
+       Enter the name.
+       
+       Expected: Being prompted `Please enter summary:` by the application
+       
+       Enter the summary.
+       
+       Expected: Being prompted `Please enter detail (optional):` by the application
+       
+       Enter the detail(s). User may stop entering details by pressing `RETURN/ENTER`.
+       
+       Expected: Receive a confirmation message from the application for successful flashcard creation.
+       
+    - Test case: `other blabla`
+    
+       Expected: Same as above because `blabla` should be ignored.
+2. Adding an Other Flashcard which name duplicates one of the names of existing flashcards.
+    - Prerequisites: List all flashcards using the `list` command and choose a duplicate name for the new flashcard.
+    
+    - Test case: `other`
+    
+       Expected: Being prompted `Please enter name:` by the application
+       
+       Enter the name.
+       
+       Expected: Being prompted `Please enter summary:` by the application
+       
+       Enter the summary.
+       
+       Expected: Being prompted `Please enter detail (optional):` by the application
+       
+       Enter the detail(s). User may stop entering details by pressing `RETURN/ENTER`.
+       
+       Expected: Receive a confirmation message from the application for successful flashcard creation and a message
+       saying that the created flashcard is not added due to the duplicate name. 
+
+### E.3 Deleting a Flashcard
+
+1. Deleting a flashcard
+    - Prerequisites: List all flashcards using the `list` command and choose the index of a flashcard to delete
+    
+    - Test case: `delete 1`
+    
+       Expected: Receive a confirmation message from the application for successful flashcard deletion.
+       
+    - Test case: `delete`
+    
+       Expected: Receive a message from the application stating that the user should use correct input format.
+       
+    - Test case: `delete -1`
+    
+       Expected: Receive a message from the application stating that the user input contains invalid flashcard 
+       index(es).

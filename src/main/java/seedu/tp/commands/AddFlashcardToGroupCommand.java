@@ -42,6 +42,7 @@ public class AddFlashcardToGroupCommand extends ModifyingCommand {
             Flashcard flashcard = flashcardList.getFlashcardAtIdx(flashcardIndex);
 
             LOGGER.info("Adding a flashcard to an existing group...");
+            flashcard.attach(group);
             group.addFlashcardToTheGroup(flashcard);
             LOGGER.info("Added the flashcard to the group");
             final CommandFeedback saveFeedback = save(group);

@@ -2,7 +2,10 @@ package seedu.tp.flashcard;
 
 import seedu.tp.commands.CommandFeedback;
 import seedu.tp.commands.ReviewedCommand;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.exceptions.InvalidInputFormatException;
+import seedu.tp.storage.Savable;
 import seedu.tp.ui.Ui;
 
 import java.io.IOException;
@@ -17,15 +20,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import static seedu.tp.utils.Constants.ERROR_CODE;
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 import static seedu.tp.utils.Constants.MS_TO_S_CONVERSION_FACTOR;
+import static seedu.tp.utils.Constants.NORMAL_CODE;
 import static seedu.tp.utils.Constants.REGEX_MATCH_ALL_CHARACTER;
 
 /**
  * List of flashcards.
  */
-public class FlashcardList {
+public class FlashcardList implements Savable {
 
+    public static final String FLASHCARD_LIST_FOLDER = "flashcardlist";
+    public static final String FLASHCARD_LIST_FILE_NAME = "flashcardlist";
     private static final String FILE_PATH = LOG_FOLDER + "flashcard_list.log";
     private static final Logger LOGGER = Logger.getLogger(FlashcardList.class.getName());
 
@@ -88,9 +95,12 @@ public class FlashcardList {
      * @param flashcard the task to be added to the list
      * @return the updated flashcardList with new flashcard just be added in
      */
-    public FlashcardList addFlashcard(Flashcard flashcard) {
+    public FlashcardList addFlashcard(Flashcard flashcard) throws DuplicateFlashcardNameException {
         assert flashcard != null : "Invalid null flashcard!";
 
+        if (flashcards.stream().anyMatch(o -> o.getName().equals(flashcard.getName()))) {
+            throw new DuplicateFlashcardNameException();
+        }
         flashcards.add(flashcard);
         LOGGER.info("Added flashcard " + flashcard.getName() + " to list.");
         return this;
@@ -124,6 +134,7 @@ public class FlashcardList {
         for (Flashcard flashcard : flashcards) {
             flashcard.setReviewStatus(false);
         }
+        this.totalReviewedNumber = 0;
         ui.confirmResetCompletion();
     }
 
@@ -132,7 +143,8 @@ public class FlashcardList {
      *
      * @return the random flashcard list
      */
-    public FlashcardList reviewRandomFlashcards(Ui ui) throws InvalidFlashcardIndexException {
+    public FlashcardList reviewRandomFlashcards(Ui ui) throws InvalidFlashcardIndexException,
+        InvalidInputFormatException {
         assert flashcards != null : "Invalid null flashcard!";
 
         FlashcardList randomFlashcards = new FlashcardList(flashcards);
@@ -146,20 +158,43 @@ public class FlashcardList {
             if (flashcard.isReviewed()) {
                 System.out.println("You have already reviewed this flashcard.");
                 System.out.println("");
-            } else if (ui.promptUserResponseForReviewing(flashcard).equals("yes")) {
-                ReviewedCommand reviewedCommand = new ReviewedCommand(this,
-                    flashcards.indexOf(flashcard));
-                CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
-                ui.showCommandFeedback(reviewedCommandFeedback);
-                reviewedNumber++;
             } else {
-                continue;
+                reviewedNumber = handleResponse(ui, flashcard, reviewedNumber);
             }
         }
-        totalReviewedNumber += reviewedNumber;
         int totalUnreviewedNumber = flashcards.size() - totalReviewedNumber;
         ui.confirmRandomFlashcardsReviewCompletion(reviewedNumber, totalUnreviewedNumber);
         return randomFlashcards;
+    }
+
+    private int handleResponse(Ui ui, Flashcard flashcard, int reviewedNumber)
+        throws InvalidFlashcardIndexException, InvalidInputFormatException {
+        int statusCode = NORMAL_CODE;
+        do {
+            try {
+                String response = ui.promptUserResponseForReviewing(flashcard).toLowerCase();
+                switch (response) {
+                case "y":
+                case "yes":
+                    ReviewedCommand reviewedCommand = new ReviewedCommand(this,
+                        flashcards.indexOf(flashcard));
+                    CommandFeedback reviewedCommandFeedback = reviewedCommand.execute();
+                    ui.showCommandFeedback(reviewedCommandFeedback);
+                    reviewedNumber++;
+                    break;
+                case "n":
+                case "no":
+                    break;
+                default:
+                    throw new InvalidInputFormatException();
+                }
+                return reviewedNumber;
+            } catch (InvalidInputFormatException e) {
+                System.out.println("Please enter either yes or no.");
+                statusCode = ERROR_CODE;
+            }
+        } while (statusCode == ERROR_CODE);
+        return ERROR_CODE;
     }
 
     /**
@@ -314,5 +349,28 @@ public class FlashcardList {
             }
         }
         return true;
+    }
+
+    /**
+     * Get the file name of the study plan lit.
+     *
+     * @return the file name of the study plan list.
+     */
+    @Override
+    public String getFileName() {
+        return FLASHCARD_LIST_FOLDER + "/" + FLASHCARD_LIST_FILE_NAME;
+    }
+
+    /**
+     * Gets all flashcard names.
+     *
+     * @return the list of flashcard names
+     */
+    public List<String> getAllFlashcardNames() {
+        List<String> flashcardNames = new ArrayList<>();
+        for (Flashcard flashcard : flashcards) {
+            flashcardNames.add(flashcard.getName());
+        }
+        return flashcardNames;
     }
 }

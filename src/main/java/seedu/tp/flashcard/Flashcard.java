@@ -1,8 +1,10 @@
 package seedu.tp.flashcard;
 
 import seedu.tp.storage.Savable;
+import seedu.tp.utils.FlashcardObserver;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -15,14 +17,15 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
  * Abstract flashcard class to represent basic properties of flashcard.
  */
 public abstract class Flashcard implements Comparable<Flashcard>, Savable {
+    public static final String FLASHCARDS_FOLDER = "flashcards";
     protected static final String FILE_PATH = LOG_FOLDER + "flashcard.log";
     protected static final Logger LOGGER = Logger.getLogger(Flashcard.class.getName());
-
     protected String name;
     protected String summary;
     protected List<String> details;
     protected boolean isReviewed;
     protected PriorityLevel pl;
+    protected transient List<FlashcardObserver> observers;
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
@@ -30,6 +33,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
         this.details = details;
         this.isReviewed = false;
         this.pl = PriorityLevel.DEFAULT;
+        this.observers = new ArrayList<>();
     }
 
     /**
@@ -45,6 +49,12 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
         LOGGER.addHandler(fileHandler);
     }
 
+    /**
+     * Gets the details string from the list of details in the flashcard.
+     *
+     * @param details the list of details
+     * @return the string representing the details
+     */
     protected static String getDetailsString(List<String> details) {
         StringBuilder detailsStringBuilder = new StringBuilder();
         for (String detail : details) {
@@ -68,7 +78,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
      * @return the file name of the flashcard.
      */
     public String getFileName() {
-        return getName();
+        return FLASHCARDS_FOLDER + "/" + name;
     }
 
     /**
@@ -100,21 +110,21 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     }
 
     /**
-     * Sets the flashcard's priority level.
-     *
-     * @param pl priority level to be set
-     */
-    public void setPriorityLevel(PriorityLevel pl) {
-        this.pl = pl;
-    }
-
-    /**
      * Returns the flashcard's priority level.
      *
      * @return priority level
      */
     public PriorityLevel getPriorityLevel() {
         return this.pl;
+    }
+
+    /**
+     * Sets the flashcard's priority level.
+     *
+     * @param pl priority level to be set
+     */
+    public void setPriorityLevel(PriorityLevel pl) {
+        this.pl = pl;
     }
 
     /**
@@ -159,6 +169,29 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
      * @return a shortened description of the flashcard
      */
     public abstract String getShortDescription();
+
+    /**
+     * Attach an observer i.e. a group, study-plan to this flashcard.
+     * 
+     * @param observer the observer to be attached
+     */
+    public void attach(FlashcardObserver observer) {
+        observers.add(observer);
+    }
+
+    /**
+     * Notify observers that this flashcard has been deleted.
+     */
+    public List<FlashcardObserver> getObservers() {
+        return observers;
+    }
+
+    /**
+     * Initialize observers to empty list. Needed because it is transient.
+     */
+    public void initializeObservers() {
+        observers = new ArrayList<>();
+    }
 
     /**
      * Check if the current instance is equal to the object passed in.

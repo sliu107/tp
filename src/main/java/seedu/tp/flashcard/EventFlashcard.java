@@ -44,6 +44,11 @@ public class EventFlashcard extends Flashcard {
         String name = ui.promptUserForRequiredField(NAME_FIELD);
         LocalDate startDate = ui.promptUserForRequiredLocalDate(START_DATE_FIELD);
         LocalDate endDate = ui.promptUserForRequiredLocalDate(END_DATE_FIELD);
+        while (startDate.compareTo(endDate) > 0) {
+            ui.sendReversedDateOrderResponse();
+            startDate = ui.promptUserForRequiredLocalDate(START_DATE_FIELD);
+            endDate = ui.promptUserForRequiredLocalDate(END_DATE_FIELD);
+        }
         String summary = ui.promptUserForRequiredField(SUMMARY_FIELD);
         List<String> details = ui.promptUserForDetails();
         return new EventFlashcard(name, startDate, endDate, summary, details);

@@ -20,12 +20,42 @@ public class GroupList {
     }
 
     /**
+     * Constructs a list of groups.
+     *
+     * @param flashcardGroups the list of flashcardGroups to be added
+     */
+    public GroupList(List<FlashcardGroup> flashcardGroups) {
+        this();
+
+        assert flashcardGroups != null : "Invalid flashcardGroups!";
+        this.groups.addAll(flashcardGroups);
+    }
+
+    /**
      * Adds a new group to the group list.
      *
      * @param group the new group to be added to the list
      */
     public void addFlashcardGroup(FlashcardGroup group) {
         groups.add(group);
+    }
+
+    /**
+     * Deletes a specific group from group list.
+     *
+     * @param groupIdentifier either the name or the index of the flashcard group
+     * @return the group deleted
+     */
+    public FlashcardGroup deleteFlashcardGroup(String groupIdentifier) {
+        for (FlashcardGroup g : groups) {
+            if (g.getName().equals(groupIdentifier)) {
+                groups.remove(g);
+                return g;
+            }
+        }
+
+        int groupIndex = Integer.parseInt(groupIdentifier) - 1;
+        return groups.remove(groupIndex);
     }
 
     /**
@@ -92,7 +122,7 @@ public class GroupList {
     public int getTotalGroupNum() {
         return groups.size();
     }
-
+    
     /**
      * Check if the current instance is equal to the object passed in.
      *

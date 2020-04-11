@@ -1,6 +1,7 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.InvalidDateFormatException;
+import seedu.tp.exceptions.ReversedDateOrderException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
@@ -45,13 +46,16 @@ public class TimelineCommand extends Command {
      * @param endDate       the date after which to stop listing flashcards from
      */
     public TimelineCommand(FlashcardList flashcardList, String startDate, String endDate)
-        throws InvalidDateFormatException {
+        throws InvalidDateFormatException, ReversedDateOrderException {
         assert flashcardList != null : "Invalid null FlashcardList!";
         assert startDate != null : "Invalid null startDate!";
         assert endDate != null : "Invalid null endDate!";
 
         this.startDate = Parser.parseDate(startDate);
         this.endDate = Parser.parseDate(endDate);
+        if (startDate.compareTo(endDate) > 0) {
+            throw new ReversedDateOrderException();
+        }
         List<Flashcard> filteredFlashcardList = flashcardList.getFlashcards().stream()
             .filter(flashcard -> isValidFlashcard(flashcard)).collect(Collectors.toList());
         this.flashcardList = new FlashcardList(filteredFlashcardList);

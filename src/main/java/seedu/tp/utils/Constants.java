@@ -15,6 +15,7 @@ public class Constants {
     public static final String TIMELINE_COMMAND = "timeline";
     public static final String GROUP_COMMAND = "group";
     public static final String SHOW_GROUPS_COMMAND = "show-groups";
+    public static final String DELETE_GROUP_COMMAND = "delete-group";
     public static final String ADD_FLASHCARD_TO_GROUP_COMMAND = "add";
     public static final String UPDATE_STUDY_PLAN_COMMAND = "plan";
     public static final String DELETE_STUDY_PLAN_COMMAND = "delete-plan";
@@ -38,6 +39,8 @@ public class Constants {
     public static final String DATE_FIELD = "date";
 
     public static final int MS_TO_S_CONVERSION_FACTOR = 1000;
+    public static final int ERROR_CODE = -1;
+    public static final int NORMAL_CODE = 0;
 
     public static final String EMPTY_STRING = "";
     public static final String EMPTY_SPACE = " ";
@@ -47,5 +50,5 @@ public class Constants {
     public static final String REGEX_MATCH_ALL_CHARACTER = ".*";
 
     public static final String LOG_FOLDER = "logs/";
-    public static final String SAVE_FOLDER = "flashcards/";
+    public static final String SAVE_FOLDER = "historyflashcards";
 }

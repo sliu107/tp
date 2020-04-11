@@ -3,6 +3,7 @@ package seedu.tp.commands;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
@@ -111,7 +112,8 @@ public class ShowCommandTest {
     }
 
     @Test
-    public void showCommand_getFlashcardFromInvalidIndex_throwsInvalidFlashcardIndexException() {
+    public void showCommand_getFlashcardFromInvalidIndex_throwsInvalidFlashcardIndexException()
+        throws DuplicateFlashcardNameException {
         FlashcardList flashcardList = new FlashcardList();
         flashcardList.addFlashcard(new OtherFlashcard(FLASHCARD_NAME, SUMMARY, DETAILS));
         Ui ui = new Ui();

@@ -10,8 +10,9 @@ import java.util.Map;
 
 public class DisplayStudyPlanCommand extends Command {
 
-    StudyPlanList studyPlanList;
-    FlashcardList flashcardList;
+    private static final String LINE_SEPARATOR = System.lineSeparator();
+    private StudyPlanList studyPlanList;
+    private FlashcardList flashcardList;
 
     /**
      * Constructor for DisplayStudyPlanCommand.
@@ -40,15 +41,16 @@ public class DisplayStudyPlanCommand extends Command {
         }
 
         for (Map.Entry<LocalDate, List<Integer>> studyPlanForDay : studyPlans) {
-            feedback.append("Date: " + studyPlanForDay.getKey() + System.lineSeparator());
+            feedback.append("Date: ").append(studyPlanForDay.getKey()).append(LINE_SEPARATOR);
             for (int index : studyPlanForDay.getValue()) {
                 try {
                     Flashcard flashcard = flashcardList.getFlashcardAtIdx(index);
-                    feedback.append((index + 1) + ": " + flashcard.getShortDescription() + System.lineSeparator());
+                    feedback.append(index + 1).append(": ")
+                        .append(flashcard.getShortDescription()).append(LINE_SEPARATOR);
                 } catch (IndexOutOfBoundsException e) {
                     index++;
-                    feedback.append("Flashcard with index " + index + " not found. "
-                        + "Did you delete this flashcard?" + System.lineSeparator());
+                    feedback.append("Flashcard with index ").append(index).append(" not found. ")
+                        .append("Did you delete this flashcard?").append(LINE_SEPARATOR);
                 }
             }
         }
