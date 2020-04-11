@@ -5,6 +5,7 @@ import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.storage.Savable;
+import seedu.tp.utils.FlashcardObserver;
 
 public class DeleteCommand extends ModifyingCommand {
 
@@ -46,6 +47,11 @@ public class DeleteCommand extends ModifyingCommand {
     public CommandFeedback execute() throws InvalidFlashcardIndexException {
         try {
             final Flashcard deletedFlashcard = flashcardList.getFlashcardAtIdx(index);
+            for (FlashcardObserver observer : deletedFlashcard.getObservers()) {
+                observer.delete(deletedFlashcard);
+                save((Savable) observer);
+            }
+            
             LOGGER.info("Deleting flashcard at index: " + index);
             flashcardList.deleteFlashcard(index);
             LOGGER.info("Deleted flashcard at index: " + index);

@@ -41,7 +41,17 @@ Given below is the Sequence Diagram for interactions between the `Parser` and `C
 
 #### Storage Component
 
-{Description for Storage Component}
+The structure of the Storage component is illustrated in the folowing diagram.
+
+![StorageComponentDiagram](images/Storage_UML.png)
+
+The `Storage` class can be used to save, delete and load classes that implement the `Savable` interface.  
+`Storage` is implemented using the Singleton pattern because there only should be one instance in the program at any given time.  
+`Storage` used the Gson library to serialize/deserialize objects to/from JSON strings.  
+  
+The `ModifyinCommand` class uses the `Storage` class to save/delete objects when a change is made.  
+The `Main` class uses the `Storage` object to load objects at the start of exectuion.
+
 
 ## Implementation
 

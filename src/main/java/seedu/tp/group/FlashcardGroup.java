@@ -7,6 +7,7 @@ import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardList;
 import seedu.tp.storage.Savable;
 import seedu.tp.ui.Ui;
+import seedu.tp.utils.FlashcardObserver;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -22,7 +23,7 @@ import static seedu.tp.utils.Constants.NAME_FIELD;
 /**
  * A group of flashcards which have some of the same characteristics.
  */
-public class FlashcardGroup implements Savable {
+public class FlashcardGroup implements Savable, FlashcardObserver {
     public static final String GROUPS_FOLDER = "groups";
     protected static final Logger LOGGER = Logger.getLogger(FlashcardGroup.class.getName());
     private static final String FILE_PATH = LOG_FOLDER + "flashcard_group.log";
@@ -47,7 +48,8 @@ public class FlashcardGroup implements Savable {
         this.description = description;
         for (int i : indexes) {
             try {
-                groupCards.addFlashcard(originalList.getFlashcardAtIdx(i));
+                Flashcard flashcard = originalList.getFlashcardAtIdx(i);
+                groupCards.addFlashcard(flashcard);
             } catch (DuplicateFlashcardNameException e) {
                 // Exception ignored because there shouldn't be any flashcard with duplicate names in the original list
             }
@@ -143,6 +145,11 @@ public class FlashcardGroup implements Savable {
 
     public FlashcardList getGroupCards() {
         return groupCards;
+    }
+    
+    public void delete(Flashcard flashcard) {
+        groupCards.getFlashcards().remove(flashcard);
+        
     }
 
     /**
