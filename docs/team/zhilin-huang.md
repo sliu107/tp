@@ -13,7 +13,7 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 
 - **Code Contributed**: [Link](https://nus-cs2113-ay1920s2.github.io/tp-dashboard/#=undefined&search=zhilin-huang) to
  my code on tP Code Dashboard
- 
+
 - **Enhancements implemented**:
     1. Feature: List all flashcards
         - What it does: Allows users to input `list` to list all flashcards in the application.
@@ -67,11 +67,12 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
     1. Updated User Guide for all features implemented in v1.0 in the pull request 
     [here](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/45).
     2. Added description for the `find KEYWORD` and `list-reviewed`.
-    3. Added description for the Study Plans related features. 
+    3. Added description for the Study Plans related features.
 
 - **Contributions to the Developer Guide**:
     1. Added description for the Study Plan related features.
     2. Added description for the Parser component.
+    3. Added Instructions for Manual Testing.
 
 - **Review/mentoring contributions**: I actively reviewed pull requests from my teammates. For example,
 [#14](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/14), 
@@ -89,7 +90,7 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 [#109](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/109),
 [#113](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/113),
 [#136](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/136).
-- **Contributions beyond the project team**: I actively initialize or participate in forum discussions. For example,
+- **Contributions beyond the project team**: I actively initialized or participated in forum discussions. For example,
 [#21](https://github.com/nus-cs2113-AY1920S2/forum/issues/21),
 [#26](https://github.com/nus-cs2113-AY1920S2/forum/issues/26),
 [#31](https://github.com/nus-cs2113-AY1920S2/forum/issues/31),
@@ -104,4 +105,91 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
 
 ## Contributions to the User Guide (Extracts)
 
+An example of my contribution to the User Guide is extracted as follows:
+
+### 3.7. Study Plans
+#### 3.7.1. Creating a new study plan: `plan`
+
+Creates a new study plan by specifying date and indexes of existing flashcards.
+
+Format: `plan`
+
+The application will then prompt the user to enter the following fields:
+
+- `DATE`: the date which the user want to set a study plan for
+- `FLASHCARD_INDEXES`: indexes of the flashcards in the study plan
+
+Example of usage:
+
+```
+plan
+01/01/2020
+1 3
+```
+
+#### 3.7.2. Displaying all study plans: `show-plan`
+
+Lists all study plans.
+
+Format: `show-plan`
+
+#### 3.7.3. Deleting a study plan: `delete-plan`
+
+Deletes a specified study plan. 
+The user will be prompted to enter the date of the study plan they wish to delete.
+
+Format: `delete-plan`
+
+The application will then prompt the user to enter the following fields:
+
+- `DATE`: the date which the user want to delete study plan
+
+Example of usage:
+
+```
+delete-plan
+01-01-2020
+```
+
 ## Contributions to the Developer Guide (Extracts)
+
+An example of my contribution to the Developer Guide is extracted as follows:
+
+#### Study Plan Feature - Proposed Implementation
+
+The Study Plan feature is facilitated by `StudyPlanList`.
+
+Internally, it implements a `TreeMap`, with date as key and the list of flashcard indexes to study as value. 
+Key-value pairs in the `TreeMap` are sorted by dates.
+
+It implements the following operations:
+
+- `StudyPlanList#updateStudyPlan()` - Updates the study plan list.
+- `StudyPlanList#deleteStudyPlan()` - Deletes a study plan from the study plan list.
+- `StudyPlanList#getStudyPlanList()` - Gets the list of study plans.
+
+Given below is an example usage scenario and how the study plan mechanism behaves at each step.
+
+Step 1. The user launches the application and an empty `StudyPlanList` is initialized.
+
+Step 2. The user executes `plan` command and the `updateStudyPlan` operation is invoked. The application prompts the
+user for date and the corresponding list of flashcards indexes.
+
+The following sequence diagram shows how the `updateStudyPlan` operation works:
+
+![updateStudyPlanSequenceDiagram](../images/updateStudyPlanSequenceDiagram.png)
+
+Step 3. The user executes `delete-plan` command and the `deleteStudyPlan` operation is invoked. The application
+prompts the user for the date for which the study plan is to be deleted.
+
+The following sequence diagram shows how the `deleteStudyPlan` operation works:
+
+![deleteStudyPlanSequenceDiagram](../images/deleteStudyPlanSequenceDiagram.png)
+
+Step 4. The user executes `show-plan` command and the `getStudyPlanList` operation is invoked. The application
+displays the user's study plan list.
+
+The following sequence diagram shows how the `getStudyPlanList` operation works:
+
+![getStudyPlanListSequenceDiagram](../images/getStudyPlanListSequenceDiagram.png)
+

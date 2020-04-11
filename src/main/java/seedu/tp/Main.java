@@ -3,6 +3,7 @@ package seedu.tp;
 import seedu.tp.commands.Command;
 import seedu.tp.commands.CommandFeedback;
 import seedu.tp.exceptions.DuplicateFlashcardException;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.HistoryFlashcardException;
 import seedu.tp.exceptions.InvalidDateFormatException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
@@ -22,6 +23,7 @@ import seedu.tp.ui.Ui;
 import seedu.tp.utils.LoggerUtils;
 
 import java.io.IOException;
+import java.util.List;
 
 import static seedu.tp.utils.Constants.LOG_FOLDER;
 
@@ -29,6 +31,7 @@ import static seedu.tp.utils.Constants.LOG_FOLDER;
  * Main class.
  */
 public class Main {
+
     private Ui ui;
     private FlashcardFactory flashcardFactory;
     private FlashcardList flashcardList;
@@ -53,16 +56,8 @@ public class Main {
 
     private void setup() {
         ui = new Ui();
-        flashcardFactory = new FlashcardFactory(ui);
-        flashcardList = new FlashcardList();
-        groupFactory = new GroupFactory(ui, flashcardList);
-        groupList = new GroupList();
-        studyPlanList = new StudyPlanList();
-        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlanList, ui);
-        Storage.getInstance().loadAll(flashcardList, groupList);
 
         LoggerUtils.createFolder(LOG_FOLDER);
-
         try {
             Flashcard.setupLogger();
             FlashcardFactory.setupLogger();
@@ -76,6 +71,14 @@ public class Main {
         } catch (IOException e) {
             ui.sendLoggingSetupFailedMessage();
         }
+
+        flashcardFactory = new FlashcardFactory(ui);
+        groupList = new GroupList();
+        List<Flashcard> flashcards = Storage.getInstance().loadAll(groupList);
+        flashcardList = Storage.getInstance().loadFlashcardList(flashcards);
+        studyPlanList = Storage.getInstance().loadStudyPlanList();
+        groupFactory = new GroupFactory(ui, flashcardList);
+        parser = new Parser(flashcardFactory, flashcardList, groupFactory, groupList, studyPlanList, ui);
     }
 
     private void runLoop() {
@@ -111,6 +114,10 @@ public class Main {
                 ui.sendUiLineBreak();
             } catch (ReversedDateOrderException e) {
                 ui.sendReversedDateOrderResponse();
+                ui.sendUiLineBreak();
+            } catch (DuplicateFlashcardNameException e) {
+                ui.sendDuplicateFlashcardNameResponse();
+                ui.sendUiLineBreak();
             } catch (HistoryFlashcardException e) {
                 ui.printException(e);
                 ui.sendUiLineBreak();

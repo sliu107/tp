@@ -41,7 +41,17 @@ Given below is the Sequence Diagram for interactions between the `Parser` and `C
 
 #### Storage Component
 
-{Description for Storage Component}
+The structure of the Storage component is illustrated in the folowing diagram.
+
+![StorageComponentDiagram](images/Storage_UML.png)
+
+The `Storage` class can be used to save, delete and load classes that implement the `Savable` interface.  
+`Storage` is implemented using the Singleton pattern because there only should be one instance in the program at any given time.  
+`Storage` used the Gson library to serialize/deserialize objects to/from JSON strings.  
+  
+The `ModifyinCommand` class uses the `Storage` class to save/delete objects when a change is made.  
+The `Main` class uses the `Storage` object to load objects at the start of exectuion.
+
 
 ## Implementation
 
@@ -199,4 +209,76 @@ In addition, the user can shuffle and display random flashcards for revision.
 
 ## Appendix E: Instructions for Manual Testing
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+Given below are instructions to test the app manually. Note that these instructions only provide a starting point for
+testers to work on; testers are expected to do more exploratory testing.
+
+### E.1. Launch and Shutdown
+
+1. Launch
+    - Download the jar file and copy into an empty folder.
+    - Double-click the file to start the application or run the command `java -jar [path-to-history-flashcard-jar-file]` 
+    from terminal.
+2. Shutdown
+    - Type in the `bye` to the application.  
+
+### E.2 Adding an Other Flashcard
+
+1. Adding an Other Flashcard which name does not duplicate the names of existing flashcards.
+    - Prerequisites: List all flashcards using the `list` command and choose a new name for the new flashcard.
+    
+    - Test case: `other`
+    
+       Expected: Being prompted `Please enter name:` by the application
+       
+       Enter the name.
+       
+       Expected: Being prompted `Please enter summary:` by the application
+       
+       Enter the summary.
+       
+       Expected: Being prompted `Please enter detail (optional):` by the application
+       
+       Enter the detail(s). User may stop entering details by pressing `RETURN/ENTER`.
+       
+       Expected: Receive a confirmation message from the application for successful flashcard creation.
+       
+    - Test case: `other blabla`
+    
+       Expected: Same as above because `blabla` should be ignored.
+2. Adding an Other Flashcard which name duplicates one of the names of existing flashcards.
+    - Prerequisites: List all flashcards using the `list` command and choose a duplicate name for the new flashcard.
+    
+    - Test case: `other`
+    
+       Expected: Being prompted `Please enter name:` by the application
+       
+       Enter the name.
+       
+       Expected: Being prompted `Please enter summary:` by the application
+       
+       Enter the summary.
+       
+       Expected: Being prompted `Please enter detail (optional):` by the application
+       
+       Enter the detail(s). User may stop entering details by pressing `RETURN/ENTER`.
+       
+       Expected: Receive a confirmation message from the application for successful flashcard creation and a message
+       saying that the created flashcard is not added due to the duplicate name. 
+
+### E.3 Deleting a Flashcard
+
+1. Deleting a flashcard
+    - Prerequisites: List all flashcards using the `list` command and choose the index of a flashcard to delete
+    
+    - Test case: `delete 1`
+    
+       Expected: Receive a confirmation message from the application for successful flashcard deletion.
+       
+    - Test case: `delete`
+    
+       Expected: Receive a message from the application stating that the user should use correct input format.
+       
+    - Test case: `delete -1`
+    
+       Expected: Receive a message from the application stating that the user input contains invalid flashcard 
+       index(es).

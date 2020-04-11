@@ -82,6 +82,14 @@ show-plan
 delete-plan
 01/01/2020
 show-plan
+plan
+01-01-2020
+1 2 3
+show-plan
+plan
+02-02-2020
+2 3
+show-plan
 show-groups
 delete-group 1
 group
@@ -152,4 +160,11 @@ list-group 1
 delete-group 1
 list-group abc
 list-group abc def
+group
+Harry Potter Flashcards
+This is a group for HP related stuff.
+2 3
+list
+show-groups
+show-plan
 bye

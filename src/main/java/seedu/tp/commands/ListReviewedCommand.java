@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class ListReviewedCommand extends Command {
 
+    public static final String LINE_SEPARATOR = System.lineSeparator();
     private FlashcardList flashcardList;
 
     /**
@@ -26,6 +27,7 @@ public class ListReviewedCommand extends Command {
         LOGGER.info("Executing ListReviewedCommand...");
         List<Map.Entry<Integer, Flashcard>> reviewedFlashcards = flashcardList.getAllReviewedFlashcards();
         String feedback = getFeedback(reviewedFlashcards);
+        LOGGER.info("ListReviewedCommand executed!");
         return new CommandFeedback(feedback);
     }
 
@@ -35,14 +37,15 @@ public class ListReviewedCommand extends Command {
         }
 
         StringBuilder feedback = new StringBuilder("Here's the list of reviewed flashcards:");
-        feedback.append(System.lineSeparator());
+        feedback.append(LINE_SEPARATOR);
         for (int i = 0; i < flashcardListWithId.size(); i++) {
             Map.Entry<Integer, Flashcard> flashcardEntry = flashcardListWithId.get(i);
-            feedback.append((i + 1) + ": " + flashcardEntry.getValue().getName()
-                + " | Reviewed: " + flashcardEntry.getValue().getReviewIcon()
-                + " | " + flashcardEntry.getValue().getPriorityAsString()
-                + " | ID: " + (flashcardEntry.getKey() + 1));
-            feedback.append(System.lineSeparator());
+            feedback.append(i + 1).append(": ")
+                .append(flashcardEntry.getValue().getName())
+                .append(" | Reviewed: ").append(flashcardEntry.getValue().getReviewIcon())
+                .append(" | ").append(flashcardEntry.getValue().getPriorityAsString())
+                .append(" | ID: ").append(flashcardEntry.getKey() + 1);
+            feedback.append(LINE_SEPARATOR);
         }
         return feedback.toString().trim();
     }

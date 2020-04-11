@@ -1,6 +1,7 @@
 package seedu.tp.commands;
 
 import org.junit.jupiter.api.Test;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.FlashcardFactory;
 import seedu.tp.flashcard.FlashcardList;
@@ -18,7 +19,8 @@ import static seedu.tp.utils.InputTestUtil.getFlashcardFactoryWithInput;
 
 public class PersonFlashcardCommandTest {
     @Test
-    public void personFlashcardCommand_execute_addsFlashcardSuccessfully() throws UnrecognizedFlashcardTypeException {
+    public void personFlashcardCommand_execute_addsFlashcardSuccessfully() throws UnrecognizedFlashcardTypeException,
+        DuplicateFlashcardNameException {
         FlashcardList expectedFlashcardList = new FlashcardList();
         expectedFlashcardList.addFlashcard(new PersonFlashcard(FLASHCARD_NAME, START_LOCAL_DATE,
             END_LOCAL_DATE, SUMMARY, DETAILS));

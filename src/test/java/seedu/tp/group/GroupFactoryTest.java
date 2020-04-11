@@ -2,6 +2,7 @@ package seedu.tp.group;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
 import seedu.tp.flashcard.EventFlashcard;
 import seedu.tp.flashcard.Flashcard;
@@ -56,7 +57,7 @@ public class GroupFactoryTest {
     }
 
     @Test
-    public void group_correctly_formed() throws InvalidFlashcardIndexException {
+    public void group_correctly_formed() throws InvalidFlashcardIndexException, DuplicateFlashcardNameException {
         FlashcardGroup expectedGroup = new FlashcardGroup(GROUP_NAME_1, DESCRIPTION, fullFlashcardList,
             convertStringIndexesToIntArray(INDEXES_1));
         GroupFactory groupFactory = getGroupFactoryWithInput(SIMULATED_GROUP_COMMAND_INPUT_1, fullFlashcardList);

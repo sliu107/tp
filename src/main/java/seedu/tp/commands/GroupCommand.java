@@ -1,6 +1,7 @@
 package seedu.tp.commands;
 
 import seedu.tp.exceptions.InvalidFlashcardIndexException;
+import seedu.tp.flashcard.Flashcard;
 import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupFactory;
 import seedu.tp.group.GroupList;
@@ -33,6 +34,9 @@ public class GroupCommand extends ModifyingCommand {
         FlashcardGroup flashcardGroup = groupFactory.form();
         groupList.addFlashcardGroup(flashcardGroup);
         LOGGER.info("Created a new group");
+        for (Flashcard f : flashcardGroup.getGroupCards().getFlashcards()) {
+            f.attach(flashcardGroup);
+        }
         CommandFeedback saveFeedback = save(flashcardGroup);
         return saveFeedback;
     }

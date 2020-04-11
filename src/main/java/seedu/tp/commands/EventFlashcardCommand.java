@@ -1,5 +1,6 @@
 package seedu.tp.commands;
 
+import seedu.tp.exceptions.DuplicateFlashcardNameException;
 import seedu.tp.exceptions.UnrecognizedFlashcardTypeException;
 import seedu.tp.flashcard.Flashcard;
 import seedu.tp.flashcard.FlashcardFactory;
@@ -39,12 +40,13 @@ public class EventFlashcardCommand extends ModifyingCommand {
     }
 
     @Override
-    public CommandFeedback execute() throws UnrecognizedFlashcardTypeException {
+    public CommandFeedback execute() throws UnrecognizedFlashcardTypeException, DuplicateFlashcardNameException {
         LOGGER.info("Creating an event flashcard and adding it to the flashcard list...");
         Flashcard flashcard = flashcardFactory.create(EVENT_FLASHCARD_COMMAND);
         flashcardList.addFlashcard(flashcard);
         LOGGER.info("Created an event flashcard and added it to the flashcard list");
         CommandFeedback saveFeedback = save(flashcard);
+        save(flashcardList);
         return saveFeedback;
     }
 
