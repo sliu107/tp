@@ -146,10 +146,10 @@ public class FlashcardGroup implements Savable, FlashcardObserver {
     public FlashcardList getGroupCards() {
         return groupCards;
     }
-    
+
     public void delete(Flashcard flashcard) {
         groupCards.getFlashcards().remove(flashcard);
-        
+
     }
 
     /**

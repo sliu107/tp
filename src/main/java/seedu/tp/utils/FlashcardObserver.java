@@ -8,7 +8,7 @@ import seedu.tp.flashcard.Flashcard;
 public interface FlashcardObserver {
     /**
      * Call this when a flashcard is deleted.
-     * 
+     *
      * @param flashcard the flashcard that was deleted.
      */
     void delete(Flashcard flashcard);
