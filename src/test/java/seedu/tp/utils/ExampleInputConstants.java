@@ -29,6 +29,7 @@ public class ExampleInputConstants {
     public static final String INDEX_1 = "2";
     public static final String INDEX_2 = "-1";
     public static final String INDEX_3 = "3";
+    public static final String INDEX_4 = "1";
     public static final String INDEXES_1 = "1 2";
     public static final String INDEXES_2 = "1 3";
     public static final String INDEXES_3 = "1 2 3";
@@ -72,10 +73,16 @@ public class ExampleInputConstants {
         + GROUP_NAME_1 + NEWLINE
         + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3 = INDEX_3 + NEWLINE
-        + GROUP_NAME_1 + NEWLINE
+        + INDEX_4 + NEWLINE
         + NEWLINE;
     public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4 = INDEX_1 + NEWLINE
         + UNIONIZED_GROUP_NAME + NEWLINE
+        + NEWLINE;
+    public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_5 = INDEX_1 + NEWLINE
+        + INDEX_2 + NEWLINE
+        + NEWLINE;
+    public static final String SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_6 = INDEX_1 + NEWLINE
+        + INDEX_3 + NEWLINE
         + NEWLINE;
 
     public static final String SIMULATED_UPDATE_STUDY_PLAN_INPUT_1 =

@@ -30,6 +30,8 @@ import static seedu.tp.utils.ExampleInputConstants.SIMULATED_ADD_FLASHCARD_TO_GR
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_2;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_3;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4;
+import static seedu.tp.utils.ExampleInputConstants.SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_5;
+import static seedu.tp.utils.ExampleInputConstants.SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_6;
 import static seedu.tp.utils.ExampleInputConstants.SIMULATED_GROUP_COMMAND_INPUT_1;
 import static seedu.tp.utils.ExampleInputConstants.START_LOCAL_DATE;
 import static seedu.tp.utils.InputTestUtil.convertStringIndexesToIntArray;
@@ -121,10 +123,25 @@ public class AddFlashcardToGroupCommandTest {
         GroupCommand groupCommand = new GroupCommand(groupFactory, originalGroupList);
         groupCommand.execute();
 
-        AddFlashcardToGroupCommand addFlashcardToGroupCommand = getAddFlashcardToGroupCommandWithInput(
+        //Test case1: Given an invalid group name
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand1 = getAddFlashcardToGroupCommandWithInput(
             SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_4, fullFlashcardList, originalGroupList);
         assertThrows(
-            UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand::execute
+            UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand1::execute
+        );
+
+        //Test case2: Given an negative group index
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand2 = getAddFlashcardToGroupCommandWithInput(
+                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_5, fullFlashcardList, originalGroupList);
+        assertThrows(
+                UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand2::execute
+        );
+
+        //Test case3: Given an group index out of bound
+        AddFlashcardToGroupCommand addFlashcardToGroupCommand3 = getAddFlashcardToGroupCommandWithInput(
+                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_6, fullFlashcardList, originalGroupList);
+        assertThrows(
+                UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand3::execute
         );
     }
 }
