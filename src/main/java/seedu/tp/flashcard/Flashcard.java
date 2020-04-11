@@ -25,7 +25,7 @@ public abstract class Flashcard implements Comparable<Flashcard>, Savable {
     protected List<String> details;
     protected boolean isReviewed;
     protected PriorityLevel pl;
-    transient protected List<FlashcardObserver> observers;
+    protected transient List<FlashcardObserver> observers;
 
     protected Flashcard(String name, String summary, List<String> details) {
         this.name = name;
