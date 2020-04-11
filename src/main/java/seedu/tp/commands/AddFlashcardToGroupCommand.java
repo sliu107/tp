@@ -8,8 +8,8 @@ import seedu.tp.group.FlashcardGroup;
 import seedu.tp.group.GroupList;
 import seedu.tp.ui.Ui;
 
-import static seedu.tp.utils.Constants.INDEX_FIELD;
 import static seedu.tp.utils.Constants.GROUP_ID_FIELD;
+import static seedu.tp.utils.Constants.INDEX_FIELD;
 
 public class AddFlashcardToGroupCommand extends ModifyingCommand {
     private Ui ui;

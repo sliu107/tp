@@ -132,16 +132,16 @@ public class AddFlashcardToGroupCommandTest {
 
         //Test case2: Given an negative group index
         AddFlashcardToGroupCommand addFlashcardToGroupCommand2 = getAddFlashcardToGroupCommandWithInput(
-                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_5, fullFlashcardList, originalGroupList);
+            SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_5, fullFlashcardList, originalGroupList);
         assertThrows(
-                UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand2::execute
+            UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand2::execute
         );
 
         //Test case3: Given an group index out of bound
         AddFlashcardToGroupCommand addFlashcardToGroupCommand3 = getAddFlashcardToGroupCommandWithInput(
-                SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_6, fullFlashcardList, originalGroupList);
+            SIMULATED_ADD_FLASHCARD_TO_GROUP_INPUT_6, fullFlashcardList, originalGroupList);
         assertThrows(
-                UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand3::execute
+            UnrecognizedFlashcardGroupException.class, addFlashcardToGroupCommand3::execute
         );
     }
 }
