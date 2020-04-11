@@ -15,53 +15,53 @@ with memory retention and make information convenient to review.
  my code on tP Code Dashboard
 - **Enhancements implemented**:
     1. Feature: List all flashcards
-        - What it does: Allows users to input `list` to list all flashcards in the application.
-        - Justification: This feature is needed for users to review all flashcards currently in the application.
+        - Description: Allows users to input `list` to list all flashcards in the application. This feature is needed
+         for users to review all flashcards currently in the application.
         - Highlights: In the [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/21) to implement this
         enhancement, I added the `Parser` class and the `Command` for all commands to inherit from and this roughly
         determines the structure of the code base. The `FlashcardList` class was implemented to handle all flashcards
         in the application.
     2. Feature: Delete a flashcard
-        - What it does: Allows users to input `delete INDEX` to delete a flashcard.
-        - Justification: This feature is needed for users to remove a flashcard that they no longer need.
+        - Description: Allows users to input `delete INDEX` to delete a flashcard. This feature is needed for users
+         to remove a flashcard that they no longer need.
         - Highlights: This feature was implemented in the same 
         [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/21) as the 'List all flashcards'
         feature and deletion of the flashcards is handled by the `FlashcardList` class.
     3. Feature: Update study plan
-        - What it does: Allows users to input `plan` and then prompt users to input the date for the plan and indexes of
-        existing flashcards planned to study on that day.
-        - Justification: This feature is needed for users to set their study plans for the flashcards so that they
+        - Description: Allows users to input `plan` and then prompt users to input the date for the plan and indexes of
+        existing flashcards planned to study on that day. This feature is needed for users to set their study plans
+         for the flashcards so that they
         can better manage their studies.
         - Highlights: In the [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/94) to implement this
         enhancement, I added the `StudyPlanList` class to handle all study plans in the application. Study plans
         are stored in a `TreeMap` with the date as key so that all entries are sorted by date.
     4. Feature: Display study plan
-        - What it does: Allows users to input `show-plan` to display all study plans.
-        - Justification: This feature is needed for users to view all the study plans they've added to the application.
+        - Description: Allows users to input `show-plan` to display all study plans. This feature is needed for users
+         to view all the study plans they've added to the application.
         - Highlights: This feature was implemented in the same 
         [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/94) as the 'Update study plan' feature and
         the list of all study plans is retrieved from the `StudyPlanList` class.
     5. Feature: Delete study plan
-        - What it does: Allows users to input `delete-plan` to delete a study plan for the study plan list.
-        - Justification: This feature is needed for users to delete a study plan that they no longer need.
+        - Description: Allows users to input `delete-plan` to delete a study plan for the study plan list. This
+         feature is needed for users to delete a study plan that they no longer need.
         - Highlights: In the [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/173) to implement this
          enhancement, I added a method in the `StudyPlanList` class to handle the deletion of study plans.
     6. Feature: Save and load study plans
-        - What it does: Automatically saves study plans into storage and reloads study plans from storage when
-         application restarts.
-        - Justification: This feature is needed to keep users' study plans across multiple runs of the application.
+        - Description: Automatically saves study plans into storage and reloads study plans from storage when
+         application restarts. This feature is needed to keep users' study plans across multiple runs of the
+          application.
         - Highlights: In the [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/191) to implement this
          feature, I modified the save and reload of `FlashcardList` to retain the order of flashcards so that the
          index of flashcards stored in `StudyPlanList` are still valid upon reload.
     7. Feature: List all reviewed flashcards
-        - What is does: Allows users to input `list-reviewed` to view all reviewed flashcards in the application.
-        - Justification: This feature is needed for users to keep track of what flashcards have been reviewed.
+        - Description: Allows users to input `list-reviewed` to view all reviewed flashcards in the application. This
+         feature is needed for users to keep track of what flashcards have been reviewed.
         - Highlights: In the [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/95) to implement this
         enhancement, a method was added to the `FlashcardList` class to get all reviewed flashcards from the
         flashcard list. The index of each flashcard in the flashcard list is also printed out for the users.
     8. Feature: Search for all flashcards with names containing a specific keyword
-        - What is done: Allows users to input `find KEYWORD` to display all flashcards with names containing the KEYWORD.
-        - Justification: This feature is needed for users to conveniently search for flashcards when they cannot
+        - Description: Allows users to input `find KEYWORD` to display all flashcards with names containing the
+        KEYWORD. This feature is needed for users to conveniently search for flashcards when they cannot
         remember the index of the flashcard(s) they are looking for.
         - Highlights: This feature was implemented in the same 
         [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/95) as the 'List all reviewed flashcards' 
