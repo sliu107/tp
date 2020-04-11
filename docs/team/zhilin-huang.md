@@ -226,6 +226,7 @@ testers to work on; testers are expected to do more exploratory testing.
     - Download the jar file and copy into an empty folder.
     - Double-click the file to start the application or run the command `java -jar [path-to-history-flashcard-jar-file]` 
     from terminal.
+
 2. Shutdown
     - Type in the `bye` to the application.
 
@@ -447,7 +448,7 @@ testers to work on; testers are expected to do more exploratory testing.
       
       Expected: Reviewed finished.
 
-### E.9 Saving and Loading
+### E.9. Saving and Loading
 
 1. Saving
     - Test case: Add flashcards into the application and exit.
