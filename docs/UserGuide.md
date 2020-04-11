@@ -1,18 +1,18 @@
 # History Flashcard - User Guide
 
-1. [Introduction](#introduction)
-2. [Quick Start](#quick-start)
-3. [Features](#features)
-    - [Command Format](#command-format)
-    - [Basic](#basic)
-    - [Flashcard Creation](#flashcard-creation)
-    - [Flashcard Basic Operations](#flashcard-basic-operations)
-    - [Flashcard Status Operations](#flashcard-status-operations)
-    - [Flashcard Grouping](#flashcard-grouping)
-    - [Study Plans](#study-plans)
-    - [Randomized Review](#randomized-review)
-4. [FAQ](#faq)
-5. [Command Summary](#command-summary)
+1. [Introduction](#1-introduction)
+2. [Quick Start](#2-quick-start)
+3. [Features](#3-features)
+    - [Command Format](#31-command-format)
+    - [Basic](#32-basic)
+    - [Flashcard Creation](#33-flashcard-creation)
+    - [Flashcard Basic Operations](#34-flashcard-basic-operations)
+    - [Flashcard Status Operations](#35-flashcard-status-operations)
+    - [Flashcard Grouping](#36-flashcard-grouping)
+    - [Study Plans](#37-study-plans)
+    - [Randomized Review](#38-randomized-review)
+4. [FAQ](#4-faq)
+5. [Command Summary](#5-command-summary)
 
 ## 1. Introduction
 
