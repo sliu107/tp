@@ -182,7 +182,7 @@ In addition, the user can shuffle and display random flashcards for revision.
 |v1.0|student|make groups for flashcards|group related flashcards together for more organized revision|
 |v1.0|student|see all the commands available|find out what commands are available, and their format|
 |v2.0|student|set a daily study plan|keep myself motivated to review flashcards every day|
-|v2.0|student|view my daily study plan|keep track of my learning progresses|
+|v2.0|student|view my daily study plan|keep track of my learning plans|
 |v2.0|student|list the flashcards which have been reviewed|keep track of my learning progress|
 |v2.0|student|list all existing flashcard groups|view all the groups I have created|
 |v2.0|student|list flashcards from a particular group|quickly identify the flashcards belonging to a group|
