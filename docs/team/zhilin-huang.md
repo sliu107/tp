@@ -47,13 +47,20 @@ HF is optimized for those who prefer to use a simple Command Line Interface (CLI
         - Justification: This feature is needed for users to delete a study plan that they no longer need.
         - Highlights: In the [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/173) to implement this
          enhancement, I added a method in the `StudyPlanList` class to handle the deletion of study plans.
-    6. Feature: List all reviewed flashcards
+    6. Feature: Save and load study plans
+        - What it does: Automatically saves study plans into storage and reloads study plans from storage when
+         application restarts.
+        - Justification: This feature is needed to keep users' study plans across multiple runs of the application.
+        - Highlights: In the [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/191) to implement this
+         feature, I modified the save and reload of `FlashcardList` to retain the order of flashcards so that the
+         index of flashcards stored in `StudyPlanList` are still valid upon reload.
+    7. Feature: List all reviewed flashcards
         - What is does: Allows users to input `list-reviewed` to view all reviewed flashcards in the application.
         - Justification: This feature is needed for users to keep track of what flashcards have been reviewed.
         - Highlights: In the [pull request](https://github.com/AY1920S2-CS2113-T14-1/tp/pull/95) to implement this
         enhancement, a method was added to the `FlashcardList` class to get all reviewed flashcards from the
         flashcard list. The index of each flashcard in the flashcard list is also printed out for the users.
-    7. Feature: Search for all flashcards with names containing a specific keyword
+    8. Feature: Search for all flashcards with names containing a specific keyword
         - What is done: Allows users to input `find KEYWORD` to display all flashcards with names containing the KEYWORD.
         - Justification: This feature is needed for users to conveniently search for flashcards when they cannot
         remember the index of the flashcard(s) they are looking for.
