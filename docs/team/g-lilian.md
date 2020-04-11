@@ -137,7 +137,7 @@ the name of the group.
 Format: `list-group GROUP_ID`
 
 ## Contributions to the Developer Guide
-Descriptions of the features I implemented are reproduced below:
+Features I described in the Developer Guide are reproduced below:
 
 #### Set Priority Feature - Proposed Implementation
 
@@ -153,7 +153,7 @@ The feature implements the following operations:
 
 The following class diagram shows the structures relevant to the Set Priority feature:
 
-![SetPriorityFeatureClassDiagram](images/SetPriorityFeatureClassDiagram.png)
+![SetPriorityFeatureClassDiagram](../images/SetPriorityFeatureClassDiagram.png)
 
 Given below is an example usage scenario and how the set priority mechanism behaves at each step.
 
@@ -166,4 +166,4 @@ instance. Its priority level is set to the specified priority.
 
 The following sequence diagram shows the relevant interactions behind `setPriorityLevel`:
 
-![setPriorityLevelSequenceDiagram](images/setPriorityLevelSequenceDiagram.png)
+![setPriorityLevelSequenceDiagram](../images/setPriorityLevelSequenceDiagram.png)
